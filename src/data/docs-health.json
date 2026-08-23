@@ -1,0 +1,33 @@
+{
+  "updatedAt": "2026-08-23",
+  "period": "2026년 8월",
+  "note": "이 파일은 지금은 손으로 채워져 있습니다. 챗봇을 붙인 뒤에는 질문 로그에서 자동 생성할 예정입니다.",
+  "metrics": {
+    "questions": 0,
+    "answerRate": 0,
+    "openGaps": 0,
+    "overdueDocs": 0
+  },
+  "unansweredQuestions": [],
+  "freshness": [
+    {
+      "doc": "하드웨어 매뉴얼",
+      "path": "/work/hardware/intro",
+      "lastReviewedDaysAgo": 0,
+      "reviewCycleDays": 90
+    },
+    {
+      "doc": "소프트웨어 매뉴얼",
+      "path": "/work/software/intro",
+      "lastReviewedDaysAgo": 0,
+      "reviewCycleDays": 90
+    },
+    {
+      "doc": "API · SDK 문서",
+      "path": "/work/api/intro",
+      "lastReviewedDaysAgo": 0,
+      "reviewCycleDays": 90
+    }
+  ],
+  "recentReview": null
+}
