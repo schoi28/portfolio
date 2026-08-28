@@ -6,21 +6,27 @@ const sidebars = {
     'index',
     {
       type: 'category',
-      label: '하드웨어 매뉴얼',
-      link: { type: 'doc', id: 'hardware/intro' },
-      items: ['hardware/setup'],
+      label: 'VELA Drive 앱',
+      link: { type: 'doc', id: 'app/intro' },
+      items: ['app/getting-started', 'app/remote-control'],
     },
     {
       type: 'category',
-      label: '소프트웨어 매뉴얼',
-      link: { type: 'doc', id: 'software/intro' },
-      items: ['software/getting-started'],
-    },
-    {
-      type: 'category',
-      label: 'API · SDK 문서',
+      label: 'VELA Vehicle API',
       link: { type: 'doc', id: 'api/intro' },
-      items: ['api/authentication'],
+      items: [],
+    },
+    {
+      type: 'category',
+      label: 'VELA Deploy',
+      link: { type: 'doc', id: 'deploy/intro' },
+      items: [],
+    },
+    {
+      type: 'category',
+      label: 'VELA Sense',
+      link: { type: 'doc', id: 'sensor/intro' },
+      items: [],
     },
   ],
 };

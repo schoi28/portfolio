@@ -6,22 +6,28 @@ import health from '@site/src/data/docs-health.json';
 
 const works = [
   {
-    to: '/work/hardware/intro',
-    title: '하드웨어 매뉴얼',
-    body: '설치·안전 경고·트러블슈팅을 포함한 공기질 센서 사용 설명서',
-    tags: ['웹', 'PDF', 'KO · EN'],
-  },
-  {
-    to: '/work/software/intro',
-    title: '소프트웨어 매뉴얼',
-    body: '관리 콘솔 온보딩부터 핵심 기능까지의 SaaS 사용 가이드',
-    tags: ['웹', 'PDF', '정보 설계'],
+    to: '/work/app/intro',
+    title: 'VELA Drive 앱',
+    body: '차량 소유자를 위한 차량 관리 앱 사용 설명서',
+    tags: ['일반 사용자', '튜토리얼', 'PDF'],
   },
   {
     to: '/work/api/intro',
-    title: 'API · SDK 문서',
-    body: 'OpenAPI 기반 레퍼런스와 인증·에러 코드 개발자 가이드',
-    tags: ['OpenAPI', 'EN'],
+    title: 'VELA Vehicle API',
+    body: '차량 데이터 조회와 원격 명령을 위한 개발자 레퍼런스',
+    tags: ['개발자', 'OpenAPI', 'EN'],
+  },
+  {
+    to: '/work/deploy/intro',
+    title: 'VELA Deploy',
+    body: '차량 소프트웨어를 단계적으로 배포하는 운영 콘솔 가이드',
+    tags: ['운영자', '절차', '레퍼런스'],
+  },
+  {
+    to: '/work/sensor/intro',
+    title: 'VELA Sense',
+    body: '라이다·카메라 센서 킷 장착과 캘리브레이션 절차',
+    tags: ['현장 엔지니어', '안전 경고', 'PDF'],
   },
 ];
 
@@ -70,7 +76,9 @@ export default function Home() {
           </div>
         </section>
 
-        <p className={styles.sectionLabel}>대표 작업</p>
+        <p className={styles.sectionLabel}>
+          대표 작업 — 하나의 제품군, 네 종류의 독자
+        </p>
         <div className={styles.cards}>
           {works.map((w) => (
             <Link key={w.to} className={styles.card} to={w.to}>

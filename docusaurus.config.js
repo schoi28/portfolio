@@ -119,9 +119,10 @@ const config = {
           {
             title: 'Work',
             items: [
-              { label: '하드웨어 매뉴얼', to: '/work/hardware/intro' },
-              { label: '소프트웨어 매뉴얼', to: '/work/software/intro' },
-              { label: 'API · SDK 문서', to: '/work/api/intro' },
+              { label: 'VELA Drive 앱', to: '/work/app/intro' },
+              { label: 'VELA Vehicle API', to: '/work/api/intro' },
+              { label: 'VELA Deploy', to: '/work/deploy/intro' },
+              { label: 'VELA Sense', to: '/work/sensor/intro' },
             ],
           },
           {

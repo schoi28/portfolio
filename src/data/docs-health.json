@@ -11,20 +11,26 @@
   "unansweredQuestions": [],
   "freshness": [
     {
-      "doc": "하드웨어 매뉴얼",
-      "path": "/work/hardware/intro",
+      "doc": "VELA Drive 앱",
+      "path": "/work/app/intro",
       "lastReviewedDaysAgo": 0,
       "reviewCycleDays": 90
     },
     {
-      "doc": "소프트웨어 매뉴얼",
-      "path": "/work/software/intro",
-      "lastReviewedDaysAgo": 0,
-      "reviewCycleDays": 90
-    },
-    {
-      "doc": "API · SDK 문서",
+      "doc": "VELA Vehicle API",
       "path": "/work/api/intro",
+      "lastReviewedDaysAgo": 0,
+      "reviewCycleDays": 90
+    },
+    {
+      "doc": "VELA Deploy",
+      "path": "/work/deploy/intro",
+      "lastReviewedDaysAgo": 0,
+      "reviewCycleDays": 90
+    },
+    {
+      "doc": "VELA Sense",
+      "path": "/work/sensor/intro",
       "lastReviewedDaysAgo": 0,
       "reviewCycleDays": 90
     }

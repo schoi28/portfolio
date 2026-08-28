@@ -1,0 +1,74 @@
+term_ko,term_en,banned_variants,scope,note
+차량,vehicle,"카;자동차;차",공통,사용자 대상 문서에서는 '차량'으로 통일. '내 차'는 앱 UI 문구에서만 허용
+차량 소유자,vehicle owner,"차주;오너",B2C,앱 문서에서 독자를 지칭할 때는 '고객님'이 아니라 2인칭 생략
+운전자,driver,"드라이버",공통,소유자와 다를 수 있으므로 구분해서 사용
+VELA Drive,VELA Drive,"벨라 드라이브;벨라드라이브;Vela Drive",B2C,앱 이름은 항상 영문 표기
+VELA Deploy,VELA Deploy,"벨라 디플로이;Vela Deploy",B2B,콘솔 이름은 항상 영문 표기
+VELA Sense,VELA Sense,"벨라 센스;Vela Sense",HW,센서 킷 이름은 항상 영문 표기
+플랫폼,platform,"플렛폼",공통,
+완성차 회사,OEM,"오이엠;제조사",B2B/API,첫 등장 시 '완성차 회사(OEM)'로 병기 후 이후 OEM
+협력사,partner,"벤더;서드파티;협력업체",B2B/API,
+소프트웨어 업데이트,software update,"펌웨어 업뎃;업뎃;업글",공통,사용자 문서에서는 'OTA'라는 약어를 쓰지 않음
+무선 업데이트,over-the-air update,"OTA 업뎃",B2B/API,B2C 문서에서는 '무선 업데이트'로 풀어 쓰고 OTA를 쓰지 않음
+배포,deployment,"디플로이;릴리즈",B2B,
+캠페인,campaign,"배포건;롤아웃건",B2B,VELA Deploy의 배포 단위
+패키지,package,"번들;이미지파일",B2B,차량에 설치되는 소프트웨어 묶음
+타깃 그룹,target group,"타겟 그룹;대상군",B2B,'타겟'이 아니라 '타깃'
+롤아웃,rollout,"롤 아웃;배포확대",B2B,단계적으로 대상을 넓히는 것
+롤아웃 단계,rollout stage,"롤아웃 스테이지;단계별 배포",B2B,
+게이트,gate,"게이트웨이;관문",B2B,다음 단계로 넘어갈지 판단하는 기준. gateway와 혼동 금지
+롤백,rollback,"되돌리기;복구",B2B,이전 버전으로 되돌리는 것
+긴급 중단,emergency stop,"강제중단;킬스위치",B2B,
+사전 조건,precondition,"선행조건;전제조건",공통,명령이나 설치가 실행되기 위한 차량 상태
+설치 대기,pending install,"설치대기중;대기",B2C/B2B,
+승인 워크플로,approval workflow,"결재;승인 프로세스",B2B,
+감사 로그,audit log,"어딧로그;감사기록",B2B,
+성공률,success rate,"성공율",B2B,'율'이 아니라 '률'
+오류율,error rate,"에러율;오류률",B2B,'률'이 아니라 '율'
+시그널,signal,"신호;시그널값",API,차량이 보고하는 데이터 항목. '신호'는 교통 신호와 혼동되므로 사용 금지
+시그널 카탈로그,signal catalog,"시그널 목록;신호 목록",API,
+최신값,latest value,"현재값;마지막값",API,
+시계열,time series,"타임시리즈;시계열 데이터",API,
+스트리밍 구독,streaming subscription,"실시간 구독;스트림",API,
+원격 명령,remote command,"리모트 커맨드;원격제어 명령",API/B2C,
+비동기 결과,asynchronous result,"어싱크 결과;비동기 응답",API,
+웹훅,webhook,"웹 훅;훅",API,
+서명 검증,signature verification,"싸인 검증;서명확인",API/B2B,
+스코프,scope,"권한범위;스콥",API,API 키에 부여되는 권한 범위
+레이트 리밋,rate limit,"요청제한;레이트리밋",API,
+페이지네이션,pagination,"페이징;페이지 나누기",API,
+엔드포인트,endpoint,"앤드포인트;end point",API,
+스테이징,staging,"스테이징 환경;테스트 환경",API,프로덕션과 대비되는 환경 이름
+프로덕션,production,"운영환경;실서비스",API,
+액세스 토큰,access token,"엑세스 토큰;접근 토큰",API,
+디지털 키,digital key,"디지털키;스마트키",B2C,물리 스마트키와 구분해서 사용
+키 공유,key sharing,"키쉐어링;공유키",B2C,
+주행 리포트,driving report,"운행 리포트;드라이빙 리포트",B2C,
+주행 가능 거리,driving range,"주행거리;가능거리",B2C,이미 달린 거리(주행 거리)와 구분
+공조,climate control,"에어컨;히터;공조기",B2C,냉난방을 함께 가리킬 때는 '공조'
+예약 공조,scheduled climate control,"예약 에어컨;프리컨디셔닝",B2C,
+충전 예약,scheduled charging,"예약충전;충전 스케줄",B2C,
+정비 알림,service reminder,"점검알림;메인터넌스 알림",B2C,
+서비스 센터,service center,"서비스센터;정비소;AS센터",B2C,
+센서 킷,sensor kit,"센서세트;센서 모듈 킷",HW,
+라이다,lidar,"LiDAR;라이더;레이더",HW,레이더(radar)와 혼동 금지. 한글 표기는 '라이다'
+카메라 모듈,camera module,"캠 모듈;카메라모듈",HW,
+인터페이스 박스,interface box,"IF박스;인터페이스박스",HW,
+브래킷,bracket,"브라켓;브래킷트",HW,
+핀맵,pinout,"핀 맵;핀아웃;핀배치",HW,
+하네스,harness,"와이어링;배선뭉치",HW,
+접지,ground,"그라운드;어스",HW,
+캘리브레이션,calibration,"켈리브레이션;보정;캘리",HW,한글 표기는 '캘리브레이션'
+정적 캘리브레이션,static calibration,"스태틱 캘리브레이션",HW,타깃 보드를 두고 정지 상태에서 수행
+동적 캘리브레이션,dynamic calibration,"다이나믹 캘리브레이션;주행 보정",HW,실제 주행하며 수행
+타깃 보드,target board,"타겟보드;패턴보드",HW,
+시야각,field of view,"화각;FOV",HW,첫 등장 시 '시야각(FOV)'으로 병기
+허용 오차,tolerance,"톨러런스;오차범위",HW,
+상태 LED,status LED,"상태등;LED등;인디케이터",HW,
+진단,diagnostics,"다이어그노스틱;진단기능",HW/API,
+진단 스냅숏,diagnostic snapshot,"진단 스냅샷;스냅샷",HW/API,'스냅샷'이 아니라 '스냅숏'
+오류 코드,error code,"에러코드;장애코드",공통,
+프로비저닝,provisioning,"프로비져닝;초기설정",HW/API,기기를 서비스에 처음 등록하는 절차
+펌웨어,firmware,"펌 웨어;F/W",HW,
+부팅 순서,boot sequence,"부트 시퀀스;기동순서",HW,
+설치 지점,installation point,"장착 위치;설치위치",HW,본문에서 물리적 위치를 뜻할 때

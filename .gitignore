@@ -1,5 +1,18 @@
 node_modules
 .docusaurus
 build
+.cache-loader
+
+# 기획 문서는 공개 저장소에 올리지 않습니다.
+_planning/
+
+.DS_Store
 docs/.DS_Store
 src/.DS_Store
+.env
+.env.local
+
+npm-debug.log*
+yarn-error.log*
+.idea/
+.vscode/
