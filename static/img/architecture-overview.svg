@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="640" height="380" role="img" aria-label="VELA Cloud와 차량 내부 구성의 전체 연결 구조">
+<rect width="640" height="380" fill="#F7F6F3"/>
+<rect x="30" y="24" width="580" height="70" rx="8" fill="#EEEDFE" stroke="#7F77DD"/>
+<text x="48" y="46" font-family="sans-serif" font-size="11" fill="#3C3489">VELA Cloud</text>
+<rect x="56" y="54" width="160" height="30" rx="4" fill="#FFFFFF" stroke="#7F77DD"/>
+<text x="136" y="74" font-family="sans-serif" font-size="11" fill="#3C3489" text-anchor="middle">VELA Deploy</text>
+<rect x="240" y="54" width="160" height="30" rx="4" fill="#FFFFFF" stroke="#7F77DD"/>
+<text x="320" y="74" font-family="sans-serif" font-size="11" fill="#3C3489" text-anchor="middle">Vehicle API</text>
+<rect x="424" y="54" width="160" height="30" rx="4" fill="#FFFFFF" stroke="#7F77DD"/>
+<text x="504" y="74" font-family="sans-serif" font-size="11" fill="#3C3489" text-anchor="middle">VELA Drive 백엔드</text>
+<line x1="320" y1="94" x2="320" y2="126" stroke="#5F5E5A" stroke-width="1.5"/>
+<text x="396" y="114" font-family="sans-serif" font-size="10" fill="#5F5E5A" text-anchor="middle">셀룰러 · mTLS</text>
+<rect x="30" y="126" width="580" height="222" rx="8" fill="#FFFFFF" stroke="#C9C6BD"/>
+<text x="48" y="146" font-family="sans-serif" font-size="11" fill="#5F5E5A">차량</text>
+<rect x="230" y="156" width="180" height="46" rx="6" fill="#E6F1FB" stroke="#378ADD"/>
+<text x="320" y="176" font-family="sans-serif" font-size="12" fill="#0C447C" text-anchor="middle">중앙 연산 장치</text>
+<text x="320" y="193" font-family="sans-serif" font-size="10" fill="#0C447C" text-anchor="middle">VELA OS</text>
+<text x="320" y="222" font-family="sans-serif" font-size="10" fill="#5F5E5A" text-anchor="middle">자동차용 이더넷 백본</text>
+<rect x="52" y="240" width="118" height="38" rx="4" fill="#F1EFE8" stroke="#B4B2A9"/>
+<text x="111" y="264" font-family="sans-serif" font-size="11" fill="#2C2C2A" text-anchor="middle">전방 존 ECU</text>
+<rect x="188" y="240" width="118" height="38" rx="4" fill="#F1EFE8" stroke="#B4B2A9"/>
+<text x="247" y="264" font-family="sans-serif" font-size="11" fill="#2C2C2A" text-anchor="middle">좌측 존 ECU</text>
+<rect x="324" y="240" width="118" height="38" rx="4" fill="#F1EFE8" stroke="#B4B2A9"/>
+<text x="383" y="264" font-family="sans-serif" font-size="11" fill="#2C2C2A" text-anchor="middle">우측 존 ECU</text>
+<rect x="460" y="240" width="118" height="38" rx="4" fill="#F1EFE8" stroke="#B4B2A9"/>
+<text x="519" y="264" font-family="sans-serif" font-size="11" fill="#2C2C2A" text-anchor="middle">후방 존 ECU</text>
+<line x1="320" y1="202" x2="111" y2="236" stroke="#888780" stroke-width="1"/>
+<line x1="320" y1="202" x2="247" y2="236" stroke="#888780" stroke-width="1"/>
+<line x1="320" y1="202" x2="383" y2="236" stroke="#888780" stroke-width="1"/>
+<line x1="320" y1="202" x2="519" y2="236" stroke="#888780" stroke-width="1"/>
+<rect x="52" y="298" width="118" height="34" rx="4" fill="#E1F5EE" stroke="#5DCAA5"/>
+<text x="111" y="320" font-family="sans-serif" font-size="10" fill="#0F6E56" text-anchor="middle">VELA Sense</text>
+<line x1="111" y1="278" x2="111" y2="294" stroke="#0F6E56" stroke-width="1.2"/>
+<rect x="324" y="298" width="254" height="34" rx="4" fill="#F1EFE8" stroke="#B4B2A9"/>
+<text x="451" y="320" font-family="sans-serif" font-size="10" fill="#2C2C2A" text-anchor="middle">바디 액추에이터 (도어락 · 창문 · 공조)</text>
+<line x1="383" y1="278" x2="383" y2="294" stroke="#888780" stroke-width="1"/>
+<line x1="519" y1="278" x2="519" y2="294" stroke="#888780" stroke-width="1"/>
+<text x="320" y="368" font-family="sans-serif" font-size="10" fill="#5F5E5A" text-anchor="middle">VELA가 공급하는 범위: VELA OS · VELA Cloud · VELA Sense</text>
+</svg>

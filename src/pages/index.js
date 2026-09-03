@@ -14,8 +14,8 @@ const works = [
   {
     to: '/work/api/intro',
     title: 'VELA Vehicle API',
-    body: '차량 데이터 조회와 원격 명령을 위한 개발자 레퍼런스',
-    tags: ['개발자', 'OpenAPI', 'EN'],
+    body: '인증부터 시그널 카탈로그, OTA 캠페인까지 다루는 9개 장 레퍼런스',
+    tags: ['개발자', '9개 장', 'EN'],
   },
   {
     to: '/work/deploy/intro',
