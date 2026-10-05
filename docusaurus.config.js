@@ -100,6 +100,7 @@ const config = {
         title: '소윤',
         hideOnScroll: false,
         items: [
+          { to: '/experience', label: '실무 경험', position: 'left' },
           { type: 'docSidebar', sidebarId: 'workSidebar', position: 'left', label: 'Work' },
           { to: '/how-i-work', label: 'How I work', position: 'left' },
           { to: '/docs-health', label: 'Docs health', position: 'left' },
