@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import styles from './index.module.css';
-import health from '@site/src/data/docs-health.json';
 
 const works = [
   {
@@ -31,21 +30,17 @@ const works = [
   },
 ];
 
-function HealthStrip() {
-  const { questions, answerRate, openGaps } = health.metrics;
-  const hasData = questions > 0;
-
+function ExperienceStrip() {
   return (
-    <Link className={styles.healthStrip} to="/docs-health">
+    <Link className={styles.healthStrip} to="/experience">
       <div>
-        <p className={styles.healthLabel}>이 사이트는 스스로를 점검합니다</p>
+        <p className={styles.healthLabel}>아래 문서는 가상 제품으로 만든 것입니다</p>
         <p className={styles.healthNumbers}>
-          {hasData
-            ? `이번 달 질문 ${questions}건 · 답변 성공률 ${answerRate}% · 미해결 공백 ${openGaps}건`
-            : '문서 검수 자동화와 신선도 관리를 공개합니다'}
+          실무에서는 같은 구조의 문서 세트를 0에서 1로 만들고, 그 문서를 만드는 도구를
+          직접 개발했습니다
         </p>
       </div>
-      <span className={styles.healthCta}>Docs health →</span>
+      <span className={styles.healthCta}>실무 경험 →</span>
     </Link>
   );
 }
@@ -76,6 +71,8 @@ export default function Home() {
           </div>
         </section>
 
+        <ExperienceStrip />
+
         <p className={styles.sectionLabel}>
           대표 작업 — 하나의 제품군, 네 종류의 독자
         </p>
@@ -94,8 +91,6 @@ export default function Home() {
             </Link>
           ))}
         </div>
-
-        <HealthStrip />
       </main>
     </Layout>
   );

@@ -70,16 +70,9 @@ const config = {
           editUrl: `https://github.com/${GITHUB_USERNAME}/${REPO_NAME}/tree/main/`,
           showLastUpdateTime: isGitRepo,
         },
-        blog: {
-          showReadingTime: true,
-          blogTitle: 'Blog',
-          blogDescription: '지식 시스템을 만들어 가는 기록',
-          postsPerPage: 5,
-          blogSidebarTitle: '최근 글',
-          blogSidebarCount: 10,
-          onUntruncatedBlogPosts: 'ignore',
-          editUrl: `https://github.com/${GITHUB_USERNAME}/${REPO_NAME}/tree/main/`,
-        },
+        // 블로그는 사용하지 않습니다. 글을 쓰기 시작하면 blog/ 폴더를 만들고
+        // 아래를 설정 객체로 되돌리십시오.
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -103,8 +96,6 @@ const config = {
           { to: '/experience', label: '실무 경험', position: 'left' },
           { type: 'docSidebar', sidebarId: 'workSidebar', position: 'left', label: 'Work' },
           { to: '/how-i-work', label: 'How I work', position: 'left' },
-          { to: '/docs-health', label: 'Docs health', position: 'left' },
-          { to: '/blog', label: 'Blog', position: 'left' },
           { to: '/about', label: 'About', position: 'left' },
           { type: 'localeDropdown', position: 'right' },
           {
@@ -129,9 +120,9 @@ const config = {
           {
             title: 'More',
             items: [
+              { label: '실무 경험', to: '/experience' },
               { label: 'How I work', to: '/how-i-work' },
-              { label: 'Docs health', to: '/docs-health' },
-              { label: 'Blog', to: '/blog' },
+              { label: 'About', to: '/about' },
             ],
           },
           {
