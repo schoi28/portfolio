@@ -3,7 +3,6 @@ title: Contact
 description: How to reach me
 ---
 
-![Contact](/img/hero/contact.svg)
 # Contact
 
 I welcome questions about documentation work and hiring. I reply within one business day.

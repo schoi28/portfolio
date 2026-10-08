@@ -6,7 +6,6 @@ sidebar_label: Overview
 sidebar_position: 0
 ---
 
-![Sample Docs](/img/hero/samples.svg)
 # Sample Docs
 
 One fictional product family, explained four different ways for four different readers.

@@ -6,7 +6,6 @@ sidebar_label: 개요
 sidebar_position: 0
 ---
 
-![Sample Docs](/img/hero/samples.svg)
 # Sample Docs
 
 하나의 가상 제품군을 네 종류의 독자에게 각각 다르게 설명한 문서 세트입니다.
