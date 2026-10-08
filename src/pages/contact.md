@@ -3,7 +3,6 @@ title: Contact
 description: 연락처와 문의 방법
 ---
 
-![Contact](/img/hero/contact.svg)
 # Contact
 
 문서 작업이나 채용 관련 문의를 환영합니다. 회신은 평일 기준 하루 안에 드립니다.

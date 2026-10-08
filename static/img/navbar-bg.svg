@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 64" width="1600" height="64" preserveAspectRatio="xMidYMid slice" role="img" aria-label="">
+  <!--
+    상단 네비게이션 바의 배경입니다.
+
+    탭마다 다른 그림을 쓰지 않고 한 장으로 통일했습니다. 탭을 옮길 때마다
+    배경이 바뀌면 같은 사이트라는 느낌이 끊깁니다.
+
+    문서 구조를 다루는 사람의 사이트라는 인상을 선 몇 개로만 만듭니다.
+    왼쪽은 비워 두어 상호(소윤)가 깔끔하게 얹히고, 오른쪽으로 갈수록
+    계층 구조가 드러나는 얇은 선을 둡니다. 색은 네비게이션 바 자체
+    색(#0f1419)보다 한 단계 밝은 무채색뿐입니다.
+  -->
+  <defs>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0f1419" stop-opacity="1"/>
+      <stop offset="0.3" stop-color="#0f1419" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#0f1419" stop-opacity="0.55"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="64" fill="#0f1419"/>
+
+  <!-- 문서 계층을 암시하는 들여쓰기 선. 오른쪽 절반에만 둡니다. -->
+  <g stroke="#2a3340" stroke-width="1" fill="none">
+    <path d="M820 14 H1150"/>
+    <path d="M840 24 H1090"/>
+    <path d="M840 34 H1120"/>
+    <path d="M860 44 H1060"/>
+    <path d="M820 54 H1180"/>
+
+    <path d="M1240 14 H1520"/>
+    <path d="M1260 24 H1460"/>
+    <path d="M1260 34 H1490"/>
+    <path d="M1240 44 H1540"/>
+  </g>
+
+  <!-- 각 묶음의 왼쪽 기준선 -->
+  <g stroke="#3a4552" stroke-width="1.5" fill="none">
+    <path d="M814 10 V58"/>
+    <path d="M1234 10 V48"/>
+  </g>
+
+  <!-- 검증을 통과한 항목을 뜻하는 작은 표식 -->
+  <g fill="#4a5a6b">
+    <rect x="1162" y="12" width="4" height="4"/>
+    <rect x="1132" y="32" width="4" height="4"/>
+    <rect x="1192" y="52" width="4" height="4"/>
+    <rect x="1532" y="12" width="4" height="4"/>
+    <rect x="1552" y="42" width="4" height="4"/>
+  </g>
+
+  <!-- 왼쪽은 상호가 얹히는 자리라 완전히 덮습니다. -->
+  <rect width="1600" height="64" fill="url(#fade)"/>
+</svg>

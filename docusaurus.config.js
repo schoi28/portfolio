@@ -96,6 +96,22 @@ const config = {
     ],
   ],
 
+  plugins: [
+    // Portfolio는 한 페이지에 다 두면 읽히지 않습니다. 프로젝트마다 페이지를
+    // 나누고 사이드바를 붙이기 위해 문서 플러그인을 하나 더 씁니다.
+    // 번역본은 i18n/en/docusaurus-plugin-content-docs-projects/current/ 입니다.
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'projects',
+        path: 'projects',
+        routeBasePath: 'projects',
+        sidebarPath: './sidebarsProjects.js',
+        showLastUpdateTime: isGitRepo,
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -111,18 +127,21 @@ const config = {
         items: [
           { to: '/', label: 'About Me', position: 'left', activeBasePath: 'never' },
           { to: '/resume', label: 'Resume', position: 'left' },
-          { to: '/projects', label: 'Portfolio', position: 'left' },
-          // 같은 내용을 다르게 배치해 본 변형본입니다. 배치를 고른 뒤에는
-          // 둘 중 하나만 남기거나 전부 지우십시오.
-          { to: '/projects-2', label: 'Portfolio_2', position: 'left' },
-          { to: '/projects-3', label: 'Portfolio_3', position: 'left' },
-          { to: '/contact', label: 'Contact', position: 'left' },
+          {
+            type: 'docSidebar',
+            docsPluginId: 'projects',
+            sidebarId: 'projectsSidebar',
+            position: 'left',
+            label: 'Portfolio',
+          },
           {
             type: 'docSidebar',
             sidebarId: 'samplesSidebar',
             position: 'left',
             label: 'Sample Docs',
           },
+          // Contact는 맨 뒤에 둡니다. 읽을 것을 먼저 보여주고 연락은 마지막입니다.
+          { to: '/contact', label: 'Contact', position: 'left' },
           { type: 'localeDropdown', position: 'right' },
         ],
       },

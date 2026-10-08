@@ -3,7 +3,6 @@ title: Resume
 description: 경력, 보유 기술, 학력과 이력서 파일
 ---
 
-![Resume](/img/hero/resume.svg)
 # Resume
 
 영문·국문 기술 문서를 쓰는 테크니컬 라이터입니다. 2023년 11월부터 DBMS와 자율주행 솔루션 두 도메인에서 레퍼런스와 가이드, 릴리스 노트를 작성했습니다.

@@ -3,7 +3,6 @@ title: Resume
 description: Experience, skills, education, and downloadable resume files
 ---
 
-![Resume](/img/hero/resume.svg)
 # Resume
 
 I am a technical writer working in Korean and English. Since November 2023 I have written references, guides, and release notes across two domains: database software and autonomous driving solutions.
