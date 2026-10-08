@@ -112,6 +112,10 @@ const config = {
           { to: '/', label: 'About Me', position: 'left', activeBasePath: 'never' },
           { to: '/resume', label: 'Resume', position: 'left' },
           { to: '/projects', label: 'Portfolio', position: 'left' },
+          // 같은 내용을 다르게 배치해 본 변형본입니다. 배치를 고른 뒤에는
+          // 둘 중 하나만 남기거나 전부 지우십시오.
+          { to: '/projects-2', label: 'Portfolio_2', position: 'left' },
+          { to: '/projects-3', label: 'Portfolio_3', position: 'left' },
           { to: '/contact', label: 'Contact', position: 'left' },
           {
             type: 'docSidebar',

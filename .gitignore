@@ -17,3 +17,10 @@ npm-debug.log*
 yarn-error.log*
 .idea/
 .vscode/
+
+# Portfolio 배치 변형본은 portfolio.md 에서 생성합니다.
+# 빌드와 개발 서버가 시작할 때 다시 만들므로 저장소에 두지 않습니다.
+src/pages/portfolio-2.md
+src/pages/portfolio-3.md
+i18n/en/docusaurus-plugin-content-pages/portfolio-2.md
+i18n/en/docusaurus-plugin-content-pages/portfolio-3.md
