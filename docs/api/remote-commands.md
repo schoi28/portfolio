@@ -1,13 +1,14 @@
 ---
-title: 원격 명령
-sidebar_label: 5. 원격 명령
+title: 원격 명령 보내기
+doc_type: 개념 + 절차
+sidebar_label: 5. 원격 명령 보내기
 ---
 
-# 원격 명령
+# 원격 명령 보내기
 
 차량에 지시를 내리는 API입니다. `write:commands` 스코프가 필요합니다. VELA Drive의 원격 제어 기능도 내부적으로 이 API를 사용합니다.
 
-## 명령 전송
+## 명령 보내기
 
 ```bash
 curl -X POST https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands \
@@ -73,7 +74,7 @@ curl -X POST https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands \
 }
 ```
 
-## 비동기 결과 처리
+## 비동기 결과 처리하기
 
 명령이 접수된 뒤 실제 실행 결과는 세 가지 방법으로 확인할 수 있습니다.
 
@@ -106,11 +107,11 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands/{command_id}
 
 ### 방법 2: 웹훅
 
-`command.completed` 이벤트를 구독하면 상태가 바뀔 때 VELA Cloud가 지정한 URL로 알려줍니다. 설정 방법은 [웹훅](./webhooks.md)을 참고하십시오.
+`command.completed` 이벤트를 구독하면 상태가 바뀔 때 VELA Cloud가 지정한 URL로 알려줍니다. 설정 방법은 [웹훅으로 이벤트 받기](./webhooks.md)을 참고하십시오.
 
 ### 방법 3: SDK의 `wait()`
 
-[퀵스타트](./quickstart.md#python-sdk)에서 소개한 Python SDK는 폴링을 감싼 `wait()`를 제공합니다. 소량의 명령을 다루는 스크립트에 적합합니다.
+[퀵스타트](./quickstart.md#python-sdk로-호출하기)에서 소개한 Python SDK는 폴링을 감싼 `wait()`를 제공합니다. 소량의 명령을 다루는 스크립트에 적합합니다.
 
 ## 타임아웃과 재시도 정책
 
@@ -121,5 +122,5 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands/{command_id}
 
 ## 다음 단계
 
-- 명령이 실제 차량에서 어떻게 전달되는지는 [아키텍처 개요](./intro.md#아키텍처-상의-위치)를 참고하십시오.
-- 소프트웨어 자체를 원격으로 갱신하려면 [OTA](./ota.md)를 참고하십시오.
+- 명령이 실제 차량에서 어떻게 전달되는지는 [아키텍처 상의 위치](./overview.md#시스템-안에서의-위치)를 참고하십시오.
+- 소프트웨어 자체를 원격으로 갱신하려면 [OTA 배포 제어하기](./ota.md)를 참고하십시오.

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750" role="img" aria-label="프로필 사진 자리">
+  <defs>
+    <pattern id="g-profile" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0H0v30" fill="none" stroke="#dfe3e8" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="600" height="750" fill="#f5f7f8"/>
+  <rect width="600" height="750" fill="url(#g-profile)"/>
+
+  <!-- 인물 실루엣 -->
+  <circle cx="300" cy="300" r="96" fill="none" stroke="#b9c0c8" stroke-width="3"/>
+  <path d="M132 600a168 168 0 01336 0" fill="none" stroke="#b9c0c8" stroke-width="3"/>
+
+  <!-- 모서리 트림 마크 -->
+  <g stroke="#b9c0c8" stroke-width="3" fill="none">
+    <path d="M40 90V40h50M510 40h50v50M560 660v50h-50M90 710H40v-50"/>
+  </g>
+
+  <text x="300" y="672" text-anchor="middle"
+        font-family="-apple-system, 'Pretendard', sans-serif"
+        font-size="22" letter-spacing="2" fill="#6b7681">사진 자리 · 권장 600 × 750</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 400" width="1600" height="400" role="img" aria-label="눈금이 매겨진 기준선과 독자 계층">
+  <defs>
+    <pattern id="g-about" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0v40" fill="none" stroke="#dfe3e8" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="400" fill="#f5f7f8"/>
+  <rect width="1600" height="400" fill="url(#g-about)"/>
+
+  <!-- 측정된 범위: 독자가 읽어야 할 구간 -->
+  <path d="M520 212H920" stroke="#1f3a5f" stroke-width="4"/>
+  <path d="M520 212V96M920 212V96" stroke="#1f3a5f" stroke-width="2"/>
+  <path d="M520 96H920" stroke="#1f3a5f" stroke-width="2"/>
+  <circle cx="520" cy="96" r="6" fill="#1f3a5f"/>
+  <circle cx="920" cy="96" r="6" fill="#1f3a5f"/>
+
+  <!-- 기준선 -->
+  <path d="M120 212H1480" stroke="#b9c0c8" stroke-width="2"/>
+
+  <!-- 눈금. 다섯 칸마다 길게 -->
+  <g stroke="#b9c0c8" stroke-width="2">
+    <path d="M120 212v-20M160 212v-11M200 212v-11M240 212v-11M280 212v-11
+             M320 212v-20M360 212v-11M400 212v-11M440 212v-11M480 212v-11
+             M520 212v-20M560 212v-11M600 212v-11M640 212v-11M680 212v-11
+             M720 212v-20M760 212v-11M800 212v-11M840 212v-11M880 212v-11
+             M920 212v-20M960 212v-11M1000 212v-11M1040 212v-11M1080 212v-11
+             M1120 212v-20M1160 212v-11M1200 212v-11M1240 212v-11M1280 212v-11
+             M1320 212v-20M1360 212v-11M1400 212v-11M1440 212v-11M1480 212v-20"/>
+  </g>
+
+  <!-- 기준선 아래: 독자 계층 세 줄. 각 줄이 읽는 범위가 다르다 -->
+  <g stroke="#b9c0c8" stroke-width="3">
+    <path d="M120 262H760M120 302H1120M120 342H520"/>
+  </g>
+  <g stroke="#1f3a5f" stroke-width="3">
+    <path d="M520 262H760M520 302H920M520 342H520"/>
+  </g>
+  <g fill="#1f3a5f">
+    <rect x="514" y="256" width="12" height="12"/>
+    <rect x="514" y="296" width="12" height="12"/>
+    <rect x="514" y="336" width="12" height="12"/>
+  </g>
+
+  <rect x="0" y="396" width="1600" height="4" fill="#0f1419"/>
+</svg>

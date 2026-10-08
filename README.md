@@ -68,7 +68,7 @@ printf "protocol=https\nhost=github.com\n\n" | git credential-osxkeychain erase
 ## 폴더 구조
 
 ```
-├── docs/                    Work — 문서 샘플 (라우트: /work)
+├── docs/                    Sample Docs — 가상 제품군 문서 (라우트: /samples)
 │   ├── index.md             Work 개요
 │   ├── hardware/            하드웨어 매뉴얼
 │   ├── software/            소프트웨어 매뉴얼

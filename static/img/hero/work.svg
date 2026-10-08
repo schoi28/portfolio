@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 400" width="1600" height="400" role="img" aria-label="단일 소스에서 갈라져 검증으로 모이는 파이프라인">
+  <defs>
+    <pattern id="g-work" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0v40" fill="none" stroke="#dfe3e8" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="400" fill="#f5f7f8"/>
+  <rect width="1600" height="400" fill="url(#g-work)"/>
+
+  <!-- 단일 소스 -->
+  <rect x="120" y="176" width="48" height="48" fill="#0f1419"/>
+  <path d="M168 200H320" stroke="#0f1419" stroke-width="2"/>
+
+  <!-- 분기점 -->
+  <circle cx="340" cy="200" r="10" fill="#0f1419"/>
+  <path d="M340 200H420M420 200V100H560M420 200v100H560M420 200H560" stroke="#b9c0c8" stroke-width="2" fill="none"/>
+
+  <!-- 세 갈래 산출물 -->
+  <g fill="none" stroke="#b9c0c8" stroke-width="2">
+    <rect x="560" y="76" width="160" height="48"/>
+    <rect x="560" y="176" width="160" height="48"/>
+    <rect x="560" y="276" width="160" height="48"/>
+  </g>
+
+  <!-- 다시 합쳐지는 선 -->
+  <path d="M720 100H860V200M720 200H860M720 300H860V200" stroke="#b9c0c8" stroke-width="2" fill="none"/>
+  <path d="M860 200H1000" stroke="#1f3a5f" stroke-width="2"/>
+
+  <!-- 검증 단계 -->
+  <rect x="1000" y="164" width="200" height="72" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <path d="M1040 200l26 26 54-60" fill="none" stroke="#1f3a5f" stroke-width="4" stroke-linecap="square"/>
+
+  <!-- 통과한 결과 -->
+  <path d="M1200 200h120" stroke="#1f3a5f" stroke-width="2"/>
+  <rect x="1320" y="176" width="48" height="48" fill="#1f3a5f"/>
+
+  <!-- 되돌아가는 경로: 검사가 보고하고 사람이 고친다 -->
+  <path d="M1100 236v84H340v-110" stroke="#b9c0c8" stroke-width="2" stroke-dasharray="8 8" fill="none"/>
+
+  <rect x="0" y="396" width="1600" height="4" fill="#0f1419"/>
+</svg>

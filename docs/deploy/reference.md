@@ -1,9 +1,10 @@
 ---
-title: 레퍼런스
-sidebar_label: 7. 레퍼런스
+title: 레퍼런스 찾아보기
+doc_type: 레퍼런스
+sidebar_label: 7. 레퍼런스 찾아보기
 ---
 
-# 레퍼런스
+# 레퍼런스 찾아보기
 
 캠페인 상태값, 실패 코드, 권한, 용어를 모아 둔 장입니다.
 
@@ -110,4 +111,4 @@ sidebar_label: 7. 레퍼런스
 
 ## API로 같은 작업 수행하기
 
-콘솔에서 하는 대부분의 작업은 API로도 가능합니다. CI 파이프라인에서 캠페인을 자동 생성하는 경우 [VELA Vehicle API · OTA](../api/ota.md)를 참고하십시오.
+콘솔에서 하는 대부분의 작업은 API로도 가능합니다. CI 파이프라인에서 캠페인을 자동 생성하는 경우 [VELA Vehicle API · OTA 배포 제어하기](../api/ota.md)를 참고하십시오.

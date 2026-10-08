@@ -1,13 +1,14 @@
 ---
-title: OTA
-sidebar_label: 7. OTA
+title: OTA 배포 제어하기
+doc_type: 절차
+sidebar_label: 7. OTA 배포 제어하기
 ---
 
-# OTA
+# OTA 배포 제어하기
 
 소프트웨어 배포는 보통 [VELA Deploy 콘솔](../deploy/intro.md)에서 운영자가 수행하지만, 이 API로 캠페인을 생성하고 차량별 배포 상태를 조회할 수도 있습니다. CI 파이프라인에서 자동으로 캠페인을 만드는 경우에 사용합니다. `write:campaigns`, `read:campaigns` 스코프가 필요합니다.
 
-## 배포 대상: CCU와 존 ECU
+## 배포 대상 이해하기
 
 캠페인을 만들기 전에 배포 대상을 이해해야 합니다. VELA OS 소프트웨어(CCU에서 구동)와 존 ECU 펌웨어는 처리 방식이 다릅니다.
 
@@ -20,7 +21,7 @@ sidebar_label: 7. OTA
 
 캠페인 생성 시 `target_type`을 지정하면 이 차이가 자동으로 반영됩니다.
 
-## 캠페인 생성
+## 캠페인 생성하기
 
 ```bash
 curl -X POST https://api.vela.example.com/v1/campaigns \
@@ -62,7 +63,7 @@ curl -X POST https://api.vela.example.com/v1/campaigns/cmp_9a1b2c/start \
 
 패키지 업로드와 서명, 호환성 규칙, 게이트 기준을 조직 차원에서 어떻게 운영하는지는 [VELA Deploy 운영 가이드](../deploy/intro.md)에서 다룹니다. 이 API 문서는 엔드포인트 사용법만 다룹니다.
 
-## 차량별 배포 상태 조회
+## 차량별 배포 상태 조회하기
 
 특정 차량이 특정 캠페인에서 어느 단계인지 확인합니다.
 
@@ -91,7 +92,7 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/campaigns/cmp_9a1b2c 
 | `failed` | 설치 실패. `failure_code` 필드에 원인 |
 | `rolled_back` | 실패 후 이전 버전으로 복구됨 |
 
-## 캠페인 전체 진행률 조회
+## 캠페인 전체 진행률 조회하기
 
 ```bash
 curl https://api.vela.example.com/v1/campaigns/cmp_9a1b2c \
@@ -118,4 +119,4 @@ curl https://api.vela.example.com/v1/campaigns/cmp_9a1b2c \
 ## 다음 단계
 
 - 배포 실패 시 대응 절차와 운영 판단 기준은 [VELA Deploy 운영 가이드](../deploy/intro.md)를 참고하십시오.
-- 배포 상태 변화를 실시간으로 받으려면 [웹훅](./webhooks.md)의 `campaign.stage_changed` 이벤트를 구독하십시오.
+- 배포 상태 변화를 실시간으로 받으려면 [웹훅으로 이벤트 받기](./webhooks.md)의 `campaign.stage_changed` 이벤트를 구독하십시오.

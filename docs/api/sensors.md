@@ -1,17 +1,18 @@
 ---
-title: 센서
-sidebar_label: 6. 센서
+title: 센서 상태 조회하기
+doc_type: 절차
+sidebar_label: 6. 센서 상태 조회하기
 ---
 
-# 센서
+# 센서 상태 조회하기
 
 VELA Sense로 장착된 센서(라이다, 카메라)의 상태와 캘리브레이션 정보를 조회하는 API입니다. `read:sensors` 스코프가 필요합니다.
 
-:::note
+:::note[참고]
 이 장은 개발·검증 차량에 VELA Sense가 장착된 경우에만 유효합니다. 양산 차량은 OEM이 선정한 별도 하드웨어를 사용하며, 해당 하드웨어가 이 API와 동일한 인터페이스로 노출되는지는 OEM과의 통합 계약에 따라 달라집니다.
 :::
 
-## 센서 목록 조회
+## 센서 목록 조회하기
 
 ```bash
 curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/sensors \
@@ -38,7 +39,7 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/sensors \
 
 `degraded`는 [VELA Sense 설치 가이드 · 유지보수](../sensor/intro.md)의 청소 주기와 연결됩니다. 카메라 렌즈 오염이 이 상태의 가장 흔한 원인입니다.
 
-## 개별 센서 상태 조회
+## 개별 센서 상태 조회하기
 
 ```bash
 curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/sensors/lidar_01 \
@@ -59,7 +60,7 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/sensors/lidar_01 \
 
 `time_sync_offset_us`는 PTP(IEEE 802.1AS) 기준 시간과의 오차입니다. 10마이크로초를 넘으면 센서 융합 정확도에 영향을 줄 수 있습니다.
 
-## 캘리브레이션 상태 조회
+## 캘리브레이션 상태 조회하기
 
 ```bash
 curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/sensors/calibration \
@@ -121,11 +122,11 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/sensors/diagnostic-sn
 }
 ```
 
-:::note
+:::note[참고]
 스냅숏에는 원시 라이다·카메라 데이터가 포함되어 용량이 큽니다(보통 500MB~2GB). 다운로드 URL은 24시간 뒤 만료됩니다.
 :::
 
 ## 다음 단계
 
 - 이 API가 조회하는 캘리브레이션을 실제로 수행하는 절차는 [VELA Sense 설치 가이드](../sensor/intro.md)를 참고하십시오.
-- 센서 펌웨어도 다른 소프트웨어와 함께 [OTA](./ota.md)로 갱신됩니다.
+- 센서 펌웨어도 다른 소프트웨어와 함께 [OTA 배포 제어하기](./ota.md)로 갱신됩니다.

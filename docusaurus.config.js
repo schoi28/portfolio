@@ -50,6 +50,15 @@ const config = {
     },
   },
 
+  // 한국어 본문 가독성을 위해 Pretendard를 불러옵니다.
+  // 로드에 실패해도 custom.css의 폴백 글꼴로 정상 표시됩니다.
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css',
+      type: 'text/css',
+    },
+  ],
+
   i18n: {
     defaultLocale: 'ko',
     locales: ['ko', 'en'],
@@ -66,8 +75,10 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          routeBasePath: 'work',
-          editUrl: `https://github.com/${GITHUB_USERNAME}/${REPO_NAME}/tree/main/`,
+          // 가상 제품군 문서 세트입니다. 예시임이 드러나도록 경로를 samples로 둡니다.
+          routeBasePath: 'samples',
+          // editUrl은 의도적으로 설정하지 않습니다. 각 문서에 저장소 편집 링크가
+          // 붙지 않도록 하기 위해서입니다.
           showLastUpdateTime: isGitRepo,
         },
         // 블로그는 사용하지 않습니다. 글을 쓰기 시작하면 blog/ 폴더를 만들고
@@ -93,47 +104,34 @@ const config = {
         title: '소윤',
         hideOnScroll: false,
         items: [
-          { to: '/experience', label: '실무 경험', position: 'left' },
-          { type: 'docSidebar', sidebarId: 'workSidebar', position: 'left', label: 'Work' },
-          { to: '/how-i-work', label: 'How I work', position: 'left' },
-          { to: '/about', label: 'About', position: 'left' },
-          { type: 'localeDropdown', position: 'right' },
+          { to: '/', label: 'About Me', position: 'left', activeBasePath: 'never' },
+          { to: '/resume', label: 'Resume', position: 'left' },
+          { to: '/projects', label: 'Portfolio', position: 'left' },
+          { to: '/contact', label: 'Contact', position: 'left' },
           {
-            href: `https://github.com/${GITHUB_USERNAME}`,
-            label: 'GitHub',
-            position: 'right',
+            type: 'docSidebar',
+            sidebarId: 'samplesSidebar',
+            position: 'left',
+            label: 'Sample Docs',
           },
+          { type: 'localeDropdown', position: 'right' },
         ],
       },
+      // 푸터에는 연락처만 둡니다.
       footer: {
         style: 'light',
         links: [
           {
-            title: 'Work',
             items: [
-              { label: 'VELA Drive 앱', to: '/work/app/intro' },
-              { label: 'VELA Vehicle API', to: '/work/api/intro' },
-              { label: 'VELA Deploy', to: '/work/deploy/intro' },
-              { label: 'VELA Sense', to: '/work/sensor/intro' },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              { label: '실무 경험', to: '/experience' },
-              { label: 'How I work', to: '/how-i-work' },
-              { label: 'About', to: '/about' },
-            ],
-          },
-          {
-            title: 'Contact',
-            items: [
-              { label: 'GitHub', href: `https://github.com/${GITHUB_USERNAME}` },
-              { label: 'Email', href: 'mailto:soyoon9428@gmail.com' },
+              { label: 'soyoon9428@gmail.com', href: 'mailto:soyoon9428@gmail.com' },
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/soyoon-choi',
+              },
             ],
           },
         ],
-        copyright: `© ${new Date().getFullYear()} 소윤. Built with Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()} Soyoon Choi`,
       },
       prism: {
         additionalLanguages: ['bash', 'json', 'yaml'],

@@ -72,3 +72,4 @@ VELA Sense,VELA Sense,"벨라 센스;Vela Sense",HW,센서 킷 이름은 항상 
 펌웨어,firmware,"펌 웨어;F/W",HW,
 부팅 순서,boot sequence,"부트 시퀀스;기동순서",HW,
 설치 지점,installation point,"장착 위치;설치위치",HW,본문에서 물리적 위치를 뜻할 때
+실내 온도 조절,climate control,"공조;예열;예냉",B2C,"사용자 대상 문서에서는 '공조'를 쓰지 않는다. 버튼 이름은 '실내 온도'. 개발자·운영자 문서(B2B)에서는 '공조'와 climate를 그대로 사용"
