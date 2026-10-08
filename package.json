@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "variants": "node scripts/build-portfolio-variants.mjs",
     "check": "node scripts/check-docs.mjs",
-    "start": "docusaurus start",
-    "start:en": "docusaurus start --locale en",
-    "build": "npm run check && docusaurus build",
-    "build:nocheck": "docusaurus build",
+    "start": "npm run variants && docusaurus start",
+    "start:en": "npm run variants && docusaurus start --locale en",
+    "build": "npm run variants && npm run check && docusaurus build",
+    "build:nocheck": "npm run variants && docusaurus build",
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
     "write-translations": "docusaurus write-translations"
