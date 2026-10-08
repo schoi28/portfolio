@@ -1,6 +1,6 @@
 # 스타일 룰
 #
-# 이 파일은 scripts/check-docs.mjs 가 읽어 docs/ 전체를 검사합니다.
+# 이 파일은 scripts/check-docs.mjs 가 읽어 sample_docs/ 전체를 검사합니다.
 # `npm run check` 또는 `npm run build` 앞단에서 실행됩니다.
 #
 # 룰이 많으면 리포트에 노이즈가 늘어납니다. 실제로 자주 어기는 것만 남깁니다.
@@ -15,7 +15,7 @@ locales:
   ko:
     label: 한국어
     role: source
-    path: docs
+    path: sample_docs
   en:
     label: English
     role: translation

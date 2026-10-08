@@ -80,7 +80,12 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // 가상 제품군 문서 세트입니다. 예시임이 드러나도록 경로를 samples로 둡니다.
+          // 원본 파일이 있는 폴더입니다. 기본값은 docs/ 인데, 포트폴리오
+          // 본문(projects/)과 구분되도록 sample_docs/ 로 둡니다.
+          // 번역본 경로는 폴더 이름이 아니라 플러그인 id 를 따르므로
+          // i18n/en/docusaurus-plugin-content-docs/current 그대로입니다.
+          path: 'sample_docs',
+          // 가상 제품군 문서 세트입니다. 예시임이 드러나도록 주소를 samples로 둡니다.
           routeBasePath: 'samples',
           // editUrl은 의도적으로 설정하지 않습니다. 각 문서에 저장소 편집 링크가
           // 붙지 않도록 하기 위해서입니다.
