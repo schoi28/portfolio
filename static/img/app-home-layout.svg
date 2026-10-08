@@ -1,22 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" width="520" height="300" role="img" aria-label="VELA Drive 홈 화면의 세 영역 구성">
-<rect width="520" height="300" fill="#f5f7f8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 266" width="520" height="266" role="img" aria-label="VELA Drive 홈 화면의 세 영역 구성">
+<rect width="520" height="266" fill="#f5f7f8"/>
 <rect x="30" y="20" width="150" height="260" fill="#ffffff" stroke="#dfe3e8"/>
 <rect x="42" y="40" width="126" height="70" fill="#e7ecf1" stroke="#1f3a5f"/>
-<text x="105" y="70" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="12" fill="#1f3a5f" text-anchor="middle">차량 요약</text>
-<text x="105" y="90" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="10" fill="#1f3a5f" text-anchor="middle">배터리 · 주행 거리</text>
+<text x="105" y="70" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#1f3a5f" text-anchor="middle">차량 요약</text>
+<text x="105" y="90" font-family="'Pretendard', -apple-system, sans-serif" font-size="11" fill="#1f3a5f" text-anchor="middle">배터리 · 주행 거리</text>
 <rect x="42" y="122" width="126" height="70" fill="#e7ecf1" stroke="#1f3a5f"/>
-<text x="105" y="152" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="12" fill="#1f3a5f" text-anchor="middle">빠른 제어</text>
-<text x="105" y="172" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="10" fill="#1f3a5f" text-anchor="middle">잠금 · 실내 온도 · 충전</text>
+<text x="105" y="152" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#1f3a5f" text-anchor="middle">빠른 제어</text>
+<text x="105" y="172" font-family="'Pretendard', -apple-system, sans-serif" font-size="11" fill="#1f3a5f" text-anchor="middle">잠금 · 실내 온도 · 충전</text>
 <rect x="42" y="204" width="126" height="60" fill="#f5f7f8" stroke="#b9c0c8"/>
-<text x="105" y="230" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="12" fill="#3d4852" text-anchor="middle">알림</text>
-<text x="105" y="248" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="10" fill="#3d4852" text-anchor="middle">업데이트 · 정비</text>
-<line x1="180" y1="75" x2="250" y2="75" stroke="#b9c0c8" stroke-width="1"/>
-<line x1="180" y1="157" x2="250" y2="157" stroke="#b9c0c8" stroke-width="1"/>
-<line x1="180" y1="234" x2="250" y2="234" stroke="#b9c0c8" stroke-width="1"/>
-<text x="258" y="66" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#0f1419">위쪽 · 차량 요약</text>
-<text x="258" y="84" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="11" fill="#6b7681">마지막 통신 시각이 함께 표시됩니다</text>
-<text x="258" y="148" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#0f1419">가운데 · 빠른 제어</text>
-<text x="258" y="166" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="11" fill="#6b7681">차량 상태에 따라 일부가 비활성화됩니다</text>
-<text x="258" y="225" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#0f1419">아래쪽 · 알림</text>
-<text x="258" y="243" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="11" fill="#6b7681">조치가 필요한 항목만 표시됩니다</text>
+<text x="105" y="230" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#3d4852" text-anchor="middle">알림</text>
+<text x="105" y="248" font-family="'Pretendard', -apple-system, sans-serif" font-size="11" fill="#3d4852" text-anchor="middle">업데이트 · 정비</text>
+<line x1="180" y1="75" x2="250" y2="75" stroke="#b9c0c8" stroke-width="2"/>
+<line x1="180" y1="157" x2="250" y2="157" stroke="#b9c0c8" stroke-width="2"/>
+<line x1="180" y1="234" x2="250" y2="234" stroke="#b9c0c8" stroke-width="2"/>
+<text x="258" y="66" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419">위쪽 · 차량 요약</text>
+<text x="258" y="148" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419">가운데 · 빠른 제어</text>
+<text x="258" y="225" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419">아래쪽 · 알림</text>
+<text x="258" y="243" font-family="'Pretendard', -apple-system, sans-serif" font-size="11" fill="#6b7681">조치가 필요한 항목만 표시됩니다</text>
 </svg>

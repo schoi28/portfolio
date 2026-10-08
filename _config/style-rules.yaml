@@ -1,6 +1,26 @@
 # 스타일 룰
-# 스타일 집행관 agent와 교정자 agent가 이 파일을 읽고 검사한다.
-# 룰이 많으면 리포트에 노이즈가 늘어난다. 자주 어기는 것만 남긴다.
+#
+# 이 파일은 scripts/check-docs.mjs 가 읽어 docs/ 전체를 검사합니다.
+# `npm run check` 또는 `npm run build` 앞단에서 실행됩니다.
+#
+# 룰이 많으면 리포트에 노이즈가 늘어납니다. 실제로 자주 어기는 것만 남깁니다.
+# 룰을 추가할 때는 검사기가 판정할 수 있는 형태(정규식 또는 수치)로 적습니다.
+
+# ─────────────────────────────────────────────────────────────
+# 언어 설정
+#
+# 한국어가 원문이고 영어는 번역본입니다.
+# 각 규칙 묶음의 applies_to 로 적용 언어를 지정합니다. 없으면 모든 언어에 적용합니다.
+locales:
+  ko:
+    label: 한국어
+    role: source
+    path: docs
+  en:
+    label: English
+    role: translation
+    source: ko
+    path: i18n/en/docusaurus-plugin-content-docs/current
 
 tone:
   ko: >
@@ -11,6 +31,7 @@ tone:
     Address the reader directly in procedures.
 
 sentence:
+  applies_to: [ko, en]
   max_length_ko: 60
   max_length_en_words: 25
   rules:
@@ -20,14 +41,27 @@ sentence:
     - 절차 문장은 명령형 어미로 끝낸다. "선택합니다" / "입력합니다"
 
 procedure:
+  # 기본 상한. 독자별로 더 엄격한 값은 audience.yaml 의 max_procedure_steps 가 덮어씁니다.
+  max_steps: 8
   rules:
     - 절차는 번호 목록으로만 쓴다. 순서가 없으면 글머리 기호를 쓴다.
     - 한 단계에 두 가지 동작을 넣지 않는다.
     - 사전 조건은 절차 앞에 별도 문단으로 쓴다. 1단계 안에 숨기지 않는다.
     - 결과 확인 방법을 마지막 단계에 넣는다. "표시등이 흰색으로 켜지면 완료입니다."
-    - 절차가 8단계를 넘으면 절을 나눈다.
+    - 번호 목록 안의 표와 글머리 기호는 세 칸 들여쓴다. 들여쓰지 않으면 목록이 끊긴다.
+
+headings:
+  applies_to: [ko]
+  # 장 제목(H1)과 작업을 설명하는 절 제목은 동작형으로 쓴다.
+  action_form_suffixes: [하기, 받기, 보내기, 만들기, 읽기, 넣기, 세우기, 잡기, 쓰기, 끼우기, 이란]
+  # 조회용 장은 동작형을 강제하지 않는다.
+  noun_form_allowed: [레퍼런스, 용어집, 사양, 목록, 매트릭스, 카탈로그, 이벤트, 코드, 정책, 개념]
+  rules:
+    - 제목에 마침표를 쓰지 않는다.
+    - '"개요", "기타" 같은 제목을 쓰지 않는다. 제목만 읽어도 내용을 알 수 있어야 한다.'
 
 forbidden_expressions:
+  # 언어별로 따로 적용합니다. 엠대시와 번역투는 한국어 원문에만 해당합니다.
   ko:
     - pattern: "간단히|손쉽게|쉽게|간편하게"
       reason: 독자가 느낄 난이도를 필자가 단정하는 표현
@@ -39,29 +73,151 @@ forbidden_expressions:
       reason: 합쇼체로 통일. "선택합니다"를 사용
     - pattern: "등등|기타 등등"
       reason: 모호한 나열
+    - pattern: "—"
+      reason: "엠대시는 쓰지 않는다. 마침표·쉼표·콜론·괄호로 바꾼다"
+    - pattern: "에서의|으로의|에로의"
+      reason: 번역투 조사 결합
+    - pattern: "것으로 보여집니다|생각되어집니다|되어집니다"
+      reason: 이중 피동
   en:
-    - pattern: "simply|just|easily"
+    # "just now", "just after" 처럼 시점을 뜻하는 쓰임은 난이도 판단이 아닙니다.
+    # 독자의 동작 앞에 붙는 경우만 잡습니다.
+    - pattern: "\\b(simply|easily)\\b|\\bjust (click|tap|select|press|enter|type|add|run|open|do|use)\\b"
       reason: Do not judge difficulty on the reader's behalf
-    - pattern: "should"
-      note: Use "must" if required, "we recommend" if advised
-    - pattern: "please"
-      note: Drop it in procedures
+    - pattern: "\\bplease\\b"
+      reason: Drop it in procedures
+    - pattern: "\\b(will be able to|is able to)\\b"
+      reason: Use "can"
+    - pattern: "\\bin order to\\b"
+      reason: Use "to"
+    - pattern: "\\b(utilize|leverage)\\b"
+      reason: Use "use"
+    # 계약 표현은 기술 문서에 쓰지 않는다
+    - pattern: "\\b(don't|doesn't|can't|won't|isn't|aren't|it's|you'll|we'll|didn't|hasn't|haven't)\\b"
+      reason: Do not use contractions. Write the full form
+    # 시스템 동작은 현재 시제로 쓴다
+    - pattern: "\\b(will|shall) (not )?(be|open|close|display|appear|show|return|start|stop|fail|retry|send|receive|install|download|reject|expire)\\b"
+      reason: Use present tense for system behaviour. "The widget opens", not "will open"
+    - pattern: "\\b(please note that|it should be noted that|it is worth noting)\\b"
+      reason: Filler. State the fact directly
+    - pattern: "\\b(the user|users) (should|must|needs? to|can)\\b"
+      reason: Address the reader directly or use the imperative
+    - pattern: "\\byou should\\b"
+      reason: Use the imperative for steps, or "we recommend" for advice
+    - pattern: "\\bvia\\b"
+      reason: Use "through" or "using"
+
+headings_en:
+  applies_to: [en]
+  # 제목은 문장형 대소문자. 첫 단어와 고유명사만 대문자로 시작한다.
+  sentence_case: true
+  # 고유명사와 약어는 대문자를 유지한다.
+  keep_capitalised:
+    [VELA, Drive, Sense, Deploy, Vehicle, Docs, Sample, API, OTA, CCU, ECU, OEM, SDK, LiDAR,
+     GMSL2, PTP, FAKRA, Uptane, IEC, IEEE, REST, JSON, OAuth, TLS, mTLS, Python,
+     Node, Java, Class, Korean, English, March, Linux, GitHub, Markdown]
+  rules:
+    - 절차 제목은 기능 이름이 아니라 독자가 하는 일로 쓴다. "Add a LiDAR" not "LiDAR addition"
+    - CRUD 절은 Add, Edit, Delete 순서로 둔다.
+
+tables:
+  # 모든 열은 왼쪽 정렬만 쓴다. 가운데·오른쪽 정렬은 쓰지 않는다.
+  alignment: left_only
+  rules:
+    - 설명이 붙는 선택지 목록은 글머리 기호가 아니라 표로 쓴다.
+
+images:
+  # 넣기 전에 한 번 묻는다. "이 그림 없이도 이 단계를 끝낼 수 있는가?"
+  # 끝낼 수 있으면 넣지 않는다.
+  require_alt_text: true
+  rules:
+    - 위젯이나 화면을 처음 소개하는 자리에 전체 그림 하나만 둔다. 하위 절에서 반복하지 않는다.
+    - 단순한 버튼 클릭, 텍스트 입력, 토글에는 그림을 넣지 않는다.
+    - 색만으로 정보를 전달하지 않는다.
+
+accuracy:
+  # 추론한 내용을 사실처럼 쓰지 않는다. 원본에 없으면 쓰지 않는다.
+  # 확인이 필요한 자리는 지워지지 않는 표시를 남긴다.
+  placeholder: "[TBU: <필요한 정보>]"
+  review_marker: "<!-- REVIEW: <무엇을 가정했고 무엇을 확인해야 하는가> -->"
+  rules:
+    - 수치, 기본값, 상한, 모델명은 원본에 그대로 있을 때만 쓴다.
+    - 비슷한 기능이나 일반 지식에서 시스템 동작을 추론하지 않는다.
+    - 빈 자리를 그럴듯한 내용으로 채우지 않는다. 무엇이 필요한지 적은 자리표시자를 쓴다.
+    - 표시는 작성자가 지우지 않는다. 원본으로 확인한 뒤에만 지운다.
 
 formatting:
-  - UI 요소는 굵게 표기한다. 예 - **설정** 메뉴
+  - UI 요소는 굵게 표기한다. 예시는 **설정** 메뉴
   - 코드, 파일명, 경로, 필드명, 상태값은 코드 서식으로 표기한다.
-  - 제목에 마침표를 쓰지 않는다.
   - 표의 열 제목은 명사구로 쓴다.
   - 숫자에는 단위를 붙인다. 허용 오차가 있으면 함께 쓴다.
   - 한 문서에서 숫자 표기를 섞지 않는다. "5개"와 "다섯 개"를 함께 쓰지 않는다.
+  - 강조(**)를 닫은 뒤 바로 조사를 붙이지 않는다. 조사는 강조 밖으로 뺀다.
 
 link_text:
   - 링크 문구에 "여기", "이 링크", "click here"를 쓰지 않는다.
   - 링크 문구는 목적지 제목과 같게 쓴다.
 
+diagrams:
+  # 그림은 구조를 보여주는 자리다. 문장형 정보는 본문 안내 상자로 옮긴다.
+  rules:
+    - 그림 안에 서술형 문장을 넣지 않는다. 명사와 라벨만 둔다.
+    - 경고성 정보는 그림이 아니라 안내 상자로 쓴다.
+    - 사선 연결선을 쓰지 않는다. 직각으로 꺾는다.
+  max_caption_length: 17
+
+exempt_sections:
+  # 이 제목 아래 본문은 용어·표현 검사에서 제외합니다.
+  # 용어 정책 자체를 설명하는 자리라 금지어가 예시로 등장합니다.
+  - 설계 노트
+
+# ─────────────────────────────────────────────────────────────
+# 번역본 검사
+#
+# 원문과 번역본이 어긋나는 것은 번역 오류보다 발견하기 어렵습니다.
+# 문장은 사람이 보고, 구조는 기계가 봅니다.
+translation:
+  # 원문에 있고 번역본에 없는 문서를 보고합니다.
+  report_missing: true
+  # 원문이 번역본보다 나중에 바뀌었으면 보고합니다. git 이력으로 판정합니다.
+  report_stale: true
+  # 아래 구조 요소의 개수가 원문과 다르면 보고합니다.
+  compare:
+    - headings
+    - heading_levels
+    - code_blocks
+    - tables
+    - images
+    - links
+    - admonitions
+  # 번역본에 원문 문자가 남아 있는지 검사합니다.
+  leftover_source_script: true
+  # 번역이 진행 중인 동안에는 '아직 번역되지 않음'을 주의로 낮춥니다.
+  # 전체 번역이 끝나면 false 로 바꿔 오류로 올립니다. 그때부터 빌드가 막습니다.
+  in_progress: false
+  # 번역하지 않고 그대로 두는 고유명사입니다.
+  keep_as_is:
+    - VELA
+    - OEM
+    - CCU
+    - ECU
+    - GMSL2
+    - PTP
+    - FAKRA
+    - OTA
+    - Uptane
+    - IEC
+    - IEEE
+
+duplication:
+  applies_to: [ko]
+  # 같은 근거를 여러 곳에 적으면 한 곳만 고치고 나머지를 잊게 된다.
+  rule: 같은 설명 문장은 한 곳에만 쓰고 나머지는 그곳으로 링크한다.
+  min_sentence_length: 30
+
 ai_readability:
   # 문서를 사람만 읽지 않는다. 챗봇이 근거로 삼을 수 있는 구조로 쓴다.
   - 한 페이지에서 한 주제만 다룬다.
-  - 제목만 읽어도 내용을 알 수 있게 쓴다. "개요", "기타" 같은 제목을 쓰지 않는다.
+  - 제목만 읽어도 내용을 알 수 있게 쓴다.
   - 대명사로 앞 문단을 가리키지 않는다. 문단은 독립적으로 이해되어야 한다.
   - 표에 담긴 정보를 본문에서 반복 설명하지 않는다. 중복은 최신화 실패의 원인이 된다.

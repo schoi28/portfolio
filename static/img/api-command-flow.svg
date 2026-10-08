@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" width="760" height="330" role="img" aria-label="원격 명령이 비동기로 처리되는 과정">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, sans-serif; fill: #0f1419; }
+    .b { font-size: 13px; font-weight: 600; }
+    .s { font-size: 11px; fill: #6b7681; }
+    .e { font-size: 11.5px; fill: #3d4852; }
+    .w { font-size: 11.5px; font-weight: 700; fill: #9b3a34; }
+  </style>
+  <defs><marker id="m" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+    <path d="M0 0L8 4L0 8z" fill="#3d4852"/></marker>
+    <marker id="mr" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+    <path d="M0 0L8 4L0 8z" fill="#9b3a34"/></marker></defs>
+  <rect width="760" height="330" fill="#f5f7f8"/>
+  <rect x="230" y="24" width="300" height="56" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t b" x="380.0" y="49.0" text-anchor="middle" fill="#0f1419">요청 전송</text>
+  <text class="t s" x="380.0" y="67.0" text-anchor="middle">POST /commands</text>
+  <path d="M380 80L380 104" stroke="#3d4852" stroke-width="2" marker-end="url(#m)" fill="none"/>
+  <rect x="230" y="108" width="300" height="52" fill="#ffffff" stroke="#9b3a34" stroke-width="2"/>
+  <text class="t b" x="380.0" y="131.0" text-anchor="middle" fill="#0f1419">202 Accepted</text>
+  <text class="t s" x="380.0" y="149.0" text-anchor="middle">command_id 반환 · 아직 실행 전</text>
+  <path d="M380 160L380 184" stroke="#3d4852" stroke-width="2" marker-end="url(#m)" fill="none"/>
+  <rect x="230" y="188" width="300" height="52" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t b" x="380.0" y="211.0" text-anchor="middle" fill="#0f1419">차량에 전달 대기</text>
+  <text class="t s" x="380.0" y="229.0" text-anchor="middle">연결이 끊겨 있으면 대기열에서 만료</text>
+  <path d="M380 240L380 264" stroke="#3d4852" stroke-width="2" marker-end="url(#m)" fill="none"/>
+  <rect x="230" y="268" width="300" height="52" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t b" x="380.0" y="299.0" text-anchor="middle" fill="#0f1419">차량이 수행하고 결과 보고</text>
+  <text class="t w" x="556" y="142" text-anchor="start">여기서 성공으로</text>
+  <text class="t w" x="556" y="158" text-anchor="start">처리하면 안 됩니다</text>
+  <text class="t s" x="556" y="296" text-anchor="start">폴링 또는 웹훅으로</text>
+  <text class="t s" x="556" y="312" text-anchor="start">결과 확인</text>
+</svg>

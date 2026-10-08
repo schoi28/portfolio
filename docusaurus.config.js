@@ -6,7 +6,10 @@ import { execSync } from 'node:child_process';
 // 여기 세 줄만 본인 정보에 맞추면 됩니다.
 const GITHUB_USERNAME = 'schoi28';
 const REPO_NAME = 'portfolio';
-const SITE_TITLE = '소윤 · Technical Writer';
+// 브라우저 탭 제목에 쓰입니다. Docusaurus는 이 값을 로케일별로 번역하지
+// 않으므로, 두 언어에서 모두 읽히는 로마자 표기를 씁니다.
+// 화면 왼쪽 위 상호는 themeConfig.navbar.title 이고 그쪽은 번역됩니다.
+const SITE_TITLE = 'Soyoon Choi · Technical Writer';
 // ─────────────────────────────────────────────────────────────
 
 // 저장소 이름이 '<사용자명>.github.io'면 주소가 루트(/)이고,
@@ -40,8 +43,10 @@ const config = {
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
-  // 링크가 깨지면 빌드를 실패시킵니다. 링크 검사관의 역할을 빌드가 대신합니다.
-  onBrokenLinks: 'throw',
+  // 링크와 앵커 검사는 scripts/check-docs.mjs 가 담당합니다.
+  // Docusaurus의 검사는 번역본 로케일에서 오탐을 냅니다. 생성된 HTML이 정상인데도
+  // .md 링크를 풀지 못했다고 보고하므로, 여기서는 경고만 남기고 판정은 검수기가 합니다.
+  onBrokenLinks: 'warn',
   onBrokenAnchors: 'warn',
 
   markdown: {

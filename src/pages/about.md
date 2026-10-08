@@ -8,7 +8,7 @@ hide_table_of_contents: true
 ![About Me](/img/hero/about.svg)
 # About Me
 
-<Intro photo="/img/profile-placeholder.svg" alt="소윤">
+<Intro photo="/img/profile.jpg" alt="소윤">
 
 문예창작과 컴퓨터과학을 차례로 전공한 국문·영문 테크니컬 라이터입니다. 한국에서 자랐고, 한국과 미국에서 각각 학위를 마쳤습니다. 두 언어 모두 번역을 거치지 않고 각 언어로 직접 씁니다.
 

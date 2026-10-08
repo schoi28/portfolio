@@ -1,47 +1,83 @@
 # 경고 등급 체계
-# 등급을 남용하면 독자가 전부 무시한다. 아래 기준에 맞을 때만 사용한다.
-# Docusaurus의 :::danger / :::warning / :::caution / :::note 에 대응한다.
+#
+# 이 파일은 scripts/check-docs.mjs 가 읽어 안내 상자 사용을 검사합니다.
+# 등급을 남용하면 독자가 전부 무시합니다. 아래 기준에 맞을 때만 사용합니다.
+#
+# Docusaurus 매핑에 주의가 필요합니다.
+# Docusaurus 3에서 :::caution 은 :::warning 의 별칭이라 색이 같습니다.
+# 네 등급이 눈으로 구분되도록 '주의'만 info 타입에 올리고 제목을 붙입니다.
 
 levels:
   danger:
     label_ko: 위험
     label_en: Danger
-    criterion: 지키지 않으면 사람이 다칠 수 있다.
+    syntax: ":::danger[위험]"
+    syntax_en: ":::danger[Danger]"
+    criterion: 피하지 않으면 사망이나 중상에 이르는 급박한 위험
+    scope: 레이저 광원, 에어백 전개 경로, 화재, 움직이는 차량
     used_in: [HW]
     examples:
-      - 라이다 창을 들여다보지 마십시오. 시력이 손상될 수 있습니다.
-      - 전원이 인가된 상태에서 커넥터를 분리하지 마십시오.
+      - 확대 광학 기기로 광학창을 들여다보지 마십시오. 실명에 이를 수 있습니다.
+      - 전기가 흐르는 상태에서 작업하면 단락으로 화재가 발생할 수 있습니다.
     rule: 해당 작업 단계 바로 앞에 배치한다. 문서 앞에 몰아 쓰지 않는다.
 
   warning:
     label_ko: 경고
     label_en: Warning
-    criterion: 지키지 않으면 장비가 손상되거나 되돌릴 수 없다.
+    syntax: ":::warning[경고]"
+    syntax_en: ":::warning[Warning]"
+    criterion: 피하지 않으면 상해, 중대한 데이터 손실, 되돌릴 수 없는 장비 손상
+    scope: 12V 전기 작업, 하네스 손상, 긴급 중단, 데이터 삭제
     used_in: [HW, B2B, B2C]
     examples:
-      - 롤백은 이미 설치를 완료한 차량에는 적용되지 않습니다.
-      - 업데이트 중 시동을 끄면 설치가 중단됩니다.
+      - 긴급 중단한 캠페인은 재개할 수 없습니다.
+      - 모듈을 교체하면 이전 캘리브레이션 값은 무효입니다.
     rule: 되돌릴 수 없는 동작에는 반드시 붙인다.
 
   caution:
     label_ko: 주의
     label_en: Caution
-    criterion: 지키지 않으면 작업이 실패하거나 결과가 부정확해진다.
-    used_in: [HW, B2B, API]
+    syntax: ":::info[주의]"
+    syntax_en: ":::info[Caution]"
+    criterion: 피하지 않으면 경미한 상해, 복구 가능한 오류, 데이터 품질 저하
+    scope: 허용 오차 이탈, 조건 설정 실수, 재작업이 필요한 상황
+    used_in: [HW, B2B, B2C, API]
     examples:
-      - 타깃 보드가 기울면 캘리브레이션 결과가 부정확해집니다.
+      - 타이어 공기압이 규정과 다르면 결과가 부정확해집니다.
       - 토큰 만료 전에 갱신하지 않으면 진행 중인 요청이 실패합니다.
 
   note:
     label_ko: 참고
     label_en: Note
-    criterion: 알아두면 좋지만 몰라도 작업은 끝난다.
+    syntax: ":::note[참고]"
+    syntax_en: ":::note[Note]"
+    criterion: 위험 상황이 아니며, 알아 두면 결과가 나아지는 정보
     used_in: [전체]
+    max_per_page: 3
     rule: 한 페이지에 3개를 넘기지 않는다. 넘으면 본문으로 옮긴다.
 
-# 세트별 사용 비중 (설계 의도)
-usage_by_doc_set:
-  B2C: 경고와 참고 위주. 위험은 쓰지 않는다. 사용자는 하드웨어를 직접 만지지 않는다.
-  B2B: 경고와 주의 위주. 배포는 되돌리기 어려운 동작이 많다.
-  API: 주의 위주. 개발자는 재시도할 수 있으므로 강한 등급이 필요 없다.
-  HW: 네 등급 모두 사용. 유일하게 신체 위험이 있는 문서다.
+placement:
+  # 소윤이 반복해서 지적한 항목이다. 검사기가 번호 목록 위치로 판정한다.
+  rule: 수행 전에 알아야 할 내용은 그 절의 첫 단계 앞에 둔다.
+  exception: 수행 후에 지켜야 할 내용(경화 대기, 교체 후 재보정)은 절차 뒤에 둔다.
+
+doc_set_scope:
+  # 세트별로 허용하는 최고 등급. 검사기가 이 목록으로 과잉 사용을 잡는다.
+  B2C:
+    allowed: [warning, caution, note]
+    note: 사용자는 하드웨어를 직접 만지지 않으므로 '위험'을 쓰지 않는다.
+  B2B:
+    allowed: [warning, caution, note]
+    note: 배포는 되돌리기 어려운 동작이 많아 '경고'가 많다. 신체 위험은 없다.
+  API:
+    allowed: [warning, caution, note]
+    note: 개발자는 재시도할 수 있으므로 '주의' 위주로 쓴다.
+  HW:
+    allowed: [danger, warning, caution, note]
+    note: 네 등급 모두 사용한다. 유일하게 신체 위험이 있는 문서다.
+
+doc_set_dirs:
+  app: B2C
+  deploy: B2B
+  api: API
+  sensor: HW

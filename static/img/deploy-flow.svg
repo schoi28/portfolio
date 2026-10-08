@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 280" width="760" height="280" role="img" aria-label="패키지 업로드부터 배포 완료까지의 전체 흐름">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, sans-serif; fill: #0f1419; }
+    .b { font-size: 13px; font-weight: 600; }
+    .s { font-size: 11px; fill: #6b7681; }
+    .e { font-size: 11.5px; fill: #3d4852; }
+    .w { font-size: 11.5px; font-weight: 700; fill: #9b3a34; }
+  </style>
+  <defs><marker id="m" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+    <path d="M0 0L8 4L0 8z" fill="#3d4852"/></marker>
+    <marker id="mr" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+    <path d="M0 0L8 4L0 8z" fill="#9b3a34"/></marker></defs>
+  <rect width="760" height="280" fill="#f5f7f8"/>
+  <rect x="30" y="28" width="160" height="56" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t b" x="110.0" y="53.0" text-anchor="middle" fill="#0f1419">패키지</text>
+  <text class="t s" x="110.0" y="71.0" text-anchor="middle">업로드</text>
+  <rect x="205" y="28" width="160" height="56" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t b" x="285.0" y="53.0" text-anchor="middle" fill="#0f1419">호환성 규칙</text>
+  <text class="t s" x="285.0" y="71.0" text-anchor="middle">정의</text>
+  <rect x="380" y="28" width="160" height="56" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t b" x="460.0" y="53.0" text-anchor="middle" fill="#0f1419">타깃 그룹</text>
+  <text class="t s" x="460.0" y="71.0" text-anchor="middle">생성</text>
+  <rect x="555" y="28" width="160" height="56" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t b" x="635.0" y="53.0" text-anchor="middle" fill="#0f1419">캠페인</text>
+  <text class="t s" x="635.0" y="71.0" text-anchor="middle">생성</text>
+  <path d="M190 56L201 56" stroke="#3d4852" stroke-width="2" marker-end="url(#m)" fill="none"/>
+  <path d="M365 56L376 56" stroke="#3d4852" stroke-width="2" marker-end="url(#m)" fill="none"/>
+  <path d="M540 56L551 56" stroke="#3d4852" stroke-width="2" marker-end="url(#m)" fill="none"/>
+  <path d="M635 84V110H60" fill="none" stroke="#3d4852" stroke-width="2"/>
+  <path d="M60 110L60 134" stroke="#3d4852" stroke-width="2" marker-end="url(#m)" fill="none"/>
+  <rect x="30" y="138" width="160" height="52" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t b" x="110.0" y="169.0" text-anchor="middle" fill="#0f1419">1단계 배포</text>
+  <rect x="205" y="138" width="160" height="52" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t b" x="285.0" y="169.0" text-anchor="middle" fill="#0f1419">게이트 판정</text>
+  <rect x="380" y="138" width="160" height="52" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t b" x="460.0" y="169.0" text-anchor="middle" fill="#0f1419">2단계 배포</text>
+  <rect x="555" y="138" width="160" height="52" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t b" x="635.0" y="169.0" text-anchor="middle" fill="#0f1419">완료</text>
+  <path d="M190 164L201 164" stroke="#3d4852" stroke-width="2" marker-end="url(#m)" fill="none"/>
+  <path d="M365 164L376 164" stroke="#3d4852" stroke-width="2" marker-end="url(#m)" fill="none"/>
+  <path d="M540 164L551 164" stroke="#3d4852" stroke-width="2" marker-end="url(#m)" fill="none"/>
+  <path d="M285 190L285 224" stroke="#9b3a34" stroke-width="2" marker-end="url(#mr)" fill="none"/>
+  <text class="t w" x="300" y="212" text-anchor="start">실패</text>
+  <rect x="205" y="228" width="160" height="44" fill="#ffffff" stroke="#9b3a34" stroke-width="2"/>
+  <text class="t b" x="285.0" y="255.0" text-anchor="middle" fill="#0f1419">일시 중지 / 롤백</text>
+</svg>

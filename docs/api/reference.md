@@ -16,11 +16,11 @@ sidebar_label: 9. 레퍼런스 찾아보기
 
 | 시그널 | 설명 | 단위 | 갱신 주기 | 보고 존 |
 | --- | --- | --- | --- | --- |
-| `vehicle.odometer` | 누적 주행 거리 | km | 변경 시 | — (CCU 집계) |
-| `vehicle.speed` | 현재 속도 | km/h | 100ms | — (CCU 집계) |
-| `vehicle.gear` | 현재 기어 위치 | enum: `p`\|`r`\|`n`\|`d` | 변경 시 | — (CCU 집계) |
-| `vehicle.ignition_state` | 시동 상태 | enum: `off`\|`accessory`\|`on` | 변경 시 | — (CCU 집계) |
-| `vehicle.parked` | 주차 여부 (기어 P + 속도 0) | boolean | 변경 시 | — (CCU 집계) |
+| `vehicle.odometer` | 누적 주행 거리 | km | 변경 시 | 해당 없음 (CCU 집계) |
+| `vehicle.speed` | 현재 속도 | km/h | 100ms | 해당 없음 (CCU 집계) |
+| `vehicle.gear` | 현재 기어 위치 | enum: `p`\|`r`\|`n`\|`d` | 변경 시 | 해당 없음 (CCU 집계) |
+| `vehicle.ignition_state` | 시동 상태 | enum: `off`\|`accessory`\|`on` | 변경 시 | 해당 없음 (CCU 집계) |
+| `vehicle.parked` | 주차 여부 (기어 P + 속도 0) | boolean | 변경 시 | 해당 없음 (CCU 집계) |
 | `vehicle.location` | GPS 좌표 | `{lat, lon}` | 5s (주행 중) | front |
 
 ### 바디
@@ -64,7 +64,7 @@ curl https://api.vela.example.com/v1/signals/catalog \
 ```
 
 :::note[참고]
-`보고 존`이 여러 개인 시그널(예: `body.tire_pressure`)은 존별로 개별 측정값을 가지며, 응답에 `zone` 필드가 함께 반환됩니다. `— (CCU 집계)`로 표시된 시그널은 여러 존의 데이터를 CCU가 종합한 값으로, 특정 존에 속하지 않습니다.
+`보고 존`이 여러 개인 시그널(예: `body.tire_pressure`)은 존별로 개별 측정값을 가지며, 응답에 `zone` 필드가 함께 반환됩니다. `해당 없음 (CCU 집계)`로 표시된 시그널은 여러 존의 데이터를 CCU가 종합한 값으로, 특정 존에 속하지 않습니다.
 :::
 
 ## 에러 코드
@@ -141,7 +141,7 @@ curl "https://api.vela.example.com/v1/vehicles?limit=50&page=eyJvZmZzZXQiOjUwfQ=
   -H "Authorization: Bearer $VELA_ACCESS_TOKEN"
 ```
 
-`next_page`가 `null`이면 마지막 페이지입니다. 페이지 번호를 직접 계산하지 말고 반환된 커서를 그대로 사용하십시오 — 조회 중 데이터가 추가되어도 순서가 어긋나지 않습니다.
+`next_page`가 `null`이면 마지막 페이지입니다. 페이지 번호를 직접 계산하지 말고 반환된 커서를 그대로 사용하십시오. 그래야 조회 중 데이터가 추가되어도 순서가 어긋나지 않습니다.
 
 | 파라미터 | 기본값 | 최대값 |
 | --- | --- | --- |
@@ -153,7 +153,7 @@ curl "https://api.vela.example.com/v1/vehicles?limit=50&page=eyJvZmZzZXQiOjUwfQ=
 | --- | --- | --- |
 | 2026-08-15 | `sensor.calibration_state_changed` 웹훅 이벤트 추가 | 호환됨 |
 | 2026-07-01 | 시그널 카탈로그에 `body.lights.exterior` 추가 | 호환됨 |
-| 2026-05-10 | 캠페인 생성 시 `target_type` 필드 필수화 | **호환 깨짐** — v1 릴리스 시점부터 필수 |
-| 2026-03-01 | `v1` 최초 릴리스 | — |
+| 2026-05-10 | 캠페인 생성 시 `target_type` 필드 필수화 | **호환 깨짐**. v1 릴리스 시점부터 필수 |
+| 2026-03-01 | `v1` 최초 릴리스 | 없음 |
 
 `v1`은 현재 유일한 지원 버전입니다. 하위 호환을 깨는 변경이 발생하면 이 표와 [1장 · 버전 정책](./overview.md#버전-정책)에 먼저 반영합니다.

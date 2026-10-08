@@ -1,24 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 210" width="640" height="210" role="img" aria-label="소프트웨어 업데이트가 진행되는 상태 흐름">
-<rect width="640" height="210" fill="#f5f7f8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 164" width="640" height="164" role="img" aria-label="소프트웨어 업데이트가 진행되는 상태 흐름">
+<rect width="640" height="164" fill="#f5f7f8"/>
 <rect x="20" y="40" width="110" height="56" fill="#ffffff" stroke="#dfe3e8"/>
-<text x="75" y="66" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="12" fill="#0f1419" text-anchor="middle">업데이트</text>
-<text x="75" y="83" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="12" fill="#0f1419" text-anchor="middle">알림</text>
+<text x="75" y="66" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419" text-anchor="middle">업데이트</text>
+<text x="75" y="83" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419" text-anchor="middle">알림</text>
 <rect x="152" y="40" width="110" height="56" fill="#ffffff" stroke="#dfe3e8"/>
-<text x="207" y="73" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="12" fill="#0f1419" text-anchor="middle">다운로드</text>
+<text x="207" y="73" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419" text-anchor="middle">다운로드</text>
 <rect x="284" y="40" width="110" height="56" fill="#f5f7f8" stroke="#b9c0c8"/>
-<text x="339" y="66" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="12" fill="#3d4852" text-anchor="middle">설치 대기</text>
-<text x="339" y="83" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="10" fill="#3d4852" text-anchor="middle">주차 상태 필요</text>
+<text x="339" y="66" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#3d4852" text-anchor="middle">설치 대기</text>
+<text x="339" y="83" font-family="'Pretendard', -apple-system, sans-serif" font-size="11" fill="#3d4852" text-anchor="middle">주차 상태 필요</text>
 <rect x="416" y="40" width="110" height="56" fill="#ffffff" stroke="#dfe3e8"/>
-<text x="471" y="73" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="12" fill="#0f1419" text-anchor="middle">설치 중</text>
+<text x="471" y="73" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419" text-anchor="middle">설치 중</text>
 <rect x="548" y="40" width="72" height="56" fill="#e7ecf1" stroke="#1f3a5f"/>
-<text x="584" y="73" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="12" fill="#1f3a5f" text-anchor="middle">완료</text>
-<line x1="130" y1="68" x2="148" y2="68" stroke="#6b7681" stroke-width="1.5"/>
-<line x1="262" y1="68" x2="280" y2="68" stroke="#6b7681" stroke-width="1.5"/>
-<line x1="394" y1="68" x2="412" y2="68" stroke="#6b7681" stroke-width="1.5"/>
-<line x1="526" y1="68" x2="544" y2="68" stroke="#6b7681" stroke-width="1.5"/>
+<text x="584" y="73" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#1f3a5f" text-anchor="middle">완료</text>
+<line x1="130" y1="68" x2="148" y2="68" stroke="#6b7681" stroke-width="2"/>
+<line x1="262" y1="68" x2="280" y2="68" stroke="#6b7681" stroke-width="2"/>
+<line x1="394" y1="68" x2="412" y2="68" stroke="#6b7681" stroke-width="2"/>
+<line x1="526" y1="68" x2="544" y2="68" stroke="#6b7681" stroke-width="2"/>
 <rect x="416" y="132" width="110" height="48" fill="#f6eded" stroke="#9b3a34"/>
-<text x="471" y="161" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="12" fill="#7a2d28" text-anchor="middle">자동 복구</text>
-<line x1="471" y1="96" x2="471" y2="128" stroke="#9b3a34" stroke-width="1.5" stroke-dasharray="4 3"/>
-<text x="486" y="118" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="10" fill="#9b3a34">설치 실패 시</text>
-<text x="320" y="200" font-family="'Pretendard', -apple-system, 'Segoe UI', sans-serif" font-size="11" fill="#6b7681" text-anchor="middle">다운로드는 주행 중에도 진행되며, 설치만 주차 상태를 요구합니다</text>
+<text x="471" y="161" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#7a2d28" text-anchor="middle">자동 복구</text>
+<line x1="471" y1="96" x2="471" y2="128" stroke="#9b3a34" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="486" y="118" font-family="'Pretendard', -apple-system, sans-serif" font-size="11" fill="#9b3a34">설치 실패 시</text>
 </svg>
