@@ -1,13 +1,14 @@
 ---
-title: 원격 명령
-sidebar_label: 5. 원격 명령
+title: 원격 명령 보내기
+doc_type: 개념 + 절차
+sidebar_label: 5. 원격 명령 보내기
 ---
 
-# 원격 명령
+# 원격 명령 보내기
 
 차량에 지시를 내리는 API입니다. `write:commands` 스코프가 필요합니다. VELA Drive의 원격 제어 기능도 내부적으로 이 API를 사용합니다.
 
-## 명령 전송
+## 명령 보내기
 
 ```bash
 curl -X POST https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands \
@@ -42,10 +43,10 @@ curl -X POST https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands \
 | `stop_charging` | 없음 | rear | 충전 중지 |
 | `schedule_charging` | `start_time`, `target_soc` | rear | 예약 충전 설정 |
 | `locate` | `alert` (boolean) | front, rear | 위치 조회. `alert: true`면 경적·비상등 |
-| `share_key` | `recipient_email`, `permissions` | — (VELA Cloud 처리) | 디지털 키 공유 |
-| `revoke_key` | `key_id` | — (VELA Cloud 처리) | 디지털 키 회수 |
+| `share_key` | `recipient_email`, `permissions` | 해당 없음 (VELA Cloud 처리) | 디지털 키 공유 |
+| `revoke_key` | `key_id` | 해당 없음 (VELA Cloud 처리) | 디지털 키 회수 |
 
-`대상 존`은 명령이 실제로 어느 존 ECU까지 전달되는지를 나타냅니다. `— (VELA Cloud 처리)`로 표시된 명령은 차량이 아니라 VELA Cloud의 계정 시스템에서 처리됩니다.
+`대상 존`은 명령이 실제로 어느 존 ECU까지 전달되는지를 나타냅니다. `해당 없음 (VELA Cloud 처리)`로 표시된 명령은 차량이 아니라 VELA Cloud의 계정 시스템에서 처리됩니다.
 
 ## 명령별 사전 조건
 
@@ -55,10 +56,10 @@ curl -X POST https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands \
 | --- | --- | --- |
 | 모든 명령 공통 | 차량이 통신 가능 상태 | `vehicle.location` 최신값의 `stale` |
 | 모든 명령 공통 | 12V 보조 배터리 20% 이상 | `powertrain.aux_battery_soc` |
-| `unlock_doors`, `lock_doors` | 없음 | — |
+| `unlock_doors`, `lock_doors` | 없음 | 없음 |
 | `set_climate` | 시동 꺼짐 또는 주차 상태 | `vehicle.parked` |
 | `start_charging` | 충전 케이블 연결됨 | `battery.charging_state` != `idle`이면 이미 연결됨 |
-| `share_key` | 요청자가 차량 소유자 또는 관리자 권한 | — (계정 권한으로 판단) |
+| `share_key` | 요청자가 차량 소유자 또는 관리자 권한 | 해당 없음 (계정 권한으로 판단) |
 
 사전 조건을 만족하지 않고 명령을 보내면 즉시 `422 precondition_failed`가 반환됩니다. 이 경우 차량에 명령이 전달되지 않으므로 재시도 전에 원인을 해결해야 합니다.
 
@@ -73,7 +74,7 @@ curl -X POST https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands \
 }
 ```
 
-## 비동기 결과 처리
+## 비동기 결과 처리하기
 
 명령이 접수된 뒤 실제 실행 결과는 세 가지 방법으로 확인할 수 있습니다.
 
@@ -106,11 +107,11 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands/{command_id}
 
 ### 방법 2: 웹훅
 
-`command.completed` 이벤트를 구독하면 상태가 바뀔 때 VELA Cloud가 지정한 URL로 알려줍니다. 설정 방법은 [웹훅](./webhooks.md)을 참고하십시오.
+`command.completed` 이벤트를 구독하면 상태가 바뀔 때 VELA Cloud가 지정한 URL로 알려줍니다. 설정 방법은 [웹훅으로 이벤트 받기](./webhooks.md)을 참고하십시오.
 
 ### 방법 3: SDK의 `wait()`
 
-[퀵스타트](./quickstart.md#python-sdk)에서 소개한 Python SDK는 폴링을 감싼 `wait()`를 제공합니다. 소량의 명령을 다루는 스크립트에 적합합니다.
+[퀵스타트](./quickstart.md#python-sdk로-호출하기)에서 소개한 Python SDK는 폴링을 감싼 `wait()`를 제공합니다. 소량의 명령을 다루는 스크립트에 적합합니다.
 
 ## 타임아웃과 재시도 정책
 
@@ -121,5 +122,5 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands/{command_id}
 
 ## 다음 단계
 
-- 명령이 실제 차량에서 어떻게 전달되는지는 [아키텍처 개요](./intro.md#아키텍처-상의-위치)를 참고하십시오.
-- 소프트웨어 자체를 원격으로 갱신하려면 [OTA](./ota.md)를 참고하십시오.
+- 명령이 실제 차량에서 어떻게 전달되는지는 [아키텍처 상의 위치](./overview.md#시스템-안에서-맡는-자리)를 참고하십시오.
+- 소프트웨어 자체를 원격으로 갱신하려면 [OTA 배포 제어하기](./ota.md)를 참고하십시오.

@@ -1,34 +1,25 @@
 ---
-title: About
-description: 소윤 · 영·한 테크니컬 라이터
+title: About Me
+description: 문예창작과 컴퓨터과학을 차례로 전공한 국문·영문 테크니컬 라이터입니다.
+slug: /
+hide_table_of_contents: true
 ---
 
-# About
+![About Me](/img/hero/about.svg)
+# About Me
 
-영어와 한국어로 기술 문서를 쓰는 테크니컬 라이터입니다. 소프트웨어 회사에서 제품 문서를 담당하고 있습니다.
+<Intro photo="/img/profile.jpg" alt="소윤">
 
-컴퓨터공학을 전공했습니다. 그래서 문서를 쓰는 일만큼 **문서가 유지되는 구조를 만드는 일**을 제 일로 봅니다. 문서 빌드와 검수를 자동화하는 도구를 직접 만들어 실무에 쓰고 있습니다.
+문예창작과 컴퓨터과학을 차례로 전공한 국문·영문 테크니컬 라이터입니다. 한국에서 자랐고, 한국과 미국에서 각각 학위를 마쳤습니다. 두 언어 모두 번역을 거치지 않고 각 언어로 직접 씁니다.
 
-## 하는 일
+문서를 0에서 1로 만드는 일에 특화되어 있습니다. 동료와 유관 부서에 먼저 묻고 문서가 필요한 지점을 찾아, 이해하기 쉽고 실제로 쓰이는 문서를 기획해 완성하는 데 중점을 둡니다. 무엇이든 배울 의지가 있습니다.
 
-- 하드웨어·소프트웨어·API 문서 기획과 작성 (한국어·영어)
-- 정보 구조 설계와 문서 유형 체계 정의
-- 용어집·스타일 가이드 수립과 운영
-- 문서 검수·번역 검토 자동화
+</Intro>
 
-## 도구
+실제로 어떤 일을 어떻게 해왔는지는 [Portfolio](/projects)에 정리했습니다. 가상 제품군 VELA를 가정해 쓴 여러 유형의 문서를 보고 싶으시면 [Sample Docs](/samples)를, 시간이 많지 않으시면 [Resume](/resume)의 경력 요약을 보십시오.
 
-| 분류 | 도구 |
-| --- | --- |
-| 문서 | Markdown, MDX, Docusaurus, OpenAPI |
-| 협업 | Git, GitHub, GitHub Actions |
-| 자동화 | Python, Claude |
-| 기타 | Figma, PDF 파이프라인 |
-
-## 연락
-
-- 이메일: [soyoon9428@gmail.com](mailto:soyoon9428@gmail.com)
-- 이력서: 국문 · 영문 (준비 중)
-
-<!-- 작성 메모: 사진과 총 경력 연차는 의도적으로 넣지 않았습니다.
-     대신 무엇을 할 수 있는지로 판단받는 구성입니다. 지우지 말고 유지하세요. -->
+<CtaRow>
+  <Cta to="/projects">Portfolio 보기</Cta>
+  <Cta to="/samples" variant="ghost">문서 샘플 읽기</Cta>
+  <Cta to="/contact" variant="ghost">연락하기</Cta>
+</CtaRow>

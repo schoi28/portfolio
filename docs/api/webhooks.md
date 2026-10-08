@@ -1,9 +1,10 @@
 ---
-title: 웹훅
-sidebar_label: 8. 웹훅
+title: 웹훅으로 이벤트 받기
+doc_type: 개념 + 절차
+sidebar_label: 8. 웹훅으로 이벤트 받기
 ---
 
-# 웹훅
+# 웹훅으로 이벤트 받기
 
 명령 실행 결과나 배포 상태 변화를 폴링하지 않고 받으려면 웹훅을 사용합니다. `manage:webhooks` 스코프가 필요합니다.
 
@@ -35,12 +36,12 @@ curl -X POST https://api.vela.example.com/v1/webhooks \
 
 | 이벤트 | 발생 시점 | 관련 장 |
 | --- | --- | --- |
-| `command.completed` | 원격 명령이 `succeeded`, `failed`, `timed_out` 중 하나로 종료됨 | [원격 명령](./remote-commands.md) |
-| `vehicle.connectivity_changed` | 차량의 통신 상태가 바뀜 (연결됨 ↔ 끊김) | [차량 데이터](./vehicle-data.md) |
-| `sensor.status_changed` | 센서 상태가 `ok`에서 `degraded`·`fault`로, 또는 그 반대로 바뀜 | [센서](./sensors.md) |
-| `sensor.calibration_state_changed` | 캘리브레이션 상태가 바뀜 (`valid` → `stale` 등) | [센서](./sensors.md) |
-| `campaign.stage_changed` | 캠페인이 다음 롤아웃 단계로 진행하거나 게이트에 의해 일시 중지됨 | [OTA](./ota.md) |
-| `campaign.vehicle_failed` | 특정 차량에서 설치가 실패함 | [OTA](./ota.md) |
+| `command.completed` | 원격 명령이 `succeeded`, `failed`, `timed_out` 중 하나로 종료됨 | [원격 명령 보내기](./remote-commands.md) |
+| `vehicle.connectivity_changed` | 차량의 통신 상태가 바뀜 (연결됨 ↔ 끊김) | [차량 데이터 조회하기](./vehicle-data.md) |
+| `sensor.status_changed` | 센서 상태가 `ok`에서 `degraded`·`fault`로, 또는 그 반대로 바뀜 | [센서 상태 조회하기](./sensors.md) |
+| `sensor.calibration_state_changed` | 캘리브레이션 상태가 바뀜 (`valid` → `stale` 등) | [센서 상태 조회하기](./sensors.md) |
+| `campaign.stage_changed` | 캠페인이 다음 롤아웃 단계로 진행하거나 게이트에 의해 일시 중지됨 | [OTA 배포 제어하기](./ota.md) |
+| `campaign.vehicle_failed` | 특정 차량에서 설치가 실패함 | [OTA 배포 제어하기](./ota.md) |
 
 ## 페이로드 예시
 
@@ -58,7 +59,7 @@ curl -X POST https://api.vela.example.com/v1/webhooks \
 }
 ```
 
-## 서명 검증
+## 서명 검증하기
 
 요청이 실제로 VELA Cloud에서 왔는지 확인하려면 `X-Vela-Signature` 헤더를 검증해야 합니다. 검증 없이 페이로드를 신뢰하지 마십시오.
 
@@ -84,10 +85,10 @@ def verify_signature(payload_body: bytes, signature_header: str, signing_secret:
 - 5회 모두 실패하면 이벤트는 폐기됩니다. 웹훅으로만 상태를 추적하지 말고, 중요한 판단에는 [상태 조회 API](./remote-commands.md#방법-1-폴링)로 한 번 더 확인하는 것을 권장합니다.
 - 수신 서버는 10초 안에 응답해야 합니다. 처리가 오래 걸리는 작업은 응답 후 비동기로 수행하십시오.
 
-:::caution
+:::info[주의]
 같은 이벤트가 두 번 이상 전송될 수 있습니다. 페이로드의 `command_id` 또는 그에 준하는 식별자로 중복 처리를 방지하십시오.
 :::
 
 ## 다음 단계
 
-- 에러 코드와 요청 제한의 전체 목록은 [레퍼런스](./reference.md)를 참고하십시오.
+- 에러 코드와 요청 제한의 전체 목록은 [레퍼런스 찾아보기](./reference.md)를 참고하십시오.

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 496" width="900" height="496"
+     role="img" aria-label="VELA Vehicle API가 시스템 전체에서 담당하는 구간">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, sans-serif; fill: #0f1419; }
+    .zone { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+    .box { font-size: 13px; font-weight: 600; }
+    .sub { font-size: 11px; fill: #6b7681; }
+    .edge { font-size: 11.5px; fill: #3d4852; }
+    .scope { font-size: 11.5px; font-weight: 700; fill: #1f3a5f; }
+  </style>
+  <defs>
+    <marker id="a2" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="496" fill="#f5f7f8"/>
+
+  <!-- 애플리케이션 계층 -->
+  <rect x="40" y="36" width="620" height="92" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t zone" x="60" y="62">API를 사용하는 쪽</text>
+  <rect x="62" y="74" width="180" height="38" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t box" x="152" y="98" text-anchor="middle">OEM 자체 시스템</text>
+  <rect x="258" y="74" width="180" height="38" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t box" x="348" y="98" text-anchor="middle">VELA Drive 앱</text>
+  <rect x="454" y="74" width="184" height="38" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t box" x="546" y="98" text-anchor="middle">서드파티 연동</text>
+
+  <!-- 본 API 경계 -->
+  <path d="M350 128V162" stroke="#1f3a5f" stroke-width="2" marker-end="url(#a2)" fill="none"/>
+  <rect x="236" y="166" width="228" height="34" fill="#1f3a5f"/>
+  <text class="t box" x="350" y="189" text-anchor="middle" fill="#ffffff">VELA Vehicle API (REST)</text>
+  <path d="M350 200V234" stroke="#1f3a5f" stroke-width="2" marker-end="url(#a2)" fill="none"/>
+
+  <!-- 클라우드 -->
+  <rect x="40" y="238" width="620" height="74" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t zone" x="60" y="266">VELA Cloud</text>
+
+  <!-- 셀룰러 -->
+  <path d="M350 312V356" stroke="#3d4852" stroke-width="2" marker-end="url(#a2)" fill="none"/>
+  <text class="t edge" x="364" y="338">셀룰러 · mTLS · 연결이 끊길 수 있음</text>
+
+  <!-- 차량 -->
+  <rect x="40" y="360" width="620" height="124" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t zone" x="60" y="386">차량</text>
+  <rect x="62" y="398" width="240" height="38" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t box" x="182" y="422" text-anchor="middle">중앙 연산 장치 (CCU)</text>
+  <text class="t sub" x="182" y="456" text-anchor="middle">VELA OS 구동</text>
+  <path d="M302 417H356" stroke="#3d4852" stroke-width="2" marker-end="url(#a2)" fill="none"/>
+  <text class="t sub" x="329" y="408" text-anchor="middle">이더넷</text>
+  <rect x="360" y="398" width="130" height="38" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t box" x="425" y="422" text-anchor="middle">존 ECU</text>
+  <rect x="506" y="398" width="132" height="38" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t box" x="572" y="422" text-anchor="middle">VELA Sense</text>
+  <path d="M490 417H502" stroke="#3d4852" stroke-width="2"/>
+
+  <!-- 범위 표시 -->
+  <path d="M690 36H714V312H690" fill="none" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t scope" x="726" y="166">이 문서가</text>
+  <text class="t scope" x="726" y="184">다루는 범위</text>
+
+  <path d="M690 360H714V484H690" fill="none" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t sub" x="726" y="416">VELA OS가 처리</text>
+  <text class="t sub" x="726" y="434">(이 API 범위 밖)</text>
+</svg>

@@ -1,0 +1,22 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.samplesSidebar.category.VELA Drive 앱": {
+    "message": "VELA Drive App",
+    "description": "The label for category 'VELA Drive 앱' in sidebar 'samplesSidebar'"
+  },
+  "sidebar.samplesSidebar.category.VELA Vehicle API": {
+    "message": "VELA Vehicle API",
+    "description": "The label for category 'VELA Vehicle API' in sidebar 'samplesSidebar'"
+  },
+  "sidebar.samplesSidebar.category.VELA Deploy": {
+    "message": "VELA Deploy",
+    "description": "The label for category 'VELA Deploy' in sidebar 'samplesSidebar'"
+  },
+  "sidebar.samplesSidebar.category.VELA Sense": {
+    "message": "VELA Sense",
+    "description": "The label for category 'VELA Sense' in sidebar 'samplesSidebar'"
+  }
+}

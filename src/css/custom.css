@@ -1,64 +1,810 @@
-/* 사이트 전역 스타일. 절제된 톤을 기본으로 합니다. */
+/* ═══════════════════════════════════════════════════════════════
+   소윤 · Technical Writer
+
+   디자인 방향
+   - 차갑고 정밀한 인상. 기술 문서를 다루는 사람의 사이트답게.
+   - 따뜻한 요소(세리프, 크림색, 둥근 모서리)를 쓰지 않는다.
+   - 색은 거의 쓰지 않는다. 구조와 여백, 선의 굵기로 위계를 만든다.
+   - 상단과 하단을 어두운 띠로 닫아 본문을 하나의 문서처럼 보이게 한다.
+   ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  --ifm-color-primary: #2b6f5e;
-  --ifm-color-primary-dark: #27644f;
-  --ifm-color-primary-darker: #235a4a;
-  --ifm-color-primary-darkest: #1c4a3c;
-  --ifm-color-primary-light: #327f6b;
-  --ifm-color-primary-lighter: #388a74;
-  --ifm-color-primary-lightest: #43a186;
+  /* ── 색: 차가운 무채색 한 벌 ─────────────────────────────── */
+  --c-ink: #0f1419;
+  --c-ink-soft: #3d4852;
+  --c-muted: #6b7681;
+  --c-line: #dfe3e8;
+  --c-line-strong: #b9c0c8;
+  --c-surface: #f5f7f8;
+  --c-white: #ffffff;
+  --c-accent: #1f3a5f;
 
-  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-    'Pretendard', 'Noto Sans KR', 'Segoe UI', Roboto, sans-serif;
-  --ifm-font-size-base: 16px;
-  --ifm-line-height-base: 1.7;
+  --ifm-color-primary: var(--c-accent);
+  --ifm-color-primary-dark: #1b3354;
+  --ifm-color-primary-darker: #182e4c;
+  --ifm-color-primary-darkest: #13253d;
+  --ifm-color-primary-light: #26456f;
+  --ifm-color-primary-lighter: #2a4c7a;
+  --ifm-color-primary-lightest: #345d93;
+
+  --ifm-background-color: var(--c-white);
+  --ifm-font-color-base: var(--c-ink);
+  --ifm-heading-color: var(--c-ink);
+
+  /* ── 타이포: 전부 산세리프. 좁은 자간, 명확한 굵기 차이 ──── */
+  --ifm-font-family-base: 'Pretendard Variable', Pretendard, -apple-system,
+    BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Segoe UI',
+    Roboto, sans-serif;
+  --ifm-font-family-monospace: 'SF Mono', ui-monospace, 'JetBrains Mono',
+    Menlo, Consolas, monospace;
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --ifm-font-size-base: 15.5px;
+  --ifm-line-height-base: 1.78;
   --ifm-heading-font-weight: 600;
-  --ifm-navbar-shadow: none;
-  --ifm-navbar-item-padding-horizontal: 0.8rem;
-  --ifm-code-font-size: 90%;
+  --ifm-heading-line-height: 1.35;
 
-  --site-border: #e6e4de;
-  --site-surface: #faf9f7;
-  --site-muted: #6b6a66;
+  --ifm-global-radius: 0px;
+  --ifm-code-font-size: 86%;
+  --ifm-code-border-radius: 2px;
+  --ifm-table-cell-padding: 0.72rem 1rem;
+  --ifm-alert-border-radius: 0px;
+  --ifm-alert-border-left-width: 2px;
+  --ifm-alert-border-width: 0;
+  --ifm-navbar-height: 4rem;
+  --ifm-navbar-padding-horizontal: 1.75rem;
+
+  /* ── 상하 띠 ──────────────────────────────────────────────── */
+  --ifm-navbar-background-color: var(--c-ink);
+  --ifm-navbar-link-color: rgba(255, 255, 255, 0.66);
+  --ifm-navbar-link-hover-color: #ffffff;
+  --ifm-footer-background-color: var(--c-ink);
+  --ifm-footer-color: rgba(255, 255, 255, 0.6);
+  --ifm-footer-link-color: rgba(255, 255, 255, 0.66);
+  --ifm-footer-link-hover-color: #ffffff;
+
+  --site-measure: 42rem;
+  --site-measure-wide: 100%;
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #5dcaa5;
-  --ifm-color-primary-dark: #45c098;
-  --ifm-color-primary-darker: #3ab690;
-  --ifm-color-primary-darkest: #2f9576;
-  --ifm-color-primary-light: #75d4b2;
-  --ifm-color-primary-lighter: #82d8ba;
-  --ifm-color-primary-lightest: #a8e4ce;
+  --c-ink: #e8ecef;
+  --c-ink-soft: #b9c1c9;
+  --c-muted: #8b949e;
+  --c-line: #272c33;
+  --c-line-strong: #3a4149;
+  --c-surface: #16191d;
+  --c-white: #0d0f12;
+  --c-accent: #8fb3d9;
 
-  --site-border: #2f2f2d;
-  --site-surface: #1e1e1c;
-  --site-muted: #9b9a95;
+  --ifm-color-primary: var(--c-accent);
+  --ifm-background-color: var(--c-white);
+  --ifm-font-color-base: var(--c-ink);
+  --ifm-heading-color: var(--c-ink);
+  --ifm-navbar-background-color: #06080a;
+  --ifm-footer-background-color: #06080a;
 }
+
+/* ═══ 상단 ════════════════════════════════════════════════════ */
 
 .navbar {
-  border-bottom: 1px solid var(--site-border);
+  border-bottom: none;
+  box-shadow: none;
 }
 
-.footer--light {
-  background-color: var(--site-surface);
-  border-top: 1px solid var(--site-border);
+.navbar__inner {
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
-[data-theme='dark'] .footer--light {
-  background-color: var(--site-surface);
+.navbar__brand {
+  margin-right: 3rem;
 }
 
-/* 문서 안의 설계 노트 인용 블록 */
-.markdown blockquote {
-  border-left: 3px solid var(--ifm-color-primary);
-  background: var(--site-surface);
-  color: var(--site-muted);
-  font-size: 0.95rem;
+.navbar__title {
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
-.markdown table {
+.navbar__link {
+  font-size: 0.73rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  padding: 0.4rem 0;
+  margin: 0 0.95rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.12s linear, color 0.12s linear;
+}
+
+.navbar__link:hover {
+  border-bottom-color: rgba(255, 255, 255, 0.35);
+}
+
+.navbar__link--active {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.navbar__items--right {
+  font-size: 0.78rem;
+}
+
+.navbar-sidebar {
+  background: var(--c-ink);
+}
+
+/* ═══ 하단 ════════════════════════════════════════════════════ */
+
+.footer {
+  padding: 3rem 0 3.25rem;
+  font-size: 0.8rem;
+}
+
+.footer .col {
+  --ifm-col-width: 100%;
+  text-align: center;
+}
+
+.footer__items {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.footer__item {
+  margin: 0;
+}
+
+.footer__link-item {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.footer__copyright {
+  margin-top: 1.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+/* ═══ 페이지 머리 ═════════════════════════════════════════════ */
+/* 본문 첫 줄의 이미지를 가로로 꽉 찬 띠로 만듭니다.
+   헤더 이미지는 사이트 색상값으로 직접 그린 SVG입니다.
+   사진으로 교체할 경우 아래 filter 한 줄을 되살려 톤을 맞추십시오.
+   교체 파일: static/img/hero/ · 권장 1600 × 400 */
+
+:is(.markdown, [class*='mdxPageWrapper'] article) > p:first-child {
+  max-width: none;
+  margin: 0 0 3rem;
+  position: relative;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) > p:first-child > img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: clamp(118px, 15vw, 190px);
+  object-fit: cover;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  /* filter: grayscale(100%) contrast(1.08) brightness(0.98); */
+}
+
+/* 띠 아래로 얇은 경계선 */
+:is(.markdown, [class*='mdxPageWrapper'] article) > p:first-child::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--c-line);
+}
+
+/* ═══ 본문 ════════════════════════════════════════════════════ */
+
+:is(.markdown, [class*='mdxPageWrapper'] article) {
+  max-width: none;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) > h1 {
+  font-size: 2.15rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.22;
+  margin: 0 0 1.4rem;
+}
+
+/* 리드 문단 */
+:is(.markdown, [class*='mdxPageWrapper'] article) > h1 + p {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--c-muted);
+  max-width: var(--site-measure);
+  margin-bottom: 2.6rem;
+  padding-bottom: 2.6rem;
+  border-bottom: 1px solid var(--c-line);
+}
+
+/* 제목 단계는 굵기가 아니라 '무게'로 구분합니다.
+   h2는 두꺼운 선과 큰 글자, h3는 왼쪽 막대, h4는 작은 대문자 라벨. */
+
+:is(.markdown, [class*='mdxPageWrapper'] article) > h2 {
+  font-size: 1.62rem;
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1.3;
+  margin-top: 4.6rem;
+  margin-bottom: 1.6rem;
+  padding-top: 1.5rem;
+  border-top: 3px solid var(--c-ink);
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) > h3 {
+  font-size: 1.06rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-top: 3rem;
+  margin-bottom: 0.9rem;
+  padding-left: 0.72rem;
+  border-left: 4px solid var(--c-accent);
+  color: var(--c-ink);
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) > h4 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-top: 2.2rem;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--c-line);
+  max-width: var(--site-measure);
+}
+
+/* 제목 바로 뒤에 오는 본문은 붙여 둡니다. */
+:is(.markdown, [class*='mdxPageWrapper'] article) > :is(h2, h3, h4) + p {
+  margin-top: 0;
+}
+
+/* ═══ 정보 유형 라벨 ══════════════════════════════════════════ */
+/* 문서 제목 위에 붙습니다. 값은 각 문서의 doc_type 프런트매터에서 옵니다.
+   표시는 src/theme/DocItem/Content/index.js 가 담당합니다. */
+
+.doc-type {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.doc-type__label {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-right: 0.15rem;
+}
+
+.doc-type__value {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--c-white);
+  background: var(--c-accent);
+  padding: 0.2rem 0.5rem;
+}
+
+/* ═══ Skills 블록 ═════════════════════════════════════════════ */
+/* 본문에서 <Skills>항목 · 항목 · 항목</Skills> 로 씁니다. */
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 1.5rem 0 2.2rem;
+  padding: 1rem 1.1rem;
+  background: var(--c-surface);
+  border-left: 4px solid var(--c-ink);
+  max-width: var(--site-measure);
+}
+
+.skills__label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.skills__item {
+  font-size: 0.83rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--c-ink);
+  background: var(--c-white);
+  border: 1px solid var(--c-line-strong);
+  padding: 0.34rem 0.6rem;
+  white-space: nowrap;
+}
+
+[data-theme='dark'] .skills__item {
+  background: transparent;
+  color: var(--c-ink);
+}
+
+
+:is(.markdown, [class*='mdxPageWrapper'] article) > p,
+:is(.markdown, [class*='mdxPageWrapper'] article) > ul,
+:is(.markdown, [class*='mdxPageWrapper'] article) > ol {
+  max-width: var(--site-measure);
+  margin-bottom: 1.05rem;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) li + li {
+  margin-top: 0.28rem;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) strong {
+  font-weight: 600;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) hr {
+  margin: 3.25rem 0;
+  border: none;
+  border-top: 1px solid var(--c-line);
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) > hr + h2 {
+  margin-top: 0;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) a:not(.card):not(.button) {
+  color: var(--c-accent);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.19em;
+  text-decoration-color: var(--c-line-strong);
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) a:not(.card):not(.button):hover {
+  text-decoration-color: currentColor;
+}
+
+/* 목차를 숨긴 페이지(hide_table_of_contents)는 본문 열이 폭 지정 없이
+   렌더링되어 화면 전체로 퍼집니다. 목차가 있는 페이지와 같은 폭으로 맞춥니다. */
+/* 본문 열의 폭과 시작 위치를 목차가 있는 페이지(col--8 + col--2)와 맞춥니다.
+   테마가 .mdxPageWrapper를 가운데 정렬하므로, 열 자체는 10칸 폭으로 두고
+   그 안에서 본문을 왼쪽에 붙여야 탭을 옮겨도 글의 왼쪽 선이 흔들리지 않습니다. */
+[class*='mdxPageWrapper'] > .col:not([class*='col--']) {
+  flex: 0 0 83.333%;
+  max-width: 83.333%;
+}
+
+[class*='mdxPageWrapper'] > .col:not([class*='col--']) > article {
+  max-width: 46rem;
+  margin-right: auto;
+}
+
+/* ═══ 프로필 블록: 사진 + 소개 ════════════════════════════════ */
+/* About Me 상단에서 씁니다. 사진 교체: static/img/profile-placeholder.svg
+   권장 600 × 750 (세로 4:5). 좁은 화면에서는 위아래로 쌓입니다. */
+
+:is(.markdown, [class*='mdxPageWrapper'] article) .intro {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2.6rem;
+  align-items: start;
+  margin: 0 0 3rem;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) .intro__photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  margin: 0.4rem 0 0;
+  border: 1px solid var(--c-line);
+  border-radius: 0;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) .intro__text > p {
+  max-width: none;
+  margin: 0 0 1.1rem;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) .intro__text > p:last-child {
+  margin-bottom: 0;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) .intro__text > p:first-child {
+  font-size: 1.12rem;
+  line-height: 1.68;
+  color: var(--c-ink);
+}
+
+@media (max-width: 768px) {
+  :is(.markdown, [class*='mdxPageWrapper'] article) .intro {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  :is(.markdown, [class*='mdxPageWrapper'] article) .intro__photo {
+    max-width: 200px;
+  }
+}
+
+/* ═══ 버튼형 링크 ═════════════════════════════════════════════ */
+/* 본문에서 <Cta to="/contact">연락하기</Cta> 로 씁니다.
+   컴포넌트는 src/components/Cta.js, 전역 등록은 src/theme/MDXComponents.js */
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 2rem 0 2.6rem;
+}
+
+.cta-row + .cta-row {
+  margin-top: -1.4rem;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) .cta,
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.72rem 1.35rem;
+  border-radius: 0;
+  border: 1px solid var(--c-ink);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.12s ease, color 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.cta::after {
+  content: '→';
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+/* 본문 단독 사용 시에도 위아래 여백이 생기도록 */
+:is(.markdown, [class*='mdxPageWrapper'] article) > p > .cta {
+  margin: 0.4rem 0;
+}
+
+.cta--solid {
+  background: var(--c-ink);
+  color: var(--c-white);
+}
+
+.cta--solid:hover {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: var(--c-white);
+}
+
+.cta--ghost {
+  background: transparent;
+  color: var(--c-ink);
+  border-color: var(--c-line-strong);
+}
+
+.cta--ghost:hover {
+  background: var(--c-ink);
+  border-color: var(--c-ink);
+  color: var(--c-white);
+}
+
+[data-theme='dark'] .cta--solid {
+  background: var(--c-white);
+  color: var(--c-ink);
+  border-color: var(--c-white);
+}
+
+[data-theme='dark'] .cta--ghost {
+  color: var(--c-white);
+}
+
+[data-theme='dark'] .cta--ghost:hover {
+  background: var(--c-white);
+  border-color: var(--c-white);
+  color: var(--c-ink);
+}
+
+/* ═══ 표: 자료처럼 보이게 ═════════════════════════════════════ */
+
+:is(.markdown, [class*='mdxPageWrapper'] article) table {
   display: table;
   width: 100%;
+  max-width: 58rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  border: none;
+  border-collapse: collapse;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) table thead tr {
+  border-bottom: 1.5px solid var(--c-ink);
+  background: transparent;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) table th {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  text-align: left;
+  border: none;
+  padding: 0 1rem 0.5rem;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) table td {
+  border: none;
+  border-bottom: 1px solid var(--c-line);
+  vertical-align: top;
+  color: var(--c-ink-soft);
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) table tbody tr {
+  background: transparent;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) table tbody tr:hover {
+  background: var(--c-surface);
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) table td:first-child {
+  color: var(--c-ink);
+  font-weight: 500;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) table thead tr:has(th:empty) {
+  display: none;
+}
+
+/* ═══ 인용 ════════════════════════════════════════════════════ */
+
+:is(.markdown, [class*='mdxPageWrapper'] article) blockquote {
+  border-left: 2px solid var(--c-line-strong);
+  background: transparent;
+  color: var(--c-muted);
+  font-size: 0.92rem;
+  padding: 0.1rem 0 0.1rem 1.25rem;
+  margin: 1.6rem 0;
+  max-width: var(--site-measure);
+  border-radius: 0;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* ═══ 안내 상자 ═══════════════════════════════════════════════ */
+
+.theme-admonition {
+  font-size: 0.89rem;
+  max-width: 58rem;
+  border: 1px solid var(--c-line);
+  border-left: 2px solid var(--c-ink-soft);
+  border-radius: 0;
+  background: var(--c-surface);
+  box-shadow: none;
+  padding: 1rem 1.25rem;
+}
+
+.theme-admonition h5 {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--c-muted);
+}
+
+.theme-admonition svg {
+  opacity: 0.55;
+}
+
+/* 등급이 눈으로 구분되도록 왼쪽 띠의 두께와 색을 달리합니다.
+   위험 > 경고 > 주의 > 참고 순으로 무게가 줄어듭니다.
+   등급 정의는 Sample Docs 개요의 '표기 규약'에 있습니다. */
+
+.theme-admonition-danger {
+  border-left-width: 6px;
+  border-left-color: #9b3a34;
+  background: #f6eded;
+}
+
+.theme-admonition-danger h5 {
+  color: #7a2d28;
+}
+
+.theme-admonition-warning {
+  border-left-width: 5px;
+  border-left-color: #9b3a34;
+}
+
+.theme-admonition-warning h5 {
+  color: #7a2d28;
+}
+
+.theme-admonition-info {
+  border-left-width: 4px;
+  border-left-color: var(--c-line-strong);
+}
+
+.theme-admonition-note {
+  border-left-width: 2px;
+  border-left-color: var(--c-line-strong);
+}
+
+.theme-admonition > :last-child {
+  margin-bottom: 0;
+}
+
+/* ═══ 코드 ════════════════════════════════════════════════════ */
+
+:is(.markdown, [class*='mdxPageWrapper'] article) code {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: 2px;
+  font-size: 0.86em;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) pre code {
+  border: none;
+  background: transparent;
+}
+
+:is(.markdown, [class*='mdxPageWrapper'] article) div[class*='codeBlockContainer'] {
+  box-shadow: none;
+  border: 1px solid var(--c-line);
+  border-radius: 0;
+  margin-bottom: 1.7rem;
+  max-width: 58rem;
+}
+
+/* ═══ 사이드바 · 목차 ═════════════════════════════════════════ */
+
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--c-line) !important;
+}
+
+.menu {
+  font-size: 0.855rem;
+  padding: 1.5rem 0.75rem;
+}
+
+.menu__link {
+  border-radius: 0;
+  padding: 0.4rem 0.75rem;
+}
+
+.menu__link--active {
+  font-weight: 600;
+  background: var(--c-surface);
+}
+
+.menu__list-item-collapsible:hover,
+.menu__link:hover {
+  background: var(--c-surface);
+}
+
+.table-of-contents {
+  font-size: 0.76rem;
+  border-left: 1px solid var(--c-line);
+  padding-left: 1rem;
+}
+
+.table-of-contents__link {
+  color: var(--c-muted);
+}
+
+.table-of-contents__link--active {
+  color: var(--c-ink);
+  font-weight: 600;
+}
+
+[class*='mdxPageWrapper'] .table-of-contents {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 2rem);
+}
+
+/* ═══ 문서 하단 ═══════════════════════════════════════════════ */
+
+.pagination-nav__link {
+  border: 1px solid var(--c-line);
+  border-radius: 0;
+  padding: 1rem 1.15rem;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--c-ink);
+}
+
+.pagination-nav__sublabel {
+  color: var(--c-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.pagination-nav__label {
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.theme-doc-footer {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--c-line);
+  font-size: 0.78rem;
+  color: var(--c-muted);
+}
+
+/* ═══ 이미지 ══════════════════════════════════════════════════ */
+
+:is(.markdown, [class*='mdxPageWrapper'] article) img {
+  border: 1px solid var(--c-line);
+  border-radius: 0;
+  margin: 0.6rem 0;
+}
+
+/* ═══ 레이아웃 ════════════════════════════════════════════════ */
+
+[class*='mdxPageWrapper'] article {
+  max-width: none;
+}
+
+main > .container--fluid {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* ═══ 좁은 화면 ═══════════════════════════════════════════════ */
+
+@media (max-width: 996px) {
+  :root {
+    --ifm-font-size-base: 15px;
+  }
+
+  :is(.markdown, [class*='mdxPageWrapper'] article) > h1 {
+    font-size: 1.75rem;
+  }
+
+  :is(.markdown, [class*='mdxPageWrapper'] article) > h1 + p {
+    font-size: 0.98rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  :is(.markdown, [class*='mdxPageWrapper'] article) > h2 {
+    margin-top: 2.75rem;
+  }
+
+  :is(.markdown, [class*='mdxPageWrapper'] article) table {
+    font-size: 0.82rem;
+  }
+
+  :is(.markdown, [class*='mdxPageWrapper'] article) table th,
+  :is(.markdown, [class*='mdxPageWrapper'] article) table td {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+  }
 }

@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Soyoon Choi",
+    "description": "The title in the navbar"
+  },
+  "item.label.About Me": {
+    "message": "About Me",
+    "description": "Navbar item with label About Me"
+  },
+  "item.label.Resume": {
+    "message": "Resume",
+    "description": "Navbar item with label Resume"
+  },
+  "item.label.Portfolio": {
+    "message": "Portfolio",
+    "description": "Navbar item with label Portfolio"
+  },
+  "item.label.Contact": {
+    "message": "Contact",
+    "description": "Navbar item with label Contact"
+  },
+  "item.label.Sample Docs": {
+    "message": "Sample Docs",
+    "description": "Navbar item with label Sample Docs"
+  }
+}

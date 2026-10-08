@@ -6,7 +6,10 @@ import { execSync } from 'node:child_process';
 // 여기 세 줄만 본인 정보에 맞추면 됩니다.
 const GITHUB_USERNAME = 'schoi28';
 const REPO_NAME = 'portfolio';
-const SITE_TITLE = '소윤 · Technical Writer';
+// 브라우저 탭 제목에 쓰입니다. Docusaurus는 이 값을 로케일별로 번역하지
+// 않으므로, 두 언어에서 모두 읽히는 로마자 표기를 씁니다.
+// 화면 왼쪽 위 상호는 themeConfig.navbar.title 이고 그쪽은 번역됩니다.
+const SITE_TITLE = 'Soyoon Choi · Technical Writer';
 // ─────────────────────────────────────────────────────────────
 
 // 저장소 이름이 '<사용자명>.github.io'면 주소가 루트(/)이고,
@@ -40,8 +43,10 @@ const config = {
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
-  // 링크가 깨지면 빌드를 실패시킵니다. 링크 검사관의 역할을 빌드가 대신합니다.
-  onBrokenLinks: 'throw',
+  // 링크와 앵커 검사는 scripts/check-docs.mjs 가 담당합니다.
+  // Docusaurus의 검사는 번역본 로케일에서 오탐을 냅니다. 생성된 HTML이 정상인데도
+  // .md 링크를 풀지 못했다고 보고하므로, 여기서는 경고만 남기고 판정은 검수기가 합니다.
+  onBrokenLinks: 'warn',
   onBrokenAnchors: 'warn',
 
   markdown: {
@@ -49,6 +54,15 @@ const config = {
       onBrokenMarkdownLinks: 'warn',
     },
   },
+
+  // 한국어 본문 가독성을 위해 Pretendard를 불러옵니다.
+  // 로드에 실패해도 custom.css의 폴백 글꼴로 정상 표시됩니다.
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css',
+      type: 'text/css',
+    },
+  ],
 
   i18n: {
     defaultLocale: 'ko',
@@ -66,8 +80,10 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          routeBasePath: 'work',
-          editUrl: `https://github.com/${GITHUB_USERNAME}/${REPO_NAME}/tree/main/`,
+          // 가상 제품군 문서 세트입니다. 예시임이 드러나도록 경로를 samples로 둡니다.
+          routeBasePath: 'samples',
+          // editUrl은 의도적으로 설정하지 않습니다. 각 문서에 저장소 편집 링크가
+          // 붙지 않도록 하기 위해서입니다.
           showLastUpdateTime: isGitRepo,
         },
         // 블로그는 사용하지 않습니다. 글을 쓰기 시작하면 blog/ 폴더를 만들고
@@ -93,47 +109,34 @@ const config = {
         title: '소윤',
         hideOnScroll: false,
         items: [
-          { to: '/experience', label: '실무 경험', position: 'left' },
-          { type: 'docSidebar', sidebarId: 'workSidebar', position: 'left', label: 'Work' },
-          { to: '/how-i-work', label: 'How I work', position: 'left' },
-          { to: '/about', label: 'About', position: 'left' },
-          { type: 'localeDropdown', position: 'right' },
+          { to: '/', label: 'About Me', position: 'left', activeBasePath: 'never' },
+          { to: '/resume', label: 'Resume', position: 'left' },
+          { to: '/projects', label: 'Portfolio', position: 'left' },
+          { to: '/contact', label: 'Contact', position: 'left' },
           {
-            href: `https://github.com/${GITHUB_USERNAME}`,
-            label: 'GitHub',
-            position: 'right',
+            type: 'docSidebar',
+            sidebarId: 'samplesSidebar',
+            position: 'left',
+            label: 'Sample Docs',
           },
+          { type: 'localeDropdown', position: 'right' },
         ],
       },
+      // 푸터에는 연락처만 둡니다.
       footer: {
         style: 'light',
         links: [
           {
-            title: 'Work',
             items: [
-              { label: 'VELA Drive 앱', to: '/work/app/intro' },
-              { label: 'VELA Vehicle API', to: '/work/api/intro' },
-              { label: 'VELA Deploy', to: '/work/deploy/intro' },
-              { label: 'VELA Sense', to: '/work/sensor/intro' },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              { label: '실무 경험', to: '/experience' },
-              { label: 'How I work', to: '/how-i-work' },
-              { label: 'About', to: '/about' },
-            ],
-          },
-          {
-            title: 'Contact',
-            items: [
-              { label: 'GitHub', href: `https://github.com/${GITHUB_USERNAME}` },
-              { label: 'Email', href: 'mailto:soyoon9428@gmail.com' },
+              { label: 'soyoon9428@gmail.com', href: 'mailto:soyoon9428@gmail.com' },
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/soyoon-choi',
+              },
             ],
           },
         ],
-        copyright: `© ${new Date().getFullYear()} 소윤. Built with Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()} Soyoon Choi`,
       },
       prism: {
         additionalLanguages: ['bash', 'json', 'yaml'],

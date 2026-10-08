@@ -1,0 +1,14 @@
+{
+  "link.item.label.soyoon9428@gmail.com": {
+    "message": "soyoon9428@gmail.com",
+    "description": "The label of footer link with label=soyoon9428@gmail.com linking to mailto:soyoon9428@gmail.com"
+  },
+  "link.item.label.LinkedIn": {
+    "message": "LinkedIn",
+    "description": "The label of footer link with label=LinkedIn linking to https://www.linkedin.com/in/soyoon-choi"
+  },
+  "copyright": {
+    "message": "© 2026 Soyoon Choi",
+    "description": "The footer copyright"
+  }
+}

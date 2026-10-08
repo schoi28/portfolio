@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 400" width="1600" height="400" role="img" aria-label="크기가 다른 문서 블록의 배열">
+  <defs>
+    <pattern id="g-portfolio" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0v40" fill="none" stroke="#dfe3e8" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="400" fill="#f5f7f8"/>
+  <rect width="1600" height="400" fill="url(#g-portfolio)"/>
+
+  <!-- 문서 세트 여섯 묶음. 폭과 높이가 서로 다르다 -->
+  <g fill="none" stroke="#b9c0c8" stroke-width="2">
+    <rect x="120" y="100" width="200" height="240"/>
+    <rect x="360" y="140" width="160" height="200"/>
+    <rect x="560" y="80" width="240" height="260"/>
+    <rect x="840" y="160" width="180" height="180"/>
+    <rect x="1060" y="120" width="220" height="220"/>
+    <rect x="1320" y="180" width="160" height="160"/>
+  </g>
+
+  <!-- 각 블록의 머리글 -->
+  <g fill="#b9c0c8">
+    <rect x="120" y="100" width="200" height="10"/>
+    <rect x="360" y="140" width="160" height="10"/>
+    <rect x="840" y="160" width="180" height="10"/>
+    <rect x="1060" y="120" width="220" height="10"/>
+    <rect x="1320" y="180" width="160" height="10"/>
+  </g>
+
+  <!-- 하나는 펼쳐 보이는 상태 -->
+  <rect x="560" y="80" width="240" height="260" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <rect x="560" y="80" width="240" height="14" fill="#1f3a5f"/>
+  <g stroke="#1f3a5f" stroke-width="2">
+    <path d="M588 134H772M588 166H724M588 198H772M588 230H660M588 262H740M588 294H700"/>
+  </g>
+
+  <!-- 묶음을 하나로 묶는 상단 선 -->
+  <path d="M120 60H1480" stroke="#b9c0c8" stroke-width="2"/>
+
+  <rect x="0" y="396" width="1600" height="4" fill="#0f1419"/>
+</svg>

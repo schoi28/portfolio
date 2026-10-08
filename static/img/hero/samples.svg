@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 400" width="1600" height="400" role="img" aria-label="네 개의 문서 세트로 갈라지는 계층 구조">
+  <defs>
+    <pattern id="g-samples" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0v40" fill="none" stroke="#dfe3e8" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="400" fill="#f5f7f8"/>
+  <rect width="1600" height="400" fill="url(#g-samples)"/>
+
+  <!-- 하나의 제품군 -->
+  <rect x="120" y="176" width="48" height="48" fill="#0f1419"/>
+
+  <!-- 네 갈래로 갈라지는 계층선 -->
+  <path d="M168 200h72v-130h80M240 200V130h80M240 200h80M240 200v70h80M240 200v140h80"
+        fill="none" stroke="#b9c0c8" stroke-width="2"/>
+
+  <!-- 네 문서 세트. 장 수가 다르므로 줄 수도 다르다 -->
+  <g fill="none" stroke="#b9c0c8" stroke-width="2">
+    <rect x="320" y="46" width="300" height="48"/>
+    <rect x="320" y="106" width="300" height="48"/>
+    <rect x="320" y="246" width="300" height="48"/>
+    <rect x="320" y="316" width="300" height="48"/>
+  </g>
+  <rect x="320" y="176" width="300" height="48" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <rect x="320" y="176" width="8" height="48" fill="#1f3a5f"/>
+
+  <!-- 세트가 품은 문서들 -->
+  <g stroke="#b9c0c8" stroke-width="2">
+    <path d="M660 70H900M660 130H1020M660 270H840M660 340H960"/>
+  </g>
+  <path d="M660 200H1120" stroke="#1f3a5f" stroke-width="2"/>
+
+  <!-- 각 문서의 장 표시 -->
+  <g fill="#b9c0c8">
+    <rect x="920" y="64" width="12" height="12"/><rect x="948" y="64" width="12" height="12"/>
+    <rect x="1040" y="124" width="12" height="12"/><rect x="1068" y="124" width="12" height="12"/>
+    <rect x="1096" y="124" width="12" height="12"/>
+    <rect x="860" y="264" width="12" height="12"/>
+    <rect x="980" y="334" width="12" height="12"/><rect x="1008" y="334" width="12" height="12"/>
+  </g>
+  <g fill="#1f3a5f">
+    <rect x="1140" y="194" width="12" height="12"/><rect x="1168" y="194" width="12" height="12"/>
+    <rect x="1196" y="194" width="12" height="12"/><rect x="1224" y="194" width="12" height="12"/>
+  </g>
+
+  <!-- 예시임을 드러내는 오른쪽 여백의 반복 눈금 -->
+  <g stroke="#dfe3e8" stroke-width="2">
+    <path d="M1340 60v280M1380 60v280M1420 60v280M1460 60v280"/>
+  </g>
+
+  <rect x="0" y="396" width="1600" height="4" fill="#0f1419"/>
+</svg>
