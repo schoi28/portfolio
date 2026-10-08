@@ -8,7 +8,7 @@ build
 _planning/
 
 .DS_Store
-docs/.DS_Store
+sample_docs/.DS_Store
 src/.DS_Store
 .env
 .env.local

@@ -2,7 +2,7 @@
 /**
  * 문서 검수기
  *
- * _config/ 의 설정 파일을 읽어 docs/ 전체를 검사합니다.
+ * _config/ 의 설정 파일을 읽어 sample_docs/ 전체를 검사합니다.
  * 설정만 바꾸면 같은 검사가 다른 기준으로 동작합니다. 규칙은 코드에 없습니다.
  *
  *   node scripts/check-docs.mjs            검사만 수행
@@ -62,7 +62,7 @@ const audience = loadYaml('audience.yaml');
 const glossary = loadGlossary();
 
 // 언어 설정. 한국어가 원문, 영어가 번역본입니다.
-const LOCALES = style.locales || { ko: { path: 'docs', role: 'source' } };
+const LOCALES = style.locales || { ko: { path: 'sample_docs', role: 'source' } };
 const SOURCE_LOCALE =
   Object.keys(LOCALES).find((k) => LOCALES[k].role === 'source') || 'ko';
 
