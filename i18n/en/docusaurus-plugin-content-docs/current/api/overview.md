@@ -90,20 +90,11 @@ Because of this, a response such as "failed because the vehicle is not parked" a
 
 Credentials are issued per environment. A staging token does not work in production.
 
-## SDKs and supported runtimes
+## SDKs
 
-You can call the HTTP interface directly, but the SDKs handle authentication, retries, and polling for you.
+VELA provides official SDKs for four languages: Python, Node.js, Java, and C++. An SDK handles obtaining and refreshing tokens, retries, and waiting for results.
 
-| SDK | Supported | Used for |
-| --- | --- | --- |
-| Python | 3.9 or later | Server applications, analysis scripts |
-| Node.js | 18 LTS or later | Web back ends |
-| Java | 17 or later | OEM enterprise system integration |
-| C++ | C++17, Linux (aarch64, x86_64) | In-vehicle applications |
-
-:::note[Note]
-The REST API itself can be called from any environment that has an HTTP client. The table above lists **the runtimes an SDK is provided for**.
-:::
+Installation and usage are in [Use an SDK](./sdk.md). Every example request in this guide is written as `curl`, and the mapping to SDK methods is collected in [REST operations and SDK methods](./sdk.md#rest-operations-and-sdk-methods).
 
 ## Rate limits and errors
 
@@ -135,18 +126,21 @@ The REST API itself can be called from any environment that has an HTTP client. 
 | Get a token and attach it to a request | [2. Set up authentication](./authentication.md) |
 | Decide the scopes you need | [2. Set up authentication](./authentication.md#choose-your-scopes) |
 | Send your first request in five minutes | [3. Get started quickly](./quickstart.md) |
-| Read a current value such as battery level or range | [4. Read vehicle data](./vehicle-data.md#read-the-latest-value) |
-| Chart how a value changed over a period | [4. Read vehicle data](./vehicle-data.md#read-a-time-series) |
-| Receive values as they change | [4. Read vehicle data](./vehicle-data.md#subscribe-to-a-stream) |
-| Lock the doors or set the cabin temperature | [5. Send remote commands](./remote-commands.md) |
-| Confirm a command actually ran | [5. Send remote commands](./remote-commands.md#handle-asynchronous-results) |
-| Read LiDAR and camera state and calibration results | [6. Check sensor state](./sensors.md) |
-| Start a software deployment from code and watch its progress | [7. Control OTA deployment](./ota.md) |
-| Receive events instead of polling | [8. Receive events through webhooks](./webhooks.md) |
-| Verify that a webhook really came from VELA | [8. Receive events through webhooks](./webhooks.md#verify-the-signature) |
-| Find the full list of available signals | [9. Browse the reference](./reference.md#signal-catalogue) |
-| Look up a failure code and its cause | [9. Browse the reference](./reference.md#error-codes) |
-| Look up a vehicle term or abbreviation | [10. Look up a term](./glossary.md) |
+| Install an SDK and create a client | [4. Use an SDK](./sdk.md#install-and-create-a-client) |
+| Translate a curl example into an SDK method | [4. Use an SDK](./sdk.md#rest-operations-and-sdk-methods) |
+| Handle the exceptions an SDK raises | [4. Use an SDK](./sdk.md#handle-errors) |
+| Read a current value such as battery level or range | [5. Read vehicle data](./vehicle-data.md#read-the-latest-value) |
+| Chart how a value changed over a period | [5. Read vehicle data](./vehicle-data.md#read-a-time-series) |
+| Receive values as they change | [5. Read vehicle data](./vehicle-data.md#subscribe-to-a-stream) |
+| Lock the doors or set the cabin temperature | [6. Send remote commands](./remote-commands.md) |
+| Confirm a command actually ran | [6. Send remote commands](./remote-commands.md#handle-asynchronous-results) |
+| Read LiDAR and camera state and calibration results | [7. Check sensor state](./sensors.md) |
+| Start a software deployment from code and watch its progress | [8. Control OTA deployment](./ota.md) |
+| Receive events instead of polling | [9. Receive events through webhooks](./webhooks.md) |
+| Verify that a webhook really came from VELA | [9. Receive events through webhooks](./webhooks.md#verify-the-signature) |
+| Find the full list of available signals | [10. Browse the reference](./reference.md#signal-catalogue) |
+| Look up a failure code and its cause | [10. Browse the reference](./reference.md#error-codes) |
+| Look up a vehicle term or abbreviation | [11. Look up a term](./glossary.md) |
 
 ## Next
 

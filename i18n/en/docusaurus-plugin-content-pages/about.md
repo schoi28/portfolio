@@ -7,13 +7,11 @@ hide_table_of_contents: true
 
 # About Me
 
-I am a technical writer who works in both Korean and English. I studied creative writing first, then computer science, and earned a degree in each country. I write directly in both languages rather than translating from one into the other.
+I am a Korean–English technical writer with degrees in creative writing and computer science. I grew up in Korea and earned a degree in Korea and in the United States. I write directly in both Korean and English rather than relying on translation.
 
-What I do best is take documentation from nothing to a finished set. I ask the people who build the product what readers actually get stuck on, then design and write documents that are easy to understand and get used. I am always willing to learn something new.
+What I do best is spot where documentation is needed and take it from planning to a finished set. I gather what I need by asking colleagues and the teams around me, and build documents from that which readers can follow and actually use in their work. Learning a new technology or domain and setting down what I learned as clear documentation matters to me too.
 
-:::note
-Documents and source code from my current employer are confidential, so they are not published here. Instead I rebuilt a product family of the same structure and complexity as a fictional example and published it in full.
-:::
+What problems I have found and solved is set out in [Portfolio](/projects). The various document samples built around the fictional VELA product family are in [Sample Docs](/samples), and my experience and skills are in [Resume](/resume).
 
 <CtaRow>
   <Cta to="/projects">See the projects</Cta>

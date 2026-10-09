@@ -1,7 +1,7 @@
 ---
 title: Read vehicle data
 doc_type: 절차
-sidebar_label: 4. Read vehicle data
+sidebar_label: 5. Read vehicle data
 ---
 
 # Read vehicle data

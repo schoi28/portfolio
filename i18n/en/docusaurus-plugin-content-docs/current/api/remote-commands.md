@@ -1,7 +1,7 @@
 ---
 title: Send remote commands
 doc_type: 개념 + 절차
-sidebar_label: 5. Send remote commands
+sidebar_label: 6. Send remote commands
 ---
 
 # Send remote commands
@@ -111,7 +111,7 @@ Subscribe to the `command.completed` event and VELA Cloud notifies a URL you nom
 
 ### Option 3: `wait()` in the SDK
 
-The Python SDK introduced in the [quickstart](./quickstart.md#call-the-api-with-the-python-sdk) provides `wait()`, which wraps polling. It suits scripts that handle a small number of commands.
+The Python SDK described in [Use an SDK](./sdk.md#wait-for-an-asynchronous-result) provides `wait()`, which wraps polling. It suits scripts that handle a small number of commands.
 
 ## Timeout and retry policy
 

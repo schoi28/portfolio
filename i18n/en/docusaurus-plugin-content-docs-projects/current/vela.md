@@ -1,88 +1,182 @@
 ---
-title: 가상 제품군 VELA 문서 세트
-sidebar_label: 가상 제품군 VELA
-description: 제품을 직접 설계하고 네 독자를 위한 문서 세트를 혼자 완성했습니다.
+title: A documentation set for the fictional VELA product family
+sidebar_label: Fictional product family VELA
+description: I designed the documentation for a fictional vehicle software product family and automated its quality checks and deployment.
 ---
 
-# 가상 제품군 VELA 문서 세트
+# A documentation set for the fictional VELA product family
 
-> 개인 프로젝트 · 2025 · 기획부터 집필까지 단독 진행
+> Personal project · 2025 · planned and written entirely by me
 
-**현 직장 문서는 대외비여서 보여 드릴 수 없습니다. 그래서 같은 복잡도의 제품을 직접 설계하고, 네 종류의 독자를 각각 다른 문서 유형으로 대응한 문서 세트를 혼자 완성했습니다.**
+**Because my professional documents cannot be published, I designed VELA, a vehicle software product family, myself and wrote a technical documentation set for four kinds of reader. I also defined the quality criteria for the documents and built a tool that checks them automatically, so every change is reviewed.**
 
-<Skills>제품 설계 · 정보 구조 설계 · 독자별 문서 유형 분리 · 용어집과 스타일 가이드 체계 · 문서 검수 자동화 · Node.js · Docusaurus · GitHub Actions · CI 기반 검증</Skills>
+<Skills>Information architecture · per-reader content design · technical writing · quality criteria · automated document checking · GitHub Actions</Skills>
 
 | | |
 | --- | --- |
-| 완성 | 문서 44편 · 약 9만 2천 자 · 다이어그램 17종 |
-| 품질 기준 | 용어집 79개 항목 · 스타일 룰 · 독자 정의 · 경고 등급 체계 (설정 파일로 분리) |
-| 검증 | 설정을 읽어 44편을 검사하는 스크립트, 빌드 앞단에서 실행 |
-| 언어 | 국문 원문 · 영문 번역본, 번역 정합성도 같은 도구가 검사 |
-| 읽을 곳 | [Sample Docs](/samples) 에 전문 공개 |
+| Scope | Four fictional vehicle software products |
+| Size | 44 documents × 2 languages · about 92,000 characters · 17 diagrams |
+| Readers | Vehicle owner · release operator · developer · field engineer |
+| Quality criteria | A 79-entry glossary · style rules · reader definitions · admonition levels |
+| Automation | Document checking · Korean/English structure comparison · CI build and deployment |
+| Published documents | [Sample Docs](/samples) |
 
-### 어려웠던 점
+## What was difficult
 
-- **샘플이 서로 무관하면 보여줄 수 있는 것이 적습니다.** 문서 몇 편을 따로 만들면 각 문서의 완성도만 드러납니다. 독자에 따라 문서가 어떻게 달라지는지, 용어가 일관되는지, 문서끼리 연결되는지는 보이지 않습니다.
-- **실무와 같은 복잡도여야 했습니다.** 너무 단순하면 역량의 증거가 되지 못합니다. 제품 구조부터 실제 B2B 소프트웨어 수준으로 설계해야 했습니다.
+**I could not publish the documents I wrote at work.**
 
-### 해결 방법
+Showing what a technical writer can do takes more than finished documents: it has to be possible to see how the readers were defined and on what basis the information was organised.
 
-**하나의 제품군으로 묶고, 같은 기능을 네 독자에게 각각 다르게 설명했습니다.**
+A few unrelated documents cannot show that design process. So I needed a documentation set where several products and readers connect to each other, like a real product family.
 
-차량용 소프트웨어 플랫폼 공급사 VELA와 제품 4종을 설계한 뒤, 무선 업데이트라는 하나의 기능을 네 문서가 각각 다른 깊이로 다루게 했습니다.
+**Quality had to stay consistent as the documents grew.**
 
-| 문서 세트 | 독자 | 문서 유형 | 같은 기능을 어떻게 다루나 |
-| --- | --- | --- | --- |
-| VELA Drive 앱 사용 설명서 | 차량 소유자 | 튜토리얼 · 하우투 · FAQ | 알림이 뜨면 무엇을 해야 하는지 |
-| VELA Deploy 운영 가이드 | 릴리스 운영자 | 개념 · 절차 · 레퍼런스 | 배포를 어디까지 확대할지 판단하는 기준 |
-| VELA Vehicle API | 개발자 | 레퍼런스 · 퀵스타트 | 캠페인 생성 API의 요청 형식 |
-| VELA Sense 설치 가이드 | 현장 엔지니어 | 절차 · 진단표 · 사양 | 펌웨어를 수동 복구하는 절차 |
+When the readers and document types differ per product, so do the level of explanation, the terminology, and the way warnings are phrased.
 
-**품질 기준을 설정 파일로 분리하고, 그 기준을 검사하는 도구를 만들었습니다.**
+Maintaining Korean and English together also invites its own problems: a table or an admonition dropped during translation, or the source edited while the translation is left behind.
 
-용어집 79개 항목, 스타일 룰, 독자 정의, 경고 등급 체계를 본문이 아니라 설정 파일에 두었습니다. 그리고 그 설정을 읽어 문서 44편을 검사하는 스크립트를 작성해 빌드 앞단에 붙였습니다. 검사 항목은 다음과 같습니다.
+Rather than having a person check all of this on every change, I needed **a structure that checks automatically wherever the criteria are unambiguous.**
 
-- 금지 표현, 독자 수준에 맞지 않는 용어
-- 절차 단계 수, 안내 상자 등급과 개수, 경고 위치
-- 번호 목록 구조, 정보 유형 선언, 다이어그램 속 문장
-- 문서 간 중복, 링크와 앵커의 실재 여부
+## How I solved it
 
-규칙은 코드가 아니라 설정에 있습니다. 조직이 달라지면 설정만 교체하면 됩니다. 오류가 하나라도 있으면 빌드가 실패하고 배포되지 않습니다.
+### Writing for four kinds of reader
 
-:::note[검수기가 문서가 아니라 설정을 틀렸다고 알려 준 적이 있습니다]
-`레이더`를 `라이다`의 금지 변형으로 둔 규칙, `보정`을 전면 금지한 규칙, 영문 `smart key`를 금지한 규칙은 모두 잘못된 기준이었습니다. 검사기를 돌리자 문서가 아니라 설정이 틀렸다는 것이 드러났습니다. 기준을 파일로 꺼내 두면 기준 자체를 검증할 수 있습니다.
-:::
+I designed VELA, a fictional supplier of vehicle software platforms, along with four products.
 
-**번역본이 원문과 어긋나는지도 같은 도구가 검사합니다.**
+For each product I wrote a different type of technical documentation, matched to its purpose and its users.
 
-한국어를 원문으로 두고 영문을 번역본으로 선언하면, 다음을 자동으로 대조합니다.
-
-- 제목·표·이미지·링크·안내 상자의 개수와 제목 단계
-- 번역되지 않은 한글이 남았는지
-- git 이력으로 원문이 번역본보다 나중에 바뀌었는지
-- 금지 표현과 용어집을 언어별로 따로 적용
-
-문장의 질은 기계가 판단할 수 없지만, **구조가 어긋난 것은 기계가 봅니다.** 번역하다 표 몇 줄이나 경고 상자를 통째로 빠뜨리는 일이 가장 흔한데 사람 눈으로는 잡히지 않습니다.
-
-### 검수가 돌아가는 방식
-
-검수를 사람이 기억해서 돌리면 바쁠 때 건너뜁니다. 그래서 **문서를 고쳐 올리는 행위 자체가 검수를 실행하도록** GitHub Actions에 붙였습니다.
-
-![문서를 푸시하면 검수가 먼저 돌고, 통과할 때만 배포되는 흐름](/img/vela-pipeline.svg)
-
-| 단계 | 하는 일 | 실패하면 |
+| Document set | Reader | Main contents and document types |
 | --- | --- | --- |
-| ① 환경 준비 | 저장소를 내려받고 Node 20과 의존성 설치 | 이후 단계가 실행되지 않습니다 |
-| ② 문서 검수 | `_config/` 의 네 파일을 읽어 문서 44편을 검사 | **여기서 멈춥니다.** 빌드도 배포도 하지 않습니다 |
-| ③ 빌드 | 국문·영문 사이트를 정적 HTML로 생성 | 배포하지 않습니다 |
-| ④ 배포 | GitHub Pages에 올림 | 사이트는 이전 상태로 남습니다 |
+| VELA Drive app guide | Vehicle owner | How to use the vehicle management app · tutorials · FAQ |
+| VELA Deploy operations guide | Release operator | Wireless update deployment · operating procedures · criteria to judge by |
+| VELA Vehicle API | Developer | Vehicle data and control API · quickstart · reference |
+| VELA Sense installation guide | Field engineer | Sensor kit installation · diagnostics · troubleshooting · specifications |
 
-검수 단계는 오류가 하나라도 있으면 실패 코드를 반환하고, 그 시점에 **파이프라인 전체가 멈춥니다.** 오류가 0건일 때만 다음 단계로 넘어갑니다. 경고는 보고만 하고 멈추지 않습니다. 고쳐야 하는 것과 알아 두면 되는 것을 구분해야, 경고가 쌓여서 아무도 안 보는 상태가 되지 않습니다.
+The four belong to one product family, but they do not explain the same information the same way.
 
-같은 명령을 제 컴퓨터에서도 `npm run build` 앞단에서 돌립니다. **로컬과 파이프라인이 같은 스크립트, 같은 설정 파일을 쓰기 때문에** "제 컴퓨터에서는 통과했는데 배포에서 막히는" 일이 생기지 않습니다.
+For the wireless update feature, for example, the vehicle owner is told **what to do when an update alert arrives**, the operator **the criteria for deciding how far to deploy**, the developer **how to use the API**, and the field engineer **the firmware recovery procedure.**
 
-실무에서 만든 [검수 도구](./build-tooling.md)의 공개 가능한 축소판입니다.
+In other words, the scope of information and the document type were decided **by the task the reader has to perform rather than by the feature itself.**
 
-### 결과
+The finished Korean and English documents are in [Sample Docs](/samples).
 
-[Sample Docs](/samples)에서 네 문서 세트의 전문을 읽으실 수 있습니다. 각 문서에는 독자를 어떻게 정의했고 왜 그런 구조를 택했는지 적은 설계 노트를 붙였습니다.
+### Defining the document quality criteria
+
+So that the same criteria apply to every document, the quality rules are kept in separate configuration files.
+
+| Configuration file | What it defines |
+| --- | --- |
+| `glossary.csv` | Standard terms, banned expressions, and where they apply |
+| `audience.yaml` | Prior knowledge per reader, terms not to use, the maximum number of procedure steps |
+| `admonitions.yaml` | Definitions of danger, warning, caution, and note, and which levels each document may use |
+| `style-rules.yaml` | Style and image rules, translation comparison criteria, check exemptions |
+
+The reason the criteria are separated from the code is **to manage what counts as a correct document independently of the mechanism that checks it.**
+
+When the product or the reader changes, the configuration changes instead of the checking program.
+
+I also separated what a machine can confirm from what a person has to judge.
+
+Whether a banned expression is used, or whether a link resolves, can be confirmed automatically. Whether an explanation is easy enough to follow, or whether a reader really needs that information, is for the author to judge.
+
+The principle, then, was **to automate only what is checkable and to leave judgements of meaning and appropriateness to people.**
+
+### Checking documents automatically against the configuration
+
+I wrote a script that reads the configuration files and checks all 88 language-specific files: 44 in Korean and 44 in English.
+
+Rather than interpreting what a sentence means, the checker confirms expression and document structure against predefined rules.
+
+| Area | Main checks |
+| --- | --- |
+| Terms and expressions | Banned expressions, non-standard terms, terms above the reader's level |
+| Procedures and structure | Number of procedure steps, numbered list structure, document type declaration |
+| Safety and admonitions | Permitted admonition levels, marker pairing, warning placement |
+| References and images | Validity of links and anchors, image alternative text |
+| Document management | Unresolved values, sentences duplicated across documents |
+| Translation consistency | Comparison of heading, table, image, link, and admonition structure |
+
+Korean and English are not only checked as separate documents but compared against each other.
+
+- **Structure comparison:** a difference in heading levels, or in the number of tables, images, links, or admonitions, is treated as an error.
+- **History comparison:** if the source was edited after the translation, a warning asks whether the change was carried over.
+- **Per-language rules:** Korean and English each get their own glossary and banned expressions.
+
+A change timestamp alone cannot establish that a translation was missed. So the fact that the source is more recent is treated as **a signal to check, not an error.**
+
+### Deciding how errors and warnings are handled
+
+Not every finding is treated the same way; results are split into **errors** and **warnings**.
+
+| | Error | Warning |
+| --- | --- | --- |
+| Basis | The rule is clearly broken | There may be a legitimate exception |
+| Examples | A link that does not exist, a malformed admonition, a mismatch in the number of tables between source and translation | Too many procedure steps, a duplicated sentence, the source changed more recently than the translation |
+| Effect | The build stops | The result is reported and the build continues |
+| Follow-up | Fix the problem and check again | The author decides whether a fix is actually needed |
+
+When an error appears, you read the report, fix the cause, and run the check again.
+
+At that point I distinguished between the two cases: **if the document broke the rule, fix the document; if the rule itself is wrong, fix the configuration file or the check logic.**
+
+Treating everything as an error means the build stops again and again over legitimate exceptions. Treating everything as a warning lets problems that really must be fixed reach deployment.
+
+So each check was graded by whether it **should block deployment automatically or needs a person to look at it.**
+
+### Wiring the checks into build and deployment
+
+Rather than leaving the checker to be run by hand, I connected it to GitHub Actions so it runs automatically on every documentation change.
+
+```text
+Change and push a document
+        ↓
+Load the configuration files
+        ↓
+Check document quality
+        ↓
+Any errors? ── yes → stop the build → fix and check again
+        │
+        no
+        ↓
+Build the Korean and English sites
+        ↓
+Deploy to GitHub Pages
+```
+
+If the results contain warnings only, they are reported and the build continues. If even one error is found, the build and the deployment stop.
+
+| Stage | What it does |
+| --- | --- |
+| Prepare the environment | Set up Node.js and the required dependencies |
+| Check the documents | Check all 88 documents against the configuration files |
+| Build the site | On passing, generate static HTML for Korean and English |
+| Deploy | On a successful build, publish to GitHub Pages |
+
+Locally, the same check script runs before `npm run build`.
+
+**Because local and CI use the same rules and the same check logic**, the criteria are identical whether the author checks the documents or the deployment pipeline does.
+
+This structure applies the core principles of the [documentation build and check tooling](./build-tooling.md) I designed at work to a project that can be published.
+
+## What I produced
+
+| Item | Contents |
+| --- | --- |
+| Product family | VELA, a fictional vehicle software platform · 4 products |
+| Documents | 44 in Korean · 44 in English |
+| Volume | About 92,000 characters · 17 diagrams |
+| Quality criteria | A 79-entry glossary · reader definitions · style rules · admonition levels |
+| Check tool | A configuration-driven Node.js document check script |
+| Automation | Checking, building, and deployment through GitHub Actions |
+| Published site | Docusaurus · GitHub Pages · [Sample Docs](/samples) |
+
+## Results
+
+- Designed four fictional vehicle software products and **built 44 technical documents for four kinds of reader, in Korean and English.**
+- Within one product family, varied the scope of information and the document type according to each reader's goal.
+- Built **a tool that checks terms, expressions, document structure, references, and translation consistency automatically against the configured criteria.**
+- Split findings into errors and warnings so that **only problems that must be fixed stop the build and the deployment.**
+- Connected the checks to GitHub Actions, so the same quality criteria apply on every documentation change.
+- Implemented, in a publishable form, **a documentation system that runs from defining quality criteria through checking to deployment**, not just the writing.
+
+The finished documents are in [Sample Docs](/samples).

@@ -1,57 +1,179 @@
 ---
-title: 문서 운영 체계 수립과 docs-as-code 전환
-sidebar_label: 문서 운영 체계 수립
-description: 품질 기준을 문서로 남기고, 문서 리뷰를 개발자의 작업 환경 안으로 옮겼습니다.
+title: Documentation governance and the move to docs-as-code
+sidebar_label: Governance · docs-as-code
+description: I turned documentation criteria that each person judged differently into shared rules, and moved review into a GitHub pull request workflow.
 ---
 
-# 문서 운영 체계 수립과 docs-as-code 전환
+# Documentation governance and the move to docs-as-code
 
-> 자율주행 솔루션 소프트웨어 회사 · Technical Writer · 2025.01 ~ 현재
+> Autonomous driving solution software company · Technical Writer · Jan 2025 to present
 
-**몇 주씩 멈춰 있던 리뷰를 개발자가 매일 쓰는 도구 안으로 옮겨 1~2일 안에 끝나게 만들었습니다. 다른 구성원이 문서 작업에 참여할 수 있는 상태를 만드는 것이 목표였습니다.**
+**I replaced a way of running documentation that depended on memory and individual judgement with criteria and a review workflow the team can share. I documented how to operate the documentation repository and how to judge the content itself as two separate things, and moved review from Google Docs into GitHub pull requests.**
 
-<Skills>문서 거버넌스 · 스타일 가이드 수립 · Diátaxis 문서 유형 체계 · IEC/IEEE 82079-1 · Git · GitHub Pull Request 워크플로 · 프로세스 개선 · 설득과 합의 도출</Skills>
+<Skills>Documentation governance · content criteria · docs-as-code · GitHub pull requests · process improvement</Skills>
 
 | | |
 | --- | --- |
-| 바꾼 것 | Google Docs 리뷰 → GitHub Pull Request |
-| 남긴 것 | 작성 원칙 3개 · 설정 가이드 · 작성 가이드 |
-| 결과 | 리뷰 소요 몇 주 → **1~2일** |
+| What changed | Document structure criteria · content criteria · how review happens |
+| Before | Individual memory · individual judgement · Google Docs comments |
+| After | Written guides · Markdown · GitHub pull requests |
+| Result | Most document reviews now finish **within one or two days** |
 
-### 어려웠던 점
+## What was difficult
 
-- **리뷰가 멈춰 있었습니다.** 매뉴얼이 Google Docs에 있었고, 코멘트가 문서 옆에 흩어져 한눈에 보이지 않았습니다. 누가 어디에 무슨 의견을 남겼는지 추적하기 어려워 리뷰가 몇 주씩 지연되었습니다.
-- **기준이 사람 머릿속에만 있었습니다.** 제품이 늘고 작성자가 바뀌면 문체와 구조가 흔들립니다. 합의는 기억되지 않습니다.
+**People judged the quality and the scope of a document differently.**
 
-### 해결 방법
+As the products and the documents grew, the questions that needed answering went deeper than how to word a sentence.
 
-**지켜질 수 있을 만큼 적은 수의 원칙만 정했습니다.**
+Questions like these needed clear criteria.
 
-세 가지로 줄였습니다. 많으면 아무도 기억하지 않습니다.
+- Does this belong in the user manual at all
+- Should it be explained in the body, or moved to an appendix
+- How far should information for developers be separated from information for general users
+- Can internal implementation detail appear in user documentation
+- Should configuration values be explained in the body, or split into a separate reference
+- How do we decide whether a new feature is added to an existing document or gets a page of its own
 
-1. 미리 정의한 독자 수준에 맞지 않는 용어는 **예외 없이** 용어집에 넣는다
-2. 개념과 절차를 섞지 않는다
-3. 제품 기능 순서가 아니라 **독자의 목적 순서**로 목차를 구성한다
+Without those answers written down, every review repeats the same argument.
 
-전체 매뉴얼 구조는 사용 설명서 작성에 관한 국제 표준인 **IEC/IEEE 82079-1**을 참조해 재정비했습니다.
+One person says "this matters, put it in the body"; another says "it is too technical, leave it out." With no basis for the judgement, it comes down to one person's opinion against another's.
 
-**기준을 기억이 아니라 가이드로 남겼습니다.**
+**How to operate the documentation repository also needed writing down separately.**
 
-| 가이드 | 내용 |
+As products and versions multiplied, adding a new product, release, or feature to the documentation system became complicated in itself.
+
+An author had to understand a structure like this.
+
+- Where new products and versions are added
+- How the navigation structure is configured
+- Which markers manage conditional content
+- Where images and files belong
+- How the glossary and tooltips are wired up
+
+This is a different kind of problem from judging whether content is right or wrong.
+
+**Reviews also stalled for long stretches.**
+
+The existing manuals were reviewed in Google Docs.
+
+Comments were scattered through the document, so it was hard to see at a glance which parts still needed attention, and hard to track who had said what.
+
+Because each feature owner had to be asked for a review separately, a review could slip by weeks depending on when it was asked for and who was asked.
+
+**Requesting and tracking reviews had become the bottleneck**, rather than the documents themselves.
+
+## How I solved it
+
+### Keeping the writing principles few
+
+Rather than turning every situation into a detailed rule, I started from principles that hold across products.
+
+I reduced the core set to three.
+
+1. Any term beyond the prior knowledge defined for the reader is **explained in the glossary, without exception**
+2. **Separate concepts from procedures**
+3. Organise information by **the order of what the reader is trying to do**, not by the order of product features
+
+Making many rules mattered less than having criteria that could actually be applied again and again while writing and reviewing.
+
+When reorganising the structure of the manuals, I also referred to **IEC/IEEE 82079-1**, the international standard for preparing instructions for use.
+
+I used it as a basis for examining what structure these products and readers needed, rather than applying it verbatim.
+
+### Writing down how the documentation is assembled
+
+First I wrote a separate guide covering **how the documentation system is put together and used**.
+
+This guide is less about judging content and more about operating a Markdown-based repository and its build environment in a consistent way.
+
+| Guide | Main contents |
 | --- | --- |
-| 설정 가이드 | 새 버전·제품·솔루션·기능을 추가하는 시나리오, 내비게이션 설정 레퍼런스, 조건부 콘텐츠 마커 사용법 |
-| 작성 가이드 | 마크다운 문법, 이미지 처리, 용어집 툴팁 적용, 용어집 정리 |
+| Configuration guide | Adding a new version, product, solution, or feature; configuring navigation; setting up conditional content |
+| Authoring guide | Markdown syntax, handling images, applying glossary tooltips, file and directory layout |
 
-설정 가이드는 기능 목록이 아니라 **"무엇을 하려는가" 기준의 시나리오**로 구성했습니다. 위 세 번째 원칙을 제가 만든 도구의 문서에도 적용한 것입니다.
+Rather than listing features, the guide is organised around **what the author is trying to do**.
 
-**리뷰를 개발자가 매일 쓰는 도구 안으로 옮겼습니다.**
+Instead of explaining settings one by one, for example, it starts from tasks like these.
 
-- 문서를 Markdown으로 옮기고 리뷰를 GitHub Pull Request에서 받도록 바꾸기
-- 브랜치별로 해당 시점의 파일 버전을 추적하는 체계로 전환하기
-- 최종 리뷰에서 확인할 지점을 목록으로 만들어 피드백을 그 부분에 집중시키기
+- Add a new product
+- Add a new version
+- Attach a product to a solution
+- Manage a particular feature as conditional content
+- Add a new document to the navigation
 
-### 결과
+I applied the same **goal-oriented information structure** used in the product manuals to the internal authoring guide.
 
-- 기능 담당자를 따로 찾아 요청할 필요 없이 익숙한 형태로 리뷰를 받게 되면서, 대부분의 리뷰가 **1~2일 안에** 끝납니다.
-- diff로 변경 지점을 바로 확인할 수 있어 비교가 직관적이라는 평을 받았습니다.
-- 소량 업데이트를 위한 잦은 리뷰 요청이 오히려 커뮤니케이션의 질을 높였습니다.
+### Creating criteria for judging content
+
+Separately from how to use the repository, we needed criteria for **what actually goes into a manual and where it is placed**.
+
+For that I wrote a **Technical Writing Guide** in Confluence and used it as the team's shared basis.
+
+Its purpose was not only to make the writing style consistent. What mattered more was that technical writers and the teams they work with could answer questions like these the same way during review.
+
+- What information falls inside the scope of a user manual
+- What information is left out of a manual
+- How the core usage flow is separated from reference material
+- What stays in the body, and what is split into an appendix or a reference
+- How internal implementation detail is separated from technical information the user needs
+- Whether information only one role needs should be shown to every reader
+- Whether detailed configuration values are explained in the body or split into a separate reference
+
+The key was to judge **not by "is this information important" but by "does this reader need it to achieve their goal."**
+
+Technically important information can still be kept out of the body of a user manual if the user does not need it to install, operate, or troubleshoot the product.
+
+Conversely, even fine technical detail has to be included in a document or reference for a particular reader if that reader cannot complete their task without it.
+
+These criteria made it possible to tell apart `body / appendix / separate reference / outside the scope of the documentation`.
+
+### Sharing the basis for review decisions
+
+The Technical Writing Guide also served as the basis for decisions in real reviews.
+
+A writer and a feature owner can see things differently.
+
+The feature owner may want to convey as much detail as possible about the feature they built, while the technical writer wants to keep only what the reader needs.
+
+Rather than saying simply "this is too technical," the discussion could now run on
+
+- who the target reader is
+- what task that reader has to perform
+- whether this information is needed to perform it
+- whether it has to be in the body or can be split out as reference
+
+This made it possible to explain decisions about scope and structure as **judgements grounded in shared principles rather than personal taste**.
+
+### Moving review into pull requests
+
+Once the content criteria were set, I moved the review process itself into the GitHub workflow the developers were already using.
+
+- Manage documents in Markdown
+- Have changes reviewed as pull requests
+- Track the version of the documents at a given point through branches
+- See the files and the exact changes needing review directly in the diff
+- Decide in advance what the final review has to confirm, so the scope of review is clear
+
+Rather than making people learn a separate review environment, I set it up to resemble the way developers review code as closely as possible.
+
+Reviewers could then **start from what had actually changed**, without rereading the whole document.
+
+### Keeping review requests small
+
+Instead of having a large document reviewed in one go, I kept each change small.
+
+Even for a minor update I opened a pull request when it was needed, and asked the owner of the related feature to review only that part.
+
+This increases the number of review requests but reduces how much has to be reviewed at once.
+
+It also shortens the gap between a change being made and being reviewed, so feedback arrives while the feature owner still remembers the context.
+
+## Results
+
+- Separating how the documentation system is operated from how its content is judged **made it clear what an author has to decide, and how.**
+- The Technical Writing Guide in Confluence **established shared criteria** for telling apart body content, appendix content, reference content, and content outside the scope of the documentation.
+- Reviews of scope and information placement now have **a basis for discussing readers and goals** instead of personal preference.
+- Document reviews that had sometimes slipped by weeks now **finish within one or two days in most cases.**
+- Being able to see changes directly in the pull request diff drew **feedback that comparing and reviewing had become intuitive.**
+- Recording the writing principles and the operating guides laid **a basis for applying the same criteria repeatedly** as products and authors change.
+- Moving documentation work into the existing development workflow let feature owners take part in review without using a separate review tool.

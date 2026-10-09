@@ -1,7 +1,7 @@
 ---
 title: Receive events through webhooks
 doc_type: 개념 + 절차
-sidebar_label: 8. Receive events through webhooks
+sidebar_label: 9. Receive events through webhooks
 ---
 
 # Receive events through webhooks

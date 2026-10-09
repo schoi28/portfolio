@@ -1,14 +1,57 @@
 ---
-title: VELA Vehicle API
-doc_type: 개념
-sidebar_label: Preface
+title: VELA Vehicle API developer guide
+sidebar_label: Design note
 ---
 
-# VELA Vehicle API
+# VELA Vehicle API developer guide
 
-## About this reference
+:::note[Note]
+This page is not part of the product documentation. It records how that documentation was designed. The manual itself starts with the next chapter.
+:::
 
-This is the reference for the REST API and SDKs that VELA Cloud exposes. It covers reading vehicle data, sending remote commands, and controlling software deployment.
+## How this was designed
+
+| Design criterion | Decision |
+| --- | --- |
+| **Primary reader** | A developer integrating VELA into their own service |
+| **Prior knowledge** | Assumes REST and OAuth, but treats vehicle electronics and VELA as new |
+| **How they read** | Searches for the feature or value they need rather than reading in order |
+| **Direction** | Teach the data model first, then separate procedures from reference values |
+
+### Teaching the data model first
+
+To use the API, a developer needs to understand **which resources exist and how they connect** before seeing a list of endpoints. Chapter 1 therefore carries the resource model and the system architecture, and the chapters after it cover individual features and how to use them.
+
+The preface also states the prior knowledge expected. It assumes a working knowledge of REST APIs and OAuth 2.0, but requires no prior knowledge of the VELA platform or the vehicle domain.
+
+This **keeps repetition of what the reader already knows to a minimum and concentrates on what is needed to understand a new product and a new domain.**
+
+### Separating procedures from reference values
+
+Reading vehicle data and sending remote commands are covered in task chapters, and values that are looked up repeatedly are collected in [Browse the reference](./reference.md). The **signal catalogue**, the full list of data items a vehicle reports, is separated from the procedures for the same reason.
+
+**How to call it** is needed once, while first implementing a feature. **Which values exist** is needed again and again during implementation.
+
+### Explaining vehicle terms that are new to developers
+
+The glossary leads with **vehicle domain terms** such as CCU, zonal ECU, and OTA campaign rather than with elements a developer already knows, such as HTTP methods or `vehicle_id`. Where OEM and partner developers call the same thing by a different name from operators, a term mapping table is provided.
+
+### Not repeating the SDK at every endpoint
+
+Usage of the official SDKs is collected into one chapter and connected through a **mapping between REST operations and methods**, rather than placing parallel per-language examples in every chapter. Maintaining the same example twice guarantees that one copy eventually gets left behind.
+
+### Accounting for differences between environments
+
+VELA provides a separate **staging environment** for testing an integration and a **production environment** connected to real vehicles. The conditions that differ between the two are explained in advance, so that a failure does not appear for the first time in production after passing in staging.
+---
+
+## The preface this produced
+
+The preface built from the decisions above. In the manual itself this sits before chapter 1.
+
+### About this reference
+
+This is the developer guide for the REST API that VELA Cloud exposes. It covers reading vehicle data, sending remote commands, and controlling software deployment.
 
 | Area | Detail |
 | --- | --- |
@@ -17,7 +60,7 @@ This is the reference for the REST API and SDKs that VELA Cloud exposes. It cove
 | API version | `v1` |
 | Base URL | `https://api.vela.example.com/v1` |
 
-## Who this reference is for
+### Who this reference is for
 
 It is written for developers integrating the VELA platform into their own systems. **It assumes you know REST and OAuth 2.0, and assumes VELA is new to you.**
 
@@ -36,9 +79,9 @@ The reference assumes you can do the following:
 
 **No prior knowledge of autonomous driving or vehicle electronics is assumed.** The concepts you need are explained in [What the VELA Vehicle API is](./overview.md) and [Look up a term](./glossary.md).
 
-## Conventions
+### Conventions
 
-### Admonitions
+#### Admonitions
 
 | Level | When this reference uses it |
 | --- | --- |
@@ -46,9 +89,9 @@ The reference assumes you can do the following:
 | **Caution** | Expired tokens, duplicate events: recoverable errors |
 | **Note** | Information that makes implementation easier |
 
-**Danger never appears in this reference,** because there is no physical hazard. The full definition of all four levels is in [Conventions](../#conventions).
+**Danger never appears in this reference,** because there is no physical hazard.
 
-### Text formatting
+#### Text formatting
 
 | Format | Meaning |
 | --- | --- |
@@ -57,34 +100,12 @@ The reference assumes you can do the following:
 | `{vehicle_id}` | A placeholder you replace with a value |
 | **Bold** | The name of an element shown in the console |
 
-Every example request is given as `curl`, with the same call shown through the Python SDK.
+Example requests are given as `curl`. SDK usage and the method mapping are collected in [Use an SDK](./sdk.md).
 
-## Related documents
+### Related documents
 
 | Document | When to read it |
 | --- | --- |
 | [VELA Deploy operations guide](../deploy/intro.md) | When moving console deployment work into code |
 | [VELA Sense installation guide](../sensor/intro.md) | When you need the physical meaning behind a sensor value |
 | [Look up a term](./glossary.md) | When you meet a vehicle term or abbreviation you do not know |
-
----
-
-## Design note
-
-> A record of why this document is built the way it is. It is not part of the product documentation.
-
-**Reader**: a developer doing the integration. I assumed they know REST and OAuth but are meeting VELA for the first time. They do not read in order; they search for the one thing they need.
-
-**Structure**: the resource model table comes before the endpoint list. The first thing a developer needs is what the data model looks like. The architecture diagram sits right after it for the same reason: knowing which part of the system this API owns is what makes the scope of every later chapter legible.
-
-**Why the preface and chapter 1 are separate**: a developer arriving from a search result never reads the preface. So **how to read the document** (reader definition, conventions) is split from **what you need to understand the product** (resource model, architecture). The second is something you return to from any chapter, so it has to be a chapter of its own.
-
-**Information typing**: each chapter is a procedural document covering one resource, and every value you look up is collected in [Browse the reference](./reference.md). Moving the signal catalogue out of the vehicle data chapter into the reference is one example. A developer searches for "how do I fetch this" and "what values exist" at different moments: the first once, the second continuously throughout the work. Keeping both in one chapter lets a long table interrupt a procedure.
-
-**Why there is a terminology mapping table**: the users of this API are carmakers and their suppliers. They call the same things by different names than operators and end users do. Providing the mapping once removes the translation burden from the rest of the document.
-
-**Why the glossary holds domain terms rather than API terms**: what `vehicle_id` means is the reference's job. What stops a developer is not that; it is **vehicle domain vocabulary such as CCU, zonal ECU, and OTA campaign**. The glossary is written for a junior developer whose experience is entirely web and server work.
-
-**Why the signal catalogue is generated from the specification**: a signal table maintained by hand always drifts from the real API. Generating the documents from the OpenAPI specification removes the chance of drift. **Building a structure that cannot be wrong** is more reliable than trying to write accurately.
-
-**Why staging behaviour is documented**: without stating how staging differs, a developer meets a precondition failure for the first time in production. Telling the reader about failure in advance is the single biggest factor in reducing support questions, and that principle applies to API documentation as much as to anything else.

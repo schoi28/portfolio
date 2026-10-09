@@ -126,12 +126,20 @@ const EXEMPT = style.exempt_sections || [];
 function proseLines(body, offset) {
   const out = [];
   let inFence = false;
-  let exempt = false;
+  // 제외 구간이 시작된 제목의 단계를 기억합니다. 0이면 제외 중이 아닙니다.
+  // 단계를 기억하지 않으면 제외 구간 안의 하위 제목에서 제외가 풀립니다.
+  // '## 어떻게 설계했나' 아래 '### ...' 가 나오는 순간 다시 검사 대상이 되는 식입니다.
+  let exemptAt = 0;
   body.split('\n').forEach((text, i) => {
     if (/^\s*```/.test(text)) { inFence = !inFence; return; }
-    const h = text.match(/^(#{2,4}) (.+)$/);
-    if (h) exempt = EXEMPT.some((name) => h[2].trim() === name);
-    if (!inFence && !exempt) out.push({ no: offset + i + 1, text });
+    const h = text.match(/^(#{2,6}) (.+)$/);
+    if (h) {
+      const level = h[1].length;
+      if (EXEMPT.some((name) => h[2].trim() === name)) exemptAt = level;
+      // 같거나 더 높은 단계의 제목이 나오면 제외 구간이 끝납니다.
+      else if (exemptAt && level <= exemptAt) exemptAt = 0;
+    }
+    if (!inFence && !exemptAt) out.push({ no: offset + i + 1, text });
   });
   return out;
 }
@@ -320,8 +328,13 @@ function checkListBreaks(file, body, offset) {
 
 /** 8. 프런트매터: doc_type 값 */
 const DOC_TYPES = ['개념', '절차', '레퍼런스', '튜토리얼', '문제 해결', '개념 + 절차'];
+const NON_PRODUCT = style.non_product_docs || ['index.md'];
 function checkFrontMatter(file, front) {
-  if (basename(file) === 'index.md') return;
+  // 설계 노트와 개요는 제품 문서가 아니라 정보 유형을 선언하지 않습니다.
+  if (NON_PRODUCT.includes(basename(file))) {
+    if (!front.title) report('error', file, 1, '프런트매터', 'title이 없습니다');
+    return;
+  }
   if (!front.doc_type) {
     report('error', file, 1, '정보 유형', 'doc_type 프런트매터가 없습니다');
   } else if (!DOC_TYPES.includes(front.doc_type)) {

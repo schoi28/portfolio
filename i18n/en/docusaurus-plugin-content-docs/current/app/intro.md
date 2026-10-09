@@ -1,12 +1,49 @@
 ---
 title: VELA Drive app guide
-doc_type: 개념
-sidebar_label: Preface
+sidebar_label: Design note
 ---
 
 # VELA Drive app guide
 
-## About this guide
+:::note[Note]
+This page is not part of the product documentation. It records how that documentation was designed. The manual itself starts with the next chapter.
+:::
+
+## How this was designed
+
+| Design criterion | Decision |
+| --- | --- |
+| **Primary reader** | An ordinary owner who bought the vehicle |
+| **Prior knowledge** | Assumes no knowledge of vehicle servicing or software |
+| **Reading context** | On a phone, usually a short read to finish one task or fix one problem |
+| **Direction** | Navigate by the user's goal or symptom rather than by product feature name |
+
+### Leading with what the reader wants to do
+
+Chapter 1 opens with **what you want to do** rather than with the names of product features. The reader should find the procedure they need without first translating their problem into the app's feature names.
+
+### Grouping explanations so a task can be finished in one place
+
+For a reader on a phone screen, the concepts and procedures needed for a task are kept together in one chapter rather than scattered across several pages. Error situations, by contrast, are collected in [Troubleshooting](./troubleshooting.md) **by symptom** instead of being spread across features.
+
+### Keeping unfamiliar terms and safety warnings to a minimum
+
+Plain wording is used in the body rather than sending the reader to a glossary. For example, 'OTA (Over-The-Air)', the term for updating vehicle software wirelessly, is explained as 'a software update'. How these map to the technical terms used in the other documents is managed in the shared terminology standard for the product family.
+
+Danger warnings for hardware work that a vehicle owner never performs are not used. Warning and Caution are applied instead, separating actions that cannot be undone from situations that recover on their own.
+
+### Writing for OEM screen differences and a long shelf life
+
+VELA Drive is a reference app that a carmaker can rebrand as its own. The documentation therefore concentrates on **shared behaviour and failure conditions** rather than on elements that vary, such as colours, logos, and exact UI wording.
+
+So that the documentation does not age every time a screen changes, it refers to UI elements by name instead of relying on screenshots.
+---
+
+## The preface this produced
+
+The preface built from the decisions above. In the manual itself this sits before chapter 1.
+
+### About this guide
 
 VELA Drive is a mobile app for checking your vehicle and controlling it remotely. This guide covers everything from installing the app and connecting your vehicle to everyday use and what to do when something goes wrong.
 
@@ -19,7 +56,7 @@ VELA Drive is a mobile app for checking your vehicle and controlling it remotely
 VELA supplies software platforms to carmakers, known in the industry as OEMs, and does not build vehicles. VELA Drive is a **reference implementation** that an OEM works from before releasing an app under its own brand. Each OEM can customise this app and release it as their own. The features and screen layout stay the same, but colours, names, and some wording may differ. This guide describes the original, before any such customisation.
 :::
 
-## Who this guide is for
+### Who this guide is for
 
 This guide is written for the owner of the vehicle. **It assumes no knowledge of car servicing and no knowledge of software.**
 
@@ -33,13 +70,13 @@ This guide is written for the owner of the vehicle. **It assumes no knowledge of
 | Fix something that is not working | [8. Solve problems](./troubleshooting.md) |
 | Find a short answer | [9. Browse frequently asked questions](./faq.md) |
 
-## What you need
+### What you need
 
 - A vehicle running the VELA platform
 - iOS 16 or later, or Android 12 or later
 - An email address to register with the vehicle
 
-## Conventions
+### Conventions
 
 | Level | When this guide uses it |
 | --- | --- |
@@ -53,25 +90,3 @@ This guide is written for the owner of the vehicle. **It assumes no knowledge of
 | --- | --- |
 | **Bold** | The name of a button or menu shown in the app |
 | **Settings > Vehicle** | A menu path, selected in order |
-
----
-
-## Design note
-
-> A record of why this document is built the way it is. It is not part of the product documentation.
-
-**Reader**: the vehicle owner. I assumed no knowledge of car servicing and none of software. They read on a phone screen, standing next to the car, usually in a hurry.
-
-**Structure**: chapter 1 opens with a table of **"what you want to do"** rather than "what the app can do". Starting from a feature list forces the reader to translate their own problem into a feature name. Leading with intent means the document does that translation for them.
-
-**Why this is the only set without a glossary**: vehicle owners do not look things up in a glossary. When they meet a word they do not know, they close the document. So instead of building a glossary I chose **not to use difficult terms in the first place**. This guide says "software update" rather than OTA, and "sensor check" rather than calibration. The other three sets do have glossaries.
-
-**Terminology**: the same concept is called "over-the-air update (OTA)" in the [VELA Deploy operations guide](../deploy/intro.md) and `campaign` in the [API documentation](../api/intro.md). All three spellings are registered in the glossary, along with a record of which document uses which.
-
-**Information typing**: each chapter is typed against the DITA information types of concept, procedure, and reference. This set has an unusual number of chapters typed as concept plus procedure, because a reader standing beside the car with a phone cannot be sent to a second page. The file stays one feature wide, and the types are separated by section inside it. In the opposite direction, **everything about failure is collected into [Solve problems](./troubleshooting.md)**, because when something breaks the reader searches by symptom, not by feature name.
-
-**Different from the other sets**: this guide never uses Danger. Owners do not handle the hardware. Warning is reserved for what cannot be undone, such as revoking a shared key or damaging a lens coating with the wrong cleaner, while anything that recovers on its own, such as an interrupted update, is lowered to Caution. The full definition of all four levels is in [Conventions](../#conventions).
-
-**Deliberately left out**: this guide is written without assuming screenshots. App interfaces change often, and a stale screenshot costs the whole document its credibility. Screen elements are named, and their position is described only when it matters.
-
-**How the reference-app premise shaped the writing**: because VELA Drive is customised and rebranded by each OEM, the guide never describes brand-specific visuals such as colours, logos, or exact wording. It stays on how features behave and when they fail, which is **what does not change in any OEM version**. Limiting scope to "what survives rebranding" means the guide does not have to be rewritten when an OEM changes its brand.

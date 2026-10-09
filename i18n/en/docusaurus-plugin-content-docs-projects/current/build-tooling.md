@@ -1,91 +1,113 @@
 ---
-title: 문서 빌드·검수 도구 자체 개발
-sidebar_label: 문서 빌드·검수 도구
-description: 문서 작업에서 반복되는 실패를 사람이 조심하는 문제에서 빌드가 검사하는 문제로 바꿨습니다.
+title: Building documentation build and check tooling
+sidebar_label: Build and check tooling
+description: I turned the failures that kept recurring in documentation work from something people had to be careful about into something the build checks.
 ---
 
-# 문서 빌드·검수 도구 자체 개발
+# Building documentation build and check tooling
 
-> 자율주행 솔루션 소프트웨어 회사 · Technical Writer · 2025.01 ~ 현재
+> Autonomous driving solution software company · Technical Writer · Jan 2025 to present
 
-**반복되는 실패 지점을 사람이 조심하는 문제가 아니라 빌드가 검사하는 문제로 바꿨습니다. 무엇을 검사할지는 제가 설계했고 구현은 AI에 맡겼습니다.**
+**I moved the documentation errors people had to remember and watch out for into automatic verification during the build. I designed the failure conditions, the requirements, and the verification criteria myself, and used AI during implementation.**
 
-<Skills>요구사항 명세 · 조건부 콘텐츠 시스템 설계 · 문서 검수 자동화 · OpenAPI · 정적 사이트 생성기 설계 · JavaScript · Python · AI 활용 도구 개발 · 기술 선택 판단</Skills>
+<Skills>Requirements specification · conditional content design · documentation check automation · static site generator design · OpenAPI · technical judgement</Skills>
 
 | | |
 | --- | --- |
-| 만든 것 | 정적 사이트 생성기 · 검수 도구 · API 문서 생성기 · 빌드 GUI |
-| 없앤 실패 | 고객사 정보 혼입 · 웹·PDF 불일치 · API 문서 노후화 · 링크 파손 |
-| 결과 | 최대 범위 납품본이 빌드 한 번으로 **2분 내외** |
+| What I built | Static site generator · check tool · API document generator · build GUI |
+| Failures removed | Customer information leaking across · web and PDF drifting apart · API documents going stale · broken links |
+| Result | The widest delivery package is produced **in about 2 minutes** by a single build |
 
-### 어려웠던 점
+## What was difficult
 
-문서를 잘 쓰는 것만으로는 막을 수 없는 실패가 네 가지 있었습니다. 모두 **사람의 주의력에 기대고 있다는 공통점**이 있었습니다.
+**Some errors cannot be prevented by writing well.**
 
-- **고객사마다 받는 기능이 다릅니다.** 같은 원본에서 고객사별 납품본을 만들 때 어떤 문서에 어떤 기능 설명이 들어가야 하는지를 작성자가 기억해야 했습니다. 빠뜨리면 고객이 자기가 산 기능을 모르고, 잘못 넣으면 **다른 고객사의 정보가 노출됩니다.** 후자는 사고입니다.
-- **웹과 PDF를 따로 만들면 반드시 어긋납니다.** 한쪽만 고치는 일이 생기기 때문입니다.
-- **API 스키마와 설정값 목록은 손으로 유지하면 반드시 제품과 어긋납니다.** 개발이 빠르게 움직이면 문서가 따라잡지 못합니다.
-- **링크와 앵커는 조용히 깨집니다.** 제품과 버전까지 합쳐 수백 편이 되면 어디가 깨졌는지 사람이 알 방법이 없습니다.
+As products and versions multiplied, so did the things that had to be checked over and over while producing documents. The trouble was that almost all of it was for a person to remember and verify by hand.
 
-처음에는 공개 정적 사이트 생성기(MkDocs)를 쓰려 했습니다. 커스터마이징 요구가 계속 늘어나고 **배포 환경의 네트워크가 불안정해 완전 오프라인 동작이 요건으로 추가되면서**, 공개 도구로는 감당할 수 없다고 판단해 자체 개발로 전환했습니다.
+- **Each customer gets a different set of features.** Delivery packages for several customers come from the same source, so the author had to remember which feature descriptions to include or exclude. Leave something out and the customer cannot learn about a feature they bought; include something wrongly and information meant for another customer is exposed.
+- **Producing the web and the PDF separately let them drift apart.** Fix only one and the two outputs of the same document no longer match.
+- **API schemas and lists of configuration values were hard to maintain by hand.** With the product changing constantly, documents were likely to fall behind the actual specification.
+- **Link and anchor errors were hard to spot.** Across products and versions there are hundreds of documents, and no one can check every reference by hand.
 
-### 해결 방법
+What these have in common is that **document quality depended far too much on the author's attention.**
 
-**엣지 케이스를 먼저 목록으로 만들고, 그것을 AI에 생성 조건으로 줬습니다.**
+My initial plan was to use an open static site generator such as MkDocs. But the customisation we needed kept growing, and because the network in the deployment environment was unreliable, fully offline operation became a requirement too.
 
-이것이 이 프로젝트에서 가장 핵심적인 작업 방식이었습니다. 코드를 받아 놓고 문제를 찾는 대신, 구조에서 예측되는 실패를 먼저 빠짐없이 적어 요구사항으로 제시했습니다.
+Rather than piling exceptions onto an existing tool, I judged it more appropriate to build one whose conditions I could control directly, and moved to building it myself.
 
-- 마커가 중첩된 경우
-- 용어가 표 안에 들어 있는 경우
-- 앵커가 다른 파일을 가리키는 경우
-- 부록 순서가 바뀌어 용어집 파일의 위치가 달라지는 경우
-- 개발 버전이 실수로 납품본에 들어가는 경우
+## How I solved it
 
-**엣지 케이스를 정확하게 적는 일 자체가 테크니컬 라이팅과 같은 작업이었습니다.** 무엇이 입력이고 무엇이 예외인지 빠짐없이 쓰는 것이기 때문입니다. 검증이 사후 작업이 아니라 생성 조건이 되면서, 받은 코드를 되돌리는 일이 거의 없었습니다.
+### Defining the failures first
 
-**설계와 구현의 경계를 명확히 했습니다.**
+Instead of writing code and then looking for bugs, I first listed the failures that could arise from the document structure, and used that list as the implementation requirements and the verification conditions.
 
-| 제가 설계한 것 | AI에 맡긴 것 |
+For example:
+
+- Conditional content markers nested inside each other
+- A glossary term appearing inside a table
+- An anchor pointing at a section in another file
+- The appendix order changing, so the glossary file moves
+- A development version accidentally included in a customer delivery package
+
+What mattered in this work was less the coding than **defining valid input and every exceptional case without gaps.**
+
+I specified up front what should be allowed, what counts as an error, and how far the tool should intervene when an error occurs.
+
+### Separating design from implementation
+
+I used AI during implementation, but I decided myself what problems the tool had to solve and how it had to behave.
+
+| What I designed | What implementation used |
 | --- | --- |
-| 조건부 콘텐츠의 축(고객사·내부·기능)과 적용 수준(섹션·페이지·포맷) | 구현 코드 |
-| 마커 문법 | 파싱 로직 |
-| 검수 항목 선정, 특히 산출물과 선언 범위의 일치를 검사 대상에 넣은 것 | 빌드 스크립트 |
-| 자동 수정을 어디까지 허용할지 | |
-| 용어집 옵트인 원칙 | |
-| 파일을 위치가 아니라 이름으로 찾는 방식 | |
-| MkDocs에서 자체 개발로 전환하는 결정 | |
+| The axes of conditional content: customer · internal/external · feature | AI-assisted writing of the implementation code |
+| The levels it applies at: section · page · format | Parsing and processing logic |
+| The syntax of the conditional content markers | Build scripts |
+| Which errors to check for, and in what order of priority | Individual check routines |
+| How to verify that an output matches its declared exposure scope | |
+| How far automatic correction is allowed | |
+| Whether the glossary is applied automatically or opt in | |
+| Finding files by name rather than by location | |
+| The decision to move from MkDocs to building our own | |
 
-왼쪽 열은 전부 **문서를 아는 사람만 내릴 수 있는 판단**입니다. "고객사 정보가 섞이는 것이 가장 위험한 실패"라는 인식이 없으면 검수 항목에 그 검사를 넣을 수 없고, "도구가 문서를 임의로 고치면 신뢰를 잃는다"는 판단이 없으면 자동 수정에 제한을 두지 않습니다.
+The crux here was not the implementation but **deciding what the system has to take responsibility for.**
 
-**각 실패 지점을 기계가 검사하도록 옮겼습니다.**
+If I had not defined customer information leaking across as the most dangerous failure, for example, there would be no reason to check whether an output's actual content matches its declared exposure scope.
 
-| 실패 지점 | 해결 |
+Likewise, because I judged that results are hard to trust if an automation tool edits document content on its own, I limited how far it fixes the problems it finds.
+
+### Turning recurring failures into check rules
+
+| Failure point | How it is handled |
 | --- | --- |
-| 고객사 정보 혼입 | 노출 범위를 문서 안에 선언하게 하고, **빌드 결과가 그 선언과 일치하는지 검사하는 단계**를 만들기. 고객사·내부·기능 세 축, 섹션·페이지·포맷 세 수준으로 제어 |
-| 웹·PDF 불일치 | 단일 소스에서 두 포맷을 동시 생성하기. PDF는 렌더링 후 압축해 용량 약 44% 절감 |
-| API 문서 노후화 | OpenAPI 스펙에서 엔드포인트·스키마 문서를 생성하고, 추가·삭제·타입·제약 조건·enum 값 변경을 **변경 리포트로 산출**하기 |
-| 링크·앵커 파손 | 대상 파일과 앵커의 실재 여부를 파일 간 교차 검증하기 |
-| 용어 때문에 막히는 독자 | 용어집 표를 읽어 각 용어의 첫 등장에 호버 툴팁을 붙이기. 표에 표시한 용어만 적용되는 옵트인 방식 |
-| 개발 버전 오납품 | 기본값을 "개발 버전을 제외한 최신 릴리스"로 두고, 개발 버전은 명시적으로 선택해야만 포함되게 하기 |
+| Customer information leaking across | Each piece of content declares its exposure scope, and the build result is verified against that declaration. Three axes, customer, internal/external, and feature, are controlled at section, page, and format level |
+| Web and PDF drifting apart | Both are generated from one source. The PDF is compressed after rendering, cutting its size by about 44% |
+| API documents going stale | Endpoint and schema documents are generated from the OpenAPI specification, and additions, removals, and changes to types, constraints, and enum values are reported |
+| Broken links and anchors | Target files and anchors are cross-checked across files to confirm they really exist |
+| Terms readers will not know | A hover tooltip is applied at the first appearance of a registered glossary term. Not every term is processed automatically; only the entries specified |
+| A development version delivered by mistake | The default build target is the latest release excluding development versions, and a development version is included only if explicitly selected |
 
-두 가지 경계를 더 뒀습니다.
+### Making it usable by people who do not write docs
 
-- **자동 수정을 제한했습니다.** 설정 목록의 앵커가 어긋나는 문제는 고칠 수 있었지만 보고만 하도록 했습니다. 문서를 임의로 바꾸는 도구는 신뢰를 잃는다고 판단했습니다.
-- **저만 쓰는 도구로 끝나지 않게 했습니다.** 명령줄을 쓰지 않는 구성원도 빌드할 수 있도록 웹 GUI를 만들고, 빌드와 검사가 동시에 실행되지 않도록 잠금 처리했습니다.
+So that colleagues unfamiliar with the command line could build and check the same way, I built a web-based GUI.
 
-### 산출물
+I also added locking so that a build and a check running at the same time cannot collide over file state.
 
-| 도구 | 하는 일 |
+The scope included not only building the tool but **creating a workflow that gives the same result whoever runs it.**
+
+## What I produced
+
+| Tool | What it does |
 | --- | --- |
-| 정적 사이트 생성기 | 단일 소스에서 웹·PDF 동시 생성, 고객사별 조건부 조립 |
-| 검수 도구 | 링크·앵커 교차 검증, 마커 구조 검증, 산출물과 선언 범위의 일치 검사 |
-| API 문서 생성기 | OpenAPI 스펙에서 문서 생성, 변경 리포트 산출 |
-| 빌드 GUI | 명령줄 없이 빌드·검사 실행 |
-| 기여자용 문서 | 설정 가이드, 작성 가이드 |
+| Static site generator | Generates web and PDF from one source and assembles per-customer content according to conditions |
+| Check tool | Cross-checks links and anchors, validates conditional content markers, and verifies that outputs match their declared exposure scope |
+| API document generator | Generates documents from the OpenAPI specification and reports what changed |
+| Build GUI | Runs documentation builds and checks without the command line |
+| Contributor documentation | A configuration guide and an authoring guide covering how to set up the tooling and how to write |
 
-### 결과
+## Results
 
-- 가장 큰 범위(솔루션 전체 + 통합 PDF)의 납품본이 **설정 변경 후 빌드 한 번으로 2분 내외에 완성됩니다.**
-- 고객사 간 정보 혼입을 **사람이 기억하지 않아도 됩니다.** 빌드가 검증합니다.
-- 웹과 PDF를 따로 만들지 않아 **3~4개 제품의 문서 작업을 병행할 수 있습니다.**
-- 같은 발상을 공개 가능한 형태로 축소한 것이 [가상 제품군 VELA 문서 세트](./vela.md)의 검수 스크립트입니다.
+- Even the widest delivery package, covering the whole solution plus a combined PDF, **can now be produced in about 2 minutes by one build after selecting the settings.**
+- Instead of the author remembering and checking each customer's content scope, **the build verifies the actual output.**
+- Generating web and PDF from one source reduced the mismatches that came from maintaining two formats separately.
+- One production environment now supports **documentation work on 3 to 4 products in parallel.**
+- OpenAPI-based generation and change reports make differences between the product specification and the API documentation visible.

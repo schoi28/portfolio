@@ -1,7 +1,7 @@
 ---
 title: OTA 배포 제어하기
 doc_type: 절차
-sidebar_label: 7. OTA 배포 제어하기
+sidebar_label: 8. OTA 배포 제어하기
 ---
 
 # OTA 배포 제어하기

@@ -83,49 +83,9 @@ curl -X POST https://api.staging.vela.example.com/v1/vehicles/sim_001/commands \
 
 Command results are handled asynchronously. To find out how to check the result, see [Send remote commands: handle asynchronous results](./remote-commands.md#handle-asynchronous-results).
 
-That is the basic round trip. For a real integration, we recommend using an SDK.
+That is the basic round trip.
 
-## Call the API with the Python SDK
-
-Use this from a server application. It obtains and refreshes tokens for you.
-
-```bash
-pip install vela-sdk
-```
-
-```python
-from vela import VelaClient
-
-client = VelaClient(
-    client_id="...",
-    client_secret="...",
-    environment="staging",  # use "production" in production
-)
-
-vehicle = client.vehicles.get("sim_001")
-soc = vehicle.signals.latest("battery.soc")
-print(f"Battery level: {soc.value}{soc.unit}")
-
-result = vehicle.commands.send("lock_doors")
-result.wait(timeout=30)  # wait until the command finishes
-print(result.status)  # "succeeded" | "failed" | "timed_out"
-```
-
-Internally `wait()` polls the command status endpoint at a short interval. If you handle many commands in production, we recommend receiving results through [webhooks](./webhooks.md) rather than polling.
-
-## Call the API from inside the vehicle with the C++ SDK
-
-Use this when a service running on VELA OS reaches the local signal bus directly, without going through VELA Cloud. This SDK runs only inside the vehicle. Requests that leave for VELA Cloud use the REST API described above.
-
-```cpp
-#include <vela/signal_client.hpp>
-
-vela::SignalClient client;
-auto soc = client.get_latest("battery.soc");
-std::cout << "Battery level: " << soc.value << soc.unit << std::endl;
-```
-
-The C++ SDK is available only to services registered with the VELA OS service framework. Ordinary server applications use the Python SDK or the REST API.
+For a real integration, we recommend using an SDK rather than implementing token refresh and retries yourself. Installation and usage are in [Use an SDK](./sdk.md).
 
 ## Next
 

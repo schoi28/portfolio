@@ -83,49 +83,9 @@ curl -X POST https://api.staging.vela.example.com/v1/vehicles/sim_001/commands \
 
 명령 결과는 비동기로 처리됩니다. 결과를 확인하는 방법은 [원격 명령 · 비동기 결과 처리하기](./remote-commands.md#비동기-결과-처리하기)를 참고하십시오.
 
-여기까지가 API의 기본 왕복입니다. 실제 연동에서는 SDK를 사용하는 것을 권장합니다.
+여기까지가 API의 기본 왕복입니다.
 
-## Python SDK로 호출하기
-
-서버 애플리케이션에서 사용합니다. 토큰 발급과 갱신을 자동으로 처리합니다.
-
-```bash
-pip install vela-sdk
-```
-
-```python
-from vela import VelaClient
-
-client = VelaClient(
-    client_id="...",
-    client_secret="...",
-    environment="staging",  # 프로덕션에서는 "production"
-)
-
-vehicle = client.vehicles.get("sim_001")
-soc = vehicle.signals.latest("battery.soc")
-print(f"배터리 잔량: {soc.value}{soc.unit}")
-
-result = vehicle.commands.send("lock_doors")
-result.wait(timeout=30)  # 완료될 때까지 대기
-print(result.status)  # "succeeded" | "failed" | "timed_out"
-```
-
-SDK의 `wait()`는 내부적으로 명령 상태 조회 엔드포인트를 짧은 간격으로 호출합니다. 프로덕션에서 다수의 명령을 다룬다면 폴링 대신 [웹훅으로 이벤트 받기](./webhooks.md)으로 결과를 받는 것을 권장합니다.
-
-## C++ SDK로 차량 내에서 호출하기
-
-VELA OS 위에서 동작하는 서비스가 VELA Cloud를 거치지 않고 로컬 시그널 버스에 직접 접근할 때 사용합니다. 이 SDK는 차량 내부에서만 동작하며, VELA Cloud로 나가는 요청에는 앞서 설명한 REST API를 사용합니다.
-
-```cpp
-#include <vela/signal_client.hpp>
-
-vela::SignalClient client;
-auto soc = client.get_latest("battery.soc");
-std::cout << "배터리 잔량: " << soc.value << soc.unit << std::endl;
-```
-
-C++ SDK는 VELA OS 서비스 프레임워크에 등록된 서비스에서만 사용할 수 있습니다. 일반 서버 애플리케이션은 Python SDK 또는 REST API를 사용하십시오.
+실제 연동에서는 토큰 갱신과 재시도를 직접 구현하는 대신 SDK를 사용하는 것을 권장합니다. 설치와 사용법은 [SDK로 연동하기](./sdk.md)에 있습니다.
 
 ## 다음 단계
 

@@ -1,7 +1,7 @@
 ---
 title: Browse the reference
 doc_type: 레퍼런스
-sidebar_label: 9. Browse the reference
+sidebar_label: 10. Browse the reference
 ---
 
 # Browse the reference
