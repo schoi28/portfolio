@@ -22,15 +22,28 @@ Production vehicles do not carry VELA Sense. The sensor endpoints described in [
 
 ## Kit contents
 
-| Item | Quantity | Mounting position |
-| --- | --- | --- |
-| LR-40 LiDAR module | 1 | Centre of the roof |
-| CM-20 camera module | 4 | Front, rear, left, right |
-| Interface box (IB-2) | 1 | Boot |
-| Vehicle-specific bracket set | 1 | Chosen by vehicle type |
-| Harness set | 1 | Throughout the vehicle |
+Opening the box gives you the ten items below. Check the quantities in numbered order before you start work.
 
-Full dimensions and electrical specifications are in [Check the specifications](./specifications.md).
+![The ten items in the VELA Sense kit](/img/sensor-kit-items.svg)
+
+| No. | Item | Quantity | Mounting position |
+| --- | --- | --- | --- |
+| 1 | LR-40 LiDAR module | 1 | Centre of the roof |
+| 2 | CM-20 camera module | 4 | Front, rear, left, right |
+| 3 | Interface box (IB-2) | 1 | Boot |
+| 4 | LiDAR Ethernet cable | 1 | Roof to boot |
+| 5 | Camera coaxial cable | 4 | Each camera to the boot |
+| 6 | Power harness | 1 | Around the boot fuse box |
+| 7 | Output Ethernet cable | 1 | Inside the boot |
+| 8 | Bracket set | 1 | Chosen by vehicle type |
+| 9 | Sealant | 1 | Waterproofing the roof mount |
+| 10 | Calibration target board | 3 | Outside the vehicle, used only during calibration |
+
+These numbers match the ones in [Check the specifications · kit contents](./specifications.md#kit-contents). Full dimensions and electrical specifications are there too.
+
+:::note[Note]
+If anything is missing or damaged, do not start the work; contact your supplier. Running short of cable after mounting has begun means stripping the interior trim out again.
+:::
 
 ## How the kit connects inside the vehicle
 
@@ -63,7 +76,7 @@ The whole job takes **about 4 hours 30 minutes**. Part of it cannot be done alon
 | Calibration | 1 h | 2 | [7. Calibrate the sensors](./calibration.md) |
 
 :::info[Caution]
-Read [Plan the installation](./planning.md) before starting any work. Mounting before the cable routes are decided means removing the trim a second time.
+Read [Plan the installation](./planning.md) before starting any work. Mounting before the cable routes are decided means removing the trim a second time. The tools to take to site are collected in [Check the specifications · tools and consumables at a glance](./specifications.md#tools-and-consumables-at-a-glance).
 :::
 
 ## What you can find in this guide

@@ -6,19 +6,24 @@ sidebar_label: 4. Mount the cameras
 
 # Mount the cameras
 
-Mount four CM-20 cameras at the front, rear, left, and right. This takes about 60 minutes.
+Mount four CM-20 cameras at the front, rear, left, and right.
 
 :::danger[Danger]
 When working on the A pillar, do not intrude on the curtain airbag's deployment path. Secure the cable along the same route as the factory harness.
 :::
 
-## Common points
+## What you need
 
-| Item | Value |
+| Item | Specification |
 | --- | --- |
-| Mounting surface temperature | 15 to 35 °C |
-| Adhesive cure time | 24 hours, 72 hours to fully cure |
-| Cable connector | FAKRA coaxial, colour coded by position |
+| Torque wrench | 5 to 25 N·m |
+| Degreaser | Isopropyl alcohol |
+| Microfibre cloth | Lint free |
+
+- **Conditions:** 2 people · about 60 minutes · mounting surface at **15 to 35 °C**
+- **Before you start:** [3. Mount the LiDAR](./lidar-mount.md) complete
+
+Adhesive cure time is **24 hours**, and 72 hours to fully cure. The cable connectors are FAKRA coaxial, colour coded by position.
 
 Each camera cable connector carries a colour marking. Connecting the wrong one leaves the positions detected the wrong way round.
 

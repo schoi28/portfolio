@@ -106,18 +106,38 @@ The interface box is IP54. Unlike the LiDAR and the cameras it does not withstan
 
 ## Kit contents
 
-| Item | Quantity | Note |
+The numbers match the figure in [What VELA Sense is · kit contents](./overview.md#kit-contents).
+
+| No. | Item | Quantity | Note |
+| --- | --- | --- | --- |
+| 1 | LR-40 LiDAR | 1 | |
+| 2 | CM-20 camera | 4 | Positions identified by connector colour |
+| 3 | Interface box | 1 | |
+| 4 | LiDAR Ethernet cable | 1 | 6.0 m |
+| 5 | Camera coaxial cable | 4 | 5.0, 3.0, 4.5, 4.5 m |
+| 6 | Power harness | 1 | 2.5 m, fuse holder included |
+| 7 | Output Ethernet cable | 1 | 2.0 m |
+| 8 | Bracket set | 1 | `BR-S1`, `BR-S2`, `BR-P1` |
+| 9 | Sealant | 1 | 80 ml |
+| 10 | Calibration target board | 3 | Folding |
+
+## Tools and consumables at a glance
+
+Items not included in the kit. Check them before travelling to site. The same information is split per chapter under each chapter's `What you need`.
+
+| Item | Specification | Chapters that use it |
 | --- | --- | --- |
-| LR-40 LiDAR | 1 | |
-| CM-20 camera | 4 | Positions identified by connector colour |
-| Interface box | 1 | |
-| LiDAR Ethernet cable | 1 | 6.0 m |
-| Camera coaxial cable | 4 | 5.0, 3.0, 4.5, 4.5 m |
-| Power harness | 1 | 2.5 m, fuse holder included |
-| Output Ethernet cable | 1 | 2.0 m |
-| Bracket set | 1 | `BR-S1`, `BR-S2`, `BR-P1` |
-| Sealant | 1 | 80 ml |
-| Calibration target board | 3 | Folding |
+| Torque wrench | 5 to 25 N·m | 3 · 4 · 5 · 8 |
+| Hex key | 5 mm | 3 · 8 |
+| Spirit level | Digital recommended, 0.1° resolution | 3 |
+| Multimeter | Resistance and voltage | 5 · 6 |
+| Cable ties | Heat resistant | 5 |
+| Tape measure | 10 m or longer | 7 |
+| Degreaser | Isopropyl alcohol | 3 · 4 |
+| Microfibre cloth | Lint free | 4 · 8 |
+| Lens cleaning fluid | Neutral optical cleaner | 8 |
+| Blower | Compressed gas can or hand blower | 8 |
+| Laptop | For access to the VELA Deploy console | 6 · 7 · 9 |
 
 ## Mounting tolerances at a glance
 

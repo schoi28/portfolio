@@ -8,6 +8,19 @@ sidebar_label: 8. Inspect and maintain the kit
 
 Once the installation is finished, this chapter covers **inspection intervals, cleaning the optical window and lenses, checking connectors and brackets, replacing a module, and long-term storage.** A routine inspection takes about 30 minutes. After replacing a module you must always calibrate again.
 
+## What you need
+
+| Item | Specification |
+| --- | --- |
+| Microfibre cloth | Lint free |
+| Lens cleaning fluid | Neutral optical cleaner |
+| Blower | Compressed gas can or hand blower |
+| Torque wrench | 5 to 25 N·m |
+| Hex key | 5 mm |
+
+- **Conditions:** 1 person · about 30 minutes per routine inspection · ignition off and at least 5 minutes to cool
+- **Before you start:** none. This is carried out on a vehicle whose installation is complete
+
 ## Inspection intervals
 
 | Item | Interval | Time taken |
@@ -23,16 +36,8 @@ If the validation vehicle is often used on rough roads or in wet conditions, hal
 
 ## Clean the optical window and lenses
 
-### What you need
-
-| Item | Specification |
-| --- | --- |
-| Microfibre cloth | Lint free |
-| Lens cleaning fluid | A neutral optical cleaner |
-| Blower | A canned gas or a manual blower |
-
 :::danger[Danger]
-Always cut the power before cleaning. While the unit is running, do not look into the optical window with a magnifier or a camera that magnifies (Class 1M).
+Always cut the power before cleaning. This kit has no power switch, so power is only cut by **disconnecting the negative (−) terminal of the vehicle's 12V battery**. For how to do this, see [How to cut the power](./power-check.md#how-to-cut-the-power). While the unit is running, do not look into the optical window with a magnifier or a camera that magnifies (Class 1M).
 :::
 
 ### Procedure

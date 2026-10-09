@@ -6,10 +6,10 @@ sidebar_label: 3. Mount the LiDAR
 
 # Mount the LiDAR
 
-Fix the LR-40 LiDAR to the centre of the roof. This is a two-person job and takes about 40 minutes.
+Fix the LR-40 LiDAR to the centre of the roof.
 
 :::danger[Danger]
-**Do not look into the optical window with magnifying optics** while power is applied (Class 1M). Before starting, confirm the vehicle battery's negative terminal is disconnected.
+While the power is on, **do not look into the optical window with a magnifier or a camera that magnifies** (Class 1M). Before starting, confirm the vehicle battery's negative terminal is disconnected.
 :::
 
 ## What you need
@@ -21,6 +21,9 @@ Fix the LR-40 LiDAR to the centre of the roof. This is a two-person job and take
 | Level | Digital recommended, 0.1° resolution |
 | Degreaser | Isopropyl alcohol |
 | Sealant | Supplied in the kit |
+
+- **Conditions:** 2 people · about 40 minutes · vehicle battery negative terminal disconnected
+- **Before you start:** choose the bracket and the cable routes in [2. Plan the installation](./planning.md)
 
 ## 1. Fix the bracket
 

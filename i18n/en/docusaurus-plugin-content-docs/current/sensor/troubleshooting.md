@@ -9,7 +9,7 @@ sidebar_label: 9. Troubleshoot a problem
 The chapter for finding a cause from the symptom you are seeing. It holds **a diagnostic table by symptom, the list of error codes, and how to build a diagnostic snapshot for the support team.**
 
 :::warning[Warning]
-Always cut the power before disconnecting a connector for an inspection.
+Always cut the power before disconnecting a connector for an inspection. This kit has no power switch. Power is only cut by **disconnecting the negative (−) terminal of the vehicle's 12V battery**. After disconnecting it, confirm that the status LED on the interface box has gone out before you work. For details, see [How to cut the power](./power-check.md#how-to-cut-the-power).
 :::
 
 ## Diagnostic table by symptom

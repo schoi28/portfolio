@@ -6,7 +6,18 @@ sidebar_label: 7. Calibrate the sensors
 
 # Calibrate the sensors
 
-Calibration works out exactly where each sensor is looking, relative to the vehicle, and registers that. Carry out [static calibration](#run-the-static-calibration) and then [dynamic calibration](#run-the-dynamic-calibration), in that order. It takes about 60 minutes.
+Calibration works out exactly where each sensor is looking, relative to the vehicle, and registers that. Carry out [static calibration](#run-the-static-calibration) and then [dynamic calibration](#run-the-dynamic-calibration), in that order.
+
+## What you need
+
+| Item | Specification |
+| --- | --- |
+| Calibration target board | Supplied in the kit, 3 boards |
+| Tape measure | 10 m or longer |
+| Laptop | For access to the VELA Deploy console |
+
+- **Conditions:** 2 people · about 60 minutes · an indoor area for static calibration and a route for dynamic calibration
+- **Before you start:** the initial diagnostics in [6. Power up and check](./power-check.md) passed
 
 ## Why calibration is needed
 
