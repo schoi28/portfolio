@@ -6,7 +6,7 @@ sidebar_label: 10. 레퍼런스 찾아보기
 
 # 레퍼런스 찾아보기
 
-에러 코드, 요청 제한, 페이지네이션, 변경 이력을 모아 둔 장입니다. 각 항목은 독립적으로 검색해서 볼 수 있도록 작성했습니다.
+시그널 카탈로그, 에러 코드, 요청 제한, 페이지네이션, 변경 이력을 모아 둔 장입니다.
 
 ## 시그널 카탈로그
 
@@ -56,7 +56,7 @@ sidebar_label: 10. 레퍼런스 찾아보기
 | `sensor.calibration.state` | 최근 캘리브레이션 상태 | enum: `valid`\|`stale`\|`failed`\|`never_run` | 변경 시 | front |
 | `sensor.time_sync.offset` | PTP 시간 동기화 오차 | microseconds | 10s | front |
 
-전체 시그널은 130개 이상이며, 위 표는 자주 쓰이는 항목의 발췌입니다. 전체 목록은 OpenAPI 스펙의 `/v1/signals/catalog` 응답에서 확인할 수 있습니다.
+전체 시그널은 130개 이상이며, 위 표는 자주 쓰이는 항목의 발췌입니다. 전체 목록은 `GET /v1/signals/catalog` 응답에서 확인할 수 있습니다.
 
 ```bash
 curl https://api.vela.example.com/v1/signals/catalog \

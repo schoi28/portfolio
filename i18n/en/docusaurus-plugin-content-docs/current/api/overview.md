@@ -6,7 +6,7 @@ sidebar_label: 1. What the VELA Vehicle API is
 
 # What the VELA Vehicle API is
 
-A REST API for reading vehicle data and sending remote commands.
+A REST API for reading vehicle data in VELA Cloud and controlling remote commands and software deployment. You can send REST requests directly or use an official SDK.
 
 ```
 https://api.vela.example.com/v1
@@ -31,20 +31,32 @@ API resources map to the names used in the other documents as follows.
 
 ![The part of the system the VELA Vehicle API covers](/img/api-architecture.svg)
 
-This API is the boundary between VELA Cloud and the applications above it. Communication inside the vehicle below the CCU, meaning the zonal ECUs and VELA Sense, is outside the scope of this API and is handled by VELA OS.
+This API is the boundary between VELA Cloud and external applications. Communication inside the vehicle below the CCU, meaning the zonal ECUs and VELA Sense, is outside the scope of this API and is handled by VELA OS. The C++ SDK that reaches the signal bus inside the vehicle is also outside the scope of this REST API.
+
+## Choose a starting path
+
+The VELA Vehicle API can be used by sending REST requests directly or through an official SDK. Start from whichever path matches how you are integrating.
+
+| Integration | Where to start | What to refer to next |
+| --- | --- | --- |
+| **Calling the REST API directly** | [Set up authentication](./authentication.md) → [Get started with the REST API](./quickstart.md) | The `curl` examples in each feature chapter |
+| **Using an official Cloud SDK** | [Set up authentication · register a client](./authentication.md#1-register-a-client) → [Use an SDK](./sdk.md) | The feature chapters and the [SDK method mapping](./sdk.md#rest-operations-and-sdk-methods) |
+
+The Python, Node.js, and Java SDKs call VELA Cloud's REST API. Because an SDK obtains and refreshes tokens for you, a developer who chooses an SDK does not need to work through the `curl` quickstart first.
+
 
 ---
 
 ## Before you build
 
-The following three points differ from a typical web API. Build without knowing them and **your code passes in staging and fails in production.**
+The following three points differ from a typical web API. In particular, building against staging behaviour alone can fail in production.
 
 ### The vehicle is not always connected
 
-In an underground car park, or once the vehicle enters battery protection mode, the connection drops. A read through this API therefore does not ask the vehicle now. It returns **the last value the vehicle reported**. Every response carries `reported_at` alongside the value.
+In an underground car park, or once the vehicle enters battery protection mode, the connection drops. A read through this API therefore does not ask the vehicle now. It returns **the last value the vehicle reported**. A latest-value response for a signal carries `timestamp`, the time of that last report.
 
 :::info[Caution]
-Using a value without checking `reported_at` means showing someone a battery level from several hours ago as if it were current. Show the reported time next to any value you put on screen.
+Displaying a value without checking `timestamp` and `stale` can show a past battery level as if it were current. Handle the last reported time and the freshness of the data together. For a full response example, see [Read the latest value](./vehicle-data.md#read-the-latest-value).
 :::
 
 ### Remote commands do not finish immediately
@@ -92,9 +104,9 @@ Credentials are issued per environment. A staging token does not work in product
 
 ## SDKs
 
-VELA provides official SDKs for four languages: Python, Node.js, Java, and C++. An SDK handles obtaining and refreshing tokens, retries, and waiting for results.
+The official SDKs for VELA Cloud support **Python, Node.js, and Java**. They handle obtaining and refreshing tokens, retrying read requests, and waiting for asynchronous command results. The C++ SDK used inside the vehicle is a different interface and is outside the scope of this guide.
 
-Installation and usage are in [Use an SDK](./sdk.md). Every example request in this guide is written as `curl`, and the mapping to SDK methods is collected in [REST operations and SDK methods](./sdk.md#rest-operations-and-sdk-methods).
+[Use an SDK](./sdk.md) covers installation and a first read example. The feature chapters explain calls as `curl`, and the corresponding SDK methods are collected in [REST operations and SDK methods](./sdk.md#rest-operations-and-sdk-methods).
 
 ## Rate limits and errors
 
@@ -102,7 +114,7 @@ Installation and usage are in [Use an SDK](./sdk.md). Every example request in t
 | --- | --- | --- |
 | Rate limit | 600 requests per minute per client. `429` when exceeded | [Reference](./reference.md#rate-limits) |
 | Error format | Every failure response carries `error.code` and `error.message` | [Reference](./reference.md#error-codes) |
-| Pagination | Cursor based. No `next_cursor` means the last page | [Reference](./reference.md#pagination) |
+| Pagination | Cursor based. `next_page` of `null` means the last page | [Reference](./reference.md#pagination) |
 
 ## Versioning policy
 
@@ -125,10 +137,10 @@ Installation and usage are in [Use an SDK](./sdk.md). Every example request in t
 | --- | --- |
 | Get a token and attach it to a request | [2. Set up authentication](./authentication.md) |
 | Decide the scopes you need | [2. Set up authentication](./authentication.md#choose-your-scopes) |
-| Send your first request in five minutes | [3. Get started quickly](./quickstart.md) |
-| Install an SDK and create a client | [4. Use an SDK](./sdk.md#install-and-create-a-client) |
+| Send a first request with the REST API | [3. Get started with the REST API](./quickstart.md) |
+| Install an SDK and create a client | [4. Use an SDK](./sdk.md#install-an-sdk-and-create-a-client) |
 | Translate a curl example into an SDK method | [4. Use an SDK](./sdk.md#rest-operations-and-sdk-methods) |
-| Handle the exceptions an SDK raises | [4. Use an SDK](./sdk.md#handle-errors) |
+| Handle the exceptions an SDK raises | [4. Use an SDK](./sdk.md#handle-exceptions) |
 | Read a current value such as battery level or range | [5. Read vehicle data](./vehicle-data.md#read-the-latest-value) |
 | Chart how a value changed over a period | [5. Read vehicle data](./vehicle-data.md#read-a-time-series) |
 | Receive values as they change | [5. Read vehicle data](./vehicle-data.md#subscribe-to-a-stream) |
@@ -144,5 +156,5 @@ Installation and usage are in [Use an SDK](./sdk.md). Every example request in t
 
 ## Next
 
-- Set up [authentication](./authentication.md) before sending any request.
-- If this is your first time, send a request in five minutes with the [quickstart](./quickstart.md).
+- To call the API directly with `curl`, start from [Set up authentication](./authentication.md).
+- To use an official SDK, create a client and run a first read in [Use an SDK](./sdk.md).

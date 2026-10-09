@@ -8,7 +8,6 @@ sidebar_label: 5. Read vehicle data
 
 Data reported by a vehicle passes through the sensor abstraction layer in VELA OS and is exposed as standardised **signals**. This chapter covers how to read and subscribe to them.
 
-
 Signal names, units, and reporting intervals are collected in [the signal catalogue in the reference](./reference.md#signal-catalogue). This chapter covers only **how to fetch** those values.
 
 ## Read the latest value
@@ -29,13 +28,12 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/signals/{signal}/late
 }
 ```
 
-A `stale` value of `true` means three times the signal's normal reporting interval has passed since the last update. The vehicle is probably out of contact.
+`timestamp` is the UTC time at which the vehicle last reported the value. A `stale` value of `true` means no new value arrived for three times the normal reporting interval. Check both fields before presenting a value as current. The vehicle may also have lost contact.
 
 ## Read a time series
 
 ```bash
-curl "https://api.vela.example.com/v1/vehicles/{vehicle_id}/signals/battery.soc/history\
-?from=2026-09-01T00:00:00Z&to=2026-09-02T00:00:00Z&interval=1h" \
+curl "https://api.vela.example.com/v1/vehicles/{vehicle_id}/signals/battery.soc/history?from=2026-09-01T00:00:00Z&to=2026-09-02T00:00:00Z&interval=1h" \
   -H "Authorization: Bearer $VELA_ACCESS_TOKEN"
 ```
 

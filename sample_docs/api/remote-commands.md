@@ -107,7 +107,7 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands/{command_id}
 
 ### 방법 2: 웹훅
 
-`command.completed` 이벤트를 구독하면 상태가 바뀔 때 VELA Cloud가 지정한 URL로 알려줍니다. 설정 방법은 [웹훅으로 이벤트 받기](./webhooks.md)을 참고하십시오.
+`command.completed` 이벤트를 구독하면 상태가 바뀔 때 VELA Cloud가 지정한 URL로 알려줍니다. 설정 방법은 [웹훅으로 이벤트 받기](./webhooks.md)를 참고하십시오.
 
 ### 방법 3: SDK의 `wait()`
 
@@ -116,9 +116,9 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands/{command_id}
 ## 타임아웃과 재시도 정책
 
 - 명령은 접수 후 **30초** 안에 차량이 응답해야 합니다. 응답이 없으면 `timed_out`으로 처리됩니다.
-- `timed_out`과 통신 계열 실패(`vehicle_unreachable`)는 재시도가 안전합니다. 사전 조건 실패(`precondition_failed`)는 원인이 해결되기 전까지 재시도해도 같은 결과입니다.
+- `timed_out`이나 통신 실패(`vehicle_unreachable`)가 발생한 경우에는 **먼저 명령 상태를 조회**하십시오. 명령이 실제로 실행되지 않았는지 확인한 다음 재시도 여부를 판단해야 합니다. 사전 조건 실패(`precondition_failed`)는 원인이 해결되기 전까지 재시도하지 마십시오.
 - 같은 차량에 대해 처리 중인 명령이 있으면 새 명령은 `409 command_in_progress`로 거부됩니다. 순차적으로 보내십시오.
-- 자동 재시도를 구현한다면 지수 백오프를 권장합니다. VELA SDK는 이를 기본 제공합니다.
+- VELA SDK는 **조회 요청에만 자동 재시도**를 적용합니다. 원격 명령은 중복 실행 위험이 있어 자동으로 다시 보내지 않습니다. 명령 재시도가 필요하다면 결과 확인 후 지수 백오프 적용 여부를 판단하십시오.
 
 ## 다음 단계
 

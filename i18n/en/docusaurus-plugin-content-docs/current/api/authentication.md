@@ -35,6 +35,8 @@ Creating an API client requires the **Administrator** role on your console accou
 
 ### 2. Get an access token
 
+The example below uses the `VELA_CLIENT_ID` and `VELA_CLIENT_SECRET` environment variables from the previous step. Do this only when authenticating directly with `curl`. If you use an official SDK, the SDK obtains and refreshes the token for you.
+
 ```bash
 curl -X POST https://api.vela.example.com/v1/oauth/token \
   -H "Content-Type: application/x-www-form-urlencoded" \
@@ -56,6 +58,8 @@ Response:
 ```
 
 ### 3. Attach the token to a request
+
+Keep the `access_token` value from the previous step in the `VELA_ACCESS_TOKEN` environment variable and use it in your requests.
 
 ```bash
 curl https://api.vela.example.com/v1/vehicles \
@@ -112,4 +116,4 @@ When VELA OS in a vehicle talks to VELA Cloud, it uses certificate-based mTLS ra
 
 ## Next
 
-With authentication in place, send your first request in [Get started quickly](./quickstart.md).
+If you are calling the REST API directly, continue to [Get started with the REST API](./quickstart.md). If you are using an SDK, skip the token step and create a client in [Use an SDK](./sdk.md).

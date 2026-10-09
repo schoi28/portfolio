@@ -36,9 +36,11 @@ Reading vehicle data and sending remote commands are covered in task chapters, a
 
 The glossary leads with **vehicle domain terms** such as CCU, zonal ECU, and OTA campaign rather than with elements a developer already knows, such as HTTP methods or `vehicle_id`. Where OEM and partner developers call the same thing by a different name from operators, a term mapping table is provided.
 
-### Not repeating the SDK at every endpoint
+### Separating the REST and SDK paths
 
-Usage of the official SDKs is collected into one chapter and connected through a **mapping between REST operations and methods**, rather than placing parallel per-language examples in every chapter. Maintaining the same example twice guarantees that one copy eventually gets left behind.
+[Choose a starting path](./overview.md#choose-a-starting-path) is signposted so that developers calling the REST API directly and developers using an official Cloud SDK can each start from what they need.
+
+The feature chapters explain requests and responses with `curl`, while SDK installation, authentication, exception handling, and a first usage example are collected in [Use an SDK](./sdk.md). **Rather than repeating the same feature as a per-language example**, the two paths are connected through a mapping between REST operations and Python SDK methods. The in-vehicle C++ SDK targets a different interface and is scoped out.
 
 ### Accounting for differences between environments
 
@@ -51,12 +53,12 @@ The preface built from the decisions above. In the manual itself this sits befor
 
 ### About this reference
 
-This is the developer guide for the REST API that VELA Cloud exposes. It covers reading vehicle data, sending remote commands, and controlling software deployment.
+This is the developer guide for the REST API and the official Cloud SDKs that VELA Cloud provides externally. It covers reading vehicle data, sending remote commands, and controlling software deployment.
 
 | Area | Detail |
 | --- | --- |
-| Covered | Authentication, reading vehicle data, remote commands, sensor state, OTA campaigns, webhooks, error handling |
-| Not covered | Communication inside the vehicle (zonal ECUs, internal VELA OS APIs), operating the console by hand (see [VELA Deploy](../deploy/intro.md)), mounting sensors (see [VELA Sense](../sensor/intro.md)) |
+| Covered | Authentication, the official SDKs, reading vehicle data, remote commands, sensor state, OTA campaigns, webhooks, error handling |
+| Not covered | Communication inside the vehicle and the local C++ SDK (zonal ECUs, internal VELA OS interfaces), operating the console by hand (see [VELA Deploy](../deploy/intro.md)), mounting sensors (see [VELA Sense](../sensor/intro.md)) |
 | API version | `v1` |
 | Base URL | `https://api.vela.example.com/v1` |
 
@@ -66,7 +68,7 @@ It is written for developers integrating the VELA platform into their own system
 
 | Role | What they do | Where to start |
 | --- | --- | --- |
-| **OEM application developer** | Uses vehicle data in a branded app | [What the VELA Vehicle API is](./overview.md), then [Get started quickly](./quickstart.md), then [Read vehicle data](./vehicle-data.md) |
+| **OEM application developer** | Uses vehicle data in a branded app | [What the VELA Vehicle API is](./overview.md), then [Choose a starting path](./overview.md#choose-a-starting-path), then [Read vehicle data](./vehicle-data.md) |
 | **Supplier developer** | Builds features on the VELA platform | [Send remote commands](./remote-commands.md), [Receive events through webhooks](./webhooks.md) |
 | **Release automation owner** | Runs deployment from code rather than the console | [Control OTA deployment](./ota.md), [VELA Deploy operations guide](../deploy/intro.md) |
 | **Validation engineer** | Checks sensor state on development vehicles | [Check sensor state](./sensors.md), [VELA Sense installation guide](../sensor/intro.md) |
@@ -78,6 +80,8 @@ The reference assumes you can do the following:
 - Implement asynchronous handling, either by polling or by receiving webhooks
 
 **No prior knowledge of autonomous driving or vehicle electronics is assumed.** The concepts you need are explained in [What the VELA Vehicle API is](./overview.md) and [Look up a term](./glossary.md).
+
+Your first exercise depends on whether you call the REST API directly or use an SDK. See [Choose a starting path](./overview.md#choose-a-starting-path) for the reading order that matches your approach.
 
 ### Conventions
 
