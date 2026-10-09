@@ -33,7 +33,7 @@ VELA does not build cars. It supplies **the software that connects to a vehicle,
 
 Sensors go on development and validation vehicles, and developers use the API to work with vehicle data. Once a vehicle is on the road, operators deploy software to it wirelessly, and owners check its status from a mobile app. **The four products connect to each other inside one vehicle service this way.**
 
-![How VELA Cloud, the vehicle, and the mobile app connect](/img/architecture-overview.svg)
+![How VELA Cloud, the vehicle, and the mobile app connect](/img/architecture-overview.en.svg)
 
 ## Four products, four kinds of document
 

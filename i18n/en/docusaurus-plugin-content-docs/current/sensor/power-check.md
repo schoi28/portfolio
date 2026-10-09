@@ -54,7 +54,7 @@ If it has not turned green after 45 seconds, something is wrong.
 
 ## 3. How to read the status LED
 
-![What each status LED colour means](/img/sensor-led-states.svg)
+![What each colour of the interface box status LED means](/img/sensor-led-states.en.svg)
 
 | LED | Meaning | What to do |
 | --- | --- | --- |

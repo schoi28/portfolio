@@ -1,0 +1,73 @@
+<!--
+  vela-pipeline · Pushing a document runs the checks first and deploys only when there are no errors
+  Used by: i18n/en/docusaurus-plugin-content-docs-projects/current/vela.md
+  Pair: vela-pipeline.svg
+  Spec: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 376" width="900" height="376"
+     role="img"
+     aria-label="Pushing a documentation change makes GitHub Actions run the checks first, and build and deploy only when there are no errors">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="376" fill="#f5f7f8"/>
+  <rect x="24" y="24" width="200" height="64" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="124" y="52" text-anchor="middle">Edit a document</text>
+  <text class="t sub" x="124" y="71" text-anchor="middle">sample_docs/ · _config/</text>
+  <path d="M224 56H256" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="256" y="24" width="200" height="64" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="356" y="52" text-anchor="middle">git push</text>
+  <text class="t sub" x="356" y="71" text-anchor="middle">main branch</text>
+  <path d="M356 88V116H109V144" fill="none" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="163" y="107" width="139" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="232" y="120" text-anchor="middle">Push runs the rest</text>
+  <rect x="24" y="144" width="170" height="88" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="109" y="172" text-anchor="middle">Prepare</text>
+  <text class="t sub" x="109" y="191" text-anchor="middle">Check out the source</text>
+  <text class="t sub" x="109" y="210" text-anchor="middle">Node 20 · npm ci</text>
+  <rect x="226" y="144" width="170" height="88" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="311" y="172" text-anchor="middle">Check the docs</text>
+  <text class="t sub" x="311" y="191" text-anchor="middle">npm run check</text>
+  <text class="t sub" x="311" y="210" text-anchor="middle">88 files against config</text>
+  <rect x="504" y="144" width="170" height="88" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="589" y="172" text-anchor="middle">Build the site</text>
+  <text class="t sub" x="589" y="191" text-anchor="middle">Korean · English</text>
+  <text class="t sub" x="589" y="210" text-anchor="middle">Static HTML</text>
+  <rect x="706" y="144" width="170" height="88" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="791" y="172" text-anchor="middle">Deploy</text>
+  <text class="t sub" x="791" y="191" text-anchor="middle">GitHub Pages</text>
+  <text class="t sub" x="791" y="210" text-anchor="middle"></text>
+  <path d="M194 188H226" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M396 188H504" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="409" y="179" width="81" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="450" y="192" text-anchor="middle">No errors</text>
+  <path d="M674 188H706" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M311 232V288" stroke="#9b3a34" stroke-width="2" marker-end="url(#arrow-danger)" fill="none" stroke-dasharray="6 4"/>
+  <rect x="245" y="251" width="132" height="18" fill="#f5f7f8"/>
+  <text class="t warn" x="311" y="264" text-anchor="middle">One error or more</text>
+  <rect x="226" y="288" width="170" height="64" fill="#ffffff" stroke="#9b3a34" stroke-width="2"/>
+  <text class="t title" x="311" y="316" text-anchor="middle">Deployment stops</text>
+  <text class="t sub" x="311" y="335" text-anchor="middle">Site stays as it was</text>
+  <path d="M791 232V288" stroke="#1f3a5f" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="706" y="288" width="170" height="64" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="791" y="316" text-anchor="middle">Published</text>
+  <text class="t sub" x="791" y="335" text-anchor="middle">Changes are live</text>
+</svg>

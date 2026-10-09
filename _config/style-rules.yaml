@@ -3,8 +3,11 @@
 # 이 파일은 scripts/check-docs.mjs 가 읽어 sample_docs/ 전체를 검사합니다.
 # `npm run check` 또는 `npm run build` 앞단에서 실행됩니다.
 #
-# 룰이 많으면 리포트에 노이즈가 늘어납니다. 실제로 자주 어기는 것만 남깁니다.
-# 룰을 추가할 때는 검사기가 판정할 수 있는 형태(정규식 또는 수치)로 적습니다.
+# 룰이 많으면 리포트에 잡음이 늘어납니다. 실제로 자주 어기는 것만 남깁니다.
+# 룰을 추가할 때는 검사기가 판정할 수 있는 형태(정규식이나 숫자)로 적습니다.
+#
+# 검사기가 읽지 않는 항목도 있습니다. 사람이 지키는 기준이며 아래 넷입니다.
+#   tone · formatting · link_text · ai_readability · cta_labels
 
 # ─────────────────────────────────────────────────────────────
 # 언어 설정
@@ -234,3 +237,16 @@ ai_readability:
   - 제목만 읽어도 내용을 알 수 있게 쓴다.
   - 대명사로 앞 문단을 가리키지 않는다. 문단은 독립적으로 이해되어야 한다.
   - 표에 담긴 정보를 본문에서 반복 설명하지 않는다. 중복은 최신화 실패의 원인이 된다.
+
+# 사람이 지키는 규칙입니다. 검사기는 읽지 않습니다.
+# 같은 곳으로 가는 버튼은 페이지가 달라도 같은 이름을 씁니다.
+# 이름이 다르면 독자는 다른 곳으로 간다고 생각합니다.
+cta_labels:
+  /projects:   { ko: 프로젝트 보기,        en: See the projects }
+  /samples:    { ko: 문서 샘플 읽기,       en: Read the sample docs }
+  /resume:     { ko: 이력서 보기,          en: See the resume }
+  /contact:    { ko: 연락하기,             en: Get in touch }
+  mailto:      { ko: 이메일 보내기,        en: Send an email }
+  linkedin:    { ko: LinkedIn 프로필 보기, en: View the LinkedIn profile }
+  resume-ko:   { ko: 국문 이력서 내려받기, en: Download the Korean resume }
+  resume-en:   { ko: 영문 이력서 내려받기, en: Download the English resume }

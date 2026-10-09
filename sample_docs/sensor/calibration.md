@@ -47,7 +47,7 @@ sidebar_label: 7. 캘리브레이션하기
 
 ### 타깃 보드 배치
 
-![정적 캘리브레이션 시 타깃 보드 배치](/img/sensor-calibration-layout.svg)
+![정적 캘리브레이션 시 차량과 타깃 보드의 배치](/img/sensor-calibration-layout.svg)
 
 | 타깃 | 위치 | 차량 기준 거리 | 허용 오차 |
 | --- | --- | --- | --- |

@@ -1,0 +1,45 @@
+<!--
+  app-home-layout · The three areas of the VELA Drive home screen
+  Used by: i18n/en/docusaurus-plugin-content-docs/current/app/vehicle-status.md
+  Pair: app-home-layout.svg
+  Spec: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 376" width="640" height="376"
+     role="img"
+     aria-label="The three areas of the home screen">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
+
+  <rect width="640" height="376" fill="#f5f7f8"/>
+  <rect x="180" y="24" width="280" height="328" rx="16" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <rect x="296" y="40" width="48" height="6" rx="3" fill="#b9c0c8"/>
+  <rect x="196" y="56" width="248" height="272" rx="2" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <rect x="212" y="68" width="216" height="72" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="320" y="100" text-anchor="middle">Vehicle summary</text>
+  <text class="t sub" x="320" y="119" text-anchor="middle">Battery · Range</text>
+  <rect x="212" y="156" width="216" height="72" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="320" y="188" text-anchor="middle">Quick controls</text>
+  <text class="t sub" x="320" y="207" text-anchor="middle">Lock · Climate · Charging</text>
+  <rect x="212" y="244" width="216" height="72" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="320" y="276" text-anchor="middle">Alerts</text>
+  <text class="t sub" x="320" y="295" text-anchor="middle">Updates · Servicing</text>
+  <rect x="272" y="340" width="96" height="4" rx="2" fill="#b9c0c8"/>
+</svg>

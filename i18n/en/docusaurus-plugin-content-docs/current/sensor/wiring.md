@@ -25,7 +25,7 @@ Before any power wiring, check again that the negative terminal of the vehicle's
 
 ## Wiring layout
 
-![How the sensors, interface box, and central computing unit are wired](/img/sensor-wiring.svg)
+![How the sensors, the interface box and the central computing unit are wired](/img/sensor-wiring.en.svg)
 
 :::note[Note]
 The cameras have no separate power cable. The interface box sends video and power together down a single coaxial cable.

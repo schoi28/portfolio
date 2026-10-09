@@ -1,0 +1,71 @@
+<!--
+  api-architecture · Where the VELA Vehicle API sits in the whole system
+  Used by: i18n/en/docusaurus-plugin-content-docs/current/api/overview.md
+  Pair: api-architecture.svg
+  Spec: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 536" width="760" height="536"
+     role="img"
+     aria-label="The part of the system the VELA Vehicle API covers">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="536" fill="#f5f7f8"/>
+  <rect x="24" y="24" width="712" height="96" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t zone" x="44" y="49" text-anchor="start">WHO CALLS THE API</text>
+  <rect x="44" y="64" width="208" height="40" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="148" y="89" text-anchor="middle">OEM&#39;s own systems</text>
+  <rect x="276" y="64" width="208" height="40" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="380" y="89" text-anchor="middle">VELA Drive app</text>
+  <rect x="508" y="64" width="208" height="40" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="612" y="89" text-anchor="middle">Third-party integrations</text>
+  <path d="M380 120V144" stroke="#1f3a5f" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="240" y="144" width="280" height="36" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t boxw" x="380" y="167" text-anchor="middle">VELA Vehicle API (REST)</text>
+  <path d="M380 180V204" stroke="#1f3a5f" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="24" y="204" width="712" height="96" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t zone" x="44" y="229" text-anchor="start">VELA CLOUD</text>
+  <rect x="44" y="244" width="208" height="40" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="148" y="269" text-anchor="middle">Signal storage</text>
+  <rect x="276" y="244" width="208" height="40" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="380" y="269" text-anchor="middle">Command relay</text>
+  <rect x="508" y="244" width="208" height="40" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="612" y="269" text-anchor="middle">Campaign management</text>
+  <path d="M380 300V348" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="266" y="315" width="228" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="380" y="328" text-anchor="middle">Cellular · mTLS · Drops possible</text>
+  <rect x="24" y="348" width="712" height="128" fill="#ffffff" stroke="#b9c0c8" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="t zone" x="44" y="373" text-anchor="start">VEHICLE</text>
+  <rect x="44" y="388" width="240" height="40" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="164" y="413" text-anchor="middle">Central computing unit</text>
+  <text class="t sub" x="164" y="444" text-anchor="middle">CCU · VELA OS runtime</text>
+  <path d="M284 408H316" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <text class="t sub" x="300" y="444" text-anchor="middle">Ethernet</text>
+  <rect x="316" y="388" width="184" height="40" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="408" y="413" text-anchor="middle">Zonal ECU</text>
+  <path d="M500 408H532" stroke="#3d4852" stroke-width="2" fill="none"/>
+  <rect x="532" y="388" width="184" height="40" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="624" y="413" text-anchor="middle">VELA Sense</text>
+  <rect x="189" y="500" width="12" height="12" fill="#1f3a5f"/>
+  <text class="t lgnd" x="209" y="510" text-anchor="start">In scope of this guide</text>
+  <rect x="365" y="500" width="12" height="12" fill="#ffffff" stroke="#b9c0c8" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="t lgnd" x="385" y="510" text-anchor="start">Handled by VELA OS · Out of scope</text>
+</svg>

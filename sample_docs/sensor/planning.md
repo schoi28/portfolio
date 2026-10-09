@@ -14,7 +14,7 @@ sidebar_label: 2. 설치 계획 세우기
 
 ## 장착 위치 기준
 
-![차량 상면도에서 본 센서 장착 위치](/img/sensor-mounting-layout.svg)
+![차량 상면도에서 본 라이다와 카메라 4대의 장착 위치](/img/sensor-mounting-layout.svg)
 
 :::note[참고]
 그림의 치수는 축척이 아니며 상대 위치만 나타냅니다. 실제 값은 [사양 확인하기](./specifications.md)를 보십시오.

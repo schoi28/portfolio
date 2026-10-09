@@ -3,13 +3,10 @@ node_modules
 build
 .cache-loader
 
-# 기획 문서는 공개 저장소에 올리지 않습니다.
-# _config/ 는 의도적으로 공개합니다. 문서 품질 기준 자체가 산출물입니다.
+# 기획 문서는 공개하지 않습니다. _config/ 는 공개합니다.
 _planning/
 
 .DS_Store
-sample_docs/.DS_Store
-src/.DS_Store
 .env
 .env.local
 

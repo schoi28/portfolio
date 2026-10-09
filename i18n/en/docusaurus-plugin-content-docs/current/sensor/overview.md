@@ -24,7 +24,7 @@ Production vehicles do not carry VELA Sense. The sensor endpoints described in [
 
 Opening the box gives you the ten items below. Check the quantities in numbered order before you start work.
 
-![The ten items in the VELA Sense kit](/img/sensor-kit-items.svg)
+![VELA Sense kit items, numbered 1 to 10](/img/sensor-kit-items.svg)
 
 | No. | Item | Quantity | Mounting position |
 | --- | --- | --- | --- |
@@ -47,7 +47,7 @@ If anything is missing or damaged, do not start the work; contact your supplier.
 
 ## How the kit connects inside the vehicle
 
-![How the sensors, the interface box, and the central computing unit connect](/img/sensor-kit-connection.svg)
+![How the sensors, the interface box and the central computing unit connect](/img/sensor-kit-connection.en.svg)
 
 Sensors connect only to the interface box, which reaches the central computing unit (CCU) over a single Ethernet run. When the vehicle type changes, only the **brackets and harness lengths** change. The wiring on the CCU side stays the same.
 

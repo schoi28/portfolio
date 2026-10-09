@@ -1,27 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" width="420" height="300" role="img" aria-label="인터페이스 박스 상태 LED의 색상별 의미">
+<!--
+  sensor-led-states · 인터페이스 박스 상태 LED의 색상별 의미
+  사용처: sample_docs/sensor/power-check.md
+  쌍: sensor-led-states.en.svg
+  기준: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 328" width="640" height="328"
+     role="img"
+     aria-label="인터페이스 박스 상태 LED의 색상별 의미">
   <style>
-    .t { font-family: 'Pretendard', -apple-system, sans-serif; fill: #0f1419; }
-    .b { font-size: 12.5px; font-weight: 600; }
-    .s { font-size: 10.5px; fill: #6b7681; }
-    .e { font-size: 10.5px; fill: #3d4852; }
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
   </style>
-  <defs><marker id="m" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
-    <path d="M0 0L8 4L0 8z" fill="#3d4852"/></marker></defs>
-  <rect width="420" height="300" fill="#f5f7f8"/>
-  <text class="t b" x="36" y="42">인터페이스 박스 전면 상태 LED</text>
-  <circle cx="54" cy="84" r="12" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
-  <text class="t b" x="82" y="82">흰색 깜박임</text>
-  <text class="t s" x="82" y="99">부팅 중 · 센서 인식 중</text>
-  <circle cx="54" cy="128" r="12" fill="#2f8f6b" stroke="#1d6b4f" stroke-width="2"/>
-  <text class="t b" x="82" y="126">초록색 켜짐</text>
-  <text class="t s" x="82" y="143">정상. 모든 센서가 인식됨</text>
-  <circle cx="54" cy="172" r="12" fill="#d9892a" stroke="#9c5f14" stroke-width="2"/>
-  <text class="t b" x="82" y="170">주황색 깜박임</text>
-  <text class="t s" x="82" y="187">센서 일부가 인식되지 않음 · 시간 동기화 실패</text>
-  <circle cx="54" cy="216" r="12" fill="#c0453f" stroke="#8a2f2a" stroke-width="2"/>
-  <text class="t b" x="82" y="214">빨간색 켜짐</text>
-  <text class="t s" x="82" y="231">전원 이상 · 하드웨어 고장</text>
-  <circle cx="54" cy="260" r="12" fill="#f5f7f8" stroke="#dfe3e8" stroke-width="2"/>
-  <text class="t b" x="82" y="258">꺼짐</text>
-  <text class="t s" x="82" y="275">전원이 들어오지 않음</text>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
+
+  <rect width="640" height="328" fill="#f5f7f8"/>
+  <circle cx="48" cy="52" r="12" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="84" y="48" text-anchor="start">흰색 깜박임</text>
+  <text class="t sub" x="84" y="67" text-anchor="start">부팅 중 · 센서 인식 중</text>
+  <circle cx="48" cy="108" r="12" fill="#2f8f6b" stroke="#1d6b4f" stroke-width="2"/>
+  <text class="t title" x="84" y="104" text-anchor="start">초록색 켜짐</text>
+  <text class="t sub" x="84" y="123" text-anchor="start">정상 · 모든 센서 인식</text>
+  <circle cx="48" cy="164" r="12" fill="#d9892a" stroke="#9c5f14" stroke-width="2"/>
+  <text class="t title" x="84" y="160" text-anchor="start">주황색 깜박임</text>
+  <text class="t sub" x="84" y="179" text-anchor="start">센서 일부 미인식 · 시간 동기화 실패</text>
+  <circle cx="48" cy="220" r="12" fill="#c0453f" stroke="#9b3a34" stroke-width="2"/>
+  <text class="t title" x="84" y="216" text-anchor="start">빨간색 켜짐</text>
+  <text class="t sub" x="84" y="235" text-anchor="start">전원 이상 · 하드웨어 고장</text>
+  <circle cx="48" cy="276" r="12" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="84" y="272" text-anchor="start">꺼짐</text>
+  <text class="t sub" x="84" y="291" text-anchor="start">전원 없음</text>
 </svg>

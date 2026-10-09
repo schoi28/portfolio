@@ -12,7 +12,7 @@ The app shows you **the battery level and range, the door lock state, tyre press
 
 This is the first screen you see when you open the app. It has three areas.
 
-![The three areas of the home screen](/img/app-home-layout.svg)
+![The three areas of the home screen](/img/app-home-layout.en.svg)
 
 :::note[Note]
 Some of the quick control buttons can look switched off, depending on the state of the vehicle. That means a condition is unmet and the control is unavailable for now.

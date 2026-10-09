@@ -33,15 +33,15 @@ When new vehicle software is released the app tells you, and when a service is d
 
 ## How the app reaches your vehicle
 
-The app does not connect to the vehicle directly. A server sits between them.
+The app does not connect to the vehicle directly. A server called **VELA Cloud** sits between them.
 
-![How the phone app, the VELA server, and the vehicle connect](/img/app-connection.svg)
+![How the phone app, VELA Cloud and the vehicle connect](/img/app-connection.en.svg)
 
 **The vehicle has to be somewhere it can communicate.** In an underground car park, where the signal does not reach, commands do not arrive and the values in the app do not change. You do not have to be near the car, but the car has to be where it has signal.
 
 You can check the vehicle's connection from **Last contact** at the top of the home screen. The detail is in [Check your vehicle status](./vehicle-status.md#check-when-a-value-was-last-updated).
 
-When you choose a remote control action, the app sends the command through the server to the vehicle and shows you the result the vehicle actually reports back. So when the app shows **Done**, the vehicle really did it. If the vehicle cannot be reached, the action never turns into Done and is treated as a failure.
+When you choose a remote control action, the app sends the command through VELA Cloud to the vehicle and shows you the result the vehicle actually reports back. So when the app shows **Done**, the vehicle really did it. If the vehicle cannot be reached, the action never turns into Done and is treated as a failure.
 
 :::info[Caution]
 If the vehicle is not driven for more than two weeks, it reports less often to save the battery. A slow response in the app is not a fault.

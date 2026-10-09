@@ -1,86 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" width="880" height="380" role="img" aria-label="문서를 고쳐 푸시하면 GitHub Actions가 검수 스크립트를 먼저 돌리고, 오류가 없을 때만 빌드해 배포하는 과정">
+<!--
+  vela-pipeline · 문서를 푸시하면 검수를 먼저 돌리고 오류가 없을 때만 배포하는 과정
+  사용처: projects/vela.md
+  쌍: vela-pipeline.en.svg
+  기준: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 376" width="900" height="376"
+     role="img"
+     aria-label="문서를 고쳐 푸시하면 GitHub Actions가 검수를 먼저 돌리고, 오류가 없을 때만 빌드해 배포하는 과정">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
+  </style>
   <defs>
-    <marker id="pArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0 0 L10 5 L0 10 z" fill="#3d4852"/>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
     </marker>
-    <marker id="pArrowStop" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0 0 L10 5 L0 10 z" fill="#9c4a3c"/>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
     </marker>
   </defs>
 
-  <style>
-    .box   { fill: #ffffff; stroke: #b9c0c8; stroke-width: 2; }
-    .boxcf { fill: #f5f7f8; stroke: #b9c0c8; stroke-width: 2; }
-    .lane  { fill: none; stroke: #dfe3e8; stroke-width: 2; }
-    .t     { font-family: Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; fill: #0f1419; }
-    .ttl   { font-size: 14px; font-weight: 650; }
-    .sub   { font-size: 11px; fill: #6b7681; }
-    .lane-label { font-size: 11px; font-weight: 650; fill: #6b7681; letter-spacing: 1px; }
-    .line  { fill: none; stroke: #3d4852; stroke-width: 2; marker-end: url(#pArrow); }
-    .fail  { fill: none; stroke: #9c4a3c; stroke-width: 2; marker-end: url(#pArrowStop); }
-    .failt { font-size: 11px; fill: #9c4a3c; font-weight: 600; }
-  </style>
-
-  <!-- 레인 구분 -->
-  <path class="lane" d="M20 92 H860"/>
-  <path class="lane" d="M20 246 H860"/>
-
-  <text class="t lane-label" x="20" y="36">내 컴퓨터</text>
-  <text class="t lane-label" x="20" y="128">GITHUB ACTIONS</text>
-  <text class="t lane-label" x="20" y="282">결과</text>
-
-  <!-- 내 컴퓨터 -->
-  <rect class="box" x="140" y="20" width="170" height="52"/>
-  <text class="t ttl" x="225" y="42" text-anchor="middle">문서를 고친다</text>
-  <text class="t sub" x="225" y="60" text-anchor="middle">docs/ · _config/</text>
-
-  <rect class="box" x="360" y="20" width="170" height="52"/>
-  <text class="t ttl" x="445" y="42" text-anchor="middle">git push</text>
-  <text class="t sub" x="445" y="60" text-anchor="middle">main 브랜치</text>
-
-  <path class="line" d="M310 46 H352"/>
-
-  <!-- push 가 Actions 를 깨움 -->
-  <path class="line" d="M445 72 V112"/>
-  <text class="t sub" x="455" y="98">푸시가 아래를 자동 실행</text>
-
-  <!-- GitHub Actions 레인 -->
-  <rect class="boxcf" x="60" y="140" width="150" height="76"/>
-  <text class="t ttl" x="135" y="168" text-anchor="middle">① 환경 준비</text>
-  <text class="t sub" x="135" y="186" text-anchor="middle">소스 내려받기</text>
-  <text class="t sub" x="135" y="202" text-anchor="middle">Node 20 · npm ci</text>
-
-  <rect class="boxcf" x="250" y="140" width="190" height="76"/>
-  <text class="t ttl" x="345" y="168" text-anchor="middle">② 문서 검수</text>
-  <text class="t sub" x="345" y="186" text-anchor="middle">npm run check</text>
-  <text class="t sub" x="345" y="202" text-anchor="middle">_config 을 읽어 44편 검사</text>
-
-  <rect class="boxcf" x="480" y="140" width="170" height="76"/>
-  <text class="t ttl" x="565" y="168" text-anchor="middle">③ 빌드</text>
-  <text class="t sub" x="565" y="186" text-anchor="middle">국문 · 영문 사이트</text>
-  <text class="t sub" x="565" y="202" text-anchor="middle">정적 HTML 생성</text>
-
-  <rect class="boxcf" x="690" y="140" width="150" height="76"/>
-  <text class="t ttl" x="765" y="168" text-anchor="middle">④ 배포</text>
-  <text class="t sub" x="765" y="186" text-anchor="middle">GitHub Pages</text>
-
-  <path class="line" d="M210 178 H242"/>
-  <path class="line" d="M440 178 H472"/>
-  <path class="line" d="M650 178 H682"/>
-
-  <text class="t sub" x="456" y="166" text-anchor="middle">오류 0건</text>
-
-  <!-- 결과 레인 -->
-  <rect class="box" x="250" y="294" width="190" height="56"/>
-  <text class="t ttl" x="345" y="318" text-anchor="middle">배포 중단</text>
-  <text class="t sub" x="345" y="336" text-anchor="middle">사이트는 이전 상태 유지</text>
-
-  <rect class="box" x="690" y="294" width="150" height="56"/>
-  <text class="t ttl" x="765" y="318" text-anchor="middle">공개</text>
-  <text class="t sub" x="765" y="336" text-anchor="middle">바뀐 문서가 반영됨</text>
-
-  <path class="fail" d="M345 216 V286"/>
-  <text class="t failt" x="355" y="258">오류 1건 이상</text>
-
-  <path class="line" d="M765 216 V286"/>
+  <rect width="900" height="376" fill="#f5f7f8"/>
+  <rect x="24" y="24" width="200" height="64" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="124" y="52" text-anchor="middle">문서를 고친다</text>
+  <text class="t sub" x="124" y="71" text-anchor="middle">sample_docs/ · _config/</text>
+  <path d="M224 56H256" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="256" y="24" width="200" height="64" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="356" y="52" text-anchor="middle">git push</text>
+  <text class="t sub" x="356" y="71" text-anchor="middle">main 브랜치</text>
+  <path d="M356 88V116H109V144" fill="none" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="170" y="107" width="125" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="232" y="120" text-anchor="middle">푸시하면 자동 실행</text>
+  <rect x="24" y="144" width="170" height="88" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="109" y="172" text-anchor="middle">환경 준비</text>
+  <text class="t sub" x="109" y="191" text-anchor="middle">소스 내려받기</text>
+  <text class="t sub" x="109" y="210" text-anchor="middle">Node 20 · npm ci</text>
+  <rect x="226" y="144" width="170" height="88" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="311" y="172" text-anchor="middle">문서 검수</text>
+  <text class="t sub" x="311" y="191" text-anchor="middle">npm run check</text>
+  <text class="t sub" x="311" y="210" text-anchor="middle">설정 기준 88편 검사</text>
+  <rect x="504" y="144" width="170" height="88" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="589" y="172" text-anchor="middle">사이트 빌드</text>
+  <text class="t sub" x="589" y="191" text-anchor="middle">국문 · 영문</text>
+  <text class="t sub" x="589" y="210" text-anchor="middle">정적 HTML 생성</text>
+  <rect x="706" y="144" width="170" height="88" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="791" y="172" text-anchor="middle">배포</text>
+  <text class="t sub" x="791" y="191" text-anchor="middle">GitHub Pages</text>
+  <text class="t sub" x="791" y="210" text-anchor="middle"></text>
+  <path d="M194 188H226" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M396 188H504" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="415" y="179" width="70" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="450" y="192" text-anchor="middle">오류 0건</text>
+  <path d="M674 188H706" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M311 232V288" stroke="#9b3a34" stroke-width="2" marker-end="url(#arrow-danger)" fill="none" stroke-dasharray="6 4"/>
+  <rect x="262" y="251" width="98" height="18" fill="#f5f7f8"/>
+  <text class="t warn" x="311" y="264" text-anchor="middle">오류 1건 이상</text>
+  <rect x="226" y="288" width="170" height="64" fill="#ffffff" stroke="#9b3a34" stroke-width="2"/>
+  <text class="t title" x="311" y="316" text-anchor="middle">배포 중단</text>
+  <text class="t sub" x="311" y="335" text-anchor="middle">사이트는 이전 상태 유지</text>
+  <path d="M791 232V288" stroke="#1f3a5f" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="706" y="288" width="170" height="64" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="791" y="316" text-anchor="middle">공개</text>
+  <text class="t sub" x="791" y="335" text-anchor="middle">바뀐 문서가 반영됨</text>
 </svg>

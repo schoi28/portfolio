@@ -1,45 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 270" width="700" height="270" role="img" aria-label="센서와 인터페이스 박스, 중앙 연산 장치의 배선 구성">
+<!--
+  sensor-wiring · 센서와 인터페이스 박스, 중앙 연산 장치의 배선 구성
+  사용처: sample_docs/sensor/wiring.md
+  쌍: sensor-wiring.en.svg
+  기준: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" width="900" height="280"
+     role="img"
+     aria-label="센서와 인터페이스 박스, 중앙 연산 장치의 배선 구성">
   <style>
-    .t { font-family: 'Pretendard', -apple-system, sans-serif; fill: #0f1419; }
-    .b { font-size: 12.5px; font-weight: 600; }
-    .s { font-size: 10.5px; fill: #6b7681; }
-    .e { font-size: 10.5px; fill: #3d4852; }
-    .a { font-size: 10.5px; font-weight: 700; fill: #9b3a34; }
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
   </style>
-  <defs><marker id="m" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
-    <path d="M0 0L8 4L0 8z" fill="#3d4852"/></marker>
-    <marker id="mr" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
-    <path d="M0 0L8 4L0 8z" fill="#9b3a34"/></marker></defs>
-  <rect width="700" height="270" fill="#f5f7f8"/>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
 
-  <rect x="40" y="40" width="160" height="44" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
-  <text class="t b" x="120" y="67" text-anchor="middle">CM-20 카메라 × 4</text>
-
-  <rect x="40" y="112" width="160" height="44" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
-  <text class="t b" x="120" y="139" text-anchor="middle">LR-40 라이다</text>
-
-  <rect x="40" y="188" width="160" height="48" fill="#f6eded" stroke="#9b3a34" stroke-width="2"/>
-  <text class="t b" x="120" y="210" text-anchor="middle">차량 12V</text>
-  <text class="t s" x="120" y="226" text-anchor="middle">15 A 퓨즈</text>
-
-  <rect x="300" y="86" width="180" height="96" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
-  <text class="t b" x="390" y="114" text-anchor="middle">인터페이스 박스</text>
-  <text class="t s" x="390" y="138" text-anchor="middle">전원 분배 · 시간 동기화</text>
-  <text class="t s" x="390" y="156" text-anchor="middle">이더넷 변환</text>
-
-  <rect x="560" y="100" width="108" height="68" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
-  <text class="t b" x="614" y="128" text-anchor="middle">중앙 연산</text>
-  <text class="t b" x="614" y="145" text-anchor="middle">장치</text>
-
-  <path d="M200 62H250V106H296" stroke="#3d4852" stroke-width="2" fill="none" marker-end="url(#m)"/>
-  <text class="t e" x="248" y="54" text-anchor="middle">GMSL2 (동축)</text>
-
-  <path d="M200 134H296" stroke="#3d4852" stroke-width="2" fill="none" marker-end="url(#m)"/>
-  <text class="t e" x="248" y="126" text-anchor="middle">10GigE</text>
-
-  <path d="M200 212H250V162H296" stroke="#9b3a34" stroke-width="2" fill="none" marker-end="url(#mr)"/>
-  <text class="t a" x="252" y="230" text-anchor="middle">전원</text>
-
-  <path d="M480 134H556" stroke="#3d4852" stroke-width="2" fill="none" marker-end="url(#m)"/>
-  <text class="t e" x="518" y="126" text-anchor="middle">이더넷</text>
+  <rect width="900" height="280" fill="#f5f7f8"/>
+  <rect x="24" y="24" width="144" height="56" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="96" y="57" text-anchor="middle">CM-20 카메라 × 4</text>
+  <rect x="24" y="112" width="144" height="56" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="96" y="145" text-anchor="middle">LR-40 라이다</text>
+  <rect x="24" y="200" width="144" height="56" fill="#ffffff" stroke="#9b3a34" stroke-width="2"/>
+  <text class="t title" x="96" y="228" text-anchor="middle">차량 12V</text>
+  <text class="t sub" x="96" y="247" text-anchor="middle">15 A 퓨즈</text>
+  <path d="M168 52H300V116H344" fill="none" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="185" y="43" width="97" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="234" y="56" text-anchor="middle">GMSL2 (동축)</text>
+  <path d="M168 140H344" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="225" y="131" width="62" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="256" y="144" text-anchor="middle">10GigE</text>
+  <path d="M168 228H300V164H344" fill="none" stroke="#9b3a34" stroke-width="2" marker-end="url(#arrow-danger)"/>
+  <rect x="211" y="219" width="46" height="18" fill="#f5f7f8"/>
+  <text class="t warn" x="234" y="232" text-anchor="middle">전원</text>
+  <rect x="344" y="88" width="240" height="104" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="464" y="124" text-anchor="middle">인터페이스 박스</text>
+  <text class="t sub" x="464" y="143" text-anchor="middle">전원 분배 · 시간 동기화</text>
+  <text class="t sub" x="464" y="162" text-anchor="middle">이더넷 변환</text>
+  <path d="M584 140H700" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="614" y="131" width="57" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="642" y="144" text-anchor="middle">이더넷</text>
+  <rect x="700" y="104" width="176" height="72" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="788" y="136" text-anchor="middle">중앙 연산 장치</text>
+  <text class="t sub" x="788" y="155" text-anchor="middle">CCU</text>
 </svg>

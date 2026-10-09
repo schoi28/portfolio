@@ -10,7 +10,7 @@ VELA Deploy is the operations console for releasing vehicle software **a little 
 
 Deploying vehicle software is not like an app store update. Bad software can leave a vehicle immobile or unable to start, and undoing it can take days. So rather than going straight to the whole fleet, you **send to a small number first, check the result, and then widen the scope.**
 
-![Widening the scope of a deployment in stages](/img/deploy-staged-rollout.svg)
+![How a deployment is widened from one percent to one hundred percent](/img/deploy-staged-rollout.en.svg)
 
 :::note[Note]
 A gate between each stage decides automatically whether to advance, based on success rate and error rate.
@@ -32,7 +32,7 @@ Every decision in a deployment rests on the five concepts below.
 
 The five relate to each other as follows.
 
-![How a package and a target group form a campaign that leads into rollout stages](/img/deploy-concept-map.svg)
+![How a package and a target group form a campaign that runs as rollout stages](/img/deploy-concept-map.en.svg)
 
 **A package and a target group exist before a campaign does.** You can create several campaigns that send the same package to different target groups, and equally you can send several packages to the same target group one after another.
 
@@ -53,7 +53,7 @@ Always run a new campaign in the validation environment first. Starting straight
 
 ## How a deployment proceeds
 
-![The whole flow from package upload to completed deployment](/img/deploy-flow.svg)
+![The whole flow from uploading a package to finishing a deployment](/img/deploy-flow.en.svg)
 
 | Stage | What you do | Chapter |
 | --- | --- | --- |

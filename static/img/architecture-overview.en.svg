@@ -1,0 +1,76 @@
+<!--
+  architecture-overview · How VELA Cloud, the vehicle and the mobile app connect, and who reads about each
+  Used by: i18n/en/docusaurus-plugin-content-docs/current/index.md
+  Pair: architecture-overview.svg
+  Spec: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 488" width="900" height="488"
+     role="img"
+     aria-label="How VELA Cloud, the vehicle, and the mobile app connect">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="488" fill="#f5f7f8"/>
+  <rect x="24" y="24" width="852" height="168" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t zone" x="44" y="49" text-anchor="start">VELA CLOUD</text>
+  <text class="t sub" x="164" y="49" text-anchor="start">Servers VELA runs</text>
+  <rect x="44" y="64" width="248" height="56" fill="#f5f7f8" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="168" y="90" text-anchor="middle">VELA Deploy</text>
+  <text class="t sub" x="168" y="109" text-anchor="middle">Wireless update console</text>
+  <text class="t reader" x="168" y="146" text-anchor="middle">▲ Release operator</text>
+  <text class="t sub" x="168" y="165" text-anchor="middle">Decides the rollout</text>
+  <rect x="326" y="64" width="248" height="56" fill="#f5f7f8" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="450" y="90" text-anchor="middle">Vehicle API</text>
+  <text class="t sub" x="450" y="109" text-anchor="middle">Vehicle data · Control</text>
+  <text class="t reader" x="450" y="146" text-anchor="middle">▲ Developer</text>
+  <text class="t sub" x="450" y="165" text-anchor="middle">Builds features on it</text>
+  <rect x="608" y="64" width="248" height="56" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="732" y="90" text-anchor="middle">Drive backend</text>
+  <text class="t sub" x="732" y="109" text-anchor="middle">App integration</text>
+  <path d="M168 192V256" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="105" y="215" width="126" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="168" y="228" text-anchor="middle">Software rollout</text>
+  <path d="M442 256V192" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="392" y="215" width="101" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="442" y="228" text-anchor="middle">Vehicle data</text>
+  <rect x="24" y="256" width="560" height="168" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t zone" x="44" y="281" text-anchor="start">VEHICLE</text>
+  <rect x="44" y="296" width="244" height="56" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="166" y="322" text-anchor="middle">Vehicle software platform</text>
+  <text class="t sub" x="166" y="341" text-anchor="middle">Runs driving features</text>
+  <rect x="320" y="296" width="244" height="56" fill="#f5f7f8" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="442" y="322" text-anchor="middle">VELA Sense sensor kit</text>
+  <text class="t sub" x="442" y="341" text-anchor="middle">For test vehicles</text>
+  <text class="t reader" x="442" y="378" text-anchor="middle">▼ Field engineer</text>
+  <text class="t sub" x="442" y="397" text-anchor="middle">Mounts and calibrates</text>
+  <path d="M732 192V296" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="608" y="296" width="248" height="56" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="732" y="322" text-anchor="middle">VELA Drive app</text>
+  <text class="t sub" x="732" y="341" text-anchor="middle">Vehicle management app</text>
+  <text class="t reader" x="732" y="378" text-anchor="middle">▲ Vehicle owner</text>
+  <text class="t sub" x="732" y="397" text-anchor="middle">Checks their own car</text>
+  <rect x="153" y="448" width="12" height="12" fill="#f5f7f8" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t lgnd" x="173" y="458" text-anchor="start">Products with a documentation set</text>
+  <rect x="408" y="448" width="12" height="12" fill="#f5f7f8" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t lgnd" x="428" y="458" text-anchor="start">Supporting component</text>
+  <text class="t reader" x="586" y="459" text-anchor="middle">▲</text>
+  <text class="t lgnd" x="600" y="458" text-anchor="start">Who reads that document</text>
+</svg>
