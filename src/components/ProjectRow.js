@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
+import Translate from '@docusaurus/Translate';
 
 // Portfolio 개요 페이지의 프로젝트 한 줄입니다. 누르면 요점이 펼쳐집니다.
 // 다섯 줄이 한 화면에 들어와야 전체를 훑을 수 있어 접어 두었고,
@@ -91,7 +92,7 @@ export default function ProjectRow({
       <div className="prow__body" hidden={!open}>
         {children}
         <Link className="prow__more" to={to}>
-          자세히 보기
+          <Translate id="portfolio.projectRow.more">자세히 보기</Translate>
         </Link>
       </div>
     </div>

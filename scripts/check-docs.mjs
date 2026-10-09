@@ -656,6 +656,8 @@ for (const [locale, def] of Object.entries(LOCALES)) {
 
   for (const path of walk(base)) {
     if (extname(path) !== '.md') continue;
+    // README.md 는 저장소를 읽는 사람용이라 사이트에 올라가지 않습니다.
+    if (basename(path) === 'README.md') continue;
     const file = relative(ROOT, path);
     const dir = relative(base, dirname(path)).split('/')[0];
     const docSet = dirToSet[dir];
