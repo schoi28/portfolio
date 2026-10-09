@@ -66,7 +66,7 @@ The solution manual explains what system the several products form together; the
 
 That way, both a customer who bought the whole solution and a customer who uses only some of it get documentation at the scope they need.
 
-Rather than duplicating documents to manage each customer's product combination, I separated that out so the required scope is assembled by the [documentation build and check tooling](./build-tooling.md).
+Rather than duplicating documents to manage each customer's product combination, I separated that out so the required scope is assembled by the [documentation build and validation tools](./build-tooling.md).
 
 ### Researching readers on real projects
 

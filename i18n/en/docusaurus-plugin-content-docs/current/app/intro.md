@@ -41,7 +41,7 @@ So that the documentation does not age every time a screen changes, it refers to
 
 ## The preface this produced
 
-The preface built from the decisions above. In the manual itself this sits before chapter 1.
+The following preface applies the decisions above. In the manual it appears before chapter 1.
 
 ### About this guide
 

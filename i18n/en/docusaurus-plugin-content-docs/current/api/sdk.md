@@ -130,7 +130,7 @@ The calls that the later feature chapters explain with `curl` correspond to the 
 
 `vehicle` in the table is the vehicle object fetched in the earlier example. `result` is the return value of sending a remote command. Method names and calling conventions vary by language: Node.js uses `vehicle.signals.latest(signal)`, while Java uses `vehicle.signals().latest(signal)`.
 
-This table is **guidance for connecting a REST operation to a method.** For request parameters and preconditions, and what a response means, see the **feature chapters** such as [Read vehicle data](./vehicle-data.md) and [Send remote commands](./remote-commands.md). The signal catalogue and the common error codes are in [Browse the reference](./reference.md).
+Use this table to find the Python SDK method for each REST operation. For request parameters and preconditions, and what a response means, see the **feature chapters** such as [Read vehicle data](./vehicle-data.md) and [Send remote commands](./remote-commands.md). The signal catalogue and the common error codes are in [Browse the reference](./reference.md).
 
 ## Handle exceptions
 
@@ -146,7 +146,17 @@ The SDK surfaces failure responses from the REST API as exceptions.
 | `VelaRateLimitError` | 429 | Wait as long as `retry_after` says |
 | `VelaServerError` | 500, 503 | Check whether this is a temporary outage |
 
-The example below runs after creating `client` and fetching the `vehicle` object. Sending a remote command additionally requires the `write:commands` scope.
+Remote commands need the `write:commands` scope. The client created earlier holds `read:signals` only, so create it again.
+
+```python
+client = VelaClient(
+    client_id=os.environ["VELA_CLIENT_ID"],
+    client_secret=os.environ["VELA_CLIENT_SECRET"],
+    environment="staging",
+    scopes=["read:signals", "write:commands"],
+)
+vehicle = client.vehicles.get("sim_001")
+```
 
 ```python
 from vela import VelaPreconditionError, VelaRateLimitError

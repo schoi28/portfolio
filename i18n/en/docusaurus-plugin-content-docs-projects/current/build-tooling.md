@@ -1,10 +1,10 @@
 ---
-title: Building documentation build and check tooling
-sidebar_label: Build and check tooling
-description: I turned the failures that kept recurring in documentation work from something people had to be careful about into something the build checks.
+title: Developing documentation build and validation tools
+sidebar_label: Build and validation tools
+description: I automated checks for recurring documentation errors that had depended on manual review.
 ---
 
-# Building documentation build and check tooling
+# Developing documentation build and validation tools
 
 > Autonomous driving solution software company · Technical Writer · Jan 2025 to present
 
@@ -15,7 +15,7 @@ description: I turned the failures that kept recurring in documentation work fro
 | | |
 | --- | --- |
 | What I built | Static site generator · check tool · API document generator · build GUI |
-| Failures removed | Customer information leaking across · web and PDF drifting apart · API documents going stale · broken links |
+| Failures removed | Customer content appearing in another customer's documentation · Web and PDF drifting apart · API documents going stale · Broken links |
 | Result | The widest delivery package is produced **in about 2 minutes** by a single build |
 
 ## What was difficult
@@ -24,7 +24,7 @@ description: I turned the failures that kept recurring in documentation work fro
 
 As products and versions multiplied, so did the things that had to be checked over and over while producing documents. The trouble was that almost all of it was for a person to remember and verify by hand.
 
-- **Each customer gets a different set of features.** Delivery packages for several customers come from the same source, so the author had to remember which feature descriptions to include or exclude. Leave something out and the customer cannot learn about a feature they bought; include something wrongly and information meant for another customer is exposed.
+- **Each customer gets a different set of features.** Delivery packages for several customers come from the same source, so the author had to remember which feature descriptions to include or exclude. Leave something out and the customer cannot learn about a feature they bought; include something wrongly and content meant for another customer is exposed.
 - **Producing the web and the PDF separately let them drift apart.** Fix only one and the two outputs of the same document no longer match.
 - **API schemas and lists of configuration values were hard to maintain by hand.** With the product changing constantly, documents were likely to fall behind the actual specification.
 - **Link and anchor errors were hard to spot.** Across products and versions there are hundreds of documents, and no one can check every reference by hand.
@@ -49,7 +49,7 @@ For example:
 - The appendix order changing, so the glossary file moves
 - A development version accidentally included in a customer delivery package
 
-What mattered in this work was less the coding than **defining valid input and every exceptional case without gaps.**
+What mattered in this work was less the coding than **defining valid inputs, error conditions, and edge cases before implementation.**
 
 I specified up front what should be allowed, what counts as an error, and how far the tool should intervene when an error occurs.
 

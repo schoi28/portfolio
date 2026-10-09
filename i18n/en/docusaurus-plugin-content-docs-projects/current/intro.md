@@ -35,7 +35,7 @@ The projects below set out the problems I ran into along the way, how I solved t
   n="2"
   icon="tool"
   to="/projects/build-tooling"
-  title="Building documentation build and check tooling"
+  title="Developing documentation build and validation tools"
   proves="Requirements specification · documentation automation design · technical judgement"
   meta="Mistakes people had to remember and watch out for are now caught by the build.">
 

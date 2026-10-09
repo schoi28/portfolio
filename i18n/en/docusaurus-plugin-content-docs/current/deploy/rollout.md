@@ -103,7 +103,7 @@ While paused, no new vehicles begin the deployment. Vehicles already downloading
 1. Select **Resume**.
 2. Select the stage to resume at. You can continue at the same stage or return to an earlier one.
 
-Resuming a campaign that a gate paused requires a reason. "Why we decided to continue despite falling short" is the key material for any later analysis.
+Resuming a campaign that a gate paused requires a reason. Why the campaign continued despite failing the gate is the key material for any later analysis.
 
 ## Close a campaign
 

@@ -153,7 +153,6 @@ curl "https://api.vela.example.com/v1/vehicles?limit=50&page=eyJvZmZzZXQiOjUwfQ=
 | --- | --- | --- |
 | 2026-08-15 | `sensor.calibration_state_changed` 웹훅 이벤트 추가 | 호환됨 |
 | 2026-07-01 | 시그널 카탈로그에 `body.lights.exterior` 추가 | 호환됨 |
-| 2026-05-10 | 캠페인 생성 시 `target_type` 필드 필수화 | **호환 깨짐**. v1 릴리스 시점부터 필수 |
-| 2026-03-01 | `v1` 최초 릴리스 | 없음 |
+| 2026-03-01 | `v1` 최초 릴리스. 캠페인 생성 시 `target_type` 필수 | 없음 |
 
 `v1`은 현재 유일한 지원 버전입니다. 하위 호환을 깨는 변경이 발생하면 이 표와 [1장 · 버전 정책](./overview.md#버전-정책)에 먼저 반영합니다.

@@ -16,7 +16,7 @@ When working on the A pillar, do not intrude on the curtain airbag's deployment 
 
 | Item | Specification |
 | --- | --- |
-| Torque wrench | 5 to 25 N·m |
+| Low-range torque wrench | 1 to 6 N·m |
 | Degreaser | Isopropyl alcohol |
 | Microfibre cloth | Lint free |
 

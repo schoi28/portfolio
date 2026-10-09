@@ -65,7 +65,7 @@ Time synchronisation matters because it feeds directly into calibration. If the 
 
 ## Overview of the work
 
-The whole job takes **about 4 hours 30 minutes**. Part of it cannot be done alone, so arrange two people in advance.
+The whole job takes **about 5 hours**. Part of it cannot be done alone, so arrange two people in advance.
 
 | Stage | Time | People | Chapter |
 | --- | --- | --- | --- |

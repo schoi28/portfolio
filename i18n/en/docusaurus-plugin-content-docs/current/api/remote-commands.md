@@ -58,7 +58,7 @@ A command fails depending on the state of the vehicle. Checking the related sign
 | All commands | 12V auxiliary battery at 20% or above | `powertrain.aux_battery_soc` |
 | `unlock_doors`, `lock_doors` | None | None |
 | `set_climate` | Ignition off, or the vehicle is parked | `vehicle.parked` |
-| `start_charging` | A charging cable is connected | `battery.charging_state`. Anything other than `idle` means a cable is connected |
+| `start_charging` | A charging cable is connected | `battery.charging_state`. `idle` means not charging and does not distinguish whether a cable is connected |
 | `share_key` | The requester is the vehicle owner or an administrator | Not applicable. Decided by account permissions |
 
 Sending a command without meeting its precondition returns `422 precondition_failed` immediately. The command never reaches the vehicle, so resolve the cause before retrying.

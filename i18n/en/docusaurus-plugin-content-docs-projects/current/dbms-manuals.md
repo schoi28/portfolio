@@ -23,7 +23,7 @@ description: I maintained the DBMS manuals across two languages and three versio
 
 **The same content existed in several copies.**
 
-The manuals were split into Korean and English, and again into the `7.1`, `7.3`, and `trunk` versions. One feature change meant finding and fixing the same paragraph in several places, and once related documents were included, a single change could touch more than ten files. Miss one of them and the fact only surfaces much later.
+The manuals were split into Korean and English, and again into the `7.1`, `7.3`, and `trunk` versions. One feature change meant finding and fixing the same paragraph in several places, and once related documents were included, a single change could touch more than ten files. Missing one of them leaves the versions inconsistent, and that only surfaces much later.
 
 **Some manuals had no English edition.**
 
@@ -119,4 +119,4 @@ Using MkDocs and Read the Docs, I made the existing documents browsable on the w
 - Applied term changes across every related document, so the same feature is not called different things in different places.
 - Linked every change to a request number and a review comment, leaving the history in a state where any sentence can be traced back to the request behind it.
 - Working across every document type, from reference to release notes, gave me the principle that **different document types carry different reader expectations**, which fed into the structure of [the combined solution documentation set](./solution-docs.md).
-- Running into MkDocs's limits here became the basis for the decision to build our own tooling in [the documentation build and check tooling](./build-tooling.md) project.
+- Running into MkDocs's limits here became the basis for the decision to build our own tooling in [the documentation build and validation tools](./build-tooling.md) project.

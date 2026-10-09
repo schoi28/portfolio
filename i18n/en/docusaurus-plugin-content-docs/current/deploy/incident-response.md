@@ -6,7 +6,7 @@ sidebar_label: 5. Respond to an incident
 
 # Respond to an incident
 
-The procedures for when something goes wrong during a deployment: **deciding whether to pause or roll back, rolling back or stopping urgently, reading failure codes, and recording a post-incident analysis.** It is written to make sense without the earlier chapters, so you can come straight here when you are in a hurry.
+Use this chapter when a deployment goes wrong. It covers **deciding whether to pause or roll back, rolling back, stopping urgently, reading failure codes, and recording a post-incident analysis.** It makes sense without the earlier chapters, so you can come straight here.
 
 :::note[Note]
 This chapter re-explains the concepts it needs so that it stands on its own. During an incident there is no time to read a document from the beginning.
@@ -31,7 +31,7 @@ There are three options. They differ in how far their effects reach and in what 
 | Driving-related faults reported on installed vehicles | Stop urgently, then roll back |
 | You do not know the cause and the impact is growing | Stop urgently |
 
-If you cannot decide, choose to stop. A stopped deployment can be started again, but a widened impact takes time to undo.
+If the impact is unclear and no safety issue is suspected, pause the campaign and investigate. A paused campaign can be started again. If a safety issue is suspected, use an urgent stop.
 
 ## Perform a rollback
 

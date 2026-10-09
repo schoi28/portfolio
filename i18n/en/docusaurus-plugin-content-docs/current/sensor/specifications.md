@@ -127,7 +127,8 @@ Items not included in the kit. Check them before travelling to site. The same in
 
 | Item | Specification | Chapters that use it |
 | --- | --- | --- |
-| Torque wrench | 5 to 25 N·m | 3 · 4 · 5 · 8 |
+| Torque wrench | 5 to 25 N·m | 3 · 5 · 8 |
+| Low-range torque wrench | 1 to 6 N·m | 3 · 4 |
 | Hex key | 5 mm | 3 · 8 |
 | Spirit level | Digital recommended, 0.1° resolution | 3 |
 | Multimeter | Resistance and voltage | 5 · 6 |

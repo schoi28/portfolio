@@ -17,6 +17,7 @@ While the power is on, **do not look into the optical window with a magnifier or
 | Item | Specification |
 | --- | --- |
 | Torque wrench | 5 to 25 N·m |
+| Low-range torque wrench | 1 to 6 N·m, for the first pass on the body |
 | Hex key | 5 mm |
 | Level | Digital recommended, 0.1° resolution |
 | Degreaser | Isopropyl alcohol |

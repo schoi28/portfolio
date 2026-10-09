@@ -38,7 +38,7 @@ Below the vehicle summary area is **the time your vehicle last communicated.** E
 | 12 minutes ago | The value as of then. The vehicle's state may have changed since |
 | Disconnected | No communication for 30 minutes or more |
 
-Parked above ground after a drive, you will usually see **within 5 minutes**. In an underground car park, or anywhere the signal is weak, a longer gap is normal, and it recovers on its own once the vehicle comes back above ground.
+Parked above ground after a drive, you will usually see **within 5 minutes**. In an underground car park, or anywhere the signal is weak, a longer gap is normal. Updates resume once the vehicle returns to an area with signal.
 
 :::info[Caution]
 If the time does not change for **30 minutes or more** while parked somewhere with a good signal, or it stays on "Disconnected", something needs checking. See [Troubleshooting](./troubleshooting.md#my-vehicle-will-not-connect).
