@@ -1,7 +1,7 @@
 ---
 title: Look up a term
 doc_type: 레퍼런스
-sidebar_label: 10. Look up a term
+sidebar_label: 11. Look up a term
 ---
 
 # Look up a term

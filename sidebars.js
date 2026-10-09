@@ -1,16 +1,20 @@
 // @ts-check
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
-// 각 세트의 머리말(intro)은 카테고리 제목을 누르면 열립니다.
-// 본문 장은 제품 개요를 1장으로 두고 번호를 매깁니다.
+// 각 세트의 첫 항목은 '설계 노트'입니다. 포트폴리오를 보는 분을 위한
+// 기록이고, 실제 매뉴얼은 1장부터 시작합니다.
+//
+// 설계 노트를 카테고리의 link 로만 두면 사이드바에 라벨이 뜨지 않아
+// 카테고리 제목을 눌러 보기 전에는 존재를 알 수 없습니다. 그래서
+// link 를 빼고 items 의 첫 줄로 올렸습니다.
 const sidebars = {
   samplesSidebar: [
     'index',
     {
       type: 'category',
       label: 'VELA Drive 앱',
-      link: { type: 'doc', id: 'app/intro' },
       items: [
+        'app/intro',
         'app/overview',
         'app/getting-started',
         'app/vehicle-status',
@@ -26,11 +30,12 @@ const sidebars = {
     {
       type: 'category',
       label: 'VELA Vehicle API',
-      link: { type: 'doc', id: 'api/intro' },
       items: [
+        'api/intro',
         'api/overview',
         'api/authentication',
         'api/quickstart',
+        'api/sdk',
         'api/vehicle-data',
         'api/remote-commands',
         'api/sensors',
@@ -43,8 +48,8 @@ const sidebars = {
     {
       type: 'category',
       label: 'VELA Deploy',
-      link: { type: 'doc', id: 'deploy/intro' },
       items: [
+        'deploy/intro',
         'deploy/overview',
         'deploy/first-campaign',
         'deploy/prepare',
@@ -58,8 +63,8 @@ const sidebars = {
     {
       type: 'category',
       label: 'VELA Sense',
-      link: { type: 'doc', id: 'sensor/intro' },
       items: [
+        'sensor/intro',
         'sensor/overview',
         'sensor/planning',
         'sensor/lidar-mount',

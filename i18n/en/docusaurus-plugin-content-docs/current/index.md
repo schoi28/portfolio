@@ -8,57 +8,42 @@ sidebar_position: 0
 
 # Sample Docs
 
-One fictional product family, explained four different ways for four different readers.
+**VELA is a fictional company that supplies vehicle software to carmakers.** Published here are four kinds of technical documentation written for VELA's mobile app, vehicle API, wireless update console, and sensor kit.
 
-:::note[Note]
-VELA is a fictional company created for these documents. It has no relation to any real product or organisation.
+Each set is built differently, **according to what its reader does and what they already know.**
+
+:::note[About these fictional products]
+VELA and the products below are a fictional company and fictional products, created to show how documentation is designed. They do not describe any real product or organisation.
 :::
 
-## The VELA product family
+## How to read this tab
 
-### What VELA does
+Selecting a product brings up its **design note** first. **Chapter 1 onward is the manual itself,** written for real users.
 
-VELA **builds vehicle software and supplies it to carmakers**. It does not build vehicles.
+| Part | What you can see | Who it is for |
+| --- | --- | --- |
+| **Design note** | Who it was written for, and why the contents, wording, and information layout were decided that way | A portfolio visitor assessing documentation design |
+| **The manual from chapter 1** | Concepts, procedures, and reference material written as though VELA products were really in use | A visitor assessing how complete and usable the documentation is |
 
-A carmaker, known in the industry as an OEM, builds the vehicle. VELA supplies the software platform that runs inside it. Supplier developers build their own features on top of that platform. After the vehicle ships, VELA updates the software over the air from its servers, and the owner checks the vehicle from a mobile app.
+**For a quick look,** pick a product from the table below, read its design note, and then compare a chapter or two of the manual itself.
+
+## What VELA does
+
+VELA does not build cars. It supplies **the software that connects to a vehicle, and the products around it,** so that carmakers can develop and sell their vehicles.
+
+Sensors go on development and validation vehicles, and developers use the API to work with vehicle data. Once a vehicle is on the road, operators deploy software to it wirelessly, and owners check its status from a mobile app. **The four products connect to each other inside one vehicle service this way.**
 
 ![How VELA Cloud, the vehicle, and the mobile app connect](/img/architecture-overview.svg)
 
-Sensors are mounted on the vehicle (**VELA Sense**), the software platform runs on top of them, developers reach the data (**Vehicle API**), operators deploy new software to the fleet (**VELA Deploy**), and owners see the result in the app (**VELA Drive**).
+## Four products, four kinds of document
 
-| Set | What it covers | Size |
-| --- | --- | --- |
-| VELA Drive app | The app the end user holds | Preface plus 10 chapters |
-| VELA Vehicle API | The interface VELA Cloud exposes | Preface plus 10 chapters |
-| VELA Deploy | The console that deploys software to vehicles | Preface plus 8 chapters |
-| VELA Sense | The sensor kit fitted to development vehicles | Preface plus 11 chapters |
-
-Because of this structure VELA has more than one kind of customer. **Carmakers, supplier developers, the consumer who bought the vehicle, and the field engineers who work on development vehicles** all read VELA documentation.
-
-### The four products and their documents
-
-| Product | What it is | Who reads it | Document types |
+| Document set | What the product does | Primary reader | What you can find |
 | --- | --- | --- | --- |
-| [VELA Drive app](./app/intro.md) | Mobile app for managing a vehicle | Vehicle owners | Tutorial, how-to, FAQ |
-| [VELA Vehicle API](./api/intro.md) | Vehicle data and control API with SDKs | Developers | Reference, quickstart |
-| [VELA Deploy](./deploy/intro.md) | Over-the-air deployment console | Release operators | Concept, procedure, reference |
-| [VELA Sense](./sensor/intro.md) | Reference sensor kit (hardware) | Field engineers | Procedure, diagnostics, specifications |
+| [VELA Drive app guide](./app/intro.md) | Checking vehicle status and controlling it remotely | Vehicle owner | App procedures · FAQ · troubleshooting |
+| [VELA Vehicle API developer guide](./api/intro.md) | An API for reading and controlling vehicle data | Developer | Quickstart · API procedures · reference |
+| [VELA Deploy operations guide](./deploy/intro.md) | Staged deployment of vehicle software, with pausing and recovery | Release operator | Deployment procedures · criteria to judge by · state and setting values |
+| [VELA Sense installation guide](./sensor/intro.md) | A sensor kit for development and validation vehicles | Field engineer | Installation · wiring · inspection · diagnostics · specifications |
 
-## Conventions
+**The same feature is explained differently for each reader.** A wireless update, for example, is explained to a vehicle owner as *what to do once an alert arrives*, to an operator as *how to judge whether to widen or stop a deployment*, to a developer as *the API request format*, and to a field engineer as *the procedure for recovering from a failure*.
 
-All four sets share the same four levels of admonition. The level is decided by **how much harm is possible and whether it can be undone**.
-
-| Level | Meaning |
-| --- | --- |
-| **Danger** | An immediate hazard that **causes death or serious injury** if not avoided: high voltage, laser sources, fire, moving vehicles |
-| **Warning** | A situation that can lead to **injury, significant data loss, or irreversible equipment damage** |
-| **Caution** | A situation that can lead to **minor injury, a recoverable error, or degraded data** |
-| **Note** | Not a hazard. Information that improves the outcome if you know it |
-
-Each set uses a different range. Only the [VELA Sense installation guide](./sensor/intro.md), where physical hazards are real, uses Danger. The other three sets stay at Warning or below. That difference is the result of applying one standard, not four.
-
-Anything the reader needs to know **before** performing a step goes before the first step of that section, never after it.
-
-## Why each document is built the way it is
-
-Every set carries a design note. It records how the reader was defined, why that structure was chosen, and what was handled differently from the other sets. The equivalent record for my professional work is in [Portfolio](/projects).
+Seeing that difference first hand is the point of these Sample Docs.

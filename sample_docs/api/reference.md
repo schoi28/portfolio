@@ -1,7 +1,7 @@
 ---
 title: 레퍼런스 찾아보기
 doc_type: 레퍼런스
-sidebar_label: 9. 레퍼런스 찾아보기
+sidebar_label: 10. 레퍼런스 찾아보기
 ---
 
 # 레퍼런스 찾아보기

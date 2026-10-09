@@ -14,6 +14,23 @@ import Link from '@docusaurus/Link';
  *
  * `button` 클래스를 함께 주는 이유는 custom.css의 본문 링크 스타일이
  * `a:not(.button)`으로 버튼을 제외하도록 되어 있기 때문입니다.
+ *
+ * ── 라벨 규칙 ────────────────────────────────────────────────
+ * 같은 곳으로 가는 버튼은 페이지가 달라도 같은 이름을 씁니다.
+ * 이름이 다르면 독자는 다른 곳으로 간다고 생각합니다.
+ * 전부 동사로 끝내 무엇을 하게 되는지 드러냅니다.
+ *
+ *   목적지                      국문                    영문
+ *   /projects                   프로젝트 보기            See the projects
+ *   /samples                    문서 샘플 읽기           Read the sample docs
+ *   /resume                     이력서 보기              See the resume
+ *   /contact                    연락하기                 Get in touch
+ *   mailto:                     이메일 보내기            Send an email
+ *   linkedin.com                LinkedIn 프로필 보기      View the LinkedIn profile
+ *   resume-ko.pdf               국문 이력서 내려받기      Download the Korean resume
+ *   resume-en.pdf               영문 이력서 내려받기      Download the English resume
+ *
+ * 목적지를 추가하면 이 표에도 함께 적으십시오.
  */
 export default function Cta({ to, href, children, variant = 'solid' }) {
   const className = `button cta cta--${variant}`;

@@ -1,16 +1,47 @@
 ---
 title: VELA Sense installation guide
-doc_type: 개념
-sidebar_label: Preface
+sidebar_label: Design note
 ---
 
 # VELA Sense installation guide
 
-:::danger[Danger]
-Do not look into the optical window with a magnifying optic such as a loupe, binoculars, or a telephoto lens while the LiDAR is running. Doing so can cause blindness (Class 1M, IEC 60825-1). Do not disassemble the module, and disconnect power before any inspection.
+:::note[Note]
+This page is not part of the product documentation. It records how that documentation was designed. The manual itself starts with the next chapter.
 :::
 
-## About this guide
+## How this was designed
+
+| Design criterion | Decision |
+| --- | --- |
+| **Primary reader** | A field engineer who fits and inspects the sensor kit on a vehicle |
+| **Prior knowledge** | Experienced with mechanical and wiring work, with limited software and networking knowledge |
+| **Reading context** | On a tablet at a work site, mid-task, with poor lighting and restricted handling |
+| **Direction** | Follow the real order of work and put figures and hazards where they are needed |
+
+### Following the real order of fitting and validation
+
+The chapters follow the **physical order of work**: mounting, wiring, applying power, and calibration. Sections are kept short and tables are used heavily so that one task can be checked at a time on site.
+
+Dimensions, torques, and pass criteria are collected in [Check the specifications](./specifications.md) rather than repeated inside the procedures. For calibration, the concepts and the procedure are explained together so that the pass criteria are not relaxed arbitrarily.
+
+### Placing safety warnings immediately before the work
+
+Collecting hazard information at the front of the document means it can be missed during the work itself. Each warning is therefore **placed immediately before the task it applies to**, and repeated where necessary.
+
+Danger is used only where serious harm to a person is possible, and equipment damage or recoverable problems are separated into Warning and Caution. Of the four documentation sets, only this guide, which deals directly with physical hazards, uses the Danger level.
+
+### Connecting unfamiliar technology and follow-up work
+
+Even a reader skilled in mechanical work may find terms such as GMSL2, PTP, and extrinsic parameters unfamiliar. Rather than lengthening the body, a glossary is provided and linked at the first point where each term is needed.
+
+For checking sensor state after installation and calibration, the documentation links to the [Vehicle API](../api/intro.md), and for the cleaning alerts a vehicle owner sees, to the [VELA Drive app](../app/intro.md).
+---
+
+## The preface this produced
+
+The preface built from the decisions above. In the manual itself this sits before chapter 1.
+
+### About this guide
 
 This guide covers the full process of mounting the VELA Sense reference sensor kit on a vehicle, wiring it, and calibrating it until normal operation is confirmed.
 
@@ -21,7 +52,7 @@ This guide covers the full process of mounting the VELA Sense reference sensor k
 | Applies to | VELA Sense kit R2 (LR-40 LiDAR, CM-20 camera, interface box IB-2) |
 | Environment | Development and validation vehicles. Not for production vehicles |
 
-## Intended audience
+### Intended audience
 
 This guide is written for field engineers who mount hardware on vehicles. **No prior knowledge of autonomous driving systems is assumed.**
 
@@ -38,9 +69,9 @@ The guide assumes the following skills:
 - Able to check continuity and shorts with a multimeter
 - Able to run a configuration tool on a laptop. **Command line use is not assumed.**
 
-## Conventions
+### Conventions
 
-### Admonitions
+#### Admonitions
 
 | Level | When this guide uses it |
 | --- | --- |
@@ -49,9 +80,9 @@ The guide assumes the following skills:
 | **Caution** | Tolerance exceeded, a mistake that forces rework: recoverable errors |
 | **Note** | Information that makes the work easier |
 
-The full definition of all four levels is in [Conventions](../#conventions). All four documentation sets use the same standard.
+Of the level criteria shared by the four documentation sets, this installation guide also uses the Danger level, which covers physical hazards.
 
-### Text formatting
+#### Text formatting
 
 | Format | Meaning |
 | --- | --- |
@@ -60,32 +91,10 @@ The full definition of all four levels is in [Conventions](../#conventions). All
 | `LR-40` | Model names, connector names, file names |
 | 18 N·m ± 2 | A value with its tolerance. Any value given with a tolerance must be measured and confirmed |
 
-## Related documents
+### Related documents
 
 | Document | When to read it |
 | --- | --- |
 | [VELA Vehicle API: check sensor state](../api/sensors.md) | When reading the state of a fitted sensor from software |
 | [VELA Drive app: check service timing](../app/maintenance.md) | To see how a sensor cleaning alert appears to the owner |
 | [Glossary](./glossary.md) | When you meet a term or abbreviation you do not know |
-
----
-
-## Design note
-
-> A record of why this document is built the way it is. It is not part of the product documentation.
-
-**Reader**: a field engineer. Skilled with hardware, less so with software and networking. Reads on a tablet, at the work site, wearing gloves, often in poor light.
-
-**Structure**: that reading context decided the structure. Sections are small enough that one unit of work fits on one screen, and tables replace long paragraphs. Every value carries its unit and its tolerance.
-
-**Why the preface and chapter 1 are separate**: the preface is information about *how to read this document*. Chapter 1 is information about *what the product is*. Putting both on one page forces a reader deciding "is this document for me?" to read the same text as a reader asking "what is this product?". The preface is read once and never again. Chapter 1 is returned to during the work.
-
-**Information typing**: everything from mounting to calibration is procedural and follows the **irreversible physical order** of the work. Values looked up in the field, such as dimensions, torque, and pass criteria, are collected in [Check the specifications](./specifications.md), so nobody has to scroll through a long procedure to find a number. Only calibration is typed as concept plus procedure, because a reader who does not understand why it matters will quietly relax the pass criteria.
-
-**Why safety warnings are not collected at the front**: a page of warnings at the start of a document gets turned past once and never read again. Each warning is repeated immediately before the step it applies to. That repetition is deliberate in this document.
-
-**The only set that uses Danger**: physical hazards are real here. Danger is reserved for the cases that **cause death or serious injury**, such as the laser source, the airbag deployment path, and fire. Working on 12 V circuits or damaging the harness is irreversible equipment damage, so it is a Warning. The other three sets not using Danger is the result of the same standard.
-
-**Why there is a separate glossary**: readers of this document are skilled at mechanical work but may be meeting networking and time synchronisation for the first time. Spelling out GMSL2, PTP, or extrinsic parameters in the body every time would be noise for an expert. They are collected in one place and linked at first appearance.
-
-**Connections to other documents**: calibration results from this guide are readable through the sensor state endpoints in the [API documentation](../api/intro.md), and cleaning intervals reach the owner as a sensor cleaning alert in the [VELA Drive app](../app/intro.md).

@@ -1,7 +1,7 @@
 ---
 title: Control OTA deployment
 doc_type: 절차
-sidebar_label: 7. Control OTA deployment
+sidebar_label: 8. Control OTA deployment
 ---
 
 # Control OTA deployment

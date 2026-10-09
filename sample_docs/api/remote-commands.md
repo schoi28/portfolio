@@ -1,7 +1,7 @@
 ---
 title: 원격 명령 보내기
 doc_type: 개념 + 절차
-sidebar_label: 5. 원격 명령 보내기
+sidebar_label: 6. 원격 명령 보내기
 ---
 
 # 원격 명령 보내기
@@ -111,7 +111,7 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands/{command_id}
 
 ### 방법 3: SDK의 `wait()`
 
-[퀵스타트](./quickstart.md#python-sdk로-호출하기)에서 소개한 Python SDK는 폴링을 감싼 `wait()`를 제공합니다. 소량의 명령을 다루는 스크립트에 적합합니다.
+[SDK로 연동하기](./sdk.md#비동기-결과-기다리기)에서 설명한 Python SDK는 폴링을 감싼 `wait()`를 제공합니다. 소량의 명령을 다루는 스크립트에 적합합니다.
 
 ## 타임아웃과 재시도 정책
 

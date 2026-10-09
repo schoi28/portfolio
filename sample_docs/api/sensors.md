@@ -1,7 +1,7 @@
 ---
 title: 센서 상태 조회하기
 doc_type: 절차
-sidebar_label: 6. 센서 상태 조회하기
+sidebar_label: 7. 센서 상태 조회하기
 ---
 
 # 센서 상태 조회하기

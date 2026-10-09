@@ -1,7 +1,7 @@
 ---
 title: Check sensor state
 doc_type: 절차
-sidebar_label: 6. Check sensor state
+sidebar_label: 7. Check sensor state
 ---
 
 # Check sensor state

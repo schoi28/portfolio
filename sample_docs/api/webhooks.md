@@ -1,7 +1,7 @@
 ---
 title: 웹훅으로 이벤트 받기
 doc_type: 개념 + 절차
-sidebar_label: 8. 웹훅으로 이벤트 받기
+sidebar_label: 9. 웹훅으로 이벤트 받기
 ---
 
 # 웹훅으로 이벤트 받기

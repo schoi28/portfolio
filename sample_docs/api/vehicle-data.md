@@ -1,7 +1,7 @@
 ---
 title: 차량 데이터 조회하기
 doc_type: 절차
-sidebar_label: 4. 차량 데이터 조회하기
+sidebar_label: 5. 차량 데이터 조회하기
 ---
 
 # 차량 데이터 조회하기

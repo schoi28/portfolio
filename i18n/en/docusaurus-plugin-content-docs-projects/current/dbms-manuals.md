@@ -1,47 +1,122 @@
 ---
-title: DBMS 제품 매뉴얼 운영과 영문화
-sidebar_label: DBMS 매뉴얼 운영·영문화
-description: 데이터베이스 제품 매뉴얼 전반을 국문·영문으로 담당하고 영문판을 새로 만들었습니다.
+title: Maintaining and translating DBMS product manuals
+sidebar_label: DBMS manuals · translation
+description: I maintained the DBMS manuals across two languages and three version trees, and created English editions of manuals that had none.
 ---
 
-# DBMS 제품 매뉴얼 운영과 영문화
+# Maintaining and translating DBMS product manuals
 
-> DBMS 소프트웨어 회사 · Technical Writer · 2023.11 ~ 2024.12
+> Database software company · Technical Writer · Nov 2023 to Dec 2024
 
-**레퍼런스부터 릴리스 노트까지 문서 유형 전 범위를 국문·영문으로 담당했고, 영어 번역본이 없던 매뉴얼의 영문판을 새로 만들었습니다.**
+**Within an already established DBMS manual system, I updated 31 documents in Korean and English. For manuals that had no English edition I created one, and where an existing explanation was inaccurate I fixed the Korean source as well.**
 
-<Skills>SQL 레퍼런스 · API 매뉴얼 · 릴리스 노트 · 기술 번역(한↔영) · 용어 일관성 관리 · MkDocs · Read the Docs · Git · GitHub · 다중 과제 관리</Skills>
+<Skills>Technical documentation maintenance · technical translation (Korean ↔ English) · SQL and API documentation · terminology consistency · change tracking · Git/GitHub · MkDocs</Skills>
 
 | | |
 | --- | --- |
-| 작업 규모 | Pull Request **113건 제출 / 101건 머지**, 저장소 Collaborator |
-| 담당 범위 | SQL 레퍼런스 · API 매뉴얼 · 복제/로그 분석기 · 도구 매뉴얼 · 설치 가이드 · 릴리스 노트 |
-| 언어 | 국문 · 영문 동시 운영 |
-| 공개 이력 | [ALTIBASE/Documents](https://github.com/ALTIBASE/Documents) |
+| Volume | **113 pull requests submitted / 101 merged** (Dec 2023 to Nov 2024) |
+| Document scope | **31 documents** · SQL reference · API/JDBC/CLI · replication · log analyzer · tools · installation · release and patch notes |
+| Maintained in parallel | Korean · English × the `7.1`, `7.3`, and `trunk` version trees |
+| Public history | [ALTIBASE/Documents](https://github.com/ALTIBASE/Documents) · [my pull requests](https://github.com/ALTIBASE/Documents/pulls?q=is%3Apr+author%3ASoyoon-Choi) |
 
-### 어려웠던 점
+## What was difficult
 
-- **여러 제품의 매뉴얼을 동시에 갱신해야 했습니다.** SQL 레퍼런스, API 매뉴얼, 복제·로그 분석기, 도구 매뉴얼, 설치 가이드, 릴리스 노트가 모두 담당 범위였습니다. 문서 유형마다 독자가 기대하는 것이 다릅니다.
-- **번역본이 원문과 어긋나기 쉬웠습니다.** 일부 매뉴얼은 영어판이 아예 없었고, 번역을 만들어 두더라도 원문이 갱신되면 금세 벌어집니다.
-- **이미 있는 체계를 존중해야 했습니다.** 처음부터 만드는 것과 달리, 기존 문체와 구조를 유지하면서 개선해야 했습니다.
+**The same content existed in several copies.**
 
-### 해결 방법
+The manuals were split into Korean and English, and again into the `7.1`, `7.3`, and `trunk` versions. One feature change meant finding and fixing the same paragraph in several places, and once related documents were included, a single change could touch more than ten files. Miss one of them and the fact only surfaces much later.
 
-**원문과 번역을 하나의 작업 단위로 묶었습니다.**
+**Some manuals had no English edition.**
 
-번역에서 가장 어려운 부분은 번역 자체가 아니라 원문과 번역본이 어긋나지 않게 유지하는 일이라고 봤습니다. 그래서 원문을 고칠 때 번역본을 함께 고치는 것을 분리할 수 없는 한 단위로 만들었습니다. 영문 패치 노트도 운영 범위에 포함했습니다.
+Finishing a translation once is not enough: as the Korean source keeps changing, the two languages drift apart again. Keeping both languages in the same state was the harder problem, harder than completing the translation.
 
-**번역이 갈리는 문장은 원문을 고쳤습니다.**
+**Each document type had readers who expected something different.**
 
-번역 작업에서 가장 가치 있는 발견은 번역 오류가 아니라 **원문이 애매해서 번역이 갈리는 문장**이었습니다. 그런 문장은 번역본이 아니라 원문을 고쳤습니다. 원문이 애매하면 한국어 독자도 똑같이 헷갈리기 때문입니다.
+A reference has to make syntax and constraints quick to find; an installation guide has to get the order and the preconditions exactly right; release notes have to convey the change and its blast radius briefly. Working across 31 documents, I had to avoid blurring what each one is for.
 
-**작업 단위를 추적 가능하게 만들었습니다.**
+**The improvements had to fit the existing system.**
 
-- 각 작업을 이슈 트래커의 요청 번호에 연결된 Pull Request 단위로 처리하기
-- 리뷰 코멘트 단위로 반영해 무엇이 왜 바뀌었는지 남기기
-- MkDocs와 Read the Docs로 웹 매뉴얼 사이트 구축하기
+This was not a project designed from scratch. There was a long-established style and structure, and changes had to improve things without breaking what existing readers and authors were used to.
 
-### 결과
+## How I solved it
 
-- 레퍼런스와 가이드, 릴리스 노트를 모두 다룬 경험이 이후 작업의 바탕이 되었습니다. **문서 유형마다 독자가 기대하는 것이 다르다**는 감각을 이때 얻었습니다.
-- MkDocs와 Read the Docs 경험은 현 직장에서 [자체 생성기를 만든 출발점](./build-tooling.md)이 되었습니다. 공개 도구로 할 수 있는 것과 할 수 없는 것을 먼저 겪어 봤기 때문에 전환 시점을 판단할 수 있었습니다.
+### Creating and maintaining the English editions
+
+I created English editions of the manuals and patch notes that had none. From then on, instead of treating translation as follow-up work, I handled the Korean edit and its English counterpart **inside a single pull request.**
+
+- One feature change, carried into Korean and English across three version trees in one pull request
+- When a `.md` file changed, the distributed `PDF` was regenerated in the same pull request
+- English patch notes kept inside the maintained scope rather than postponed
+
+With both languages in the same diff, a reviewer can see the difference on one screen. Rather than reconciling later, this reduces the opportunity to drift.
+
+### Improving the quality of the existing documents
+
+When translating or updating turned up an explanation that was inaccurate or ambiguous, **I did not just polish the translation; I fixed the Korean source.** If the source is ambiguous, Korean readers stumble at the same point.
+
+The description of the `ILOADER_PARTITION` property in `iLoader` was one such case.
+
+| | |
+| --- | --- |
+| Before | This property decides whether to create an SQL script and a shell script **for creating partitions** |
+| After | This property decides whether, when the source database has partitioned tables, **iLoader scripts are generated per partition** |
+
+"A script for creating partitions" reads two ways: *a script that creates partitions*, and *a script generated for each partition*. The actual behaviour was the latter. The same piece of work also fixed:
+
+- the ON/OFF description, replacing abstract prose with the names of the files actually generated (`run_il_out.sh`, `run_il_in.sh`)
+- inconsistent Korean wording for "source database", unified to one term
+- a stray space in `ILOADER\_ PARTITION` that was breaking the rendering
+
+### Keeping terminology consistent
+
+When a term changed, I found and updated every document it appeared in. Changing `SQL Reflection Mode` to `SQL Apply Mode` meant fixing not only the Replication Manual but the New Features Guide, the Patch Notes, and the Release Notes, across all three version trees.
+
+A term change applied to only one document leaves the same feature called different things in different places.
+
+### Tracking the change history
+
+Every piece of work was linked to a request number in the issue tracker.
+
+| Prefix | Kind of work |
+| --- | --- |
+| `BUG-#####` | Documentation change following a defect fix |
+| `PROJ-####` | Manual rework following a feature development project |
+| `INC-#####` | Documentation improvement arising from a customer enquiry |
+| `Comment ######` | A change made for one review comment |
+
+Even review comment numbers went into the pull request titles, so it is possible to work backwards from a change to the remark that prompted it. Changes that turned out to be wrong kept their revert history too.
+
+### Writing to suit the document type
+
+- **SQL reference**: syntax, options, and constraints made easy to find. Accuracy and navigability first
+- **API, JDBC, and CLI manuals**: features and usage set out from the caller's point of view
+- **Installation guide**: built around order and preconditions
+- **Replication, log analyzer, and tool manuals**: concepts presented alongside how to operate them
+- **Release and patch notes**: the change and its blast radius, short and clear
+
+### Setting up a web manual environment
+
+Using MkDocs and Read the Docs, I made the existing documents browsable on the web. Doing so showed me first hand what an open static site generator can and cannot do.
+
+## What I produced
+
+| Item | Contents |
+| --- | --- |
+| Reference | SQL Reference · General Reference 1 and 2 |
+| Developer documentation | API · JDBC · CLI · C Interface · Precompiler · Stored/External Procedures |
+| Operations documentation | Replication · Log Analyzer · Administrator's · Performance Tuning · DB Link |
+| Tool documentation | Utilities · iLoader · iSQL · Migration Center · Adapter (JDBC/Oracle) · Tools |
+| Installation and environment | Installation Guide · Getting Started Guide · Supported Platforms · SSL/TLS Guide · 3rd Party Connector Guide · Spring Data JPA Guide |
+| Product introduction | New Features Guide |
+| Change documentation | Release Notes · Patch Notes (Korean and English) |
+| Languages and versions | Korean · English × `7.1`, `7.3`, `trunk` |
+| Web documentation | A manual site built on MkDocs and Read the Docs |
+| Public history | 113 pull requests submitted · 101 merged |
+
+## Results
+
+- **Created the English editions** of manuals that had none, and from then on maintained Korean and English together in one pull request.
+- Fixed inaccurate explanations found while translating and updating **in the source, not only in the translation**, resolving the problem for readers of both languages.
+- Applied term changes across every related document, so the same feature is not called different things in different places.
+- Linked every change to a request number and a review comment, leaving the history in a state where any sentence can be traced back to the request behind it.
+- Working across every document type, from reference to release notes, gave me the principle that **different document types carry different reader expectations**, which fed into the structure of [the combined solution documentation set](./solution-docs.md).
+- Running into MkDocs's limits here became the basis for the decision to build our own tooling in [the documentation build and check tooling](./build-tooling.md) project.

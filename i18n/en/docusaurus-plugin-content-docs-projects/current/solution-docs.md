@@ -1,97 +1,126 @@
 ---
-title: 통합 솔루션 문서 세트 신규 구축
-sidebar_label: 통합 솔루션 문서 세트
-description: 제품 5종의 영문 사용자 문서를 설계하고 171편을 완성했습니다.
+title: Building a combined solution documentation set
+sidebar_label: Combined solution docs
+description: I designed the English user documentation for five products and completed 171 documents.
 ---
 
-# 통합 솔루션 문서 세트 신규 구축
+# Building a combined solution documentation set
 
-> 자율주행 솔루션 소프트웨어 회사 · Technical Writer · 2025.01 ~ 현재
+> Autonomous driving solution software company · Technical Writer · Jan 2025 to present
 
-**어떤 제품은 문서가 한 줄도 없었고, 어떤 제품은 다른 형식으로 흩어져 있었습니다. 문서 구조를 새로 설계해 171편을 완성했습니다.**
+**I brought five autonomous driving products, whose documentation was either missing or scattered across different formats, into a single documentation system. I researched how the products are sold and who actually reads the documents, redesigned the information architecture, and built the English user documentation.**
 
-<Skills>정보 구조 설계 · 독자 분석 · 영문 테크니컬 라이팅 · UI 네이밍 · 용어집 설계 · IEC/IEEE 82079-1 · 이해관계자 인터뷰 · 현장 조사</Skills>
+<Skills>Information architecture · reader analysis · B2B product documentation design · English technical writing · stakeholder interviews</Skills>
 
 | | |
 | --- | --- |
-| 완성 | 문서 171편 · 이미지 310장 · 약 187,000단어 |
-| 신규 작성 | 128편 (**75%**). 나머지는 기존 문서를 구조부터 다시 씀 |
-| 설계한 것 | 솔루션·제품 2층 구조 · 독자 3계층 정의 · 용어집 정책 |
+| Scope | Five autonomous driving software products |
+| Document structure | Solution manual plus a user manual per product |
+| Size | About 170 Markdown documents · about 310 images |
+| Formats | Web · PDF |
+| Language | English |
 
-### 어려웠던 점
+## What was difficult
 
-- **제품은 묶여서 팔리는데, 문서는 제품별로도 필요했습니다.** 제품 여러 개를 하나의 "솔루션"으로 묶어 기업 고객에게 파는데, 고객사마다 구매 구성이 다릅니다. 전체를 사는 곳, 일부만 사는 곳, 솔루션과 무관하게 단독으로 사는 곳이 있습니다.
-- 솔루션 단위로 하나만 만들면 **일부만 구매한 고객에게 불필요한 내용이 섞입니다.** 반대로 제품별로만 만들면 "이 제품들이 합쳐져서 무엇을 하는가"를 설명하는 문서가 없습니다.
-- **제품마다 출발점이 전부 달랐습니다.**
+**The products are sold as one solution, but documentation was needed per product as well.**
 
-  | 제품 | 시작 시점의 문서 상태 |
-  | --- | --- |
-  | 라이다 인지 엔진 | 개발자가 쓴 Google Docs 매뉴얼. 코멘트가 한눈에 보이지 않아 리뷰가 몇 주씩 멈춰 있었습니다 |
-  | 운영 애플리케이션 | 문서 없음. 입사 후 개발이 시작된 제품이라 화면의 버튼 이름부터 정해야 했습니다 |
-  | 모션 플래닝 소프트웨어 | 고객에게 그때그때 전달하던 5페이지짜리 비공식 가이드만 존재 |
-  | 솔루션 전체 | 제품들을 묶어 설명하는 문서는 없었습니다 |
+The company bundles several autonomous driving software products into a single solution and sells it to enterprise customers. Each customer buys a different combination of products, though, and some products are also sold on their own, separately from the solution.
 
-- **독자가 누구인지 알 수 없었습니다.** 기업 고객에게 납품하는 제품이라 실제로 누가 읽는지 사내에서 아는 사람이 없었고, 고객사마다 조직 구조와 직무 이름도 달랐습니다. 독자를 모르면 어느 수준으로 쓸지, 어떤 용어를 설명할지 정할 수 없습니다.
+Documenting only at the solution level hands a customer who bought a few products a pile of information they do not need. Documenting only per product makes it impossible to explain what solution the products add up to when combined.
 
-### 해결 방법
+The document structure therefore had to reflect **not only the products themselves but how they are sold and how customers use them.**
 
-**문서를 2층 구조로 설계하고, 조립은 빌드 도구에 맡겼습니다.**
+**Each product also started from a different place.**
 
-문서 구조가 판매 구조를 따라가야 한다고 판단했습니다. 솔루션 매뉴얼과 제품별 매뉴얼을 따로 두되, 네 부분을 따로 빌드하거나 합쳐서 빌드할 수 있게 만들었습니다. 고객사별 구성 차이는 문서를 복제하는 대신 [빌드 도구](./build-tooling.md)로 처리했습니다.
-
-```
-솔루션 매뉴얼
-├── 비즈니스 관점 개괄                 ← 도입을 검토하는 독자
-└── 운영자용 핵심 개념·운영·트러블슈팅    ← 솔루션을 운영하는 독자
-제품별 사용자 매뉴얼 × 3
-└── 각 제품의 상세                     ← 제품을 직접 다루는 독자
-```
-
-**독자를 책상에서 정하지 않고 현장에서 조사했습니다.**
-
-- 고객사와의 실제 프로젝트에 참여해, 각 제품에 어떤 직무의 담당자가 접근하는지 조사하기
-- 조사 결과를 특정 고객사에 종속되지 않는 일반 유형으로 변환하기
-- 독자를 **이해 · 운영 · 기술** 세 계층으로 정의하고, 계층마다 전제하는 사전 지식을 명시하기
-- "자율주행에 대한 사전 지식은 전제하지 않는다"를 전 제품 공통 기준선으로 선언하기
-
-| 계층 | 누구인가 | 전제하는 사전 지식 |
-| --- | --- | --- |
-| 이해 | 솔루션 도입을 검토하는 독자 | 없음 |
-| 운영 | 관리자 · 운영자 · 조회자. 현장 운영자와 원격 운전자 포함 | 컴퓨터 활용 능력, 소프트웨어 UI 사용 경험 |
-| 기술 | 현장 적용 엔지니어 · 차량 통합 엔지니어 · 개발자 · IT 관리자 | 역할별로 다름. Linux 명령줄, 네트워크, 차량 컨트롤러 통합, REST API |
-
-이 기준선이 이후 용어집 정책의 근거가 되었습니다. 어떤 용어가 "독자 수준에 맞지 않는가"를 판단하려면 비교할 기준이 있어야 하기 때문입니다.
-
-**독자가 자기 자리를 찾을 수 있게 만들었습니다.**
-
-- 역할 표에 "관련 섹션" 열을 두어, 자기 역할을 찾으면 읽을 범위도 함께 정해지게 하기
-- 역할 표가 **읽기 안내이지 계정 권한의 정의가 아님**을 명시하기. 둘을 섞으면 "내 계정은 조회 권한인데 운영자 문서를 읽어도 되나" 같은 혼란이 생깁니다
-- 고객사마다 다른 직무 이름은 일반 명칭으로 쓰고, 가장 가까운 행을 참고하라는 안내 넣기
-- 문서 간 선후 관계를 명시해 읽는 순서를 알 수 있게 하기
-
-**제품별로 출발점에 맞는 방식을 선택했습니다.**
-
-- **운영 애플리케이션**: 정보 구조 설계부터 시작해 전체를 집필하고, 기획 회의에 참여해 UI 요소 이름 정하기
-- **라이다 인지 엔진**: 문서를 Markdown으로 옮기고 SDK·API 문서까지 범위에 포함하기
-- **모션 플래닝 소프트웨어**: 기술 깊이가 가장 깊은 제품이라, 이 매뉴얼을 쓰면서 용어집 정책을 만들고 이후 전 제품에 적용하기
-- **솔루션 매뉴얼**: 비즈니스 관점 개괄과 운영자용 핵심 개념·운영 절차·트러블슈팅을 신규 집필하기
-
-### 산출물
-
-| 항목 | 규모 |
+| Product | State of its documentation at the start |
 | --- | --- |
-| 제품 | 5종 (2개 솔루션으로 묶여 판매) |
-| 문서 | 171편 · 약 187,000단어 (제품별 최신 버전 기준) |
-| 작성 구분 | 신규 작성 128편(75%) · 기존 문서 개편 43편 |
-| 이미지 | 310장 |
-| 버전 | 제품별 릴리스 2~3개 + 개발 버전 트리 |
-| 포맷 | 웹(정적 HTML) · PDF, 단일 소스에서 생성 |
-| 언어 | 영문 (해외 고객사 대상, 국문판은 제품 자체에 없음) |
+| LiDAR perception engine | A Google Docs manual written by a developer existed, but its review had been stalled for a long time |
+| Operations application | No existing documentation; documentation started alongside early product development |
+| Motion planning software | Only an informal five-page guide, sent to customers as needed |
+| The solution as a whole | No document explaining the several products as one system |
 
-고객사 대상 매뉴얼은 영문만 존재하는 제품입니다. 사내 공유용 국문 문서는 Confluence에서 별도로 작성했습니다. 국문·영문 양방향 운영 경험은 [DBMS 제품 매뉴얼 운영과 영문화](./dbms-manuals.md)에 있습니다.
+Applying one template to every product was not going to work, because the quality of the existing material, the readers, and the technical depth all differed.
 
-### 결과
+**It was not clearly defined who the readers were.**
 
-- 고객사 구성이 달라도 **문서를 손으로 재조립하지 않습니다.** 설정에서 범위를 지정하고 빌드합니다.
-- 웹 매뉴얼의 검색 기능 덕분에 현장 배포·필드 애플리케이션 엔지니어가 필요한 정보에 빠르게 접근할 수 있다는 피드백을 받았고, **온보딩 자료로 쓰이고 있습니다.**
-- 같은 설계 방식을 적용한 결과를 [Sample Docs](/samples)에서 읽으실 수 있습니다.
+Because these products are delivered to enterprise customers, there was no clear picture of who actually reads the documents. Organisational structures and job titles differed from customer to customer, too.
+
+Without defined readers there is no basis for deciding how far to explain something, which terms need an explanation, or what content belongs in the same document.
+
+## How I solved it
+
+### Splitting the documentation by how the products are sold
+
+I designed the documentation in two layers: **a solution manual and a user manual per product.**
+
+```text
+Solution manual
+├── A business-level overview of the solution
+└── Core concepts, operation, and troubleshooting for operators
+
+Per-product user manuals
+└── Detailed information for the readers who use each product directly
+```
+
+The solution manual explains what system the several products form together; the per-product user manuals carry the detail needed to actually use each product.
+
+That way, both a customer who bought the whole solution and a customer who uses only some of it get documentation at the scope they need.
+
+Rather than duplicating documents to manage each customer's product combination, I separated that out so the required scope is assembled by the [documentation build and check tooling](./build-tooling.md).
+
+### Researching readers on real projects
+
+Instead of guessing internally, I joined real customer projects and confirmed which roles reach for which product.
+
+Rather than adopting each customer's own job titles, I generalised them into three reader tiers that apply across projects.
+
+| Tier | Who they are | Prior knowledge assumed |
+| --- | --- | --- |
+| Understanding | Readers evaluating whether to adopt the solution | None |
+| Operation | Administrators · operators · viewers · field operators · remote drivers | General computer literacy and experience with software user interfaces |
+| Technical | Field deployment engineers · vehicle integration engineers · developers · IT administrators | Depending on the role: the Linux command line, networking, vehicle controller integration, REST APIs, and so on |
+
+Every product document applies the same baseline: **no prior knowledge of autonomous driving is assumed.**
+
+That baseline later became the basis for deciding the glossary and the depth of explanations. To judge which terms are unfamiliar to a reader, the reader's prior knowledge has to be defined first.
+
+### Connecting readers to what they should read
+
+I did not stop at defining roles; I connected them to how people actually navigate the documents.
+
+- The role table lists the related sections, so finding your role also shows you the scope you should read.
+- I stated explicitly that the role split is guidance for reading the documentation, not a statement about system account permissions.
+- Instead of each customer's own job titles, I used generalised role names and told readers to refer to the closest one.
+- Where several documents have to be read in order, I stated the order between them.
+
+The aim was **not for readers to read everything from the beginning, but for them to find where their own information starts.**
+
+### Documenting each product from where it stood
+
+I kept the shared information structure and reader criteria, but varied the approach to each product according to its existing state.
+
+- **Operations application:** starting from nothing, I designed the information architecture and wrote the whole user documentation from scratch. I also took part in product planning and helped decide the names of UI elements.
+- **LiDAR perception engine:** I moved the existing documentation into a Markdown-based structure and widened its scope to cover the SDK and API.
+- **Motion planning software:** documenting the most technically demanding product is where I settled the criteria for explaining terminology, which I then applied to the other products.
+- **Solution manual:** I wrote, from scratch, the overall structure, core concepts, operating procedures, and troubleshooting that no individual product document could cover.
+
+Rather than forcing every product into one template, **I kept the differences between products while applying shared criteria so that readers navigate information in a consistent way.**
+
+## What I produced
+
+| Item | Size |
+| --- | --- |
+| Products | 5, making up 2 solutions |
+| Documents | About 170 Markdown files |
+| Images | About 310 |
+| Versions | 2 to 3 releases per product plus a development version |
+| Formats | Web (static HTML) · PDF |
+| Language | English |
+
+## Results
+
+- Documentation that had been scattered by product **can now be operated under one information structure of solutions and products.**
+- Even when a customer's product combination differs, documentation can be delivered by specifying the required scope, with no copying or hand assembly.
+- Field deployment and field application engineers reported that the web manual's search lets them find what they need quickly.
+- The documentation is also **used as onboarding material** in day-to-day work.
+- The reader model and the information architecture principles defined here carried over into later product documentation and into the documentation governance system.
