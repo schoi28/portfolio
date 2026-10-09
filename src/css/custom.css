@@ -902,49 +902,51 @@ main > .container--fluid {
    부분을 보고 있는지 스크롤만으로 알 수 있게 합니다.
 
    Docusaurus 가 제목 글자에서 id 를 만들기 때문에 id 로 맞춥니다.
-   섹션 제목을 바꾸면 아래 선택자도 함께 고쳐야 합니다.
+   섹션 제목을 바꾸거나 제목 단계를 바꾸면 아래 선택자도 함께 고쳐야 합니다.
    현재 쓰는 id: 어려웠던-점 · 해결-방법 · 산출물 · 결과
    ═══════════════════════════════════════════════════════════════ */
 
-.markdown h3[id='어려웠던-점']::before,
-.markdown h3[id='해결-방법']::before,
-.markdown h3[id='산출물']::before,
-.markdown h3[id='결과']::before {
+.markdown h2[id='어려웠던-점']::before,
+.markdown h2[id='해결-방법']::before,
+.markdown h2[id='산출물']::before,
+.markdown h2[id='결과']::before {
   content: '';
   display: inline-block;
-  width: 1.1rem;
-  height: 1.1rem;
-  margin-right: 0.5rem;
-  vertical-align: -0.14rem;
+  /* h2 글자 크기(1.62rem)에 맞춰 키웠습니다. 제목보다 작아야 하지만
+     너무 작으면 장식으로 보여 구분 역할을 못 합니다. */
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.6rem;
+  vertical-align: -0.1rem;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
 
 /* 어려웠던 점: 경고 삼각형 */
-.markdown h3[id='어려웠던-점']::before {
+.markdown h2[id='어려웠던-점']::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%231f3a5f' stroke-width='1.5'%3E%3Cpath d='M8 1.8 15 14.2H1Z'/%3E%3Cpath d='M8 6v3.4'/%3E%3Cpath d='M8 11.6v.6'/%3E%3C/svg%3E");
 }
 
 /* 해결 방법: 갈라진 두 줄이 하나로 모임 */
-.markdown h3[id='해결-방법']::before {
+.markdown h2[id='해결-방법']::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%231f3a5f' stroke-width='1.5'%3E%3Cpath d='M1 3.5h4.5L9 8h6'/%3E%3Cpath d='M1 12.5h4.5L9 8'/%3E%3Cpath d='M12.5 5.5 15 8l-2.5 2.5'/%3E%3C/svg%3E");
 }
 
 /* 산출물: 모서리를 접은 문서 */
-.markdown h3[id='산출물']::before {
+.markdown h2[id='산출물']::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%231f3a5f' stroke-width='1.5'%3E%3Cpath d='M3 1.5h6.5L13 5v9.5H3Z'/%3E%3Cpath d='M9.5 1.5V5H13'/%3E%3Cpath d='M5.5 8.5h5M5.5 11.5h5'/%3E%3C/svg%3E");
 }
 
 /* 결과: 올라가는 꺾은선 */
-.markdown h3[id='결과']::before {
+.markdown h2[id='결과']::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%231f3a5f' stroke-width='1.5'%3E%3Cpath d='M1.5 14.5h13'/%3E%3Cpath d='M3 11 6.5 6.5 9.5 9 14 2.5'/%3E%3Cpath d='M10.5 2.5H14V6'/%3E%3C/svg%3E");
 }
 
-[data-theme='dark'] .markdown h3[id='어려웠던-점']::before,
-[data-theme='dark'] .markdown h3[id='해결-방법']::before,
-[data-theme='dark'] .markdown h3[id='산출물']::before,
-[data-theme='dark'] .markdown h3[id='결과']::before {
+[data-theme='dark'] .markdown h2[id='어려웠던-점']::before,
+[data-theme='dark'] .markdown h2[id='해결-방법']::before,
+[data-theme='dark'] .markdown h2[id='산출물']::before,
+[data-theme='dark'] .markdown h2[id='결과']::before {
   /* 어두운 배경에서는 선 색만 밝게 뒤집습니다. */
   filter: invert(1) brightness(1.6);
 }

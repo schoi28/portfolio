@@ -596,12 +596,25 @@ function checkTranslations(sourceDocs) {
   return results;
 }
 
-/** git 이력에서 마지막 수정 시각을 읽습니다. 추적되지 않는 파일은 건너뜁니다. */
+/**
+ * git 이력에서 '내용이 마지막으로 바뀐' 시각을 읽습니다.
+ *
+ * 단순히 마지막 커밋을 보면 파일을 옮기기만 해도 그 시각이 갱신됩니다.
+ * 폴더 이름을 docs/ 에서 sample_docs/ 로 바꿨을 때 원문 44편이 전부
+ * '번역보다 나중에 바뀌었다'로 보고된 적이 있습니다. 내용은 그대로인데
+ * 경로만 달라진 것이라 오탐입니다.
+ *
+ *   --diff-filter=AM  추가(A)와 수정(M)만 셉니다. 이름 변경(R)은 뺍니다.
+ *   --follow          이름이 바뀌기 전의 이력까지 따라갑니다.
+ *
+ * 추적되지 않는 파일은 null 을 돌려주고 이 검사만 건너뜁니다.
+ */
 function gitTime(file) {
   try {
-    return execSync(`git log -1 --format=%cI -- "${file}"`, {
-      cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'],
-    }).toString().trim() || null;
+    return execSync(
+      `git log -1 --format=%cI --diff-filter=AM --follow -- "${file}"`,
+      { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }
+    ).toString().trim() || null;
   } catch { return null; }
 }
 

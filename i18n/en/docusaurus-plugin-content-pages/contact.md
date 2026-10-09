@@ -9,7 +9,7 @@ I welcome questions about documentation work and hiring. I reply within one busi
 
 <CtaRow>
   <Cta href="mailto:soyoon9428@gmail.com">Send an email</Cta>
-  <Cta href="https://www.linkedin.com/in/soyoon-choi" variant="ghost">LinkedIn</Cta>
+  <Cta href="https://www.linkedin.com/in/soyoon-choi" variant="ghost">View the LinkedIn profile</Cta>
 </CtaRow>
 
 | | |

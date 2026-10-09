@@ -10,8 +10,8 @@ I am a technical writer working in Korean and English. Since November 2023 I hav
 ## Download the resume
 
 <CtaRow>
-  <Cta href="/portfolio/resume/soyoon-choi-resume-ko.pdf">Korean resume (PDF)</Cta>
-  <Cta href="/portfolio/resume/soyoon-choi-resume-en.pdf" variant="ghost">English resume (PDF)</Cta>
+  <Cta href="/portfolio/resume/soyoon-choi-resume-ko.pdf">Download the Korean resume</Cta>
+  <Cta href="/portfolio/resume/soyoon-choi-resume-en.pdf" variant="ghost">Download the English resume</Cta>
 </CtaRow>
 
 :::note
@@ -24,7 +24,7 @@ The files are being prepared. If you need one now, request it through [Contact](
 
 | Area | Details |
 | --- | --- |
-| Writing | Markdown, MDX, structured reference documents, release notes, installation and operations guides |
+| Writing | Markdown, structured reference documents, release notes, installation and operations guides |
 | Tooling | Docusaurus, MkDocs, Read the Docs, in-house static site generator |
 | Standards and methods | IEC/IEEE 82079-1, DITA information typing, glossary and style guide programs |
 | API documentation | OpenAPI-based references, webhook documentation, error code schemes |

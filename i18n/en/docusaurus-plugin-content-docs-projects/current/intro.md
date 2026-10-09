@@ -93,6 +93,6 @@ hide_table_of_contents: true
 :::
 
 <CtaRow>
-  <Cta to="/contact">발췌본·예시 요청하기</Cta>
+  <Cta to="/contact">연락하기</Cta>
   <Cta to="/samples" variant="ghost">문서 샘플 읽기</Cta>
 </CtaRow>

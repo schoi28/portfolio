@@ -11,14 +11,13 @@ I am a technical writer who works in both Korean and English. I studied creative
 
 What I do best is take documentation from nothing to a finished set. I ask the people who build the product what readers actually get stuck on, then design and write documents that are easy to understand and get used. I am always willing to learn something new.
 
-What I have worked on and how I made those decisions is in [Portfolio](/projects). To read documents I wrote for a fictional product family called VELA, see [Sample Docs](/samples). If you are short on time, the career summary in [Resume](/resume) is the fastest path.
-
 :::note
 Documents and source code from my current employer are confidential, so they are not published here. Instead I rebuilt a product family of the same structure and complexity as a fictional example and published it in full.
 :::
 
 <CtaRow>
-  <Cta to="/projects">See the portfolio</Cta>
+  <Cta to="/projects">See the projects</Cta>
   <Cta to="/samples" variant="ghost">Read the sample docs</Cta>
+  <Cta to="/resume" variant="ghost">See the resume</Cta>
   <Cta to="/contact" variant="ghost">Get in touch</Cta>
 </CtaRow>
