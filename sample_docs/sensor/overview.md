@@ -24,7 +24,7 @@ VELA Sense는 **개발·검증 차량에 장착하는 레퍼런스 센서 킷**�
 
 상자를 열면 아래 10종이 들어 있습니다. 작업을 시작하기 전에 번호 순서대로 수량을 확인하십시오.
 
-![VELA Sense 킷 구성품 10종](/img/sensor-kit-items.svg)
+![VELA Sense kit items, numbered 1 to 10](/img/sensor-kit-items.svg)
 
 | 번호 | 항목 | 수량 | 장착 위치 |
 | --- | --- | --- | --- |

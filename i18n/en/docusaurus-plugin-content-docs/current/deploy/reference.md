@@ -12,7 +12,7 @@ Definitions of terms are in [Look up a term](./glossary.md), and what to do abou
 
 ## Campaign state values
 
-![The paths a campaign state can take](/img/deploy-campaign-states.svg)
+![How a campaign moves between states](/img/deploy-campaign-states.en.svg)
 
 :::warning[Warning]
 `aborted` is entered only by stopping urgently, and it cannot be undone.

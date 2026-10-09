@@ -2,6 +2,9 @@
 #
 # 문서를 쓰기 전에 이 파일에서 독자를 먼저 고릅니다.
 # 정보 설계 판단의 근거이며, scripts/check-docs.mjs 가 이 값으로 검사합니다.
+#
+# 검사기가 읽지 않는 항목도 있습니다. 사람이 지키는 기준이며 아래 둘입니다.
+#   common_rules · before_writing
 
 audiences:
   owner:

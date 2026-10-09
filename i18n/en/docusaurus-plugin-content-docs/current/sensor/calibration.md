@@ -47,7 +47,7 @@ Tyre pressures that differ from the specification change the ride height and mak
 
 ### Position the target boards
 
-![Target board positions for static calibration](/img/sensor-calibration-layout.svg)
+![How the vehicle and the target boards are placed for static calibration](/img/sensor-calibration-layout.en.svg)
 
 | Target | Position | Distance from the vehicle | Tolerance |
 | --- | --- | --- | --- |

@@ -1,32 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 216" width="760" height="216" role="img" aria-label="배포 범위를 1퍼센트에서 100퍼센트까지 단계적으로 넓히는 과정">
+<!--
+  deploy-staged-rollout · 배포 범위를 단계적으로 넓히는 과정
+  사용처: sample_docs/deploy/overview.md
+  쌍: deploy-staged-rollout.en.svg
+  기준: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 216" width="760" height="216"
+     role="img"
+     aria-label="배포 범위를 1퍼센트에서 100퍼센트까지 단계적으로 넓히는 과정">
   <style>
-    .t { font-family: 'Pretendard', -apple-system, sans-serif; fill: #0f1419; }
-    .b { font-size: 13px; font-weight: 600; }
-    .s { font-size: 11px; fill: #6b7681; }
-    .e { font-size: 11.5px; fill: #3d4852; }
-    .w { font-size: 11.5px; font-weight: 700; fill: #9b3a34; }
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
   </style>
-  <defs><marker id="m" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
-    <path d="M0 0L8 4L0 8z" fill="#3d4852"/></marker>
-    <marker id="mr" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
-    <path d="M0 0L8 4L0 8z" fill="#9b3a34"/></marker></defs>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
+
   <rect width="760" height="216" fill="#f5f7f8"/>
-  <rect x="40" y="40" width="180" height="56" fill="#f5f7f8" stroke="#1f3a5f" stroke-width="2"/>
-  <text class="t b" x="130.0" y="73.0" text-anchor="middle" fill="#0f1419">1% 배포</text>
-  <rect x="290" y="40" width="180" height="56" fill="#f5f7f8" stroke="#1f3a5f" stroke-width="2"/>
-  <text class="t b" x="380.0" y="73.0" text-anchor="middle" fill="#0f1419">10% 배포</text>
-  <rect x="540" y="40" width="180" height="56" fill="#f5f7f8" stroke="#1f3a5f" stroke-width="2"/>
-  <text class="t b" x="630.0" y="73.0" text-anchor="middle" fill="#0f1419">100% 배포</text>
-  <path d="M220 68L286 68" stroke="#3d4852" stroke-width="2" marker-end="url(#m)" fill="none"/>
-  <path d="M470 68L536 68" stroke="#3d4852" stroke-width="2" marker-end="url(#m)" fill="none"/>
-  <text class="t s" x="253" y="58" text-anchor="middle">결과 확인</text>
-  <text class="t s" x="503" y="58" text-anchor="middle">결과 확인</text>
-  <path d="M130 96L130 150" stroke="#9b3a34" stroke-width="2" marker-end="url(#mr)" fill="none"/>
-  <path d="M380 96L380 150" stroke="#9b3a34" stroke-width="2" marker-end="url(#mr)" fill="none"/>
-  <text class="t w" x="146" y="126" text-anchor="start">기준 미달</text>
-  <text class="t w" x="396" y="126" text-anchor="start">기준 미달</text>
-  <rect x="40" y="154" width="180" height="52" fill="#ffffff" stroke="#9b3a34" stroke-width="2"/>
-  <text class="t b" x="130.0" y="185.0" text-anchor="middle" fill="#0f1419">일시 중지 / 롤백</text>
-  <rect x="290" y="154" width="180" height="52" fill="#ffffff" stroke="#9b3a34" stroke-width="2"/>
-  <text class="t b" x="380.0" y="185.0" text-anchor="middle" fill="#0f1419">일시 중지 / 롤백</text>
+  <rect x="24" y="24" width="148" height="64" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="98" y="61" text-anchor="middle">1% 배포</text>
+  <path d="M172 56H306" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="202" y="47" width="74" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="239" y="60" text-anchor="middle">결과 확인</text>
+  <rect x="306" y="24" width="148" height="64" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="380" y="61" text-anchor="middle">10% 배포</text>
+  <path d="M454 56H588" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="484" y="47" width="74" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="521" y="60" text-anchor="middle">결과 확인</text>
+  <rect x="588" y="24" width="148" height="64" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="662" y="61" text-anchor="middle">100% 배포</text>
+  <path d="M98 88V136" stroke="#9b3a34" stroke-width="2" marker-end="url(#arrow-danger)" fill="none" stroke-dasharray="6 4"/>
+  <rect x="61" y="103" width="74" height="18" fill="#f5f7f8"/>
+  <text class="t warn" x="98" y="116" text-anchor="middle">기준 미달</text>
+  <rect x="24" y="136" width="148" height="56" fill="#ffffff" stroke="#9b3a34" stroke-width="2"/>
+  <text class="t title" x="98" y="169" text-anchor="middle">일시 중지 · 롤백</text>
+  <path d="M380 88V136" stroke="#9b3a34" stroke-width="2" marker-end="url(#arrow-danger)" fill="none" stroke-dasharray="6 4"/>
+  <rect x="343" y="103" width="74" height="18" fill="#f5f7f8"/>
+  <text class="t warn" x="380" y="116" text-anchor="middle">기준 미달</text>
+  <rect x="306" y="136" width="148" height="56" fill="#ffffff" stroke="#9b3a34" stroke-width="2"/>
+  <text class="t title" x="380" y="169" text-anchor="middle">일시 중지 · 롤백</text>
 </svg>

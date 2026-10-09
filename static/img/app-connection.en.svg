@@ -1,0 +1,45 @@
+<!--
+  app-connection · How the phone app, VELA Cloud and the vehicle connect
+  Used by: i18n/en/docusaurus-plugin-content-docs/current/app/overview.md
+  Pair: app-connection.svg
+  Spec: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 128" width="640" height="128"
+     role="img"
+     aria-label="How the phone app, VELA Cloud and the vehicle connect">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
+
+  <rect width="640" height="128" fill="#f5f7f8"/>
+  <rect x="24" y="32" width="176" height="72" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="112" y="64" text-anchor="middle">Phone app</text>
+  <text class="t sub" x="112" y="83" text-anchor="middle">Used by the owner</text>
+  <rect x="232" y="32" width="176" height="72" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="320" y="64" text-anchor="middle">VELA Cloud</text>
+  <text class="t sub" x="320" y="83" text-anchor="middle">Command relay · State</text>
+  <rect x="440" y="32" width="176" height="72" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="528" y="64" text-anchor="middle">Vehicle</text>
+  <text class="t sub" x="528" y="83" text-anchor="middle">Needs network coverage</text>
+  <path d="M200 52H232" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M232 84H200" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M408 52H440" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M440 84H408" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+</svg>

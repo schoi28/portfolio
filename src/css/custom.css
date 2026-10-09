@@ -1,11 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════
-   소윤 · Technical Writer
+   사이트 전체 스타일입니다.
 
-   디자인 방향
-   - 차갑고 정밀한 인상. 기술 문서를 다루는 사람의 사이트답게.
-   - 따뜻한 요소(세리프, 크림색, 둥근 모서리)를 쓰지 않는다.
-   - 색은 거의 쓰지 않는다. 구조와 여백, 선의 굵기로 위계를 만든다.
-   - 상단과 하단을 어두운 띠로 닫아 본문을 하나의 문서처럼 보이게 한다.
+   색을 거의 쓰지 않고 여백과 선의 굵기로 구분합니다.
+   둥근 모서리와 세리프 글꼴은 쓰지 않습니다.
+   위아래를 어두운 띠로 닫아 본문이 한 장의 문서처럼 보이게 합니다.
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
@@ -86,10 +84,8 @@
 
 /* ═══ 상단 ════════════════════════════════════════════════════ */
 
-/* 페이지마다 가로 띠 이미지를 두는 대신, 상단 바 한 곳에만 배경을 둡니다.
-   탭을 옮겨도 배경은 바뀌지 않습니다. 같은 사이트라는 느낌이 끊기지
-   않도록 한 장으로 통일했습니다.
-   교체 파일: static/img/navbar-bg.svg · 권장 1600 × 64 */
+/* 상단 바 배경입니다. 탭이 바뀌어도 같은 그림을 씁니다.
+   바꾸려면 static/img/navbar-bg.svg 를 교체하십시오. 크기는 1600 × 64 입니다. */
 .navbar {
   border-bottom: none;
   box-shadow: none;
@@ -365,11 +361,8 @@
   text-decoration-color: currentColor;
 }
 
-/* 목차를 숨긴 페이지(hide_table_of_contents)는 본문 열이 폭 지정 없이
-   렌더링되어 화면 전체로 퍼집니다. 목차가 있는 페이지와 같은 폭으로 맞춥니다. */
-/* 본문 열의 폭과 시작 위치를 목차가 있는 페이지(col--8 + col--2)와 맞춥니다.
-   테마가 .mdxPageWrapper를 가운데 정렬하므로, 열 자체는 10칸 폭으로 두고
-   그 안에서 본문을 왼쪽에 붙여야 탭을 옮겨도 글의 왼쪽 선이 흔들리지 않습니다. */
+/* 목차를 숨긴 페이지는 본문이 화면 전체로 퍼집니다.
+   목차가 있는 페이지와 같은 폭으로 맞춰, 탭을 옮겨도 글의 왼쪽 선이 흔들리지 않게 합니다. */
 [class*='mdxPageWrapper'] > .col:not([class*='col--']) {
   flex: 0 0 83.333%;
   max-width: 83.333%;
@@ -557,9 +550,8 @@
   opacity: 0.55;
 }
 
-/* 등급이 눈으로 구분되도록 왼쪽 띠의 두께와 색을 달리합니다.
-   위험 > 경고 > 주의 > 참고 순으로 무게가 줄어듭니다.
-   등급 정의는 Sample Docs 개요의 '표기 규약'에 있습니다. */
+/* 왼쪽 띠의 두께와 색으로 등급을 구분합니다.
+   위험 > 경고 > 주의 > 참고 순으로 가벼워집니다. */
 
 .theme-admonition-danger {
   border-left-width: 6px;
@@ -697,10 +689,95 @@
 
 /* ═══ 이미지 ══════════════════════════════════════════════════ */
 
-:is(.markdown, [class*='mdxPageWrapper'] article) img {
+/* 그림은 전부 src/components/Figure.js 를 거칩니다.
+   SVG 라 키워도 선명하므로 본문 폭을 꽉 채웁니다. 그대로 두면 640px 짜리
+   그림이 750px 폭 안에서 640px 로만 그려져 글자가 작아 보입니다. */
+.figure {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 1rem 0;
   border: 1px solid var(--c-line);
   border-radius: 0;
-  margin: 0.6rem 0;
+  background: none;
+  cursor: zoom-in;
+  font: inherit;
+  color: inherit;
+  transition: border-color 0.12s ease;
+}
+
+.figure:hover,
+.figure:focus-visible {
+  border-color: var(--c-ink-muted, #6b7681);
+}
+
+.figure__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+  margin: 0;
+}
+
+/* 확대 보기. 브라우저 기본 <dialog>라 Esc 닫기와 포커스 가두기가 따라옵니다. */
+.figure-zoom {
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.figure-zoom::backdrop {
+  background: rgba(15, 20, 25, 0.72);
+}
+
+.figure-zoom__img {
+  display: block;
+  /* 본문에서보다 확실히 커야 확대의 뜻이 있습니다. */
+  width: min(92vw, 1200px);
+  height: auto;
+  margin: max(3vh, 2rem) auto;
+  border: 1px solid var(--c-line);
+  background: #ffffff;
+}
+
+.figure-zoom__close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(15, 20, 25, 0.6);
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.figure-zoom__close:hover,
+.figure-zoom__close:focus-visible {
+  background: rgba(15, 20, 25, 0.9);
+}
+
+@media (max-width: 768px) {
+  .figure-zoom__img {
+    width: 96vw;
+    margin: 3rem auto;
+  }
+}
+
+/* 움직임을 줄이도록 설정한 사용자에게는 전환 효과를 끕니다. */
+@media (prefers-reduced-motion: reduce) {
+  .figure {
+    transition: none;
+  }
 }
 
 /* ═══ 레이아웃 ════════════════════════════════════════════════ */
@@ -746,10 +823,8 @@ main > .container--fluid {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   Portfolio 개요: 프로젝트 한 줄 목록
-   컴포넌트는 src/components/ProjectRow.js
-   ═══════════════════════════════════════════════════════════════ */
+/* ═══ Portfolio 개요의 프로젝트 목록 ══════════════════════════ */
+/* 컴포넌트는 src/components/ProjectRow.js 입니다. */
 
 .plist {
   margin: 1.5rem 0 2.75rem;
@@ -895,16 +970,12 @@ main > .container--fluid {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   프로젝트 상세의 섹션 아이콘
+/* ═══ 프로젝트 페이지의 섹션 아이콘 ═══════════════════════════ */
+/* 네 섹션 제목 앞에 작은 도형을 붙여, 긴 페이지에서 지금 어디를 보는지
+   알 수 있게 합니다.
 
-   네 섹션 제목 앞에 작은 도형을 붙여, 긴 페이지에서 지금 어느
-   부분을 보고 있는지 스크롤만으로 알 수 있게 합니다.
-
-   Docusaurus 가 제목 글자에서 id 를 만들기 때문에 id 로 맞춥니다.
-   섹션 제목을 바꾸거나 제목 단계를 바꾸면 아래 선택자도 함께 고쳐야 합니다.
-   현재 쓰는 id: 어려웠던-점 · 해결-방법 · 산출물 · 결과
-   ═══════════════════════════════════════════════════════════════ */
+   id 는 제목 글자에서 자동으로 만들어집니다.
+   아래 네 제목을 바꾸면 이 선택자도 같이 고쳐야 합니다. */
 
 .markdown h2[id='어려웠던-점']::before,
 .markdown h2[id='해결-방법']::before,

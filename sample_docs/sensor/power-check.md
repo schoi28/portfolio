@@ -54,7 +54,7 @@ sidebar_label: 6. 전원 넣고 점검하기
 
 ## 3. 상태 LED 읽는 법
 
-![상태 LED의 색상별 의미](/img/sensor-led-states.svg)
+![인터페이스 박스 상태 LED의 색상별 의미](/img/sensor-led-states.svg)
 
 | LED | 의미 | 조치 |
 | --- | --- | --- |

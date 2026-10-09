@@ -14,7 +14,7 @@ This is vehicle modification work. Disconnect the negative terminal of the vehic
 
 ## Mounting position criteria
 
-![Sensor mounting positions seen from above the vehicle](/img/sensor-mounting-layout.svg)
+![Where the LiDAR and the four cameras are mounted, seen from above](/img/sensor-mounting-layout.en.svg)
 
 :::note[Note]
 The dimensions in the drawing are not to scale and show relative positions only. For actual values, see [Check the specifications](./specifications.md).

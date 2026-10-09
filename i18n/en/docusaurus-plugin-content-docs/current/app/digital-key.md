@@ -59,7 +59,7 @@ A digital key keeps working for up to 6 hours after your phone runs out of power
 
 ## Share a key with family
 
-![The four steps of sharing a key](/img/app-key-sharing.svg)
+![The four stages of sharing a key](/img/app-key-sharing.en.svg)
 
 :::info[Caution]
 An invitation expires **72 hours** after you send it. Once it expires you have to send it again.

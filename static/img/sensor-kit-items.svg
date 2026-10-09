@@ -1,121 +1,120 @@
+<!--
+  sensor-kit-items · VELA Sense 킷 구성품 10종
+  사용처: sample_docs/sensor/overview.md · 영문도 같은 파일
+  쌍: 없음 (글자가 번호와 수치뿐이라 한 파일로 두 언어를 씁니다)
+  기준: _config/diagram-guidelines.md
+-->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400"
      role="img" aria-label="VELA Sense kit items, numbered 1 to 10">
   <style>
-    .card { fill: #ffffff; stroke: #b9c0c8; stroke-width: 2; }
-    .part { fill: #e4e9ec; stroke: #3d4852; stroke-width: 1.6; }
-    .partd { fill: #cdd5da; stroke: #3d4852; stroke-width: 1.6; }
-    .wire { fill: none; stroke: #3d4852; stroke-width: 2.2; stroke-linecap: round; }
-    .badge { fill: #1f3a5f; }
-    .num { font-family: 'Pretendard', -apple-system, sans-serif; font-size: 14px;
-           font-weight: 700; fill: #ffffff; }
-    .qty { font-family: 'Pretendard', -apple-system, sans-serif; font-size: 12px;
-           font-weight: 700; fill: #3d4852; }
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .num { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .qty { font-size: 11px; font-weight: 700; fill: #3d4852; }
   </style>
-
   <rect width="900" height="400" fill="#f5f7f8"/>
-
-  <!-- 1. LiDAR module -->
-  <rect class="card" x="24" y="24" width="160" height="160"/>
-  <ellipse class="part" cx="104" cy="88" rx="44" ry="14"/>
-  <path class="part" d="M60 88v40a44 14 0 0 0 88 0V88"/>
-  <ellipse class="partd" cx="104" cy="128" rx="44" ry="14"/>
-  <rect class="partd" x="76" y="96" width="56" height="18" rx="2"/>
-  <circle class="badge" cx="44" cy="44" r="13"/>
-  <text class="num" x="44" y="49" text-anchor="middle">1</text>
-
-  <!-- 2. Camera modules x4 -->
-  <rect class="card" x="196" y="24" width="160" height="160"/>
-  <g>
-    <rect class="part" x="226" y="78" width="40" height="30" rx="4"/>
-    <circle class="partd" cx="246" cy="93" r="8"/>
-    <rect class="part" x="286" y="78" width="40" height="30" rx="4"/>
-    <circle class="partd" cx="306" cy="93" r="8"/>
-    <rect class="part" x="226" y="122" width="40" height="30" rx="4"/>
-    <circle class="partd" cx="246" cy="137" r="8"/>
-    <rect class="part" x="286" y="122" width="40" height="30" rx="4"/>
-    <circle class="partd" cx="306" cy="137" r="8"/>
+  <rect x="24" y="24" width="160" height="160" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <g transform="translate(56.0 60.0) scale(2.0)" fill="none" stroke="#3d4852" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="24" cy="13" rx="15" ry="5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M9 13v22a15 5 0 0 0 30 0V13"/>
+    <path d="M9 21h30M9 29h30"/>
+    <path d="M20 33h8"/>
   </g>
-  <text class="qty" x="336" y="172" text-anchor="end">× 4</text>
-  <circle class="badge" cx="216" cy="44" r="13"/>
-  <text class="num" x="216" y="49" text-anchor="middle">2</text>
-
-  <!-- 3. Interface box -->
-  <rect class="card" x="368" y="24" width="160" height="160"/>
-  <rect class="part" x="398" y="80" width="100" height="56" rx="3"/>
-  <rect class="partd" x="408" y="94" width="14" height="12" rx="2"/>
-  <rect class="partd" x="428" y="94" width="14" height="12" rx="2"/>
-  <rect class="partd" x="448" y="94" width="14" height="12" rx="2"/>
-  <rect class="partd" x="468" y="94" width="14" height="12" rx="2"/>
-  <rect class="partd" x="408" y="114" width="34" height="12" rx="2"/>
-  <rect class="partd" x="448" y="114" width="34" height="12" rx="2"/>
-  <circle class="badge" cx="388" cy="44" r="13"/>
-  <text class="num" x="388" y="49" text-anchor="middle">3</text>
-
-  <!-- 4. LiDAR ethernet cable -->
-  <rect class="card" x="540" y="24" width="160" height="160"/>
-  <path class="wire" d="M566 86c34 0 34 24 68 24s34 24 68 24"/>
-  <rect class="partd" x="558" y="80" width="14" height="12" rx="2"/>
-  <rect class="partd" x="690" y="128" width="14" height="12" rx="2"/>
-  <text class="qty" x="680" y="172" text-anchor="end">6.0 m</text>
-  <circle class="badge" cx="560" cy="44" r="13"/>
-  <text class="num" x="560" y="49" text-anchor="middle">4</text>
-
-  <!-- 5. Camera coaxial cables x4 -->
-  <rect class="card" x="712" y="24" width="160" height="160"/>
-  <path class="wire" d="M738 84c28 0 28 14 56 14s28 14 56 14"/>
-  <path class="wire" d="M738 110c28 0 28 14 56 14s28 14 56 14"/>
-  <path class="wire" d="M738 136c28 0 28 10 56 10s28 10 56 10"/>
-  <text class="qty" x="852" y="172" text-anchor="end">× 4</text>
-  <circle class="badge" cx="732" cy="44" r="13"/>
-  <text class="num" x="732" y="49" text-anchor="middle">5</text>
-
-  <!-- 6. Power harness -->
-  <rect class="card" x="24" y="212" width="160" height="160"/>
-  <path class="wire" d="M50 274c30 0 30 20 60 20s30 20 60 20"/>
-  <rect class="part" x="86" y="292" width="26" height="16" rx="3"/>
-  <rect class="partd" x="42" y="268" width="14" height="12" rx="2"/>
-  <text class="qty" x="164" y="360" text-anchor="end">2.5 m</text>
-  <circle class="badge" cx="44" cy="232" r="13"/>
-  <text class="num" x="44" y="237" text-anchor="middle">6</text>
-
-  <!-- 7. Output ethernet cable -->
-  <rect class="card" x="196" y="212" width="160" height="160"/>
-  <path class="wire" d="M224 286c28 0 28 18 56 18s28 18 48 18"/>
-  <rect class="partd" x="216" y="280" width="14" height="12" rx="2"/>
-  <rect class="partd" x="326" y="316" width="14" height="12" rx="2"/>
-  <text class="qty" x="336" y="360" text-anchor="end">2.0 m</text>
-  <circle class="badge" cx="216" cy="232" r="13"/>
-  <text class="num" x="216" y="237" text-anchor="middle">7</text>
-
-  <!-- 8. Bracket set -->
-  <rect class="card" x="368" y="212" width="160" height="160"/>
-  <path class="part" d="M396 300h44v-28h16v44h-60z"/>
-  <path class="part" d="M470 272h34v16h-18v28h-16z"/>
-  <circle class="partd" cx="404" cy="292" r="4"/>
-  <circle class="partd" cx="432" cy="292" r="4"/>
-  <circle class="badge" cx="388" cy="232" r="13"/>
-  <text class="num" x="388" y="237" text-anchor="middle">8</text>
-
-  <!-- 9. Sealant -->
-  <rect class="card" x="540" y="212" width="160" height="160"/>
-  <path class="part" d="M606 266h28v54h-28z"/>
-  <path class="partd" d="M612 266l8-20h8l4 20z"/>
-  <rect class="partd" x="616" y="240" width="10" height="10" rx="2"/>
-  <text class="qty" x="680" y="360" text-anchor="end">80 ml</text>
-  <circle class="badge" cx="560" cy="232" r="13"/>
-  <text class="num" x="560" y="237" text-anchor="middle">9</text>
-
-  <!-- 10. Calibration target boards x3 -->
-  <rect class="card" x="712" y="212" width="160" height="160"/>
-  <g>
-    <rect class="part" x="746" y="258" width="44" height="44"/>
-    <rect class="partd" x="746" y="258" width="22" height="22"/>
-    <rect class="partd" x="768" y="280" width="22" height="22"/>
-    <rect class="part" x="796" y="276" width="34" height="34"/>
-    <rect class="partd" x="796" y="276" width="17" height="17"/>
-    <rect class="partd" x="813" y="293" width="17" height="17"/>
+  <circle cx="44" cy="44" r="13" fill="#1f3a5f"/>
+  <text class="t num" x="44" y="48" text-anchor="middle">1</text>
+  <rect x="196" y="24" width="160" height="160" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <g transform="translate(228.0 60.0) scale(2.0)" fill="none" stroke="#3d4852" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="6" y="13" width="36" height="24" rx="3"/>
+    <circle cx="24" cy="25" r="8"/>
+    <circle cx="24" cy="25" r="3.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M18 13V9h12v4"/>
+    <path d="M14 37v3M34 37v3"/>
   </g>
-  <text class="qty" x="852" y="360" text-anchor="end">× 3</text>
-  <circle class="badge" cx="732" cy="232" r="13"/>
-  <text class="num" x="732" y="237" text-anchor="middle">10</text>
+  <circle cx="216" cy="44" r="13" fill="#1f3a5f"/>
+  <text class="t num" x="216" y="48" text-anchor="middle">2</text>
+  <text class="t qty" x="344" y="172" text-anchor="end">× 4</text>
+  <rect x="368" y="24" width="160" height="160" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <g transform="translate(400.0 60.0) scale(2.0)" fill="none" stroke="#3d4852" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="4" y="12" width="40" height="26" rx="2"/>
+    <path d="M10 8h28"/>
+    <rect x="9" y="18" width="7" height="6" rx="1" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="19" y="18" width="7" height="6" rx="1" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="29" y="18" width="7" height="6" rx="1" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M9 31h12M27 31h12"/>
+  </g>
+  <circle cx="388" cy="44" r="13" fill="#1f3a5f"/>
+  <text class="t num" x="388" y="48" text-anchor="middle">3</text>
+  <rect x="540" y="24" width="160" height="160" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <g transform="translate(572.0 60.0) scale(2.0)" fill="none" stroke="#3d4852" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M12 24.0c6 0 6 -6 12 -6s6 6 12 6"/>
+    <rect x="4" y="20.0" width="8" height="8" rx="1.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="36" y="20.0" width="8" height="8" rx="1.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+  <circle cx="560" cy="44" r="13" fill="#1f3a5f"/>
+  <text class="t num" x="560" y="48" text-anchor="middle">4</text>
+  <text class="t qty" x="688" y="172" text-anchor="end">6.0 m</text>
+  <rect x="712" y="24" width="160" height="160" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <g transform="translate(744.0 60.0) scale(2.0)" fill="none" stroke="#3d4852" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M12 13.0c6 0 6 -4 12 -4s6 4 12 4"/>
+    <rect x="4" y="9.0" width="8" height="8" rx="1.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="36" y="9.0" width="8" height="8" rx="1.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M12 24.0c6 0 6 -4 12 -4s6 4 12 4"/>
+    <rect x="4" y="20.0" width="8" height="8" rx="1.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="36" y="20.0" width="8" height="8" rx="1.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M12 35.0c6 0 6 -4 12 -4s6 4 12 4"/>
+    <rect x="4" y="31.0" width="8" height="8" rx="1.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="36" y="31.0" width="8" height="8" rx="1.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+  <circle cx="732" cy="44" r="13" fill="#1f3a5f"/>
+  <text class="t num" x="732" y="48" text-anchor="middle">5</text>
+  <text class="t qty" x="860" y="172" text-anchor="end">× 4</text>
+  <rect x="24" y="212" width="160" height="160" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <g transform="translate(56.0 248.0) scale(2.0)" fill="none" stroke="#3d4852" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M12 24h8M30 24h6"/>
+    <rect x="4" y="20" width="8" height="8" rx="1.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="36" y="20" width="8" height="8" rx="1.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="20" y="17" width="10" height="14" rx="2"/>
+    <path d="M23 21v6"/>
+  </g>
+  <circle cx="44" cy="232" r="13" fill="#1f3a5f"/>
+  <text class="t num" x="44" y="236" text-anchor="middle">6</text>
+  <text class="t qty" x="172" y="360" text-anchor="end">2.5 m</text>
+  <rect x="196" y="212" width="160" height="160" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <g transform="translate(228.0 248.0) scale(2.0)" fill="none" stroke="#3d4852" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M12 24.0c6 0 6 -6 12 -6s6 6 12 6"/>
+    <rect x="4" y="20.0" width="8" height="8" rx="1.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="36" y="20.0" width="8" height="8" rx="1.5" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+  <circle cx="216" cy="232" r="13" fill="#1f3a5f"/>
+  <text class="t num" x="216" y="236" text-anchor="middle">7</text>
+  <text class="t qty" x="344" y="360" text-anchor="end">2.0 m</text>
+  <rect x="368" y="212" width="160" height="160" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <g transform="translate(400.0 248.0) scale(2.0)" fill="none" stroke="#3d4852" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M8 14h12v16h20v8H8z"/>
+    <circle cx="14" cy="34" r="2.5"/>
+    <circle cx="34" cy="34" r="2.5"/>
+    <path d="M20 14v16"/>
+  </g>
+  <circle cx="388" cy="232" r="13" fill="#1f3a5f"/>
+  <text class="t num" x="388" y="236" text-anchor="middle">8</text>
+  <rect x="540" y="212" width="160" height="160" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <g transform="translate(572.0 248.0) scale(2.0)" fill="none" stroke="#3d4852" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="16" y="16" width="16" height="26" rx="2"/>
+    <path d="M20 16l2-7h4l2 7"/>
+    <rect x="22" y="6" width="4" height="4" rx="1" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M16 23h16"/>
+    <path d="M20 42v2h8v-2"/>
+  </g>
+  <circle cx="560" cy="232" r="13" fill="#1f3a5f"/>
+  <text class="t num" x="560" y="236" text-anchor="middle">9</text>
+  <text class="t qty" x="688" y="360" text-anchor="end">80 ml</text>
+  <rect x="712" y="212" width="160" height="160" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <g transform="translate(744.0 248.0) scale(2.0)" fill="none" stroke="#3d4852" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="10" y="8" width="28" height="28" rx="1"/>
+    <rect x="10" y="8" width="14" height="14" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="24" y="22" width="14" height="14" fill="#e4e9ec" stroke="#3d4852" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M24 36v6M18 42h12"/>
+  </g>
+  <circle cx="732" cy="232" r="13" fill="#1f3a5f"/>
+  <text class="t num" x="732" y="236" text-anchor="middle">10</text>
+  <text class="t qty" x="860" y="360" text-anchor="end">× 3</text>
 </svg>

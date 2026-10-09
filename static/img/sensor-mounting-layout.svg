@@ -1,39 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 394" width="700" height="394" role="img" aria-label="차량 상면도에서 본 라이다와 카메라 4대의 장착 위치">
+<!--
+  sensor-mounting-layout · 차량 상면도에서 본 라이다와 카메라 4대의 장착 위치
+  사용처: sample_docs/sensor/planning.md
+  쌍: sensor-mounting-layout.en.svg
+  기준: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 496" width="760" height="496"
+     role="img"
+     aria-label="차량 상면도에서 본 라이다와 카메라 4대의 장착 위치">
   <style>
-    .t { font-family: 'Pretendard', -apple-system, sans-serif; fill: #0f1419; }
-    .b { font-size: 12.5px; font-weight: 600; }
-    .s { font-size: 10.5px; fill: #6b7681; }
-    .e { font-size: 10.5px; fill: #3d4852; }
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
   </style>
-  <defs><marker id="m" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
-    <path d="M0 0L8 4L0 8z" fill="#3d4852"/></marker></defs>
-  <rect width="700" height="394" fill="#f5f7f8"/>
-  <path d="M350 24 Q250 30 214 86 L206 150 Q200 210 206 272 L214 336 Q250 392 350 398
-           Q450 392 486 336 L494 272 Q500 210 494 150 L486 86 Q450 30 350 24 Z"
-        fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
-  <path d="M232 104 Q350 92 468 104" fill="none" stroke="#dfe3e8" stroke-width="2"/>
-  <path d="M232 318 Q350 330 468 318" fill="none" stroke="#dfe3e8" stroke-width="2"/>
-  <path d="M214 150H486" stroke="#dfe3e8" stroke-width="2"/>
-  <path d="M214 272H486" stroke="#dfe3e8" stroke-width="2"/>
-  <text class="t s" x="350" y="16" text-anchor="middle">전방</text>
-  <text class="t s" x="350" y="414" text-anchor="middle">후방</text>
-  <circle cx="350" cy="211" r="16" fill="#1f3a5f"/>
-  <circle cx="350" cy="116" r="11" fill="#1f3a5f"/>
-  <circle cx="350" cy="306" r="11" fill="#1f3a5f"/>
-  <circle cx="226" cy="211" r="11" fill="#1f3a5f"/>
-  <circle cx="474" cy="211" r="11" fill="#1f3a5f"/>
-  <text class="t b" x="350" y="250" text-anchor="middle">LR-40 라이다</text>
-  <text class="t s" x="350" y="266" text-anchor="middle">루프 중앙</text>
-  <path d="M350 105V62H560" stroke="#3d4852" stroke-width="2" fill="none"/>
-  <text class="t b" x="568" y="66" text-anchor="start">C1 전방 카메라</text>
-  <path d="M350 317V360H560" stroke="#3d4852" stroke-width="2" fill="none"/>
-  <text class="t b" x="568" y="364" text-anchor="start">C2 후방 카메라</text>
-  <path d="M215 211H120" stroke="#3d4852" stroke-width="2" fill="none"/>
-  <text class="t b" x="112" y="215" text-anchor="end">C3 좌측 카메라</text>
-  <path d="M485 211H580" stroke="#3d4852" stroke-width="2" fill="none"/>
-  <text class="t b" x="588" y="215" text-anchor="start">C4 우측 카메라</text>
-  <rect x="316" y="352" width="68" height="30" fill="#f5f7f8" stroke="#1f3a5f" stroke-width="2"/>
-  <text class="t s" x="350" y="372" text-anchor="middle">IB-2</text>
-  <path d="M316 367H120" stroke="#3d4852" stroke-width="2" fill="none"/>
-  <text class="t b" x="112" y="371" text-anchor="end">인터페이스 박스 (트렁크)</text>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="496" fill="#f5f7f8"/>
+  <g fill="none" stroke="#3d4852" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M300.0 65.9 C216.0 65.9 175.4 90.2 172.6 127.6 L162.8 198.6 L162.8 314.6 L172.6 378.2 C175.4 417.4 216.0 436.1 300.0 436.1 C384.0 436.1 424.6 417.4 427.4 378.2 L437.2 314.6 L437.2 198.6 L427.4 127.6 C424.6 90.2 384.0 65.9 300.0 65.9 Z" fill="#ffffff"/>
+    <path d="M218.8 187.4 L381.2 187.4 L356.0 142.5 L244.0 142.5 Z" fill="#e4e9ec"/>
+    <path d="M218.8 299.6 L381.2 299.6 L356.0 344.5 L244.0 344.5 Z" fill="#e4e9ec"/>
+    <path d="M218.8 187.4V299.6M381.2 187.4V299.6"/>
+    <path d="M162.8 176.2h-14.0" />
+    <path d="M437.2 176.2h14.0" />
+    <rect x="160.0" y="131.3" width="15.4" height="37.4" rx="2" fill="#e4e9ec"/>
+    <rect x="424.6" y="131.3" width="15.4" height="37.4" rx="2" fill="#e4e9ec"/>
+    <rect x="160.0" y="333.3" width="15.4" height="37.4" rx="2" fill="#e4e9ec"/>
+    <rect x="424.6" y="333.3" width="15.4" height="37.4" rx="2" fill="#e4e9ec"/>
+  </g>
+  <text class="t sub" x="300" y="52" text-anchor="middle">전방</text>
+  <text class="t sub" x="300" y="462" text-anchor="middle">후방</text>
+  <circle cx="300" cy="251" r="16" fill="#1f3a5f"/>
+  <circle cx="300" cy="156" r="11" fill="#1f3a5f"/>
+  <circle cx="300" cy="346" r="11" fill="#1f3a5f"/>
+  <circle cx="176" cy="251" r="11" fill="#1f3a5f"/>
+  <circle cx="424" cy="251" r="11" fill="#1f3a5f"/>
+  <text class="t title" x="300" y="290" text-anchor="middle">LR-40 라이다</text>
+  <path d="M300 145V104H480" fill="none" stroke="#3d4852" stroke-width="2"/>
+  <text class="t title" x="488" y="108" text-anchor="start">C1 전방 카메라</text>
+  <path d="M300 357V380H480" fill="none" stroke="#3d4852" stroke-width="2"/>
+  <text class="t title" x="488" y="384" text-anchor="start">C2 후방 카메라</text>
+  <path d="M435 251H480" fill="none" stroke="#3d4852" stroke-width="2"/>
+  <text class="t title" x="488" y="255" text-anchor="start">C4 우측 카메라</text>
+  <path d="M334 407H480" fill="none" stroke="#3d4852" stroke-width="2"/>
+  <text class="t title" x="488" y="411" text-anchor="start">인터페이스 박스 (트렁크)</text>
+  <path d="M165 251H128" fill="none" stroke="#3d4852" stroke-width="2"/>
+  <text class="t title" x="120" y="255" text-anchor="end">C3 좌측</text>
+  <rect x="266" y="392" width="68" height="30" fill="#f5f7f8" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t sub" x="300" y="411" text-anchor="middle">IB-2</text>
 </svg>

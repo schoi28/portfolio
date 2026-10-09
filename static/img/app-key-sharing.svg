@@ -1,18 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 136" width="640" height="136" role="img" aria-label="디지털 키 공유가 진행되는 네 단계">
-<rect width="640" height="136" fill="#f5f7f8"/>
-<rect x="24" y="46" width="130" height="66" fill="#ffffff" stroke="#dfe3e8"/>
-<text x="89" y="74" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419" text-anchor="middle">1. 소유자가</text>
-<text x="89" y="92" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419" text-anchor="middle">공유 요청</text>
-<rect x="180" y="46" width="130" height="66" fill="#ffffff" stroke="#dfe3e8"/>
-<text x="245" y="74" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419" text-anchor="middle">2. 초대 메일</text>
-<text x="245" y="92" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419" text-anchor="middle">발송</text>
-<rect x="336" y="46" width="130" height="66" fill="#ffffff" stroke="#dfe3e8"/>
-<text x="401" y="74" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419" text-anchor="middle">3. 수신자가</text>
-<text x="401" y="92" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#0f1419" text-anchor="middle">앱에서 수락</text>
-<rect x="492" y="46" width="130" height="66" fill="#e7ecf1" stroke="#1f3a5f"/>
-<text x="557" y="74" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#1f3a5f" text-anchor="middle">4. 키 활성화</text>
-<text x="557" y="92" font-family="'Pretendard', -apple-system, sans-serif" font-size="13" fill="#1f3a5f" text-anchor="middle">사용 가능</text>
-<line x1="154" y1="79" x2="176" y2="79" stroke="#6b7681" stroke-width="2"/>
-<line x1="310" y1="79" x2="332" y2="79" stroke="#6b7681" stroke-width="2"/>
-<line x1="466" y1="79" x2="488" y2="79" stroke="#6b7681" stroke-width="2"/>
+<!--
+  app-key-sharing · 디지털 키 공유가 진행되는 네 단계
+  사용처: sample_docs/app/digital-key.md
+  쌍: app-key-sharing.en.svg
+  기준: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 144" width="640" height="144"
+     role="img"
+     aria-label="키 공유가 진행되는 네 단계">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
+
+  <rect width="640" height="144" fill="#f5f7f8"/>
+  <rect x="24" y="40" width="130" height="80" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <circle cx="89" cy="64" r="13" fill="#3d4852"/>
+  <text class="t idx" x="89" y="68" text-anchor="middle">1</text>
+  <text class="t title" x="89" y="96" text-anchor="middle">공유 요청</text>
+  <text class="t sub" x="89" y="112" text-anchor="middle">소유자</text>
+  <rect x="178" y="40" width="130" height="80" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <circle cx="243" cy="64" r="13" fill="#3d4852"/>
+  <text class="t idx" x="243" y="68" text-anchor="middle">2</text>
+  <text class="t title" x="243" y="96" text-anchor="middle">초대 메일</text>
+  <text class="t sub" x="243" y="112" text-anchor="middle">72시간 내 유효</text>
+  <rect x="332" y="40" width="130" height="80" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <circle cx="397" cy="64" r="13" fill="#3d4852"/>
+  <text class="t idx" x="397" y="68" text-anchor="middle">3</text>
+  <text class="t title" x="397" y="96" text-anchor="middle">수신자 수락</text>
+  <text class="t sub" x="397" y="112" text-anchor="middle">앱에서</text>
+  <rect x="486" y="40" width="130" height="80" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <circle cx="551" cy="64" r="13" fill="#1f3a5f"/>
+  <text class="t idx" x="551" y="68" text-anchor="middle">4</text>
+  <text class="t title" x="551" y="96" text-anchor="middle">키 활성화</text>
+  <text class="t sub" x="551" y="112" text-anchor="middle">사용 가능</text>
+  <path d="M154 80H178" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M308 80H332" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <path d="M462 80H486" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
 </svg>

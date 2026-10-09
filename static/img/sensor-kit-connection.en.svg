@@ -1,0 +1,52 @@
+<!--
+  sensor-kit-connection · How the sensors, the interface box and the central computing unit connect
+  Used by: i18n/en/docusaurus-plugin-content-docs/current/sensor/overview.md
+  Pair: sensor-kit-connection.svg
+  Spec: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 272" width="760" height="272"
+     role="img"
+     aria-label="How the sensors, the interface box and the central computing unit connect">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="272" fill="#f5f7f8"/>
+  <rect x="24" y="24" width="176" height="56" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="112" y="57" text-anchor="middle">LR-40 LiDAR</text>
+  <rect x="24" y="112" width="176" height="56" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="112" y="145" text-anchor="middle">CM-20 camera × 4</text>
+  <path d="M200 52H224V140H200" fill="none" stroke="#3d4852" stroke-width="2"/>
+  <path d="M224 96H256" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="256" y="48" width="200" height="96" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="356" y="84" text-anchor="middle">Interface box</text>
+  <text class="t sub" x="356" y="103" text-anchor="middle">Power · Time sync</text>
+  <text class="t sub" x="356" y="122" text-anchor="middle">Ethernet conversion</text>
+  <path d="M456 96H488" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="488" y="48" width="248" height="96" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="612" y="90" text-anchor="middle">Central computing unit</text>
+  <text class="t sub" x="612" y="109" text-anchor="middle">CCU · VELA OS runtime</text>
+  <path d="M356 192V144" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="328" y="159" width="56" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="356" y="172" text-anchor="middle">Power</text>
+  <rect x="256" y="192" width="200" height="56" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="356" y="220" text-anchor="middle">Vehicle 12V</text>
+  <text class="t sub" x="356" y="239" text-anchor="middle">15 A fuse</text>
+</svg>

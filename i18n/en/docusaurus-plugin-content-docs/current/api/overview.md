@@ -29,7 +29,7 @@ API resources map to the names used in the other documents as follows.
 
 ## Where this API sits in the system
 
-![The part of the system the VELA Vehicle API covers](/img/api-architecture.svg)
+![The part of the system the VELA Vehicle API covers](/img/api-architecture.en.svg)
 
 This API is the boundary between VELA Cloud and external applications. Communication inside the vehicle below the CCU, meaning the zonal ECUs and VELA Sense, is outside the scope of this API and is handled by VELA OS. The C++ SDK that reaches the signal bus inside the vehicle is also outside the scope of this REST API.
 
@@ -61,15 +61,17 @@ Displaying a value without checking `timestamp` and `stale` can show a past batt
 
 ### Remote commands do not finish immediately
 
-Unlike a read, a command does not return its result straight away.
+Unlike a read, a command does not return its result straight away. Four stages sit between sending the request and the vehicle actually carrying it out.
 
-![How a remote command is handled asynchronously](/img/api-command-flow.svg)
+![How a remote command is handled asynchronously](/img/api-command-flow.en.svg)
+
+**Stage 2 and stage 4 are different events.** The `command_id` returned at stage 2 is a receipt number; the result of the command has to be read separately at stage 4, by polling or through a webhook. If the vehicle is not connected at stage 3, the command waits in the queue and eventually expires.
 
 :::warning[Warning]
 `202 Accepted` means only that the request was received. It does not mean the vehicle carried out the command. Do not treat this response as success.
 :::
 
-If the vehicle is not connected, the command waits in a queue and eventually expires. **Never treat `202` as success.** The full handling pattern is in [Send remote commands](./remote-commands.md).
+The full handling pattern is in [Send remote commands](./remote-commands.md).
 
 ### Staging does not check preconditions
 

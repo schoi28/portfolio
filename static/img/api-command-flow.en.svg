@@ -1,0 +1,55 @@
+<!--
+  api-command-flow · The stages in which a remote command is handled asynchronously
+  Used by: i18n/en/docusaurus-plugin-content-docs/current/api/overview.md
+  Pair: api-command-flow.svg
+  Spec: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 376" width="640" height="376"
+     role="img"
+     aria-label="How a remote command is handled asynchronously">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
+
+  <rect width="640" height="376" fill="#f5f7f8"/>
+  <rect x="40" y="24" width="560" height="64" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <circle cx="72" cy="56" r="13" fill="#3d4852"/>
+  <text class="t idx" x="72" y="60" text-anchor="middle">1</text>
+  <text class="t title" x="100" y="52" text-anchor="start">Request sent</text>
+  <text class="t sub" x="100" y="71" text-anchor="start">POST /commands</text>
+  <path d="M320 88V112" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="40" y="112" width="560" height="64" fill="#ffffff" stroke="#9c5f14" stroke-width="2"/>
+  <circle cx="72" cy="144" r="13" fill="#9c5f14"/>
+  <text class="t idx" x="72" y="148" text-anchor="middle">2</text>
+  <text class="t title" x="100" y="140" text-anchor="start">202 Accepted</text>
+  <text class="t sub" x="100" y="159" text-anchor="start">command_id · Not yet run</text>
+  <path d="M320 176V200" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="40" y="200" width="560" height="64" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <circle cx="72" cy="232" r="13" fill="#3d4852"/>
+  <text class="t idx" x="72" y="236" text-anchor="middle">3</text>
+  <text class="t title" x="100" y="228" text-anchor="start">Queued for the vehicle</text>
+  <text class="t sub" x="100" y="247" text-anchor="start">Queue expiry if disconnected</text>
+  <path d="M320 264V288" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="40" y="288" width="560" height="64" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <circle cx="72" cy="320" r="13" fill="#3d4852"/>
+  <text class="t idx" x="72" y="324" text-anchor="middle">4</text>
+  <text class="t title" x="100" y="316" text-anchor="start">Vehicle execution · Report</text>
+  <text class="t sub" x="100" y="335" text-anchor="start">Polling or webhook</text>
+</svg>

@@ -1,0 +1,68 @@
+<!--
+  deploy-campaign-states · How a campaign moves between states
+  Used by: i18n/en/docusaurus-plugin-content-docs/current/deploy/reference.md
+  Pair: deploy-campaign-states.svg
+  Spec: _config/diagram-guidelines.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 352" width="760" height="352"
+     role="img"
+     aria-label="How a campaign moves between states">
+  <style>
+    .t { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .zone  { font-size: 14px; font-weight: 700; fill: #0f1419; letter-spacing: 0.04em; }
+    .title { font-size: 13px; font-weight: 600; fill: #0f1419; }
+    .sub   { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .note  { font-size: 11px; font-weight: 700; fill: #3d4852; }
+    .warn  { font-size: 11px; font-weight: 700; fill: #9b3a34; }
+    .boxw  { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .idx   { font-size: 11px; font-weight: 700; fill: #ffffff; }
+    .lgnd  { font-size: 11px; font-weight: 400; fill: #6b7681; }
+    .reader{ font-size: 11px; font-weight: 700; fill: #1f3a5f; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#3d4852"/>
+    </marker>
+    <marker id="arrow-danger" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#9b3a34"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="352" fill="#f5f7f8"/>
+  <rect x="24" y="24" width="280" height="56" fill="#ffffff" stroke="#b9c0c8" stroke-width="2"/>
+  <text class="t title" x="164" y="57" text-anchor="middle">created</text>
+  <path d="M164 80V128" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="136" y="95" width="56" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="164" y="108" text-anchor="middle">Start</text>
+  <rect x="24" y="128" width="280" height="56" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="164" y="161" text-anchor="middle">in_progress</text>
+  <path d="M164 184V232" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="98" y="199" width="132" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="164" y="212" text-anchor="middle">All stages passed</text>
+  <rect x="24" y="232" width="280" height="56" fill="#ffffff" stroke="#1f3a5f" stroke-width="2"/>
+  <text class="t title" x="164" y="265" text-anchor="middle">completed</text>
+  <path d="M304 144H456" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+  <rect x="336" y="135" width="88" height="18" fill="#f5f7f8"/>
+  <text class="t warn" x="380" y="148" text-anchor="middle">Below gate</text>
+  <path d="M456 172H304" stroke="#3d4852" stroke-width="2" marker-end="url(#arrow)" fill="none" stroke-dasharray="6 4"/>
+  <rect x="317" y="163" width="126" height="18" fill="#f5f7f8"/>
+  <text class="t note" x="380" y="176" text-anchor="middle">Operator resumes</text>
+  <rect x="456" y="128" width="280" height="56" fill="#ffffff" stroke="#9c5f14" stroke-width="2"/>
+  <text class="t title" x="596" y="161" text-anchor="middle">paused_by_gate</text>
+  <path d="M596 128V80" stroke="#9b3a34" stroke-width="2" marker-end="url(#arrow-danger)" fill="none"/>
+  <rect x="539" y="95" width="113" height="18" fill="#f5f7f8"/>
+  <text class="t warn" x="596" y="108" text-anchor="middle">Emergency stop</text>
+  <rect x="456" y="24" width="280" height="56" fill="#ffffff" stroke="#9b3a34" stroke-width="2"/>
+  <text class="t title" x="596" y="57" text-anchor="middle">aborted</text>
+  <path d="M596 184V232" stroke="#9b3a34" stroke-width="2" marker-end="url(#arrow-danger)" fill="none"/>
+  <rect x="546" y="199" width="101" height="18" fill="#f5f7f8"/>
+  <text class="t warn" x="596" y="212" text-anchor="middle">Rollback run</text>
+  <rect x="456" y="232" width="280" height="56" fill="#ffffff" stroke="#9b3a34" stroke-width="2"/>
+  <text class="t title" x="596" y="265" text-anchor="middle">rolled_back</text>
+  <rect x="160" y="312" width="12" height="12" fill="#1f3a5f"/>
+  <text class="t lgnd" x="180" y="322" text-anchor="start">Normal progress</text>
+  <rect x="300" y="312" width="12" height="12" fill="#9c5f14"/>
+  <text class="t lgnd" x="320" y="322" text-anchor="start">Paused by a gate</text>
+  <rect x="446" y="312" width="12" height="12" fill="#9b3a34"/>
+  <text class="t lgnd" x="466" y="322" text-anchor="start">Stopped · Rolled back</text>
+</svg>

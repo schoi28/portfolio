@@ -127,21 +127,7 @@ So each check was graded by whether it **should block deployment automatically o
 
 Rather than leaving the checker to be run by hand, I connected it to GitHub Actions so it runs automatically on every documentation change.
 
-```text
-Change and push a document
-        ↓
-Load the configuration files
-        ↓
-Check document quality
-        ↓
-Any errors? ── yes → stop the build → fix and check again
-        │
-        no
-        ↓
-Build the Korean and English sites
-        ↓
-Deploy to GitHub Pages
-```
+![Pushing a documentation change makes GitHub Actions run the checks first, and build and deploy only when there are no errors](/img/vela-pipeline.en.svg)
 
 If the results contain warnings only, they are reported and the build continues. If even one error is found, the build and the deployment stop.
 

@@ -12,7 +12,7 @@ You can update your vehicle's software through the app. An alert arrives when ne
 
 When new software is ready, it appears in the app's alerts area.
 
-![The states an update moves through](/img/app-update-flow.svg)
+![The states a software update goes through](/img/app-update-flow.en.svg)
 
 :::note[Note]
 The download continues while you drive. Only the installation requires the vehicle to be parked.

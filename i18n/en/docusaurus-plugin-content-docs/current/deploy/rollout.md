@@ -10,7 +10,7 @@ This chapter covers what happens after a deployment starts: **planning how to wi
 
 ## Plan how to widen the rollout
 
-![How a rollout widens in stages](/img/deploy-rollout-stages.svg)
+![How a rollout widens from one percent to one hundred percent](/img/deploy-rollout-stages.en.svg)
 
 :::note[Note]
 Each gate judges the success rate and the error rate. If they fall short of the criteria, the campaign does not advance and pauses automatically.
