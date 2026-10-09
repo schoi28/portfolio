@@ -12,7 +12,7 @@ Installing the app and pairing your vehicle takes about 10 minutes.
 
 Have the following ready.
 
-- Your vehicle registration document, or the 17 digit vehicle identification number (VIN)
+- Your vehicle registration document, or the 17-digit vehicle identification number (VIN)
 - The pairing QR code inside the vehicle. Open the driver's door and you will find it on the inner pillar.
 - The vehicle has to be somewhere it can get a signal. Pairing can fail in an underground car park.
 
@@ -36,8 +36,8 @@ A vehicle is paired to one account only. A vehicle already paired to another acc
 :::
 
 1. Select **Pair vehicle**.
-2. Scan the QR code inside the vehicle. If you cannot find the code, select **Enter manually** and type the 17 digit VIN.
-3. A six digit confirmation code appears on the vehicle screen.
+2. Scan the QR code inside the vehicle. If you cannot find the code, select **Enter manually** and type the 17-digit VIN.
+3. A six-digit confirmation code appears on the vehicle screen.
 4. Enter that code in the app.
 5. Pairing is complete when your vehicle's name and battery level appear on the home screen.
 

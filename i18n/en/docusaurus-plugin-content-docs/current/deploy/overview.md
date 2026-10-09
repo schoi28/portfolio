@@ -6,9 +6,9 @@ sidebar_label: 1. What VELA Deploy is
 
 # What VELA Deploy is
 
-VELA Deploy is the operations console for releasing vehicle software **a little at a time rather than all at once.**
+VELA Deploy is the operations console for releasing vehicle software **in stages rather than all at once.**
 
-Deploying vehicle software is not like an app store update. Bad software can leave a vehicle immobile or unable to start, and undoing it can take days. So rather than going straight to the whole fleet, you **send to a small number first, check the result, and then widen the scope.**
+Deploying vehicle software is not like an app store update. Bad software can leave a vehicle immobile or unable to start, and undoing it can take days. So rather than going straight to the whole fleet, you **deploy to a small group first, check the result, and then widen the rollout.**
 
 ![How a deployment is widened from one percent to one hundred percent](/img/deploy-staged-rollout.en.svg)
 

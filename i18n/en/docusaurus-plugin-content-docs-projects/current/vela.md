@@ -142,7 +142,7 @@ Locally, the same check script runs before `npm run build`.
 
 **Because local and CI use the same rules and the same check logic**, the criteria are identical whether the author checks the documents or the deployment pipeline does.
 
-This structure applies the core principles of the [documentation build and check tooling](./build-tooling.md) I designed at work to a project that can be published.
+This structure applies the core principles of the [documentation build and validation tools](./build-tooling.md) I designed at work to a project that can be published.
 
 ## What I produced
 

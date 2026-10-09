@@ -130,7 +130,7 @@ SDK는 클라이언트를 생성할 때 전달한 자격 증명으로 토큰을 
 
 표의 `vehicle`은 앞 예제에서 가져온 차량 객체입니다. `result`는 원격 명령 전송의 반환값입니다. 메서드 이름과 호출 방식은 언어에 따라 다를 수 있습니다. 예를 들어 Node.js는 `vehicle.signals.latest(signal)`, Java는 `vehicle.signals().latest(signal)` 형식을 사용합니다.
 
-이 표는 **REST 동작과 메서드를 연결하기 위한 안내**입니다. 요청의 파라미터·사전 조건과 응답의 의미는 [차량 데이터 조회하기](./vehicle-data.md), [원격 명령 보내기](./remote-commands.md) 등 **기능별 장**에서 확인하십시오. 시그널 카탈로그와 공통 에러 코드는 [레퍼런스 찾아보기](./reference.md)에 있습니다.
+REST 동작에 대응하는 Python SDK 메서드를 이 표에서 찾습니다. 요청의 파라미터·사전 조건과 응답의 의미는 [차량 데이터 조회하기](./vehicle-data.md), [원격 명령 보내기](./remote-commands.md) 등 **기능별 장**에서 확인하십시오. 시그널 카탈로그와 공통 에러 코드는 [레퍼런스 찾아보기](./reference.md)에 있습니다.
 
 ## 예외 처리하기
 
@@ -146,7 +146,17 @@ SDK는 REST API의 실패 응답을 예외로 전달합니다.
 | `VelaRateLimitError` | 429 | `retry_after`만큼 대기 |
 | `VelaServerError` | 500, 503 | 일시적 장애 여부 확인 |
 
-다음 예제는 `client`를 생성하고 `vehicle` 객체를 가져온 뒤 실행하는 코드입니다. 원격 명령을 보내려면 `write:commands` 스코프가 추가로 필요합니다.
+원격 명령에는 `write:commands` 스코프가 필요합니다. 앞의 클라이언트는 `read:signals`만 가지고 있으므로 다시 만듭니다.
+
+```python
+client = VelaClient(
+    client_id=os.environ["VELA_CLIENT_ID"],
+    client_secret=os.environ["VELA_CLIENT_SECRET"],
+    environment="staging",
+    scopes=["read:signals", "write:commands"],
+)
+vehicle = client.vehicles.get("sim_001")
+```
 
 ```python
 from vela import VelaPreconditionError, VelaRateLimitError

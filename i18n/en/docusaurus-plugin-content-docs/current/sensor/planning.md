@@ -6,7 +6,7 @@ sidebar_label: 2. Plan the installation
 
 # Plan the installation
 
-Before fitting the sensors, decide **where they go and which route the cables take.** Skip this chapter and you will find yourself back at an earlier step while connecting cables.
+Before fitting the sensors, decide **where they go and which route the cables take.** Deciding this later means removing components that are already fitted.
 
 :::warning[Warning]
 This is vehicle modification work. Disconnect the negative terminal of the vehicle's 12V battery before you start.

@@ -12,7 +12,7 @@ A REST API for reading vehicle data in VELA Cloud and controlling remote command
 https://api.vela.example.com/v1
 ```
 
-VELA is a Tier 1 supplier that provides vehicle software platforms to carmakers. This API is the interface VELA Cloud exposes, and an OEM's own systems use it exactly as the VELA Drive reference app does. **Every feature of the VELA Drive app can be built with this API.** If you need something that is not here, [get in touch](#support).
+VELA is a Tier 1 supplier that provides vehicle software platforms to carmakers. This API is the interface VELA Cloud exposes, and an OEM's own systems use it exactly as the VELA Drive reference app does. **The vehicle data, remote commands, and software deployment that the VELA Drive app uses can all be built with this API.** If you need something that is not here, [get in touch](#support).
 
 ## Resource model
 
@@ -75,7 +75,7 @@ The full handling pattern is in [Send remote commands](./remote-commands.md).
 
 ### Staging does not check preconditions
 
-Simulated vehicles in staging have a `vehicle_id` beginning with `sim_`. A remote command sent to one returns **a success response every time** after a two second delay, skipping precondition checks such as whether the vehicle is parked or how much battery it has.
+Simulated vehicles in staging have a `vehicle_id` beginning with `sim_`. A remote command sent to one returns **a success response every time** after a two-second delay, skipping precondition checks such as whether the vehicle is parked or how much battery it has.
 
 :::warning[Warning]
 Because of this, a response such as "failed because the vehicle is not parked" appears for the first time in production. Build the failure paths in advance from [Preconditions by command](./remote-commands.md#preconditions-by-command) and [Error codes](./reference.md#error-codes).

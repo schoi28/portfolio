@@ -5,7 +5,7 @@ description: Experience, skills, education, and downloadable resume files
 
 # Resume
 
-I am a technical writer who has written Korean and English technical documentation in the database and autonomous driving solution fields. Since November 2023 I have written product references, user and installation guides, API documentation, and release notes. My strength is not only in writing the documents but in **building the system that assembles them correctly for each customer, keeps them verified as the products change, and lets a colleague pick up the work.** I write directly in both languages rather than translating.
+I am a technical writer who has written Korean and English technical documentation in the database and autonomous driving solution fields. Since November 2023 I have written product references, user and installation guides, API documentation, and release notes. My strength is not only in writing the documents but in **building the system that assembles them correctly for each customer, keeps them verified as the products change, and lets a colleague pick up the work.** I write directly in both Korean and English, and translate between them when a document calls for it.
 
 ## Download the resume
 
@@ -43,7 +43,7 @@ I own the English user documentation for an autonomous driving solution made up 
 - **Documentation design and writing**: designed and wrote a two-tier documentation system of a solution manual plus per-product manuals. 171 documents, 310 images, and roughly 187,000 words, of which 128 (about 75 percent) were written from scratch.
 - **Korean documentation**: Korean documents for internal sharing are maintained separately in Confluence.
 - **Reader analysis and document design**: split readers into three types, defined the prior knowledge each type brings, and applied that consistently across every product document.
-- **Writing principles and standards**: established three writing principles, including the glossary policy, and applied them across all products. Restructured the documentation against IEC/IEEE 82079-1.
+- **Writing principles and standards**: established three writing principles, including the glossary policy, and applied them across all products. Restructured the documentation with reference to IEC/IEEE 82079-1.
 - **Documentation build environment**: built a static site generator that produces web documents and PDFs from a single source. The output can be used without an internet connection.
 - **Conditional content system**: designed a system that outputs content according to customer, internal or external use, and feature. Implemented a step that verifies each output contains only content within its declared scope.
 - **API documentation automation**: built a pipeline that generates the API reference from the OpenAPI specification, with changes shown as a diff report.
@@ -74,7 +74,7 @@ I wrote and maintained the DBMS product manuals in Korean and English. The docum
 | Programme | Institution | Period | Notes |
 | --- | --- | --- | --- |
 | BS in Computer Science | Oregon State University, United States | Jan 2021 to Mar 2023 | **Transferred** from Pellissippi State Community College |
-| General AS, Computer Science / Engineering Path | Pellissippi State Community College, United States | Aug 2018 to Aug 2020 | Left partway through on transfer |
+| General AS, Computer Science / Engineering Path | Pellissippi State Community College, United States | Aug 2018 to Aug 2020 | Completed coursework before transferring. No associate degree awarded |
 | BA in Creative Writing | Soongsil University, Seoul | Mar 2012 to Aug 2018 | |
 
 ---

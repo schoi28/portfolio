@@ -49,7 +49,7 @@ VELA provides a separate **staging environment** for testing an integration and 
 
 ## The preface this produced
 
-The preface built from the decisions above. In the manual itself this sits before chapter 1.
+The following preface applies the decisions above. In the manual it appears before chapter 1.
 
 ### About this reference
 

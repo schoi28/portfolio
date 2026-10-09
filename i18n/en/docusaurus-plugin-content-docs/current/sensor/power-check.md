@@ -17,7 +17,7 @@ Do this chapter **before** refitting the mouldings and covers. If there is a pro
 | Item | Specification |
 | --- | --- |
 | Multimeter | Resistance and voltage |
-| Laptop | For access to the VELA Deploy console |
+| Laptop | With a browser, for the local diagnostic interface |
 
 - **Conditions:** 1 person · about 30 minutes · before the mouldings and covers are refitted
 - **Before you start:** [5. Wire the kit](./wiring.md) complete
@@ -105,7 +105,7 @@ The diagnostics take about 2 minutes and check the following.
 
 ### Check the camera position mapping
 
-The diagnostic screen shows all four channels at once. Confirm for yourself that each one matches its actual position.
+The diagnostic screen shows all four channels at once. Verify that each channel matches the camera's physical position.
 
 :::info[Caution]
 The automatic diagnostics only check that video is arriving. They cannot tell which camera it came from. Follow the procedure below to **look at the diagnostic screen yourself and confirm the position of all four images.** A swapped cable that you do not catch here is hard to trace at the calibration stage.

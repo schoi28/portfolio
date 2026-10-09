@@ -39,7 +39,7 @@ For checking sensor state after installation and calibration, the documentation 
 
 ## The preface this produced
 
-The preface built from the decisions above. In the manual itself this sits before chapter 1.
+The following preface applies the decisions above. In the manual it appears before chapter 1.
 
 ### About this guide
 

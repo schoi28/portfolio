@@ -101,7 +101,7 @@ A camera connector in the wrong port works electrically but leaves the positions
 | Take-off point | A permanent live terminal in the boot junction box |
 | Fuse rating | 15 A |
 | Fuse position | Within 300 mm of the take-off point |
-| Wire size | 2.0 sq or larger |
+| Wire size | Conductor cross-section 2.0 mm² or larger |
 
 :::danger[Danger]
 Do not omit the fuse or fit one with a higher rating. A short can set the harness alight.

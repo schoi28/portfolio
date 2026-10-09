@@ -16,11 +16,11 @@ Signals fall into four groups. The groups follow the classification used by the 
 
 | Signal | Description | Unit | Update interval | Reporting zone |
 | --- | --- | --- | --- | --- |
-| `vehicle.odometer` | Total distance driven | km | On change | Not applicable. Aggregated by the CCU |
-| `vehicle.speed` | Current speed | km/h | 100 ms | Not applicable. Aggregated by the CCU |
-| `vehicle.gear` | Current gear position | enum: `p`\|`r`\|`n`\|`d` | On change | Not applicable. Aggregated by the CCU |
-| `vehicle.ignition_state` | Ignition state | enum: `off`\|`accessory`\|`on` | On change | Not applicable. Aggregated by the CCU |
-| `vehicle.parked` | Whether the vehicle is parked, meaning gear P and speed 0 | boolean | On change | Not applicable. Aggregated by the CCU |
+| `vehicle.odometer` | Total distance driven | km | On change | N/A (aggregated by the CCU) |
+| `vehicle.speed` | Current speed | km/h | 100 ms | N/A (aggregated by the CCU) |
+| `vehicle.gear` | Current gear position | enum: `p`\|`r`\|`n`\|`d` | On change | N/A (aggregated by the CCU) |
+| `vehicle.ignition_state` | Ignition state | enum: `off`\|`accessory`\|`on` | On change | N/A (aggregated by the CCU) |
+| `vehicle.parked` | Whether the vehicle is parked, meaning gear P and speed 0 | boolean | On change | N/A (aggregated by the CCU) |
 | `vehicle.location` | GPS coordinates | `{lat, lon}` | 5 s while driving | front |
 
 ### Body
@@ -64,7 +64,7 @@ curl https://api.vela.example.com/v1/signals/catalog \
 ```
 
 :::note[Note]
-A signal with several reporting zones, such as `body.tire_pressure`, holds a separate measurement per zone, and the response carries a `zone` field alongside the value. A signal marked `Not applicable. Aggregated by the CCU` is a value the CCU assembles from several zones and does not belong to any one zone.
+A signal with several reporting zones, such as `body.tire_pressure`, holds a separate measurement per zone, and the response carries a `zone` field alongside the value. A signal marked `N/A (aggregated by the CCU)` is a value the CCU assembles from several zones and does not belong to any one zone.
 :::
 
 ## Error codes
@@ -75,7 +75,7 @@ Every error response follows the same shape.
 {
   "error": {
     "code": "precondition_failed",
-    "message": "A human readable explanation",
+    "message": "A human-readable explanation",
     "...": "Additional fields, which vary by code"
   }
 }
@@ -120,7 +120,7 @@ For batch work covering many vehicles, we recommend taking aggregated data throu
 
 ## Pagination
 
-Endpoints that return a list use cursor based pagination.
+Endpoints that return a list use cursor-based pagination.
 
 ```bash
 curl "https://api.vela.example.com/v1/vehicles?limit=50" \
@@ -153,7 +153,6 @@ A `next_page` of `null` means the last page. Do not calculate page numbers yours
 | --- | --- | --- |
 | 2026-08-15 | Added the `sensor.calibration_state_changed` webhook event | Compatible |
 | 2026-07-01 | Added `body.lights.exterior` to the signal catalogue | Compatible |
-| 2026-05-10 | Made the `target_type` field required when creating a campaign | **Breaking**. Required since the v1 release |
-| 2026-03-01 | First release of `v1` | None |
+| 2026-03-01 | First release of `v1`. `target_type` required when creating a campaign | None |
 
 `v1` is currently the only supported version. Any breaking change appears first in this table and in [Versioning policy in chapter 1](./overview.md#versioning-policy).

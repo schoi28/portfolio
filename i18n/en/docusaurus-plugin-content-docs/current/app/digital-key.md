@@ -42,7 +42,7 @@ Do this inside the vehicle.
 2. Get in and start the vehicle.
 3. In the app, select **Digital key > Register key**.
 4. Place your phone on the vehicle's wireless charging pad.
-5. Enter the six digit code shown on the vehicle screen into the app.
+5. Enter the six-digit code shown on the vehicle screen into the app.
 6. A key icon appears in the app once registration finishes.
 
 Registration takes about a minute. Do not take your phone off the pad during that time.
@@ -94,7 +94,7 @@ The key is deactivated automatically once the end date passes. You do not have t
 ## Manage and revoke shared permissions
 
 :::warning[Warning]
-Revoking a key stops that person using the vehicle immediately. If they are inside the vehicle or driving, it takes effect from the next start. To undo it you have to share the key again from scratch.
+If the vehicle is parked, revoking a key takes effect at once. If the other person is driving, it takes effect from the next start. To restore access, share the key again.
 :::
 
 1. Select **Digital key > Shared keys**.

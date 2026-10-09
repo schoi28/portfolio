@@ -58,7 +58,7 @@ curl -X POST https://api.vela.example.com/v1/vehicles/{vehicle_id}/commands \
 | 모든 명령 공통 | 12V 보조 배터리 20% 이상 | `powertrain.aux_battery_soc` |
 | `unlock_doors`, `lock_doors` | 없음 | 없음 |
 | `set_climate` | 시동 꺼짐 또는 주차 상태 | `vehicle.parked` |
-| `start_charging` | 충전 케이블 연결됨 | `battery.charging_state` != `idle`이면 이미 연결됨 |
+| `start_charging` | 충전 케이블 연결됨 | `battery.charging_state`. `idle`은 충전 중이 아니라는 뜻이며 케이블 연결 여부를 구분하지 않습니다 |
 | `share_key` | 요청자가 차량 소유자 또는 관리자 권한 | 해당 없음 (계정 권한으로 판단) |
 
 사전 조건을 만족하지 않고 명령을 보내면 즉시 `422 precondition_failed`가 반환됩니다. 이 경우 차량에 명령이 전달되지 않으므로 재시도 전에 원인을 해결해야 합니다.
