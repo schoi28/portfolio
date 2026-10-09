@@ -6,8 +6,7 @@ sidebar_label: 5. 차량 데이터 조회하기
 
 # 차량 데이터 조회하기
 
-차량이 보고하는 데이터는 VELA OS의 센서 추상화 계층을 거쳐 표준화된 **시그널**로 노출됩니다. 이 장에서는 시그널 카탈로그와 조회·구독 방법을 다룹니다.
-
+차량이 보고하는 데이터는 VELA OS의 센서 추상화 계층을 거쳐 표준화된 **시그널**로 노출됩니다. 이 장에서는 조회·구독 방법을 다룹니다.
 
 시그널 이름과 단위, 갱신 주기는 [레퍼런스의 시그널 카탈로그](./reference.md#시그널-카탈로그)에 모아 두었습니다. 이 장은 그 값을 **가져오는 방법**만 다룹니다.
 
@@ -29,13 +28,12 @@ curl https://api.vela.example.com/v1/vehicles/{vehicle_id}/signals/{signal}/late
 }
 ```
 
-`stale`이 `true`이면 마지막 갱신 이후 해당 시그널의 정상 갱신 주기의 3배가 지났다는 뜻입니다. 차량이 통신되지 않는 상태일 가능성이 높습니다.
+`timestamp`는 차량이 값을 마지막으로 보고한 UTC 시각입니다. `stale`이 `true`이면 정상 갱신 주기의 3배가 지나도록 새 값이 없었다는 뜻입니다. 값을 최신 상태로 표시하기 전에 두 필드를 확인하십시오. 차량과의 통신이 끊긴 상태일 수도 있습니다.
 
 ## 시계열 조회하기
 
 ```bash
-curl "https://api.vela.example.com/v1/vehicles/{vehicle_id}/signals/battery.soc/history\
-?from=2026-09-01T00:00:00Z&to=2026-09-02T00:00:00Z&interval=1h" \
+curl "https://api.vela.example.com/v1/vehicles/{vehicle_id}/signals/battery.soc/history?from=2026-09-01T00:00:00Z&to=2026-09-02T00:00:00Z&interval=1h" \
   -H "Authorization: Bearer $VELA_ACCESS_TOKEN"
 ```
 
@@ -83,5 +81,5 @@ wscat -c "wss://stream.vela.example.com/v1/vehicles/{vehicle_id}/signals/stream"
 
 ## 다음 단계
 
-- 차량에 지시를 내리려면 [원격 명령 보내기](./remote-commands.md)을 참고하십시오.
+- 차량에 지시를 내리려면 [원격 명령 보내기](./remote-commands.md)를 참고하십시오.
 - VELA Sense 센서의 상태를 조회하려면 [센서 상태 조회하기](./sensors.md)를 참고하십시오.

@@ -116,9 +116,9 @@ The Python SDK described in [Use an SDK](./sdk.md#wait-for-an-asynchronous-resul
 ## Timeout and retry policy
 
 - A vehicle must respond within **30 seconds** of a command being received. With no response, the command becomes `timed_out`.
-- `timed_out` and communication failures (`vehicle_unreachable`) are safe to retry. A precondition failure (`precondition_failed`) returns the same result until the cause is resolved.
+- If a `timed_out` or a communication failure (`vehicle_unreachable`) occurs, **read the command status first.** Confirm that the command really did not run before deciding whether to retry. Do not retry a precondition failure (`precondition_failed`) until the cause is resolved.
 - If a command is already in progress for the same vehicle, a new one is rejected with `409 command_in_progress`. Send commands one at a time.
-- If you implement automatic retries, we recommend exponential backoff. The VELA SDK does this by default.
+- The VELA SDK applies automatic retries **to read requests only.** Remote commands carry a risk of running twice, so they are not resent automatically. If you need to retry a command, check the result first and then decide whether to apply exponential backoff.
 
 ## Next
 

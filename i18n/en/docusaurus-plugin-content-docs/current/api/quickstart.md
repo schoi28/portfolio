@@ -1,21 +1,37 @@
 ---
-title: Get started quickly
+title: Get started with the REST API
 doc_type: 튜토리얼
-sidebar_label: 3. Get started quickly
+sidebar_label: 3. Get started with the REST API
 ---
 
-# Get started quickly
+# Get started with the REST API
 
-Send your first request in five minutes against a simulated vehicle in staging. You can see how the API behaves without a real vehicle.
+A tutorial for sending `curl` requests against a simulated vehicle in the staging environment. You will obtain a token, read data, and have a remote command accepted, all without a real vehicle. If you are using an official SDK, start from [Use an SDK](./sdk.md) instead.
 
 ## Check what you need
 
-- The `client_id` and `client_secret` issued in [Set up authentication](./authentication.md)
-- A terminal, or Python 3.9 or later
+- A `client_id` and `client_secret` issued in the **staging environment**, following [Set up authentication](./authentication.md#1-register-a-client)
+- A client granted the `read:signals` and `write:commands` scopes
+- A terminal with `curl` and Python 3 installed
 
-## Send your first request in five minutes
+Enter your credentials in a Bash terminal as follows. The secret is not shown on screen.
+
+```bash
+read -r -p "client_id: " VELA_CLIENT_ID
+read -r -s -p "client_secret: " VELA_CLIENT_SECRET
+echo
+export VELA_CLIENT_ID VELA_CLIENT_SECRET
+```
+
+:::warning[Warning]
+Do not put `client_secret` into example code or a Git repository. This document uses the value held in an environment variable.
+:::
+
+## Send your first request
 
 ### 1. Get a token
+
+The command below extracts the access token from the authentication response and stores it in the `VELA_ACCESS_TOKEN` environment variable.
 
 ```bash
 export VELA_ACCESS_TOKEN=$(curl -s -X POST \
@@ -59,7 +75,8 @@ curl https://api.staging.vela.example.com/v1/vehicles/sim_001/signals/battery.so
   "signal": "battery.soc",
   "value": 68,
   "unit": "percent",
-  "timestamp": "2026-09-03T02:14:00Z"
+  "timestamp": "2026-09-03T02:14:00Z",
+  "stale": false
 }
 ```
 
@@ -81,11 +98,11 @@ curl -X POST https://api.staging.vela.example.com/v1/vehicles/sim_001/commands \
 }
 ```
 
-Command results are handled asynchronously. To find out how to check the result, see [Send remote commands: handle asynchronous results](./remote-commands.md#handle-asynchronous-results).
+Command results are handled asynchronously. For how to read the result, see [Remote commands · handle asynchronous results](./remote-commands.md#handle-asynchronous-results).
 
-That is the basic round trip.
+That covers the flow from obtaining a token through reading a signal to having a remote command accepted. `pending` is an acceptance state and does not mean the command succeeded.
 
-For a real integration, we recommend using an SDK rather than implementing token refresh and retries yourself. Installation and usage are in [Use an SDK](./sdk.md).
+If you would rather not implement token refresh and retry handling in your application yourself, see [Use an SDK](./sdk.md).
 
 ## Next
 

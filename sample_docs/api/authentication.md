@@ -35,6 +35,8 @@ API 클라이언트를 만들려면 콘솔 계정에 **관리자** 권한이 있
 
 ### 2. 액세스 토큰 발급받기
 
+다음 예제는 앞 단계에서 발급한 `VELA_CLIENT_ID`, `VELA_CLIENT_SECRET` 환경 변수를 사용합니다. `curl`로 직접 인증할 때만 수행하십시오. 공식 SDK를 사용하는 경우 토큰 발급과 갱신은 SDK가 처리합니다.
+
 ```bash
 curl -X POST https://api.vela.example.com/v1/oauth/token \
   -H "Content-Type: application/x-www-form-urlencoded" \
@@ -56,6 +58,8 @@ curl -X POST https://api.vela.example.com/v1/oauth/token \
 ```
 
 ### 3. 요청에 토큰 포함하기
+
+앞 단계에서 발급받은 `access_token` 값을 `VELA_ACCESS_TOKEN` 환경 변수에 보관한 뒤 요청에 사용하십시오.
 
 ```bash
 curl https://api.vela.example.com/v1/vehicles \
@@ -112,4 +116,4 @@ curl https://api.vela.example.com/v1/vehicles \
 
 ## 다음 단계
 
-인증이 준비되었다면 [빠르게 시작하기](./quickstart.md)에서 첫 요청을 보내 보십시오.
+REST API를 직접 호출한다면 [REST API 빠르게 시작하기](./quickstart.md)로 이동하십시오. SDK를 사용한다면 토큰 발급 단계를 생략하고 [SDK로 연동하기](./sdk.md)에서 클라이언트를 생성하십시오.

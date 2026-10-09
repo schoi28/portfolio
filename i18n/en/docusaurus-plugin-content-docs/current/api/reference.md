@@ -6,7 +6,7 @@ sidebar_label: 10. Browse the reference
 
 # Browse the reference
 
-This chapter collects error codes, request limits, pagination, and the change history. Each section is written to be read on its own, so you can search straight to it.
+This chapter collects the signal catalogue, error codes, request limits, pagination, and the change history.
 
 ## Signal catalogue
 
@@ -56,7 +56,7 @@ Signals fall into four groups. The groups follow the classification used by the 
 | `sensor.calibration.state` | State of the most recent calibration | enum: `valid`\|`stale`\|`failed`\|`never_run` | On change | front |
 | `sensor.time_sync.offset` | PTP time synchronisation deviation | microseconds | 10 s | front |
 
-There are more than 130 signals in total, and the tables above are an extract of the ones used most often. The full list is in the response from `/v1/signals/catalog` in the OpenAPI spec.
+There are more than 130 signals in total, and the tables above are an extract of the ones used most often. The full list is in the response from `GET /v1/signals/catalog`.
 
 ```bash
 curl https://api.vela.example.com/v1/signals/catalog \

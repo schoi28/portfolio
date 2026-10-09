@@ -6,79 +6,117 @@ sidebar_label: 4. SDK로 연동하기
 
 # SDK로 연동하기
 
-VELA는 네 가지 언어로 공식 SDK를 제공합니다. HTTP를 직접 호출해도 되지만, SDK는 **토큰 발급과 갱신, 재시도, 결과 대기**를 대신 처리합니다.
+공식 SDK를 사용해 VELA Cloud의 REST API를 호출하는 방법을 설명합니다. SDK는 액세스 토큰 발급·갱신과 요청 헤더 구성을 대신 처리하며, 조회 요청의 재시도와 비동기 명령 결과 대기도 지원합니다.
 
-이 장은 SDK 전반을 다룹니다. 이후 장의 예시 요청은 모두 `curl`로 적혀 있으므로, SDK를 쓰신다면 [REST 동작과 SDK 메서드](#rest-동작과-sdk-메서드)의 대응표를 함께 보십시오.
+이 장에서는 **Python을 대표 예제 언어**로 사용합니다. Node.js와 Java 개발자는 설치·클라이언트 생성 방법을 확인한 뒤, [REST 동작과 SDK 메서드](#rest-동작과-sdk-메서드)의 대응표를 참고하십시오. 다른 기능별 장은 `curl` 예제를 기준으로 설명합니다.
 
-## 지원 언어와 런타임
+## 지원 SDK와 사용 범위
 
-| SDK | 지원 범위 | 용도 |
+| SDK | 지원 환경 | 사용 목적 |
 | --- | --- | --- |
-| Python | 3.9 이상 | 서버 애플리케이션, 분석 스크립트 |
-| Node.js | 18 LTS 이상 | 웹 백엔드 |
-| Java | 17 이상 | OEM 기간계 연동 |
-| C++ | C++17, Linux (aarch64 · x86_64) | 차량 내 애플리케이션 |
+| Python | Python 3.9 이상 | 서버 애플리케이션·분석 스크립트 |
+| Node.js | Node.js 18 LTS 이상 | 웹 백엔드 |
+| Java | Java 17 이상 | OEM 시스템 연동 |
 
-:::note[참고]
-REST API 자체는 HTTP 클라이언트가 있는 어떤 환경에서도 호출할 수 있습니다. 위 표는 **SDK를 제공하는 런타임**의 목록입니다. 목록에 없는 언어에서는 [인증 설정하기](./authentication.md)를 참고해 직접 구현하십시오.
+위 SDK는 모두 **VELA Cloud의 REST API**를 호출합니다. SDK를 사용하지 않는 경우 [인증 설정하기](./authentication.md)와 [REST API 빠르게 시작하기](./quickstart.md)를 참고하십시오.
+
+:::note[차량 내부 C++ SDK의 범위]
+VELA는 차량 내 애플리케이션에서 로컬 시그널 버스에 접근하는 C++ SDK도 제공합니다. 이 SDK는 VELA Cloud를 호출하지 않고 VELA OS 서비스 등록을 사용하므로, 이 개발자 가이드에서 다루는 REST API 및 외부 서버용 SDK와는 별도의 인터페이스입니다. **이 장에서는 C++ SDK의 설치·호출 방법을 다루지 않습니다.**
 :::
 
-## 설치하고 클라이언트 만들기
+## 시작하기 전에
 
-클라이언트를 한 번 만들어 재사용하십시오. 요청마다 새로 만들면 매번 토큰을 발급받습니다.
+- [인증 설정하기](./authentication.md#1-클라이언트-등록하기)에 따라 **스테이징 환경**에서 API 클라이언트를 등록합니다.
+- `client_id`와 `client_secret`을 안전한 환경 변수 또는 비밀 관리 서비스에 저장합니다.
+- 차량 데이터 조회에는 `read:signals` 스코프가 필요합니다.
+- 예시에서는 스테이징의 시뮬레이션 차량 `sim_001`을 사용합니다.
+
+:::warning[경고]
+`client_secret`을 소스 코드에 직접 입력하거나 공개 저장소에 커밋하지 마십시오. 아래 예제는 환경 변수에서 자격 증명을 읽습니다.
+:::
+
+## SDK 설치하고 클라이언트 만들기
+
+### Python
 
 ```bash
-pip install vela-sdk          # Python
-npm install @vela/sdk         # Node.js
+python3 -m pip install vela-sdk
 ```
 
-Java는 Maven 저장소에서 `com.vela:vela-sdk:1.x` 를 추가합니다.
-
 ```python
+import os
 from vela import VelaClient
 
 client = VelaClient(
-    client_id="...",
-    client_secret="...",
-    environment="staging",  # 프로덕션에서는 "production"
+    client_id=os.environ["VELA_CLIENT_ID"],
+    client_secret=os.environ["VELA_CLIENT_SECRET"],
+    environment="staging",
+    scopes=["read:signals"],
 )
+```
+
+### Node.js
+
+```bash
+npm install @vela/sdk
 ```
 
 ```javascript
 import { VelaClient } from '@vela/sdk';
 
 const client = new VelaClient({
-  clientId: '...',
-  clientSecret: '...',
+  clientId: process.env.VELA_CLIENT_ID,
+  clientSecret: process.env.VELA_CLIENT_SECRET,
   environment: 'staging',
+  scopes: ['read:signals'],
 });
 ```
 
-:::warning[경고]
-`client_secret`을 소스 코드나 저장소에 넣지 마십시오. 환경 변수나 비밀 관리 서비스에서 읽어 오십시오.
+Java에서는 Maven 의존성 `com.vela:vela-sdk:1.x`를 추가합니다. 이 장의 후속 예제는 Python을 기준으로 작성했습니다.
+
+**클라이언트는 한 번 생성해 재사용하십시오.** 요청마다 새로 생성하면 불필요하게 토큰 발급을 반복할 수 있습니다. 프로덕션에 연결할 때는 환경과 자격 증명을 모두 프로덕션용으로 변경해야 합니다.
+
+## SDK로 첫 차량 데이터 조회하기
+
+다음 예제는 앞에서 만든 Python `client`를 사용합니다.
+
+1. 차량 ID `sim_001`로 차량 객체를 가져옵니다.
+2. `battery.soc` 시그널의 최신값을 조회합니다.
+3. 결과를 출력합니다.
+
+```python
+vehicle = client.vehicles.get("sim_001")
+reading = vehicle.signals.latest("battery.soc")
+print(reading)
+```
+
+이 예제는 REST API의 `GET /vehicles/{id}/signals/{signal}/latest` 호출에 대응합니다. 응답 값과 시각 정보의 의미는 [차량 데이터 조회하기](./vehicle-data.md#최신값-조회하기)를 참고하십시오.
+
+:::note[참고]
+스테이징의 `sim_001`은 예제용 차량입니다. 프로덕션에서는 접근 권한이 있는 실제 `vehicle_id`를 사용하십시오.
 :::
 
-## 인증은 SDK가 처리합니다
+## 인증과 스코프 이해하기
 
-클라이언트를 만들 때 넘긴 자격 증명으로 SDK가 토큰을 발급받고, 만료 **60초 전에 자동으로 갱신**합니다. 토큰 만료를 직접 처리할 필요가 없습니다.
+SDK는 클라이언트를 생성할 때 전달한 자격 증명으로 토큰을 발급받고, 만료 **60초 전**에 갱신합니다.
 
-| 직접 구현할 때 | SDK를 쓸 때 |
+| REST API를 직접 호출할 때 | SDK를 사용할 때 |
 | --- | --- |
-| 토큰 발급 요청을 보낸다 | 클라이언트 생성 시 자동 |
-| 만료 시각을 기억하고 갱신한다 | 자동 |
-| 요청마다 `Authorization` 헤더를 붙인다 | 자동 |
-| 스코프를 요청에 지정한다 | 클라이언트 생성 시 `scopes=[...]` |
+| 토큰 발급 요청 전송 | SDK가 처리 |
+| 만료 시점 확인과 재발급 | SDK가 처리 |
+| `Authorization` 헤더 추가 | SDK가 처리 |
+| 권한 스코프 지정 | 클라이언트 생성 시 `scopes=[...]` 지정 |
 
-스코프의 의미와 선택 기준은 [인증 설정하기](./authentication.md#스코프-지정하기)에 있습니다.
+사용하려는 기능에 필요한 최소 스코프를 설정하십시오. 스코프별 권한은 [인증 설정하기 · 스코프 지정하기](./authentication.md#스코프-지정하기)에 정리되어 있습니다.
 
 ## REST 동작과 SDK 메서드
 
-이후 장에서 `curl`로 설명하는 동작은 SDK에서 다음 메서드에 대응합니다.
+이후 기능별 장에서 `curl`로 설명하는 호출은 Python SDK의 다음 메서드에 대응합니다.
 
-| 하는 일 | REST | Python SDK |
+| 하는 일 | REST API | Python SDK |
 | --- | --- | --- |
 | 차량 목록 | `GET /vehicles` | `client.vehicles.list()` |
-| 차량 하나 | `GET /vehicles/{id}` | `client.vehicles.get(id)` |
+| 차량 한 대 | `GET /vehicles/{id}` | `client.vehicles.get(id)` |
 | 최신값 조회 | `GET /vehicles/{id}/signals/{signal}/latest` | `vehicle.signals.latest(signal)` |
 | 시계열 조회 | `GET /vehicles/{id}/signals/{signal}/history` | `vehicle.signals.history(signal, ...)` |
 | 스트리밍 구독 | `wss://stream.../signals/stream` | `vehicle.signals.stream([...])` |
@@ -90,56 +128,56 @@ const client = new VelaClient({
 | 캠페인 시작 | `POST /campaigns/{id}/start` | `campaign.start()` |
 | 웹훅 등록 | `POST /webhooks` | `client.webhooks.create(...)` |
 
-메서드 이름과 인자는 언어마다 표기 규칙을 따릅니다. Node.js는 `vehicle.signals.latest(signal)`, Java는 `vehicle.signals().latest(signal)` 입니다.
+표의 `vehicle`은 앞 예제에서 가져온 차량 객체입니다. `result`는 원격 명령 전송의 반환값입니다. 메서드 이름과 호출 방식은 언어에 따라 다를 수 있습니다. 예를 들어 Node.js는 `vehicle.signals.latest(signal)`, Java는 `vehicle.signals().latest(signal)` 형식을 사용합니다.
 
-:::note[참고]
-파라미터의 의미, 형식, 제약 조건은 SDK와 REST가 같습니다. [레퍼런스 찾아보기](./reference.md)를 보십시오. 이 표는 **어느 메서드를 부를지**만 알려 줍니다.
-:::
+이 표는 **REST 동작과 메서드를 연결하기 위한 안내**입니다. 요청의 파라미터·사전 조건과 응답의 의미는 [차량 데이터 조회하기](./vehicle-data.md), [원격 명령 보내기](./remote-commands.md) 등 **기능별 장**에서 확인하십시오. 시그널 카탈로그와 공통 에러 코드는 [레퍼런스 찾아보기](./reference.md)에 있습니다.
 
-## 에러 처리하기
+## 예외 처리하기
 
-SDK는 실패 응답을 예외로 바꿔 던집니다. HTTP 상태 코드를 직접 확인하지 않아도 됩니다.
+SDK는 REST API의 실패 응답을 예외로 전달합니다.
 
-| 예외 | 대응 HTTP | 재시도 |
+| 예외 | 대응 HTTP 상태 | 필요한 조치 |
 | --- | --- | --- |
-| `VelaAuthError` | 401, 403 | 안 됨. 자격 증명과 스코프를 확인 |
-| `VelaNotFoundError` | 404 | 안 됨 |
-| `VelaConflictError` | 409 | 진행 중인 명령이 끝난 뒤 가능 |
-| `VelaPreconditionError` | 422 `precondition_failed` | 원인 해소 후 가능 |
-| `VelaUnreachableError` | 422 `vehicle_unreachable` | 가능 |
-| `VelaRateLimitError` | 429 | 가능. `retry_after` 속성 참고 |
-| `VelaServerError` | 500, 503 | 가능 |
+| `VelaAuthError` | 401, 403 | 자격 증명과 스코프 확인 |
+| `VelaNotFoundError` | 404 | 차량·리소스 식별자 확인 |
+| `VelaConflictError` | 409 | 진행 중인 명령 종료 확인 |
+| `VelaPreconditionError` | 422 `precondition_failed` | 사전 조건 충족 후 다시 요청 |
+| `VelaUnreachableError` | 422 `vehicle_unreachable` | 차량 연결 상태 확인 |
+| `VelaRateLimitError` | 429 | `retry_after`만큼 대기 |
+| `VelaServerError` | 500, 503 | 일시적 장애 여부 확인 |
+
+다음 예제는 `client`를 생성하고 `vehicle` 객체를 가져온 뒤 실행하는 코드입니다. 원격 명령을 보내려면 `write:commands` 스코프가 추가로 필요합니다.
 
 ```python
 from vela import VelaPreconditionError, VelaRateLimitError
 
 try:
-    vehicle.commands.send("start_charging")
-except VelaPreconditionError as e:
-    print(f"조건 미충족: {e.signal} = {e.current_value}")
-except VelaRateLimitError as e:
-    print(f"{e.retry_after}초 뒤 재시도")
+    result = vehicle.commands.send("start_charging")
+except VelaPreconditionError as error:
+    print(f"사전 조건 미충족: {error.signal} = {error.current_value}")
+except VelaRateLimitError as error:
+    print(f"요청 제한: {error.retry_after}초 뒤 확인")
 ```
 
-예외는 원본 응답의 `error.code`를 `code` 속성으로 그대로 전달합니다. 코드의 전체 목록은 [레퍼런스 찾아보기](./reference.md#에러-코드)에 있습니다.
+전체 실패 코드와 의미는 [레퍼런스 · 에러 코드](./reference.md#에러-코드)를 참고하십시오.
 
 ## 재시도와 타임아웃 설정하기
 
-재시도가 가능한 실패에 대해 **지수 백오프로 최대 3회**를 기본 적용합니다.
+SDK는 **조회 요청 중 재시도가 가능한 실패**에 지수 백오프를 적용합니다. 원격 명령에는 자동 재시도를 적용하지 않습니다.
 
-| 설정 | 기본값 | 바꾸는 법 |
+| 설정 | 기본값 | Python 설정 예 |
 | --- | --- | --- |
-| 재시도 횟수 | 3 | `VelaClient(max_retries=0)` |
-| 백오프 | 1초에서 시작해 2배씩 | `VelaClient(backoff_factor=2.0)` |
+| 조회 요청 재시도 | 최대 3회 | `VelaClient(max_retries=0)` |
+| 백오프 | 1초부터 시작해 2배씩 증가 | `VelaClient(backoff_factor=2.0)` |
 | 요청 타임아웃 | 10초 | `VelaClient(timeout=30)` |
 
 :::info[주의]
-재시도는 조회 요청에만 자동으로 적용됩니다. 원격 명령은 중복 실행을 막기 위해 자동 재시도하지 않습니다. 명령을 재시도하려면 [원격 명령 보내기](./remote-commands.md#타임아웃과-재시도-정책)의 기준을 확인하고 직접 호출하십시오.
+원격 명령은 실제 차량에서 수행되는 동작입니다. 요청 타임아웃만으로 명령이 실행되지 않았다고 단정하고 같은 명령을 다시 보내지 마십시오. 먼저 [명령 상태](./remote-commands.md#비동기-결과-처리하기)를 확인하고, [재시도 정책](./remote-commands.md#타임아웃과-재시도-정책)에 따라 처리하십시오.
 :::
 
 ## 비동기 결과 기다리기
 
-원격 명령은 접수와 실행이 분리되어 있습니다. SDK의 `wait()`는 명령이 끝날 때까지 상태를 대신 확인합니다.
+원격 명령은 요청 접수와 차량의 실행 완료가 분리되어 있습니다. SDK의 `wait()`는 결과가 나올 때까지 명령 상태를 조회합니다.
 
 ```python
 result = vehicle.commands.send("lock_doors")
@@ -147,42 +185,20 @@ result.wait(timeout=30)
 print(result.status)  # "succeeded" | "failed" | "timed_out"
 ```
 
-`wait()`는 내부적으로 상태 조회 엔드포인트를 **2초 간격으로 폴링**합니다. 명령 하나를 기다리는 스크립트에는 적합하지만, 다수의 명령을 동시에 다루면 요청 수가 빠르게 늘어 [레이트 리밋](./reference.md#레이트-리밋)에 걸립니다.
+`wait()`는 내부적으로 **2초 간격으로 폴링**합니다. 단일 명령을 확인하는 스크립트에 적합하지만, 많은 명령을 동시에 처리하면 [레이트 리밋](./reference.md#레이트-리밋)에 영향을 줄 수 있습니다.
 
-**프로덕션에서 명령을 다수 처리한다면 폴링 대신 [웹훅으로 이벤트 받기](./webhooks.md)를 사용하십시오.**
+대량의 명령을 처리할 때는 [웹훅으로 이벤트 받기](./webhooks.md)를 사용하는 것을 권장합니다. `wait()`는 **명령의 실행 완료를 기다리는 기능**이며, 실패한 명령을 자동으로 다시 보내는 기능이 아닙니다.
 
-## 차량 안에서 호출하기 (C++)
+## SDK와 API 버전 확인하기
 
-C++ SDK는 VELA OS 위에서 동작하는 서비스가 VELA Cloud를 거치지 않고 **차량 내부의 로컬 시그널 버스**에 직접 접근할 때 사용합니다.
+SDK의 주 버전은 API 버전에 대응합니다. 예를 들어 `vela-sdk 1.x`는 API `v1`을 호출합니다.
 
-```cpp
-#include <vela/signal_client.hpp>
-
-vela::SignalClient client;
-auto soc = client.get_latest("battery.soc");
-std::cout << "배터리 잔량: " << soc.value << soc.unit << std::endl;
-```
-
-다른 세 SDK와 성격이 다릅니다.
-
-| | Python · Node.js · Java | C++ |
-| --- | --- | --- |
-| 호출 대상 | VELA Cloud | 차량 내부 시그널 버스 |
-| 동작 위치 | 외부 서버 | 차량 안 |
-| 인증 | 클라이언트 자격 증명 | VELA OS 서비스 등록 |
-| 네트워크 | 필요 | 필요 없음 |
-
-C++ SDK는 VELA OS 서비스 프레임워크에 등록된 서비스에서만 사용할 수 있습니다. 일반 서버 애플리케이션은 Python SDK나 REST API를 사용하십시오.
-
-## SDK 버전과 API 버전
-
-SDK의 **주 버전이 API 버전에 대응**합니다. `vela-sdk 1.x`는 API `v1`을 호출합니다.
-
-- SDK의 부 버전 상승(`1.4` → `1.5`)은 기존 코드를 깨지 않습니다.
-- API에 필드가 추가되면 SDK 갱신 없이도 응답에 그대로 전달됩니다.
-- API의 주 버전이 올라가면 SDK도 주 버전이 올라가고, 이전 버전은 [버전 정책](./overview.md#버전-정책)에 따라 지원됩니다.
+- SDK의 부 버전 업데이트(`1.4` → `1.5`)는 기존 코드와 호환됩니다.
+- API에 필드가 추가되면 기존 SDK에서도 응답에 포함될 수 있습니다.
+- API 주 버전이 변경되면 SDK의 주 버전도 변경됩니다. 지원 기간은 [API 버전 정책](./overview.md#버전-정책)에 따릅니다.
 
 ## 다음 단계
 
-- 차량이 보고하는 데이터를 읽으려면 [차량 데이터 조회하기](./vehicle-data.md)를 참고하십시오.
-- 차량에 지시를 내리려면 [원격 명령 보내기](./remote-commands.md)를 참고하십시오.
+- 조회 가능한 시그널을 확인하려면 [차량 데이터 조회하기](./vehicle-data.md)를 참고하십시오.
+- 원격 명령의 사전 조건과 결과 처리는 [원격 명령 보내기](./remote-commands.md)를 참고하십시오.
+- 시그널 카탈로그, 에러 코드, 페이지네이션 규칙은 [레퍼런스 찾아보기](./reference.md)에 있습니다.
