@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { translate } from '@docusaurus/Translate';
 
 // 본문의 모든 그림을 감쌉니다. MDXComponents 에 img 로 등록되어 있어서
 // 마크다운의 ![설명](주소) 가 자동으로 여기를 거칩니다.
@@ -50,7 +51,14 @@ export default function Figure({ src, alt = '', title, ...rest }) {
         type="button"
         className="figure"
         onClick={show}
-        aria-label={alt ? `${alt} — 확대해서 보기` : '그림 확대해서 보기'}
+        aria-label={
+          alt
+            ? translate(
+                { id: 'portfolio.figure.zoomWithAlt', message: '{alt} — 확대해서 보기' },
+                { alt },
+              )
+            : translate({ id: 'portfolio.figure.zoom', message: '그림 확대해서 보기' })
+        }
       >
         <img className="figure__img" src={src} alt={alt} title={title} {...rest} />
       </button>
@@ -66,7 +74,7 @@ export default function Figure({ src, alt = '', title, ...rest }) {
           type="button"
           className="figure-zoom__close"
           onClick={hide}
-          aria-label="닫기"
+          aria-label={translate({ id: 'portfolio.figure.close', message: '닫기' })}
         >
           ✕
         </button>

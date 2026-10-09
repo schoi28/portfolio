@@ -74,6 +74,8 @@ const config = {
           sidebarPath: './sidebars.js',
           path: 'sample_docs',
           routeBasePath: 'samples',
+          // README.md 는 저장소를 읽는 사람용이라 페이지로 만들지 않습니다.
+          exclude: ['README.md'],
           showLastUpdateTime: isGitRepo,
         },
         blog: false,
@@ -90,6 +92,7 @@ const config = {
         id: 'projects',
         path: 'projects',
         routeBasePath: 'projects',
+        exclude: ['README.md'],
         sidebarPath: './sidebarsProjects.js',
         showLastUpdateTime: isGitRepo,
       },

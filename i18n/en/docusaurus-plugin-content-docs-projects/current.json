@@ -1,0 +1,14 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.projectsSidebar.category.자율주행 솔루션 회사": {
+    "message": "Autonomous driving solution company",
+    "description": "The label for category '자율주행 솔루션 회사' in sidebar 'projectsSidebar'"
+  },
+  "sidebar.projectsSidebar.category.그 밖의 경력": {
+    "message": "Other experience",
+    "description": "The label for category '그 밖의 경력' in sidebar 'projectsSidebar'"
+  }
+}

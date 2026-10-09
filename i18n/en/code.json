@@ -325,5 +325,21 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "portfolio.projectRow.more": {
+    "message": "Read more",
+    "description": "Portfolio 개요에서 프로젝트 상세로 가는 링크"
+  },
+  "portfolio.figure.zoom": {
+    "message": "Enlarge the image",
+    "description": "그림 확대 버튼의 설명 (대체 텍스트가 없을 때)"
+  },
+  "portfolio.figure.zoomWithAlt": {
+    "message": "{alt} — enlarge",
+    "description": "그림 확대 버튼의 설명"
+  },
+  "portfolio.figure.close": {
+    "message": "Close",
+    "description": "확대 창 닫기 버튼"
   }
 }
