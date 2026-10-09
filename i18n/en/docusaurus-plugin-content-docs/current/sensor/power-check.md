@@ -6,11 +6,21 @@ sidebar_label: 6. Power up and check
 
 # Power up and check
 
-Apply power for the first time after wiring, and confirm every sensor is detected. This takes about 30 minutes.
+Apply power for the first time after wiring, and confirm every sensor is detected.
 
 :::info[Caution]
 Do this chapter **before** refitting the mouldings and covers. If there is a problem you have to take them off again.
 :::
+
+## What you need
+
+| Item | Specification |
+| --- | --- |
+| Multimeter | Resistance and voltage |
+| Laptop | For access to the VELA Deploy console |
+
+- **Conditions:** 1 person · about 30 minutes · before the mouldings and covers are refitted
+- **Before you start:** [5. Wire the kit](./wiring.md) complete
 
 ## 1. Check before applying power
 

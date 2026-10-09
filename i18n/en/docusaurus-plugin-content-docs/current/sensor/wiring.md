@@ -6,11 +6,22 @@ sidebar_label: 5. Wire the kit
 
 # Wire the kit
 
-Connect the sensor cables to the interface box and wire the power. This takes about 90 minutes.
+Connect the sensor cables to the interface box and wire the power.
 
 :::danger[Danger]
 Before any power wiring, check again that the negative terminal of the vehicle's 12V battery is disconnected. Working on a live circuit can cause a fire through a short.
 :::
+
+## What you need
+
+| Item | Specification |
+| --- | --- |
+| Torque wrench | 5 to 25 N·m |
+| Multimeter | Resistance and voltage |
+| Cable ties | Heat resistant |
+
+- **Conditions:** 1 person · about 90 minutes · vehicle battery negative terminal disconnected
+- **Before you start:** [4. Mount the cameras](./camera-mount.md) complete, mouldings and covers removed
 
 ## Wiring layout
 
