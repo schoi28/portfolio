@@ -137,7 +137,7 @@ const config = {
             items: [
               { label: 'Email', href: 'mailto:soyoon9428@gmail.com' },
               { label: 'LinkedIn', href: 'https://www.linkedin.com/in/soyoon-choi' },
-              { label: 'GitHub', href: `https://github.com/${GITHUB_USERNAME}` },
+              { label: 'GitHub', href: `https://github.com/${GITHUB_USERNAME}/portfolio` },
             ],
           },
         ],

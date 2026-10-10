@@ -87,13 +87,13 @@ On a vehicle with power folding mirrors, fold them five times and confirm the ca
 
 ## Tidy the cables
 
-1. Gather every camera cable at the interface box position in the boot.
-2. Secure them to the factory harness with cable ties at **300 mm intervals**.
-3. Form a drip loop near each connector.
-
 :::info[Caution]
 Do not pull a cable tight when securing it. Body vibration then passes straight into the connector.
 :::
+
+1. Gather every camera cable at the interface box position in the boot.
+2. Secure them to the factory harness with cable ties at **300 mm intervals**.
+3. Form a drip loop near each connector.
 
 ## Checks
 

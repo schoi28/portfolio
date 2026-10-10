@@ -86,6 +86,10 @@ With less than 0.5 m of slack, vibration puts load on the connector. If there is
 
 ## Decide the order of work
 
+:::note[Note]
+How mouldings and covers come off and go back on differs by vehicle. This document does not cover it, so follow **the service instructions for that vehicle**. The explanations here assume they are already off.
+:::
+
 This is the recommended order.
 
 1. Clear the cable routes first. Remove the mouldings and covers and pass the cables through.
@@ -99,10 +103,6 @@ This is the recommended order.
 
 :::info[Caution]
 Refitting the mouldings without **step 6**, the detection check, means stripping the interior back out if detection failed. Always check before refitting.
-:::
-
-:::note[Note]
-How mouldings and covers come off and go back on differs by vehicle. This document does not cover it, so follow **the service instructions for that vehicle**. The explanations here assume they are already off.
 :::
 
 ## Next
