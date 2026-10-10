@@ -129,13 +129,15 @@ const config = {
           { type: 'localeDropdown', position: 'right' },
         ],
       },
+      // 주소를 그대로 적지 않고 이름만 둡니다. 수집 봇에 덜 노출됩니다.
       footer: {
         style: 'light',
         links: [
           {
             items: [
-              { label: 'soyoon9428@gmail.com', href: 'mailto:soyoon9428@gmail.com' },
+              { label: 'Email', href: 'mailto:soyoon9428@gmail.com' },
               { label: 'LinkedIn', href: 'https://www.linkedin.com/in/soyoon-choi' },
+              { label: 'GitHub', href: `https://github.com/${GITHUB_USERNAME}` },
             ],
           },
         ],

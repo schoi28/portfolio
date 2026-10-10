@@ -15,7 +15,7 @@ description: I designed the documentation for a fictional vehicle software produ
 | | |
 | --- | --- |
 | Scope | Four fictional vehicle software products |
-| Size | 44 documents × 2 languages · about 92,000 characters · 17 diagrams |
+| Size | 44 documents × 2 languages · about 92,000 characters · 19 diagrams |
 | Readers | Vehicle owner · release operator · developer · field engineer |
 | Quality criteria | A 79-entry glossary · style rules · reader definitions · admonition levels |
 | Automation | Document checking · Korean/English structure comparison · CI build and deployment |
@@ -150,7 +150,7 @@ This structure applies the core principles of the [documentation build and valid
 | --- | --- |
 | Product family | VELA, a fictional vehicle software platform · 4 products |
 | Documents | 44 in Korean · 44 in English |
-| Volume | About 92,000 characters · 17 diagrams |
+| Volume | About 92,000 characters · 19 diagrams |
 | Quality criteria | A 79-entry glossary · reader definitions · style rules · admonition levels |
 | Check tool | A configuration-driven Node.js document check script |
 | Automation | Checking, building, and deployment through GitHub Actions |

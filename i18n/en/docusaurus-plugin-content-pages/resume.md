@@ -97,7 +97,7 @@ The OPIc score has expired. My English can be assessed from the work itself: the
 
 Because my current employer's work is confidential, I designed a fictional product family at a similar complexity and completed the whole documentation set on my own.
 
-- **44 documents · about 92,000 characters · 17 diagrams.** Four readers, the vehicle owner, the release operator, the developer, and the field engineer, are each served with a different document type and depth.
+- **44 documents · about 92,000 characters · 19 diagrams.** Four readers, the vehicle owner, the release operator, the developer, and the field engineer, are each served with a different document type and depth.
 - **The quality criteria are separated into configuration files.** A 79-entry glossary, the style rules, the reader definitions, and the admonition level scheme live in `_config/` rather than in the documents.
 - **A script reads that configuration and checks the documents**, wired in ahead of the build. It checks banned expressions, terms above the reader's level, the number of procedure steps, admonition levels, numbered list structure, and whether links and anchors really exist.
 - **The same tool checks translation consistency.** With Korean declared as the source and English as the translation, it compares the number of headings, tables, images, links, and admonitions plus the heading levels, and reports untranslated Korean text and cases where the source changed after the translation.
