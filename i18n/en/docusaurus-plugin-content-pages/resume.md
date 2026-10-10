@@ -87,8 +87,6 @@ I wrote and maintained the DBMS product manuals in Korean and English. The docum
 | Advanced Data Analytics Semi-Professional (ADsP) | Korea Data Agency | 2023 | |
 | OPIc AL | ACTFL | 2022 | **Expired** |
 
-The OPIc score has expired. My English can be assessed from the work itself: the 171 English user documents at my current employer and the English edition of [Sample Docs](/samples) were all written by me.
-
 ---
 
 ## Personal project
