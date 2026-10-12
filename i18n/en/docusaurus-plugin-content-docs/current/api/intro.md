@@ -45,6 +45,7 @@ The feature chapters explain requests and responses with `curl`, while SDK insta
 ### Accounting for differences between environments
 
 VELA provides a separate **staging environment** for testing an integration and a **production environment** connected to real vehicles. The conditions that differ between the two are explained in advance, so that a failure does not appear for the first time in production after passing in staging.
+
 ---
 
 ## The preface this produced
