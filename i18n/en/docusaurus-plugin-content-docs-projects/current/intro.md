@@ -39,8 +39,8 @@ The projects below set out the problems I ran into along the way, how I solved t
   proves="Requirements specification · documentation automation design · technical judgement"
   meta="Mistakes people had to remember and watch out for are now caught by the build.">
 
-- Moved review from Google Docs to GitHub pull requests, bringing reviews that had taken weeks down to one or two days in most cases.
-- Established three writing principles plus configuration and authoring guides, and reorganised the manual structure with reference to an international standard.
+- Turned errors writers had to catch by memory — leaked customer-specific content, broken links, outdated API docs — into checks the build runs on every output.
+- Designed a static site generator, a validation tool, and a build GUI that produce web and PDF from one source, building the largest delivery set in about two minutes.
 
 </ProjectRow>
 
@@ -52,9 +52,8 @@ The projects below set out the problems I ran into along the way, how I solved t
   proves="Documentation governance · writing standards · collaboration process improvement"
   meta="Instead of leaving quality and review to whatever the person in charge happened to remember, I turned them into something the team can keep following.">
 
-- Moved reviews that had stalled for weeks into GitHub pull requests, so they now finish **within one or two days**.
-- Set only three principles, few enough to actually be followed, and recorded the criteria as guides rather than as memory.
-- Reorganised the whole manual structure with reference to IEC/IEEE 82079-1.
+- Replaced individual judgment on what belongs in a manual, and where, with shared criteria: three writing principles and a Technical Writing Guide.
+- Moved reviews from scattered Google Docs comments that could stall for weeks into Markdown and GitHub pull requests, closing most of them within one to two days.
 
 </ProjectRow>
 
