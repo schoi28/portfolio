@@ -37,6 +37,7 @@ Danger warnings for hardware work that a vehicle owner never performs are not us
 VELA Drive is a reference app that a carmaker can rebrand as its own. The documentation therefore concentrates on **shared behaviour and failure conditions** rather than on elements that vary, such as colours, logos, and exact UI wording.
 
 So that the documentation does not age every time a screen changes, it refers to UI elements by name instead of relying on screenshots.
+
 ---
 
 ## The preface this produced
