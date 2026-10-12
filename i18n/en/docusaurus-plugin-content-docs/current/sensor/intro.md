@@ -35,6 +35,7 @@ Danger is used only where serious harm to a person is possible, and equipment da
 Even a reader skilled in mechanical work may find terms such as GMSL2, PTP, and extrinsic parameters unfamiliar. Rather than lengthening the body, a glossary is provided and linked at the first point where each term is needed.
 
 For checking sensor state after installation and calibration, the documentation links to the [Vehicle API](../api/intro.md), and for the cleaning alerts a vehicle owner sees, to the [VELA Drive app](../app/intro.md).
+
 ---
 
 ## The preface this produced
