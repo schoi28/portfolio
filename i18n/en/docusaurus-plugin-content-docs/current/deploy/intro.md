@@ -33,6 +33,7 @@ During an incident an operator does not read the earlier chapters in order. [Res
 Instead of wording that needs interpreting, such as "stop if the error rate is high", the criteria are given as **tables that show the figure and the action together.** The figures differ by organisation, so they are marked as examples.
 
 State values seen in the log, such as `in_progress`, sit in the reference, and concepts sit in [Look up a term](./glossary.md), separated by what the reader is looking for. Deployment decisions that are hard to undo carry a Warning.
+
 ---
 
 ## The preface this produced
